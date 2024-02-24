@@ -1,0 +1,22 @@
+*.tmp
+
+*~
+.#*
+
+*.o
+*.a
+*.so
+*.so.[0-9]
+*.so.[0-9].[0-9]
+*.so.[0-9].[0-9].[0-9]
+*.ali
+*.stderr
+*.stdout
+*.bexch
+
+# Alire
+/obj/
+/lib/
+/alire/
+/config/
+# End Alire

@@ -1,0 +1,13 @@
+name = "atgui"
+description = "Binding to TGUI, the cross-platform modern GUI with an SFML backend."
+version = "0.1.0-dev"
+
+authors = ["Manuel Gomez"]
+maintainers = ["Manuel Gomez <mgrojo@gmail.com>"]
+maintainers-logins = ["mgrojo"]
+licenses = "Zlib"
+website = "https://github.com/mgrojo/ATGUI"
+tags = ["gamedev", "gui", "ui", "cross-platform", "sfml", "tgui"]
+
+[[depends-on]]
+asfml = "^2.5.4"
