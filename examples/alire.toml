@@ -1,0 +1,16 @@
+name = "examples"
+description = "Examples for ATGUI"
+version = "0.1.0-dev"
+
+authors = ["Manuel Gomez"]
+maintainers = ["Manuel Gomez <mgrojo@gmail.com>"]
+maintainers-logins = ["mgrojo"]
+licenses = "Zlib"
+website = ""
+tags = []
+
+[[depends-on]]
+atgui = "*"
+
+[[pins]]
+atgui = { path='..' }

@@ -45,7 +45,6 @@ private
    pragma Import (C, getGlobalTextSize, "tgui_getGlobalTextSize");
    pragma Import (C, setEditCursorBlinkRate, "tgui_setEditCursorBlinkRate");
    pragma Import (C, getEditCursorBlinkRate, "tgui_getEditCursorBlinkRate");
-   pragma Import (C, getLastError, "tgui_getLastError");
    pragma Import (C, setBindingWidgetCleanupCallback, "tgui_setBindingWidgetCleanupCallback");
 
 end TGUI.Global;

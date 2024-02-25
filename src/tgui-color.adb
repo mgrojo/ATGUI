@@ -16,18 +16,15 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-package TGUI.Widgets.Button is
+package body TGUI.Color is
 
-   ----------------------------------------------------------------------------
-   ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   use Interfaces;
 
-   procedure setText (widget : access tguiWidget; text : Wide_Wide_String);
+   function fromString (text : String) return tguiColor is
+      function Internal (text : C.char_array) return tguiColor;
+      pragma Import (C, Internal, "tguiColor_fromString");
+   begin
+      return Internal (C.To_C (text));
+   end fromString;
 
-   function getText (widget : access constant tguiWidget) return Wide_Wide_String;
-
-private
-
-   pragma Import (C, create, "tguiButton_create");
-
-end TGUI.Widgets.Button;
+end TGUI.Color;

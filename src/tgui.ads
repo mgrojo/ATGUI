@@ -17,12 +17,8 @@
 ------------------------------------------------------------
 
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
-
 with Interfaces.C;
-
+private with Interfaces.C.Pointers;
 
 package TGUI is
 
@@ -91,7 +87,6 @@ package TGUI is
 
 private
 
-
    type tguiFont is null record;
    -- incomplete struct
 
@@ -131,10 +126,14 @@ private
    type tguiWidget is null record;
    -- incomplete struct
 
+   use Interfaces;
 
+   -- Used by some implementations of functions returning Unicode
+   -- strings.
+   --
+   package Char32_Ptrs is
+     new C.Pointers (Index              => C.size_t,
+                     Element            => C.char32_t,
+                     Element_Array      => C.char32_array,
+                     Default_Terminator => C.char32_nul);
 end TGUI;
-
-
-pragma Style_Checks (On);
-
-pragma Warnings (On, "-gnatwu");

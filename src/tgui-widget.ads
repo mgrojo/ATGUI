@@ -71,6 +71,8 @@ package TGUI.Widget is
 
    function getOrigin (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
+   type procedureCallback is access procedure with Convention => C;
+
    function signalConnect
      (widget : access tguiWidget; signalName : String; callback : access procedure)
       return tguiUint32;
@@ -280,7 +282,6 @@ private
    pragma Import (C, getAutoLayout, "tguiWidget_getAutoLayout");
    pragma Import (C, setOrigin, "tguiWidget_setOrigin");
    pragma Import (C, getOrigin, "tguiWidget_getOrigin");
-   pragma Import (C, signalConnect, "tguiWidget_signalConnect");
    pragma Import (C, signalConnectEx, "tguiWidget_signalConnectEx");
    pragma Import (C, signalIntConnect, "tguiWidget_signalIntConnect");
    pragma Import (C, signalUIntConnect, "tguiWidget_signalUIntConnect");

@@ -16,18 +16,18 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-package TGUI.Widgets.Button is
+with Interfaces.C.Strings;
 
-   ----------------------------------------------------------------------------
-   ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+package body TGUI.Global is
 
-   procedure setText (widget : access tguiWidget; text : Wide_Wide_String);
+   use Interfaces.C;
 
-   function getText (widget : access constant tguiWidget) return Wide_Wide_String;
+   function getLastError return String is
+      function Internal return Strings.chars_ptr;
+      pragma Import (C, Internal, "tgui_getLastError");
+      Result : constant Strings.chars_ptr := Internal;
+   begin
+      return Strings.Value (Result);
+   end getLastError;
 
-private
-
-   pragma Import (C, create, "tguiButton_create");
-
-end TGUI.Widgets.Button;
+end TGUI.Global;

@@ -16,18 +16,20 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-package TGUI.Widgets.Button is
+package body TGUI.Container is
 
-   ----------------------------------------------------------------------------
-   ----------------------------------------------------------------------------
-   function create return access tguiWidget;
 
-   procedure setText (widget : access tguiWidget; text : Wide_Wide_String);
+   function loadWidgetsFromFile
+     (container : access tguiWidget; filename : String; replaceExisting : tguiBool)
+     return tguiBool is
+      function Internal
+        (container : access tguiWidget;
+         filename : Interfaces.C.char_array;
+         replaceExisting : tguiBool)
+        return tguiBool;
+      pragma Import (C, Internal, "tguiContainer_loadWidgetsFromFile");
+   begin
+      return Internal (container, Interfaces.C.To_C (filename), replaceExisting);
+   end loadWidgetsFromFile;
 
-   function getText (widget : access constant tguiWidget) return Wide_Wide_String;
-
-private
-
-   pragma Import (C, create, "tguiButton_create");
-
-end TGUI.Widgets.Button;
+end TGUI.Container;

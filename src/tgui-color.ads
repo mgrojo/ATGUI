@@ -79,6 +79,5 @@ private
    pragma Import (C, tguiColorTransparent, "tguiColorTransparent");
    pragma Import (C, fromRGB, "tguiColor_fromRGB");
    pragma Import (C, fromRGBA, "tguiColor_fromRGBA");
-   pragma Import (C, fromString, "tguiColor_fromString");
 
 end TGUI.Color;

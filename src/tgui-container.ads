@@ -94,7 +94,6 @@ private
    pragma Import (C, focusPreviousWidget, "tguiContainer_focusPreviousWidget");
    pragma Import (C, getInnerSize, "tguiContainer_getInnerSize");
    pragma Import (C, getChildWidgetsOffset, "tguiContainer_getChildWidgetsOffset");
-   pragma Import (C, loadWidgetsFromFile, "tguiContainer_loadWidgetsFromFile");
    pragma Import (C, saveWidgetsToFile, "tguiContainer_saveWidgetsToFile");
 
 end TGUI.Container;

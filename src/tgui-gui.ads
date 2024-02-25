@@ -51,7 +51,7 @@ package TGUI.Gui is
 
    function getFont (gui : access constant tguiGui) return access tguiFont;
 
-   procedure add (gui : access tguiGui; widget : access tguiWidget; widgetName : tguiUtf32);
+   procedure add (gui : access tguiGui; widget : access tguiWidget; widgetName : Wide_Wide_String);
 
    function get (gui : access tguiGui; widgetName : tguiUtf32) return access tguiWidget;
 
@@ -144,7 +144,6 @@ private
    pragma Import (C, draw, "tguiGui_draw");
    pragma Import (C, setFont, "tguiGui_setFont");
    pragma Import (C, getFont, "tguiGui_getFont");
-   pragma Import (C, add, "tguiGui_add");
    pragma Import (C, get, "tguiGui_get");
    pragma Import (C, getWidgets, "tguiGui_getWidgets");
    pragma Import (C, remove, "tguiGui_remove");
@@ -166,8 +165,6 @@ private
    pragma Import (C, getOpacity, "tguiGui_getOpacity");
    pragma Import (C, setTextSize, "tguiGui_setTextSize");
    pragma Import (C, getTextSize, "tguiGui_getTextSize");
-   pragma Import (C, loadWidgetsFromFile, "tguiGui_loadWidgetsFromFile");
-   pragma Import (C, saveWidgetsToFile, "tguiGui_saveWidgetsToFile");
    pragma Import (C, setDrawingUpdatesTime, "tguiGui_setDrawingUpdatesTime");
    pragma Import (C, updateTime, "tguiGui_updateTime");
    pragma Import (C, setOverrideMouseCursor, "tguiGui_setOverrideMouseCursor");

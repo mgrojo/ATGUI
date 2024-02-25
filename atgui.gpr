@@ -22,6 +22,12 @@ project Atgui is
       for Switches ("Ada") use ("-Es"); --  Symbolic traceback
    end Binder;
 
+   package Linker is
+      for Linker_Options use
+        ("-L../../texus/CTGUI/src/CTGUI/", "-L../../texus/TGUI/lib/",
+         "-lctgui", "-ltgui");
+  end Linker;
+
    package Install is
       for Artifacts (".") use ("share");
    end Install;
