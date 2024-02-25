@@ -16,140 +16,96 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Color;
 
 package TGUI.Renderers.LabelRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_copy";
+   function copy (other : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_setBorders";
+   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_getBorders";
+   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
 
-   procedure setPadding (renderer : access tguiRenderer; padding : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_setPadding";
+   procedure setPadding (renderer : access tguiRenderer; padding : access tguiOutline);
 
-   function getPadding (renderer : access constant tguiRenderer) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_getPadding";
+   function getPadding (renderer : access constant tguiRenderer) return access tguiOutline;
 
-   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_setTextColor";
+   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getTextColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_getTextColor";
+   function getTextColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextOutlineColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_setTextOutlineColor";
+   procedure setTextOutlineColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getTextOutlineColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_getTextOutlineColor";
+   function getTextOutlineColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextOutlineThickness (renderer : access tguiRenderer; thickness : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_setTextOutlineThickness";
+   procedure setTextOutlineThickness (renderer : access tguiRenderer; thickness : tguiFloat);
 
-   function getTextOutlineThickness (renderer : access constant tguiRenderer) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_getTextOutlineThickness";
+   function getTextOutlineThickness (renderer : access constant tguiRenderer) return tguiFloat;
 
-   procedure setBackgroundColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_setBackgroundColor";
+   procedure setBackgroundColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_getBackgroundColor";
+   function getBackgroundColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_setBorderColor";
+   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_getBorderColor";
+   function getBorderColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextStyle (renderer : access tguiRenderer; style : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_setTextStyle";
+   procedure setTextStyle (renderer : access tguiRenderer; style : tguiUint32);
 
-   function getTextStyle (renderer : access tguiRenderer) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_getTextStyle";
+   function getTextStyle (renderer : access tguiRenderer) return tguiUint32;
 
-   procedure setScrollbar (renderer : access tguiRenderer; rendererData : access tguiRendererData)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_setScrollbar";
+   procedure setScrollbar (renderer : access tguiRenderer; rendererData : access tguiRendererData);
 
-   function getScrollbar (renderer : access constant tguiRenderer) return access tguiRendererData
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_getScrollbar";
+   function getScrollbar (renderer : access constant tguiRenderer) return access tguiRendererData;
 
-   procedure setScrollbarWidth (renderer : access tguiRenderer; width : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_setScrollbarWidth";
+   procedure setScrollbarWidth (renderer : access tguiRenderer; width : tguiFloat);
 
-   function getScrollbarWidth (renderer : access constant tguiRenderer) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_getScrollbarWidth";
+   function getScrollbarWidth (renderer : access constant tguiRenderer) return tguiFloat;
 
-   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_setTextureBackground";
+   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureBackground (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabelRenderer_getTextureBackground";
+   function getTextureBackground
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
 private
 
-
+   pragma Import (C, create, "tguiLabelRenderer_create");
+   pragma Import (C, copy, "tguiLabelRenderer_copy");
+   pragma Import (C, setBorders, "tguiLabelRenderer_setBorders");
+   pragma Import (C, getBorders, "tguiLabelRenderer_getBorders");
+   pragma Import (C, setPadding, "tguiLabelRenderer_setPadding");
+   pragma Import (C, getPadding, "tguiLabelRenderer_getPadding");
+   pragma Import (C, setTextColor, "tguiLabelRenderer_setTextColor");
+   pragma Import (C, getTextColor, "tguiLabelRenderer_getTextColor");
+   pragma Import (C, setTextOutlineColor, "tguiLabelRenderer_setTextOutlineColor");
+   pragma Import (C, getTextOutlineColor, "tguiLabelRenderer_getTextOutlineColor");
+   pragma Import (C, setTextOutlineThickness, "tguiLabelRenderer_setTextOutlineThickness");
+   pragma Import (C, getTextOutlineThickness, "tguiLabelRenderer_getTextOutlineThickness");
+   pragma Import (C, setBackgroundColor, "tguiLabelRenderer_setBackgroundColor");
+   pragma Import (C, getBackgroundColor, "tguiLabelRenderer_getBackgroundColor");
+   pragma Import (C, setBorderColor, "tguiLabelRenderer_setBorderColor");
+   pragma Import (C, getBorderColor, "tguiLabelRenderer_getBorderColor");
+   pragma Import (C, setTextStyle, "tguiLabelRenderer_setTextStyle");
+   pragma Import (C, getTextStyle, "tguiLabelRenderer_getTextStyle");
+   pragma Import (C, setScrollbar, "tguiLabelRenderer_setScrollbar");
+   pragma Import (C, getScrollbar, "tguiLabelRenderer_getScrollbar");
+   pragma Import (C, setScrollbarWidth, "tguiLabelRenderer_setScrollbarWidth");
+   pragma Import (C, getScrollbarWidth, "tguiLabelRenderer_getScrollbarWidth");
+   pragma Import (C, setTextureBackground, "tguiLabelRenderer_setTextureBackground");
+   pragma Import (C, getTextureBackground, "tguiLabelRenderer_getTextureBackground");
 
 end TGUI.Renderers.LabelRenderer;
 

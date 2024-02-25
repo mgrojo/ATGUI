@@ -16,39 +16,27 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Renderers.GroupRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGroupRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGroupRenderer_copy";
+   function copy (other : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setPadding (renderer : access tguiRenderer; padding : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGroupRenderer_setPadding";
+   procedure setPadding (renderer : access tguiRenderer; padding : access tguiOutline);
 
-   function getPadding (renderer : access constant tguiRenderer) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGroupRenderer_getPadding";
+   function getPadding (renderer : access constant tguiRenderer) return access tguiOutline;
 
 private
 
-
+   pragma Import (C, create, "tguiGroupRenderer_create");
+   pragma Import (C, copy, "tguiGroupRenderer_copy");
+   pragma Import (C, setPadding, "tguiGroupRenderer_setPadding");
+   pragma Import (C, getPadding, "tguiGroupRenderer_getPadding");
 
 end TGUI.Renderers.GroupRenderer;
 

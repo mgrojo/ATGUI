@@ -40,7 +40,7 @@ do
             FILE=$(echo $PARENT-$PACKAGE | PackageTofile)
 
             NEW_PACKAGE=$(basename $file .h)
-            NEW_FILE=$(echo $PARENT.$NEW_PACKAGE | PackageTofile)
+            NEW_FILE=$(echo $PARENT.$NEW_PACKAGE | sed 's/CTGUI\.//g' | PackageTofile)
 
             gnatgcc -c -I${CTGUI_PREFIX}/include -fdump-ada-spec-slim -fada-spec-parent=$PARENT -C $file
 
@@ -61,14 +61,15 @@ do
         s%  -- include/CTGUI/.*%%;
         s/\\\\/@/g  " $NEW_FILE
 
-            emacs -batch $NEW_FILE \
-                  --eval '(load "~/.emacs")' \
-                  -f mark-whole-buffer \
-                  -f indent-for-tab-command \
-                  -f delete-trailing-whitespace \
-                  -f save-buffer \
-                  -f save-buffers-kill-emacs || \
-                echo "$0: warning: $FILE could not be formatted by Emacs" >&2
+            gnatpp --vertical-enum-types --max-line-length=100 $NEW_FILE
+#            emacs -batch $NEW_FILE \
+#                  --eval '(load "~/.emacs")' \
+#                  -f mark-whole-buffer \
+#                  -f indent-for-tab-command \
+#                  -f delete-trailing-whitespace \
+#                  -f save-buffer \
+#                  -f save-buffers-kill-emacs || \
+#                echo "$0: warning: $FILE could not be formatted by Emacs" >&2
             echo $NEW_FILE
             
     esac

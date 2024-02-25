@@ -16,7 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
@@ -25,18 +24,16 @@ with TGUI.Color;
 
 package TGUI.Vertex is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
    type tguiVertex is record
-      position : aliased TGUI.Vector2.tguiVector2f;
-      color : aliased TGUI.Color.tguiColor;
+      position  : aliased TGUI.Vector2.tguiVector2f;
+      color     : aliased TGUI.Color.tguiColor;
       texCoords : aliased TGUI.Vector2.tguiVector2f;
-   end record
-   with Convention => C_Pass_By_Copy;
+   end record with
+     Convention => C_Pass_By_Copy;
 
 private
-
-
 
 end TGUI.Vertex;
 

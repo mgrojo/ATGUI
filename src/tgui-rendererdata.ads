@@ -16,29 +16,21 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.RendererData is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function copy (data : access constant tguiRendererData) return access tguiRendererData
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRendererData_copy";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function copy (data : access constant tguiRendererData) return access tguiRendererData;
 
-   procedure free (data : access tguiRendererData)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRendererData_free";
+   procedure free (data : access tguiRendererData);
 
 private
 
-
+   pragma Import (C, copy, "tguiRendererData_copy");
+   pragma Import (C, free, "tguiRendererData_free");
 
 end TGUI.RendererData;
 

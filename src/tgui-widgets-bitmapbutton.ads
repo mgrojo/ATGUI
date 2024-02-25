@@ -16,39 +16,27 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Widgets.BitmapButton is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBitmapButton_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setImage (widget : access tguiWidget; image : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBitmapButton_setImage";
+   procedure setImage (widget : access tguiWidget; image : access tguiTexture);
 
-   procedure setImageScaling (widget : access tguiWidget; imageScaling : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBitmapButton_setImageScaling";
+   procedure setImageScaling (widget : access tguiWidget; imageScaling : tguiFloat);
 
-   function getImageScaling (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBitmapButton_getImageScaling";
+   function getImageScaling (widget : access constant tguiWidget) return tguiFloat;
 
 private
 
-
+   pragma Import (C, create, "tguiBitmapButton_create");
+   pragma Import (C, setImage, "tguiBitmapButton_setImage");
+   pragma Import (C, setImageScaling, "tguiBitmapButton_setImageScaling");
+   pragma Import (C, getImageScaling, "tguiBitmapButton_getImageScaling");
 
 end TGUI.Widgets.BitmapButton;
 

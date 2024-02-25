@@ -16,39 +16,27 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Renderers.BoxLayoutRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayoutRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayoutRenderer_copy";
+   function copy (other : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setSpaceBetweenWidgets (renderer : access tguiRenderer; space : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayoutRenderer_setSpaceBetweenWidgets";
+   procedure setSpaceBetweenWidgets (renderer : access tguiRenderer; space : tguiFloat);
 
-   function getSpaceBetweenWidgets (renderer : access constant tguiRenderer) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayoutRenderer_getSpaceBetweenWidgets";
+   function getSpaceBetweenWidgets (renderer : access constant tguiRenderer) return tguiFloat;
 
 private
 
-
+   pragma Import (C, create, "tguiBoxLayoutRenderer_create");
+   pragma Import (C, copy, "tguiBoxLayoutRenderer_copy");
+   pragma Import (C, setSpaceBetweenWidgets, "tguiBoxLayoutRenderer_setSpaceBetweenWidgets");
+   pragma Import (C, getSpaceBetweenWidgets, "tguiBoxLayoutRenderer_getSpaceBetweenWidgets");
 
 end TGUI.Renderers.BoxLayoutRenderer;
 

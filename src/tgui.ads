@@ -1,4 +1,4 @@
-    ------------------------------------------------------------
+------------------------------------------------------------
 -- Texus' Graphical User Interface
 -- Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 -- Copyright (C) 2024 Manuel Gomez (mgrojo@gmail.com)

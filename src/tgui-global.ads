@@ -16,55 +16,40 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
 with TGUI.Duration;
 
-
-
 package TGUI.Global is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   procedure setGlobalTextSize (textSize : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tgui_setGlobalTextSize";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   procedure setGlobalTextSize (textSize : tguiUint32);
 
-   function getGlobalTextSize return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tgui_getGlobalTextSize";
+   function getGlobalTextSize return tguiUint32;
 
-   procedure setEditCursorBlinkRate (blinkRateMilliseconds : TGUI.Duration.tguiDuration)
-   with Import => True,
-        Convention => C,
-        External_Name => "tgui_setEditCursorBlinkRate";
+   procedure setEditCursorBlinkRate (blinkRateMilliseconds : TGUI.Duration.tguiDuration);
 
-   function getEditCursorBlinkRate return TGUI.Duration.tguiDuration
-   with Import => True,
-        Convention => C,
-        External_Name => "tgui_getEditCursorBlinkRate";
+   function getEditCursorBlinkRate return TGUI.Duration.tguiDuration;
 
-   function getLastError return String
-   with Import => True,
-        Convention => C,
-        External_Name => "tgui_getLastError";
+   function getLastError return String;
 
-  -- The BindingWidgetCleanup callback is called once per frame for each widget that was destroyed since the last check.
-  -- Note that the pointer passed as parameter should NOT be freed or accessed in any way by the callback function!
-  -- A binding for another language that uses CTGUI may store a global map of resources with the widget pointer as key,
-  -- this callback allows the binding to release all resources that were still attached to the freed widget.
-   procedure setBindingWidgetCleanupCallback (c_function : access procedure (arg1 : access tguiWidget))
-   with Import => True,
-        Convention => C,
-        External_Name => "tgui_setBindingWidgetCleanupCallback";
+   -- The BindingWidgetCleanup callback is called once per frame for each widget that was destroyed since the last check.
+   -- Note that the pointer passed as parameter should NOT be freed or accessed in any way by the callback function!
+   -- A binding for another language that uses CTGUI may store a global map of resources with the widget pointer as key,
+   -- this callback allows the binding to release all resources that were still attached to the freed widget.
+   procedure setBindingWidgetCleanupCallback
+     (c_function : access procedure (arg1 : access tguiWidget));
 
 private
 
-
+   pragma Import (C, setGlobalTextSize, "tgui_setGlobalTextSize");
+   pragma Import (C, getGlobalTextSize, "tgui_getGlobalTextSize");
+   pragma Import (C, setEditCursorBlinkRate, "tgui_setEditCursorBlinkRate");
+   pragma Import (C, getEditCursorBlinkRate, "tgui_getEditCursorBlinkRate");
+   pragma Import (C, getLastError, "tgui_getLastError");
+   pragma Import (C, setBindingWidgetCleanupCallback, "tgui_setBindingWidgetCleanupCallback");
 
 end TGUI.Global;
 

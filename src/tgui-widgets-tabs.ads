@@ -16,156 +16,90 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
-
 package TGUI.Widgets.Tabs is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setAutoSize (widget : access tguiWidget; autoSize : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_setAutoSize";
+   procedure setAutoSize (widget : access tguiWidget; autoSize : tguiBool);
 
-   function getAutoSize (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_getAutoSize";
+   function getAutoSize (widget : access constant tguiWidget) return tguiBool;
 
    function add
-     (widget : access tguiWidget;
-      text : tguiUtf32;
-      c_select : tguiBool) return tguiSize_t
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_add";
+     (widget : access tguiWidget; text : tguiUtf32; c_select : tguiBool) return tguiSize_t;
 
    procedure insert
-     (widget : access tguiWidget;
-      index : tguiSize_t;
-      text : tguiUtf32;
-      c_select : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_insert";
+     (widget : access tguiWidget; index : tguiSize_t; text : tguiUtf32; c_select : tguiBool);
 
-   function getText (widget : access constant tguiWidget; index : tguiSize_t) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_getText";
+   function getText (widget : access constant tguiWidget; index : tguiSize_t) return tguiUtf32;
 
    function changeText
-     (widget : access tguiWidget;
-      index : tguiSize_t;
-      text : tguiUtf32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_changeText";
+     (widget : access tguiWidget; index : tguiSize_t; text : tguiUtf32) return tguiBool;
 
-   function selectByText (widget : access tguiWidget; text : tguiUtf32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_selectByText";
+   function selectByText (widget : access tguiWidget; text : tguiUtf32) return tguiBool;
 
-   function selectByIndex (widget : access tguiWidget; index : tguiSize_t) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_selectByIndex";
+   function selectByIndex (widget : access tguiWidget; index : tguiSize_t) return tguiBool;
 
-   procedure deselect (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_deselect";
+   procedure deselect (widget : access tguiWidget);
 
-   function removeByText (widget : access tguiWidget; text : tguiUtf32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_removeByText";
+   function removeByText (widget : access tguiWidget; text : tguiUtf32) return tguiBool;
 
-   function removeByIndex (widget : access tguiWidget; index : tguiSize_t) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_removeByIndex";
+   function removeByIndex (widget : access tguiWidget; index : tguiSize_t) return tguiBool;
 
-   procedure removeAll (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_removeAll";
+   procedure removeAll (widget : access tguiWidget);
 
-   function getSelected (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_getSelected";
+   function getSelected (widget : access constant tguiWidget) return tguiUtf32;
 
-   function getSelectedIndex (widget : access constant tguiWidget) return tguiInt
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_getSelectedIndex";
+   function getSelectedIndex (widget : access constant tguiWidget) return tguiInt;
 
-   function getTabsCount (widget : access constant tguiWidget) return tguiSize_t
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_getTabsCount";
+   function getTabsCount (widget : access constant tguiWidget) return tguiSize_t;
 
-   procedure setTabVisible
-     (widget : access tguiWidget;
-      index : tguiSize_t;
-      visible : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_setTabVisible";
+   procedure setTabVisible (widget : access tguiWidget; index : tguiSize_t; visible : tguiBool);
 
-   function getTabVisible (widget : access constant tguiWidget; index : tguiSize_t) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_getTabVisible";
+   function getTabVisible (widget : access constant tguiWidget; index : tguiSize_t) return tguiBool;
 
-   procedure setTabEnabled
-     (widget : access tguiWidget;
-      index : tguiSize_t;
-      enabled : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_setTabEnabled";
+   procedure setTabEnabled (widget : access tguiWidget; index : tguiSize_t; enabled : tguiBool);
 
-   function getTabEnabled (widget : access constant tguiWidget; index : tguiSize_t) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_getTabEnabled";
+   function getTabEnabled (widget : access constant tguiWidget; index : tguiSize_t) return tguiBool;
 
-   procedure setMaximumTabWidth (widget : access tguiWidget; maximumTabWidth : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_setMaximumTabWidth";
+   procedure setMaximumTabWidth (widget : access tguiWidget; maximumTabWidth : tguiFloat);
 
-   function getMaximumTabWidth (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_getMaximumTabWidth";
+   function getMaximumTabWidth (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setMinimumTabWidth (widget : access tguiWidget; minimumTabWidth : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_setMinimumTabWidth";
+   procedure setMinimumTabWidth (widget : access tguiWidget; minimumTabWidth : tguiFloat);
 
-   function getMinimumTabWidth (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTabs_getMinimumTabWidth";
+   function getMinimumTabWidth (widget : access constant tguiWidget) return tguiFloat;
 
 private
 
-
+   pragma Import (C, create, "tguiTabs_create");
+   pragma Import (C, setAutoSize, "tguiTabs_setAutoSize");
+   pragma Import (C, getAutoSize, "tguiTabs_getAutoSize");
+   pragma Import (C, add, "tguiTabs_add");
+   pragma Import (C, insert, "tguiTabs_insert");
+   pragma Import (C, getText, "tguiTabs_getText");
+   pragma Import (C, changeText, "tguiTabs_changeText");
+   pragma Import (C, selectByText, "tguiTabs_selectByText");
+   pragma Import (C, selectByIndex, "tguiTabs_selectByIndex");
+   pragma Import (C, deselect, "tguiTabs_deselect");
+   pragma Import (C, removeByText, "tguiTabs_removeByText");
+   pragma Import (C, removeByIndex, "tguiTabs_removeByIndex");
+   pragma Import (C, removeAll, "tguiTabs_removeAll");
+   pragma Import (C, getSelected, "tguiTabs_getSelected");
+   pragma Import (C, getSelectedIndex, "tguiTabs_getSelectedIndex");
+   pragma Import (C, getTabsCount, "tguiTabs_getTabsCount");
+   pragma Import (C, setTabVisible, "tguiTabs_setTabVisible");
+   pragma Import (C, getTabVisible, "tguiTabs_getTabVisible");
+   pragma Import (C, setTabEnabled, "tguiTabs_setTabEnabled");
+   pragma Import (C, getTabEnabled, "tguiTabs_getTabEnabled");
+   pragma Import (C, setMaximumTabWidth, "tguiTabs_setMaximumTabWidth");
+   pragma Import (C, getMaximumTabWidth, "tguiTabs_getMaximumTabWidth");
+   pragma Import (C, setMinimumTabWidth, "tguiTabs_setMinimumTabWidth");
+   pragma Import (C, getMinimumTabWidth, "tguiTabs_getMinimumTabWidth");
 
 end TGUI.Widgets.Tabs;
 

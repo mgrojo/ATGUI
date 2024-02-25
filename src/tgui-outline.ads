@@ -16,70 +16,44 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
-
 package TGUI.Outline is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
    function create
-     (left : tguiFloat;
-      top : tguiFloat;
-      right : tguiFloat;
-      bottom : tguiFloat) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiOutline_create";
+     (left : tguiFloat; top : tguiFloat; right : tguiFloat; bottom : tguiFloat)
+      return access tguiOutline;
 
    function createFromStrings
-     (left : String;
-      top : String;
-      right : String;
-      bottom : String) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiOutline_createFromStrings";
+     (left : String; top : String; right : String; bottom : String) return access tguiOutline;
 
-   function copy (other : access constant tguiOutline) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiOutline_copy";
+   function copy (other : access constant tguiOutline) return access tguiOutline;
 
-   procedure free (outline : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiOutline_free";
+   procedure free (outline : access tguiOutline);
 
-   function getLeft (outline : access constant tguiOutline) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiOutline_getLeft";
+   function getLeft (outline : access constant tguiOutline) return tguiFloat;
 
-   function getTop (outline : access constant tguiOutline) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiOutline_getTop";
+   function getTop (outline : access constant tguiOutline) return tguiFloat;
 
-   function getRight (outline : access constant tguiOutline) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiOutline_getRight";
+   function getRight (outline : access constant tguiOutline) return tguiFloat;
 
-   function getBottom (outline : access constant tguiOutline) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiOutline_getBottom";
+   function getBottom (outline : access constant tguiOutline) return tguiFloat;
 
    ----------------------------------------------------------------------------
 private
 
-
+   pragma Import (C, create, "tguiOutline_create");
+   pragma Import (C, createFromStrings, "tguiOutline_createFromStrings");
+   pragma Import (C, copy, "tguiOutline_copy");
+   pragma Import (C, free, "tguiOutline_free");
+   pragma Import (C, getLeft, "tguiOutline_getLeft");
+   pragma Import (C, getTop, "tguiOutline_getTop");
+   pragma Import (C, getRight, "tguiOutline_getRight");
+   pragma Import (C, getBottom, "tguiOutline_getBottom");
 
 end TGUI.Outline;
 

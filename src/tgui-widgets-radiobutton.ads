@@ -16,54 +16,36 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Widgets.RadioButton is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRadioButton_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setChecked (widget : access tguiWidget; checked : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRadioButton_setChecked";
+   procedure setChecked (widget : access tguiWidget; checked : tguiBool);
 
-   function isChecked (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRadioButton_isChecked";
+   function isChecked (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setText (widget : access tguiWidget; text : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRadioButton_setText";
+   procedure setText (widget : access tguiWidget; text : tguiUtf32);
 
-   function getText (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRadioButton_getText";
+   function getText (widget : access constant tguiWidget) return tguiUtf32;
 
-   procedure setTextClickable (widget : access tguiWidget; clickable : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRadioButton_setTextClickable";
+   procedure setTextClickable (widget : access tguiWidget; clickable : tguiBool);
 
-   function isTextClickable (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRadioButton_isTextClickable";
+   function isTextClickable (widget : access constant tguiWidget) return tguiBool;
 
 private
 
-
+   pragma Import (C, create, "tguiRadioButton_create");
+   pragma Import (C, setChecked, "tguiRadioButton_setChecked");
+   pragma Import (C, isChecked, "tguiRadioButton_isChecked");
+   pragma Import (C, setText, "tguiRadioButton_setText");
+   pragma Import (C, getText, "tguiRadioButton_getText");
+   pragma Import (C, setTextClickable, "tguiRadioButton_setTextClickable");
+   pragma Import (C, isTextClickable, "tguiRadioButton_isTextClickable");
 
 end TGUI.Widgets.RadioButton;
 

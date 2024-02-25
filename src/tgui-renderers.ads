@@ -1,1 +1,3 @@
-package TGUI.Renderers is end;
+package TGUI.Renderers is
+
+end TGUI.Renderers;

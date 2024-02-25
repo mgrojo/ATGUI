@@ -16,72 +16,50 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Duration is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
    type tguiDuration is record
       nanoseconds : aliased tguiInt64;
-   end record
-   with Convention => C_Pass_By_Copy;
+   end record with
+     Convention => C_Pass_By_Copy;
 
    ----------------------------------------------------------------------------
-   tguiDuration_Zero : aliased tguiDuration
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiDuration_Zero";
+   tguiDuration_Zero : aliased tguiDuration;
 
-   function fromSeconds (amount : tguiFloat) return tguiDuration
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiDuration_fromSeconds";
+   function fromSeconds (amount : tguiFloat) return tguiDuration;
 
-   function fromMilliseconds (amount : tguiInt32) return tguiDuration
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiDuration_fromMilliseconds";
+   function fromMilliseconds (amount : tguiInt32) return tguiDuration;
 
-   function fromMicroseconds (amount : tguiInt64) return tguiDuration
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiDuration_fromMicroseconds";
+   function fromMicroseconds (amount : tguiInt64) return tguiDuration;
 
-   function fromNanoseconds (amount : tguiInt64) return tguiDuration
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiDuration_fromNanoseconds";
+   function fromNanoseconds (amount : tguiInt64) return tguiDuration;
 
-   function asSeconds (duration : tguiDuration) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiDuration_asSeconds";
+   function asSeconds (duration : tguiDuration) return tguiFloat;
 
-   function asMilliseconds (duration : tguiDuration) return tguiInt32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiDuration_asMilliseconds";
+   function asMilliseconds (duration : tguiDuration) return tguiInt32;
 
-   function asMicroseconds (duration : tguiDuration) return tguiInt64
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiDuration_asMicroseconds";
+   function asMicroseconds (duration : tguiDuration) return tguiInt64;
 
-   function asNanoseconds (duration : tguiDuration) return tguiInt64
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiDuration_asNanoseconds";
+   function asNanoseconds (duration : tguiDuration) return tguiInt64;
 
    ----------------------------------------------------------------------------
 private
 
-
+   pragma Import (C, tguiDuration_Zero, "tguiDuration_Zero");
+   pragma Import (C, fromSeconds, "tguiDuration_fromSeconds");
+   pragma Import (C, fromMilliseconds, "tguiDuration_fromMilliseconds");
+   pragma Import (C, fromMicroseconds, "tguiDuration_fromMicroseconds");
+   pragma Import (C, fromNanoseconds, "tguiDuration_fromNanoseconds");
+   pragma Import (C, asSeconds, "tguiDuration_asSeconds");
+   pragma Import (C, asMilliseconds, "tguiDuration_asMilliseconds");
+   pragma Import (C, asMicroseconds, "tguiDuration_asMicroseconds");
+   pragma Import (C, asNanoseconds, "tguiDuration_asNanoseconds");
 
 end TGUI.Duration;
 

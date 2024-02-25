@@ -16,140 +16,100 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Color;
 
 package TGUI.Renderers.SliderRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_copy";
+   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_setBorders";
+   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_getBorders";
+   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
 
-   procedure setTrackColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_setTrackColor";
+   procedure setTrackColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getTrackColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_getTrackColor";
+   function getTrackColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTrackColorHover (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_setTrackColorHover";
+   procedure setTrackColorHover
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getTrackColorHover (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_getTrackColorHover";
+   function getTrackColorHover
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setThumbColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_setThumbColor";
+   procedure setThumbColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getThumbColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_getThumbColor";
+   function getThumbColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setThumbColorHover (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_setThumbColorHover";
+   procedure setThumbColorHover
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getThumbColorHover (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_getThumbColorHover";
+   function getThumbColorHover
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_setBorderColor";
+   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_getBorderColor";
+   function getBorderColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColorHover (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_setBorderColorHover";
+   procedure setBorderColorHover
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBorderColorHover (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_getBorderColorHover";
+   function getBorderColorHover
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextureTrack (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_setTextureTrack";
+   procedure setTextureTrack (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureTrack (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_getTextureTrack";
+   function getTextureTrack (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setTextureTrackHover (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_setTextureTrackHover";
+   procedure setTextureTrackHover (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureTrackHover (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_getTextureTrackHover";
+   function getTextureTrackHover
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setTextureThumb (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_setTextureThumb";
+   procedure setTextureThumb (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureThumb (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_getTextureThumb";
+   function getTextureThumb (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setTextureThumbHover (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_setTextureThumbHover";
+   procedure setTextureThumbHover (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureThumbHover (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSliderRenderer_getTextureThumbHover";
+   function getTextureThumbHover
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
 private
 
-
+   pragma Import (C, create, "tguiSliderRenderer_create");
+   pragma Import (C, copy, "tguiSliderRenderer_copy");
+   pragma Import (C, setBorders, "tguiSliderRenderer_setBorders");
+   pragma Import (C, getBorders, "tguiSliderRenderer_getBorders");
+   pragma Import (C, setTrackColor, "tguiSliderRenderer_setTrackColor");
+   pragma Import (C, getTrackColor, "tguiSliderRenderer_getTrackColor");
+   pragma Import (C, setTrackColorHover, "tguiSliderRenderer_setTrackColorHover");
+   pragma Import (C, getTrackColorHover, "tguiSliderRenderer_getTrackColorHover");
+   pragma Import (C, setThumbColor, "tguiSliderRenderer_setThumbColor");
+   pragma Import (C, getThumbColor, "tguiSliderRenderer_getThumbColor");
+   pragma Import (C, setThumbColorHover, "tguiSliderRenderer_setThumbColorHover");
+   pragma Import (C, getThumbColorHover, "tguiSliderRenderer_getThumbColorHover");
+   pragma Import (C, setBorderColor, "tguiSliderRenderer_setBorderColor");
+   pragma Import (C, getBorderColor, "tguiSliderRenderer_getBorderColor");
+   pragma Import (C, setBorderColorHover, "tguiSliderRenderer_setBorderColorHover");
+   pragma Import (C, getBorderColorHover, "tguiSliderRenderer_getBorderColorHover");
+   pragma Import (C, setTextureTrack, "tguiSliderRenderer_setTextureTrack");
+   pragma Import (C, getTextureTrack, "tguiSliderRenderer_getTextureTrack");
+   pragma Import (C, setTextureTrackHover, "tguiSliderRenderer_setTextureTrackHover");
+   pragma Import (C, getTextureTrackHover, "tguiSliderRenderer_getTextureTrackHover");
+   pragma Import (C, setTextureThumb, "tguiSliderRenderer_setTextureThumb");
+   pragma Import (C, getTextureThumb, "tguiSliderRenderer_getTextureThumb");
+   pragma Import (C, setTextureThumbHover, "tguiSliderRenderer_setTextureThumbHover");
+   pragma Import (C, getTextureThumbHover, "tguiSliderRenderer_getTextureThumbHover");
 
 end TGUI.Renderers.SliderRenderer;
 

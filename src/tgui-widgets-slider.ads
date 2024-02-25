@@ -16,94 +16,60 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Widgets.Slider is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setMinimum (widget : access tguiWidget; minimum : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_setMinimum";
+   procedure setMinimum (widget : access tguiWidget; minimum : tguiFloat);
 
-   function getMinimum (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_getMinimum";
+   function getMinimum (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setMaximum (widget : access tguiWidget; maximum : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_setMaximum";
+   procedure setMaximum (widget : access tguiWidget; maximum : tguiFloat);
 
-   function getMaximum (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_getMaximum";
+   function getMaximum (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setValue (widget : access tguiWidget; value : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_setValue";
+   procedure setValue (widget : access tguiWidget; value : tguiFloat);
 
-   function getValue (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_getValue";
+   function getValue (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setStep (widget : access tguiWidget; step : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_setStep";
+   procedure setStep (widget : access tguiWidget; step : tguiFloat);
 
-   function getStep (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_getStep";
+   function getStep (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setVerticalScroll (widget : access tguiWidget; vertical : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_setVerticalScroll";
+   procedure setVerticalScroll (widget : access tguiWidget; vertical : tguiBool);
 
-   function getVerticalScroll (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_getVerticalScroll";
+   function getVerticalScroll (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setInvertedDirection (widget : access tguiWidget; invertedDirection : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_setInvertedDirection";
+   procedure setInvertedDirection (widget : access tguiWidget; invertedDirection : tguiBool);
 
-   function getInvertedDirection (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_getInvertedDirection";
+   function getInvertedDirection (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setChangeValueOnScroll (widget : access tguiWidget; changeValueOnScroll : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_setChangeValueOnScroll";
+   procedure setChangeValueOnScroll (widget : access tguiWidget; changeValueOnScroll : tguiBool);
 
-   function getChangeValueOnScroll (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSlider_getChangeValueOnScroll";
+   function getChangeValueOnScroll (widget : access constant tguiWidget) return tguiBool;
 
 private
 
-
+   pragma Import (C, create, "tguiSlider_create");
+   pragma Import (C, setMinimum, "tguiSlider_setMinimum");
+   pragma Import (C, getMinimum, "tguiSlider_getMinimum");
+   pragma Import (C, setMaximum, "tguiSlider_setMaximum");
+   pragma Import (C, getMaximum, "tguiSlider_getMaximum");
+   pragma Import (C, setValue, "tguiSlider_setValue");
+   pragma Import (C, getValue, "tguiSlider_getValue");
+   pragma Import (C, setStep, "tguiSlider_setStep");
+   pragma Import (C, getStep, "tguiSlider_getStep");
+   pragma Import (C, setVerticalScroll, "tguiSlider_setVerticalScroll");
+   pragma Import (C, getVerticalScroll, "tguiSlider_getVerticalScroll");
+   pragma Import (C, setInvertedDirection, "tguiSlider_setInvertedDirection");
+   pragma Import (C, getInvertedDirection, "tguiSlider_getInvertedDirection");
+   pragma Import (C, setChangeValueOnScroll, "tguiSlider_setChangeValueOnScroll");
+   pragma Import (C, getChangeValueOnScroll, "tguiSlider_getChangeValueOnScroll");
 
 end TGUI.Widgets.Slider;
 

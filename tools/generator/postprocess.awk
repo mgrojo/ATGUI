@@ -18,6 +18,30 @@
     gsub("TGUI.[A-Za-z0-9_]*.stddef_h.", "")
 }
 
+/^ * with Import => True,/ {
+    if (entity !~ /contains|intersects/) {
+        print "      ;"
+        next
+    }
+}
+
+/^ *Convention => C,/ {
+    if (entity !~ /contains|intersects/) {
+        next
+    }
+}
+ 
+/^ *External_Name =>/ {
+    for (i=1; i<10; i++) {
+        arg[i]=""
+    }
+    if (entity !~ /contains|intersects/) {
+        external_name=gensub(/;/, "", "g", $3)
+        pragmas=pragmas "\n   pragma Import (C, " entity ", " external_name ");"
+        next
+    }
+}
+
 /^ *pragma Import/ {
     for (i=1; i<10; i++) {
         arg[i]=""
@@ -27,6 +51,7 @@
     next
 }
 
+/^ *tgui[a-zA-Z0-9_]* : aliased/ {entity=$1}
 /arg1 *: */ {
     if(arg[1] != "")
         gsub("arg1", arg[1]);
@@ -73,6 +98,11 @@
 #/^with System;/ { next }
 /^with TGUI.*.Config.*;/ { next }
 
+/procedure tgui[a-zA-Z0-9]*_|function tgui[a-zA-Z0-9]*_/ {
+    gsub("procedure tgui[a-zA-Z0-9]*_", "procedure ")
+    gsub("function tgui[a-zA-Z0-9]*_", "function ")
+    entity=$2
+}
 
 /  -- TGUI - Texus' Graphical User Interface/ { next }
 /  -- Copyright \(C\) 20[0-9][0-9]-20[0-9][0-9] Bruno Van de Velde \(vdv_b@tgui.eu\)/ { next }
@@ -97,14 +127,15 @@
 
     gsub("pragma Style_Checks \\(Off\\);", "--//////////////////////////////////////////////////////////");
 
-    gsub("procedure tgui[a-zA-Z0-9]*_", "procedure ")
-    gsub("function tgui[a-zA-Z0-9]*_", "function ")
     gsub(" *-- /usr/include/TGUI/.*", "")
     gsub("^limited with ", "with ")
     gsub("with Interfaces.C.Strings;", "")
     gsub(" size_t", " tguiSize_t")
     gsub(" char", " tguiChar")
-    gsub(" int", " tguiInt")
+    gsub(/ is int/, " is tguiInt")
+    gsub(/: int/, ": tguiInt")
+    gsub(/: aliased int/, ": aliased tguiInt")
+    gsub(/return int/, "return tguiInt")
     gsub(" float", " tguiFloat")
     gsub(" unsigned_short", " tguiUint16")
     gsub(" unsigned", " tguiUint32")

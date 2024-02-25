@@ -16,200 +16,151 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Color;
 
 package TGUI.Renderers.ListViewRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_copy";
+   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setBorders";
+   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getBorders";
+   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
 
-   procedure setPadding (renderer : access tguiRenderer; padding : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setPadding";
+   procedure setPadding (renderer : access tguiRenderer; padding : access tguiOutline);
 
-   function getPadding (renderer : access constant tguiRenderer) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getPadding";
+   function getPadding (renderer : access constant tguiRenderer) return access tguiOutline;
 
-   procedure setBackgroundColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setBackgroundColor";
+   procedure setBackgroundColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getBackgroundColor";
+   function getBackgroundColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setBackgroundColorHover (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setBackgroundColorHover";
+   procedure setBackgroundColorHover
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColorHover (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getBackgroundColorHover";
+   function getBackgroundColorHover
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setSelectedBackgroundColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setSelectedBackgroundColor";
+   procedure setSelectedBackgroundColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getSelectedBackgroundColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getSelectedBackgroundColor";
+   function getSelectedBackgroundColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setSelectedBackgroundColorHover (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setSelectedBackgroundColorHover";
+   procedure setSelectedBackgroundColorHover
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getSelectedBackgroundColorHover (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getSelectedBackgroundColorHover";
+   function getSelectedBackgroundColorHover
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setTextColor";
+   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getTextColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getTextColor";
+   function getTextColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextColorHover (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setTextColorHover";
+   procedure setTextColorHover
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getTextColorHover (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getTextColorHover";
+   function getTextColorHover
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setSelectedTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setSelectedTextColor";
+   procedure setSelectedTextColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getSelectedTextColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getSelectedTextColor";
+   function getSelectedTextColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setSelectedTextColorHover (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setSelectedTextColorHover";
+   procedure setSelectedTextColorHover
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getSelectedTextColorHover (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getSelectedTextColorHover";
+   function getSelectedTextColorHover
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setHeaderBackgroundColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setHeaderBackgroundColor";
+   procedure setHeaderBackgroundColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getHeaderBackgroundColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getHeaderBackgroundColor";
+   function getHeaderBackgroundColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setHeaderTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setHeaderTextColor";
+   procedure setHeaderTextColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getHeaderTextColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getHeaderTextColor";
+   function getHeaderTextColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setBorderColor";
+   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getBorderColor";
+   function getBorderColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setSeparatorColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setSeparatorColor";
+   procedure setSeparatorColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getSeparatorColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getSeparatorColor";
+   function getSeparatorColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setGridLinesColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setGridLinesColor";
+   procedure setGridLinesColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getGridLinesColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getGridLinesColor";
+   function getGridLinesColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setScrollbar (renderer : access tguiRenderer; rendererData : access tguiRendererData)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setScrollbar";
+   procedure setScrollbar (renderer : access tguiRenderer; rendererData : access tguiRendererData);
 
-   function getScrollbar (renderer : access constant tguiRenderer) return access tguiRendererData
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getScrollbar";
+   function getScrollbar (renderer : access constant tguiRenderer) return access tguiRendererData;
 
-   procedure setScrollbarWidth (renderer : access tguiRenderer; width : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_setScrollbarWidth";
+   procedure setScrollbarWidth (renderer : access tguiRenderer; width : tguiFloat);
 
-   function getScrollbarWidth (renderer : access constant tguiRenderer) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListViewRenderer_getScrollbarWidth";
+   function getScrollbarWidth (renderer : access constant tguiRenderer) return tguiFloat;
 
 private
 
-
+   pragma Import (C, create, "tguiListViewRenderer_create");
+   pragma Import (C, copy, "tguiListViewRenderer_copy");
+   pragma Import (C, setBorders, "tguiListViewRenderer_setBorders");
+   pragma Import (C, getBorders, "tguiListViewRenderer_getBorders");
+   pragma Import (C, setPadding, "tguiListViewRenderer_setPadding");
+   pragma Import (C, getPadding, "tguiListViewRenderer_getPadding");
+   pragma Import (C, setBackgroundColor, "tguiListViewRenderer_setBackgroundColor");
+   pragma Import (C, getBackgroundColor, "tguiListViewRenderer_getBackgroundColor");
+   pragma Import (C, setBackgroundColorHover, "tguiListViewRenderer_setBackgroundColorHover");
+   pragma Import (C, getBackgroundColorHover, "tguiListViewRenderer_getBackgroundColorHover");
+   pragma Import (C, setSelectedBackgroundColor, "tguiListViewRenderer_setSelectedBackgroundColor");
+   pragma Import (C, getSelectedBackgroundColor, "tguiListViewRenderer_getSelectedBackgroundColor");
+   pragma Import
+     (C, setSelectedBackgroundColorHover, "tguiListViewRenderer_setSelectedBackgroundColorHover");
+   pragma Import
+     (C, getSelectedBackgroundColorHover, "tguiListViewRenderer_getSelectedBackgroundColorHover");
+   pragma Import (C, setTextColor, "tguiListViewRenderer_setTextColor");
+   pragma Import (C, getTextColor, "tguiListViewRenderer_getTextColor");
+   pragma Import (C, setTextColorHover, "tguiListViewRenderer_setTextColorHover");
+   pragma Import (C, getTextColorHover, "tguiListViewRenderer_getTextColorHover");
+   pragma Import (C, setSelectedTextColor, "tguiListViewRenderer_setSelectedTextColor");
+   pragma Import (C, getSelectedTextColor, "tguiListViewRenderer_getSelectedTextColor");
+   pragma Import (C, setSelectedTextColorHover, "tguiListViewRenderer_setSelectedTextColorHover");
+   pragma Import (C, getSelectedTextColorHover, "tguiListViewRenderer_getSelectedTextColorHover");
+   pragma Import (C, setHeaderBackgroundColor, "tguiListViewRenderer_setHeaderBackgroundColor");
+   pragma Import (C, getHeaderBackgroundColor, "tguiListViewRenderer_getHeaderBackgroundColor");
+   pragma Import (C, setHeaderTextColor, "tguiListViewRenderer_setHeaderTextColor");
+   pragma Import (C, getHeaderTextColor, "tguiListViewRenderer_getHeaderTextColor");
+   pragma Import (C, setBorderColor, "tguiListViewRenderer_setBorderColor");
+   pragma Import (C, getBorderColor, "tguiListViewRenderer_getBorderColor");
+   pragma Import (C, setSeparatorColor, "tguiListViewRenderer_setSeparatorColor");
+   pragma Import (C, getSeparatorColor, "tguiListViewRenderer_getSeparatorColor");
+   pragma Import (C, setGridLinesColor, "tguiListViewRenderer_setGridLinesColor");
+   pragma Import (C, getGridLinesColor, "tguiListViewRenderer_getGridLinesColor");
+   pragma Import (C, setScrollbar, "tguiListViewRenderer_setScrollbar");
+   pragma Import (C, getScrollbar, "tguiListViewRenderer_getScrollbar");
+   pragma Import (C, setScrollbarWidth, "tguiListViewRenderer_setScrollbarWidth");
+   pragma Import (C, getScrollbarWidth, "tguiListViewRenderer_getScrollbarWidth");
 
 end TGUI.Renderers.ListViewRenderer;
 

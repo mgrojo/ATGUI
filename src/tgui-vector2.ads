@@ -16,10 +16,8 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 package TGUI.Vector2 is
 
@@ -29,44 +27,37 @@ package TGUI.Vector2 is
    type tguiVector2i is record
       x : aliased tguiInt;
       y : aliased tguiInt;
-   end record
-   with Convention => C_Pass_By_Copy;
+   end record with
+     Convention => C_Pass_By_Copy;
 
    type tguiVector2u is record
       x : aliased tguiUint32;
       y : aliased tguiUint32;
-   end record
-   with Convention => C_Pass_By_Copy;
+   end record with
+     Convention => C_Pass_By_Copy;
 
    type tguiVector2f is record
       x : aliased tguiFloat;
       y : aliased tguiFloat;
-   end record
-   with Convention => C_Pass_By_Copy;
+   end record with
+     Convention => C_Pass_By_Copy;
 
    ----------------------------------------------------------------------------
    --/< Predefined Vector2i with value (0,0)
-   tguiVector2i_Null : aliased tguiVector2i
-     with Import => True,
-     Convention => C,
-     External_Name => "tguiVector2i_Null";
+   tguiVector2i_Null : aliased tguiVector2i;
 
    --/< Predefined Vector2u with value (0,0)
-   tguiVector2u_Null : aliased tguiVector2u
-     with Import => True,
-     Convention => C,
-     External_Name => "tguiVector2u_Null";
+   tguiVector2u_Null : aliased tguiVector2u;
 
    --/< Predefined Vector2f with value (0,0)
-   tguiVector2f_Null : aliased tguiVector2f
-     with Import => True,
-     Convention => C,
-     External_Name => "tguiVector2f_Null";
+   tguiVector2f_Null : aliased tguiVector2f;
 
    ----------------------------------------------------------------------------
 private
 
-
+   pragma Import (C, tguiVector2i_Null, "tguiVector2i_Null");
+   pragma Import (C, tguiVector2u_Null, "tguiVector2u_Null");
+   pragma Import (C, tguiVector2f_Null, "tguiVector2f_Null");
 
 end TGUI.Vector2;
 

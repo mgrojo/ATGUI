@@ -16,106 +16,77 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Vector2;
 with TGUI.ScrollbarPolicy;
 
 package TGUI.Widgets.ScrollablePanel is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setContentSize (widget : access tguiWidget; contentSize : TGUI.Vector2.tguiVector2f)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_setContentSize";
+   procedure setContentSize (widget : access tguiWidget; contentSize : TGUI.Vector2.tguiVector2f);
 
-   function getContentSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_getContentSize";
+   function getContentSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
-   function getScrollbarWidth (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_getScrollbarWidth";
+   function getScrollbarWidth (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setVerticalScrollbarPolicy (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_setVerticalScrollbarPolicy";
+   procedure setVerticalScrollbarPolicy
+     (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
 
-   function getVerticalScrollbarPolicy (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_getVerticalScrollbarPolicy";
+   function getVerticalScrollbarPolicy
+     (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
 
-   procedure setHorizontalScrollbarPolicy (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_setHorizontalScrollbarPolicy";
+   procedure setHorizontalScrollbarPolicy
+     (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
 
-   function getHorizontalScrollbarPolicy (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_getHorizontalScrollbarPolicy";
+   function getHorizontalScrollbarPolicy
+     (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
 
-   procedure setVerticalScrollAmount (widget : access tguiWidget; scrollAmount : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_setVerticalScrollAmount";
+   procedure setVerticalScrollAmount (widget : access tguiWidget; scrollAmount : tguiUint32);
 
-   function getVerticalScrollAmount (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_getVerticalScrollAmount";
+   function getVerticalScrollAmount (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setHorizontalScrollAmount (widget : access tguiWidget; scrollAmount : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_setHorizontalScrollAmount";
+   procedure setHorizontalScrollAmount (widget : access tguiWidget; scrollAmount : tguiUint32);
 
-   function getHorizontalScrollAmount (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_getHorizontalScrollAmount";
+   function getHorizontalScrollAmount (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setVerticalScrollbarValue (widget : access tguiWidget; value : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_setVerticalScrollbarValue";
+   procedure setVerticalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
 
-   function getVerticalScrollbarValue (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_getVerticalScrollbarValue";
+   function getVerticalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setHorizontalScrollbarValue (widget : access tguiWidget; value : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_setHorizontalScrollbarValue";
+   procedure setHorizontalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
 
-   function getHorizontalScrollbarValue (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_getHorizontalScrollbarValue";
+   function getHorizontalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
 
-   function getContentOffset (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanel_getContentOffset";
+   function getContentOffset (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
 private
 
-
+   pragma Import (C, create, "tguiScrollablePanel_create");
+   pragma Import (C, setContentSize, "tguiScrollablePanel_setContentSize");
+   pragma Import (C, getContentSize, "tguiScrollablePanel_getContentSize");
+   pragma Import (C, getScrollbarWidth, "tguiScrollablePanel_getScrollbarWidth");
+   pragma Import (C, setVerticalScrollbarPolicy, "tguiScrollablePanel_setVerticalScrollbarPolicy");
+   pragma Import (C, getVerticalScrollbarPolicy, "tguiScrollablePanel_getVerticalScrollbarPolicy");
+   pragma Import
+     (C, setHorizontalScrollbarPolicy, "tguiScrollablePanel_setHorizontalScrollbarPolicy");
+   pragma Import
+     (C, getHorizontalScrollbarPolicy, "tguiScrollablePanel_getHorizontalScrollbarPolicy");
+   pragma Import (C, setVerticalScrollAmount, "tguiScrollablePanel_setVerticalScrollAmount");
+   pragma Import (C, getVerticalScrollAmount, "tguiScrollablePanel_getVerticalScrollAmount");
+   pragma Import (C, setHorizontalScrollAmount, "tguiScrollablePanel_setHorizontalScrollAmount");
+   pragma Import (C, getHorizontalScrollAmount, "tguiScrollablePanel_getHorizontalScrollAmount");
+   pragma Import (C, setVerticalScrollbarValue, "tguiScrollablePanel_setVerticalScrollbarValue");
+   pragma Import (C, getVerticalScrollbarValue, "tguiScrollablePanel_getVerticalScrollbarValue");
+   pragma Import
+     (C, setHorizontalScrollbarValue, "tguiScrollablePanel_setHorizontalScrollbarValue");
+   pragma Import
+     (C, getHorizontalScrollbarValue, "tguiScrollablePanel_getHorizontalScrollbarValue");
+   pragma Import (C, getContentOffset, "tguiScrollablePanel_getContentOffset");
 
 end TGUI.Widgets.ScrollablePanel;
 

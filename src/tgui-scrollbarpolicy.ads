@@ -16,24 +16,20 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
 package TGUI.ScrollbarPolicy is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
    type tguiScrollbarPolicy is
      (tguiScrollbarPolicyAutomatic,
       tguiScrollbarPolicyAlways,
-      tguiScrollbarPolicyNever)
-   with Convention => C;
+      tguiScrollbarPolicyNever) with
+     Convention => C;
 
 private
-
-
 
 end TGUI.ScrollbarPolicy;
 

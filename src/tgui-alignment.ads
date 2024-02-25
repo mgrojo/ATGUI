@@ -16,26 +16,24 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
 package TGUI.Alignment is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
    type tguiHorizontalAlignment is
      (tguiHorizontalAlignmentLeft,
       tguiHorizontalAlignmentCenter,
-      tguiHorizontalAlignmentRight)
-   with Convention => C;
+      tguiHorizontalAlignmentRight) with
+     Convention => C;
 
    type tguiVerticalAlignment is
      (tguiVerticalAlignmentTop,
       tguiVerticalAlignmentCenter,
-      tguiVerticalAlignmentBottom)
-   with Convention => C;
+      tguiVerticalAlignmentBottom) with
+     Convention => C;
 
    type tguiAlignment is
      (tguiAlignmentCenter,
@@ -46,12 +44,10 @@ package TGUI.Alignment is
       tguiAlignmentBottomRight,
       tguiAlignmentBottom,
       tguiAlignmentBottomLeft,
-      tguiAlignmentLeft)
-   with Convention => C;
+      tguiAlignmentLeft) with
+     Convention => C;
 
 private
-
-
 
 end TGUI.Alignment;
 

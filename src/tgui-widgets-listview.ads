@@ -16,10 +16,8 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Alignment;
 
@@ -28,355 +26,216 @@ with TGUI.ScrollbarPolicy;
 
 package TGUI.Widgets.ListView is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
    function addColumn
-     (widget : access tguiWidget;
-      text : tguiUtf32;
-      width : tguiFloat;
-      columnAlignment : TGUI.Alignment.tguiHorizontalAlignment) return tguiSize_t
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_addColumn";
+     (widget          : access tguiWidget; text : tguiUtf32; width : tguiFloat;
+      columnAlignment : TGUI.Alignment.tguiHorizontalAlignment) return tguiSize_t;
 
-   procedure setColumnText
-     (widget : access tguiWidget;
-      index : tguiSize_t;
-      text : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setColumnText";
+   procedure setColumnText (widget : access tguiWidget; index : tguiSize_t; text : tguiUtf32);
 
-   function getColumnText (widget : access tguiWidget; index : tguiSize_t) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getColumnText";
+   function getColumnText (widget : access tguiWidget; index : tguiSize_t) return tguiUtf32;
 
-   procedure setColumnWidth
-     (widget : access tguiWidget;
-      index : tguiSize_t;
-      width : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setColumnWidth";
+   procedure setColumnWidth (widget : access tguiWidget; index : tguiSize_t; width : tguiFloat);
 
-   function getColumnWidth (widget : access tguiWidget; index : tguiSize_t) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getColumnWidth";
+   function getColumnWidth (widget : access tguiWidget; index : tguiSize_t) return tguiFloat;
 
    procedure setColumnAlignment
-     (widget : access tguiWidget;
-      index : tguiSize_t;
-      columnAlignment : TGUI.Alignment.tguiHorizontalAlignment)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setColumnAlignment";
+     (widget          : access tguiWidget; index : tguiSize_t;
+      columnAlignment : TGUI.Alignment.tguiHorizontalAlignment);
 
-   function getColumnAlignment (widget : access tguiWidget; index : tguiSize_t) return TGUI.Alignment.tguiHorizontalAlignment
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getColumnAlignment";
+   function getColumnAlignment
+     (widget : access tguiWidget; index : tguiSize_t) return TGUI.Alignment.tguiHorizontalAlignment;
 
-   procedure removeAllColumns (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_removeAllColumns";
+   procedure removeAllColumns (widget : access tguiWidget);
 
-   function getColumnCount (widget : access constant tguiWidget) return tguiSize_t
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getColumnCount";
+   function getColumnCount (widget : access constant tguiWidget) return tguiSize_t;
 
-   procedure setHeaderHeight (widget : access tguiWidget; height : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setHeaderHeight";
+   procedure setHeaderHeight (widget : access tguiWidget; height : tguiFloat);
 
-   function getHeaderHeight (widget : access tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getHeaderHeight";
+   function getHeaderHeight (widget : access tguiWidget) return tguiFloat;
 
-   function getCurrentHeaderHeight (widget : access tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getCurrentHeaderHeight";
+   function getCurrentHeaderHeight (widget : access tguiWidget) return tguiFloat;
 
-   procedure setHeaderVisible (widget : access tguiWidget; showHeader : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setHeaderVisible";
+   procedure setHeaderVisible (widget : access tguiWidget; showHeader : tguiBool);
 
-   function getHeaderVisible (widget : access tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getHeaderVisible";
+   function getHeaderVisible (widget : access tguiWidget) return tguiBool;
 
-   function addItem (widget : access tguiWidget; text : tguiUtf32) return tguiSize_t
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_addItem";
+   function addItem (widget : access tguiWidget; text : tguiUtf32) return tguiSize_t;
 
    function addItemRow
-     (widget : access tguiWidget;
-      item : System.Address;
-      itemLength : tguiUint32) return tguiSize_t
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_addItemRow";
+     (widget : access tguiWidget; item : System.Address; itemLength : tguiUint32) return tguiSize_t;
 
    function changeItem
-     (widget : access tguiWidget;
-      index : tguiSize_t;
-      item : System.Address;
-      itemLength : tguiUint32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_changeItem";
+     (widget     : access tguiWidget; index : tguiSize_t; item : System.Address;
+      itemLength : tguiUint32) return tguiBool;
 
    function changeSubItem
-     (widget : access tguiWidget;
-      index : tguiSize_t;
-      column : tguiSize_t;
-      text : tguiUtf32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_changeSubItem";
+     (widget : access tguiWidget; index : tguiSize_t; column : tguiSize_t; text : tguiUtf32)
+      return tguiBool;
 
-   function removeItem (widget : access tguiWidget; index : tguiSize_t) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_removeItem";
+   function removeItem (widget : access tguiWidget; index : tguiSize_t) return tguiBool;
 
-   procedure removeAllItems (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_removeAllItems";
+   procedure removeAllItems (widget : access tguiWidget);
 
-   procedure setSelectedItem (widget : access tguiWidget; index : tguiSize_t)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setSelectedItem";
+   procedure setSelectedItem (widget : access tguiWidget; index : tguiSize_t);
 
    procedure setSelectedItems
-     (widget : access tguiWidget;
-      indices : access tguiSize_t;
-      indicesLength : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setSelectedItems";
+     (widget : access tguiWidget; indices : access tguiSize_t; indicesLength : tguiUint32);
 
-   function getSelectedItemIndex (widget : access constant tguiWidget) return tguiInt
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getSelectedItemIndex";
+   function getSelectedItemIndex (widget : access constant tguiWidget) return tguiInt;
 
-   function getSelectedItemIndices (widget : access constant tguiWidget; count : access tguiSize_t) return access tguiSize_t
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getSelectedItemIndices";
+   function getSelectedItemIndices
+     (widget : access constant tguiWidget; count : access tguiSize_t) return access tguiSize_t;
 
-   procedure deselectItems (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_deselectItems";
+   procedure deselectItems (widget : access tguiWidget);
 
-   procedure setMultiSelect (widget : access tguiWidget; multiSelect : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setMultiSelect";
+   procedure setMultiSelect (widget : access tguiWidget; multiSelect : tguiBool);
 
-   function getMultiSelect (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getMultiSelect";
+   function getMultiSelect (widget : access constant tguiWidget) return tguiBool;
 
    procedure setItemIcon
-     (widget : access tguiWidget;
-      index : tguiSize_t;
-      texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setItemIcon";
+     (widget : access tguiWidget; index : tguiSize_t; texture : access tguiTexture);
 
-   function getItemCount (widget : access constant tguiWidget) return tguiSize_t
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getItemCount";
+   function getItemCount (widget : access constant tguiWidget) return tguiSize_t;
 
-   function getItem (widget : access tguiWidget; index : tguiSize_t) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getItem";
+   function getItem (widget : access tguiWidget; index : tguiSize_t) return tguiUtf32;
 
    function getItemCell
-     (widget : access tguiWidget;
-      rowIndex : tguiSize_t;
-      columnIndex : tguiSize_t) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getItemCell";
+     (widget : access tguiWidget; rowIndex : tguiSize_t; columnIndex : tguiSize_t) return tguiUtf32;
 
    function getItemRow
-     (widget : access constant tguiWidget;
-      index : tguiSize_t;
-      count : access tguiSize_t) return System.Address
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getItemRow";
+     (widget : access constant tguiWidget; index : tguiSize_t; count : access tguiSize_t)
+      return System.Address;
 
-   function getItems (widget : access constant tguiWidget; count : access tguiSize_t) return System.Address
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getItems";
+   function getItems
+     (widget : access constant tguiWidget; count : access tguiSize_t) return System.Address;
 
-   procedure setItemHeight (widget : access tguiWidget; height : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setItemHeight";
+   procedure setItemHeight (widget : access tguiWidget; height : tguiUint32);
 
-   function getItemHeight (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getItemHeight";
+   function getItemHeight (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setHeaderTextSize (widget : access tguiWidget; size : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setHeaderTextSize";
+   procedure setHeaderTextSize (widget : access tguiWidget; size : tguiUint32);
 
-   function getHeaderTextSize (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getHeaderTextSize";
+   function getHeaderTextSize (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setSeparatorWidth (widget : access tguiWidget; width : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setSeparatorWidth";
+   procedure setSeparatorWidth (widget : access tguiWidget; width : tguiUint32);
 
-   function getSeparatorWidth (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getSeparatorWidth";
+   function getSeparatorWidth (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setHeaderSeparatorHeight (widget : access tguiWidget; height : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setHeaderSeparatorHeight";
+   procedure setHeaderSeparatorHeight (widget : access tguiWidget; height : tguiUint32);
 
-   function getHeaderSeparatorHeight (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getHeaderSeparatorHeight";
+   function getHeaderSeparatorHeight (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setGridLinesWidth (widget : access tguiWidget; width : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setGridLinesWidth";
+   procedure setGridLinesWidth (widget : access tguiWidget; width : tguiUint32);
 
-   function getGridLinesWidth (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getGridLinesWidth";
+   function getGridLinesWidth (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setAutoScroll (widget : access tguiWidget; autoScroll : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setAutoScroll";
+   procedure setAutoScroll (widget : access tguiWidget; autoScroll : tguiBool);
 
-   function getAutoScroll (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getAutoScroll";
+   function getAutoScroll (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setShowVerticalGridLines (widget : access tguiWidget; showGridLines : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setShowVerticalGridLines";
+   procedure setShowVerticalGridLines (widget : access tguiWidget; showGridLines : tguiBool);
 
-   function getShowVerticalGridLines (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getShowVerticalGridLines";
+   function getShowVerticalGridLines (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setShowHorizontalGridLines (widget : access tguiWidget; showGridLines : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setShowHorizontalGridLines";
+   procedure setShowHorizontalGridLines (widget : access tguiWidget; showGridLines : tguiBool);
 
-   function getShowHorizontalGridLines (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getShowHorizontalGridLines";
+   function getShowHorizontalGridLines (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setExpandLastColumn (widget : access tguiWidget; expand : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setExpandLastColumn";
+   procedure setExpandLastColumn (widget : access tguiWidget; expand : tguiBool);
 
-   function getExpandLastColumn (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getExpandLastColumn";
+   function getExpandLastColumn (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setVerticalScrollbarPolicy (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setVerticalScrollbarPolicy";
+   procedure setVerticalScrollbarPolicy
+     (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
 
-   function getVerticalScrollbarPolicy (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getVerticalScrollbarPolicy";
+   function getVerticalScrollbarPolicy
+     (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
 
-   procedure setHorizontalScrollbarPolicy (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setHorizontalScrollbarPolicy";
+   procedure setHorizontalScrollbarPolicy
+     (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
 
-   function getHorizontalScrollbarPolicy (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getHorizontalScrollbarPolicy";
+   function getHorizontalScrollbarPolicy
+     (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
 
-   procedure setVerticalScrollbarValue (widget : access tguiWidget; value : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setVerticalScrollbarValue";
+   procedure setVerticalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
 
-   function getVerticalScrollbarValue (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getVerticalScrollbarValue";
+   function getVerticalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setHorizontalScrollbarValue (widget : access tguiWidget; value : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_setHorizontalScrollbarValue";
+   procedure setHorizontalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
 
-   function getHorizontalScrollbarValue (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_getHorizontalScrollbarValue";
+   function getHorizontalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
 
    procedure sort
-     (widget : access tguiWidget;
-      index : tguiSize_t;
-      c_function : access function (arg1 : tguiUtf32; arg2 : tguiUtf32) return tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiListView_sort";
+     (widget     : access tguiWidget; index : tguiSize_t;
+      c_function : access function (arg1 : tguiUtf32; arg2 : tguiUtf32) return tguiBool);
 
 private
 
-
+   pragma Import (C, create, "tguiListView_create");
+   pragma Import (C, addColumn, "tguiListView_addColumn");
+   pragma Import (C, setColumnText, "tguiListView_setColumnText");
+   pragma Import (C, getColumnText, "tguiListView_getColumnText");
+   pragma Import (C, setColumnWidth, "tguiListView_setColumnWidth");
+   pragma Import (C, getColumnWidth, "tguiListView_getColumnWidth");
+   pragma Import (C, setColumnAlignment, "tguiListView_setColumnAlignment");
+   pragma Import (C, getColumnAlignment, "tguiListView_getColumnAlignment");
+   pragma Import (C, removeAllColumns, "tguiListView_removeAllColumns");
+   pragma Import (C, getColumnCount, "tguiListView_getColumnCount");
+   pragma Import (C, setHeaderHeight, "tguiListView_setHeaderHeight");
+   pragma Import (C, getHeaderHeight, "tguiListView_getHeaderHeight");
+   pragma Import (C, getCurrentHeaderHeight, "tguiListView_getCurrentHeaderHeight");
+   pragma Import (C, setHeaderVisible, "tguiListView_setHeaderVisible");
+   pragma Import (C, getHeaderVisible, "tguiListView_getHeaderVisible");
+   pragma Import (C, addItem, "tguiListView_addItem");
+   pragma Import (C, addItemRow, "tguiListView_addItemRow");
+   pragma Import (C, changeItem, "tguiListView_changeItem");
+   pragma Import (C, changeSubItem, "tguiListView_changeSubItem");
+   pragma Import (C, removeItem, "tguiListView_removeItem");
+   pragma Import (C, removeAllItems, "tguiListView_removeAllItems");
+   pragma Import (C, setSelectedItem, "tguiListView_setSelectedItem");
+   pragma Import (C, setSelectedItems, "tguiListView_setSelectedItems");
+   pragma Import (C, getSelectedItemIndex, "tguiListView_getSelectedItemIndex");
+   pragma Import (C, getSelectedItemIndices, "tguiListView_getSelectedItemIndices");
+   pragma Import (C, deselectItems, "tguiListView_deselectItems");
+   pragma Import (C, setMultiSelect, "tguiListView_setMultiSelect");
+   pragma Import (C, getMultiSelect, "tguiListView_getMultiSelect");
+   pragma Import (C, setItemIcon, "tguiListView_setItemIcon");
+   pragma Import (C, getItemCount, "tguiListView_getItemCount");
+   pragma Import (C, getItem, "tguiListView_getItem");
+   pragma Import (C, getItemCell, "tguiListView_getItemCell");
+   pragma Import (C, getItemRow, "tguiListView_getItemRow");
+   pragma Import (C, getItems, "tguiListView_getItems");
+   pragma Import (C, setItemHeight, "tguiListView_setItemHeight");
+   pragma Import (C, getItemHeight, "tguiListView_getItemHeight");
+   pragma Import (C, setHeaderTextSize, "tguiListView_setHeaderTextSize");
+   pragma Import (C, getHeaderTextSize, "tguiListView_getHeaderTextSize");
+   pragma Import (C, setSeparatorWidth, "tguiListView_setSeparatorWidth");
+   pragma Import (C, getSeparatorWidth, "tguiListView_getSeparatorWidth");
+   pragma Import (C, setHeaderSeparatorHeight, "tguiListView_setHeaderSeparatorHeight");
+   pragma Import (C, getHeaderSeparatorHeight, "tguiListView_getHeaderSeparatorHeight");
+   pragma Import (C, setGridLinesWidth, "tguiListView_setGridLinesWidth");
+   pragma Import (C, getGridLinesWidth, "tguiListView_getGridLinesWidth");
+   pragma Import (C, setAutoScroll, "tguiListView_setAutoScroll");
+   pragma Import (C, getAutoScroll, "tguiListView_getAutoScroll");
+   pragma Import (C, setShowVerticalGridLines, "tguiListView_setShowVerticalGridLines");
+   pragma Import (C, getShowVerticalGridLines, "tguiListView_getShowVerticalGridLines");
+   pragma Import (C, setShowHorizontalGridLines, "tguiListView_setShowHorizontalGridLines");
+   pragma Import (C, getShowHorizontalGridLines, "tguiListView_getShowHorizontalGridLines");
+   pragma Import (C, setExpandLastColumn, "tguiListView_setExpandLastColumn");
+   pragma Import (C, getExpandLastColumn, "tguiListView_getExpandLastColumn");
+   pragma Import (C, setVerticalScrollbarPolicy, "tguiListView_setVerticalScrollbarPolicy");
+   pragma Import (C, getVerticalScrollbarPolicy, "tguiListView_getVerticalScrollbarPolicy");
+   pragma Import (C, setHorizontalScrollbarPolicy, "tguiListView_setHorizontalScrollbarPolicy");
+   pragma Import (C, getHorizontalScrollbarPolicy, "tguiListView_getHorizontalScrollbarPolicy");
+   pragma Import (C, setVerticalScrollbarValue, "tguiListView_setVerticalScrollbarValue");
+   pragma Import (C, getVerticalScrollbarValue, "tguiListView_getVerticalScrollbarValue");
+   pragma Import (C, setHorizontalScrollbarValue, "tguiListView_setHorizontalScrollbarValue");
+   pragma Import (C, getHorizontalScrollbarValue, "tguiListView_getHorizontalScrollbarValue");
+   pragma Import (C, sort, "tguiListView_sort");
 
 end TGUI.Widgets.ListView;
 

@@ -16,108 +16,73 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
-
 package TGUI.Color is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
    type tguiColor is record
       r : aliased tguiUint8;
       g : aliased tguiUint8;
       b : aliased tguiUint8;
       a : aliased tguiUint8;
-   end record
-   with Convention => C_Pass_By_Copy;
-
-  ----------------------------------------------------------------------------
-  --/< Black predefined color
-   tguiColorBlack : aliased tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiColorBlack";
-
-   --/< White predefined color
-   tguiColorWhite : aliased tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiColorWhite";
-
-   --/< Red predefined color
-   tguiColorRed : aliased tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiColorRed";
-
-   --/< Green predefined color
-   tguiColorGreen : aliased tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiColorGreen";
-
-   --/< Blue predefined color
-   tguiColorBlue : aliased tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiColorBlue";
-
-   --/< Yellow predefined color
-   tguiColorYellow : aliased tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiColorYellow";
-
-   --/< Magenta predefined color
-   tguiColorMagenta : aliased tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiColorMagenta";
-
-   --/< Cyan predefined color
-   tguiColorCyan : aliased tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiColorCyan";
-
-   --/< Transparent (black) predefined color
-   tguiColorTransparent : aliased tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiColorTransparent";
+   end record with
+     Convention => C_Pass_By_Copy;
 
    ----------------------------------------------------------------------------
-   function fromRGB
-     (red : tguiUint8;
-      green : tguiUint8;
-      blue : tguiUint8) return tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiColor_fromRGB";
+   --/< Black predefined color
+   tguiColorBlack : aliased tguiColor;
+
+   --/< White predefined color
+   tguiColorWhite : aliased tguiColor;
+
+   --/< Red predefined color
+   tguiColorRed : aliased tguiColor;
+
+   --/< Green predefined color
+   tguiColorGreen : aliased tguiColor;
+
+   --/< Blue predefined color
+   tguiColorBlue : aliased tguiColor;
+
+   --/< Yellow predefined color
+   tguiColorYellow : aliased tguiColor;
+
+   --/< Magenta predefined color
+   tguiColorMagenta : aliased tguiColor;
+
+   --/< Cyan predefined color
+   tguiColorCyan : aliased tguiColor;
+
+   --/< Transparent (black) predefined color
+   tguiColorTransparent : aliased tguiColor;
+
+   ----------------------------------------------------------------------------
+   function fromRGB (red : tguiUint8; green : tguiUint8; blue : tguiUint8) return tguiColor;
 
    function fromRGBA
-     (red : tguiUint8;
-      green : tguiUint8;
-      blue : tguiUint8;
-      alpha : tguiUint8) return tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiColor_fromRGBA";
+     (red : tguiUint8; green : tguiUint8; blue : tguiUint8; alpha : tguiUint8) return tguiColor;
 
-   function fromString (text : String) return tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiColor_fromString";
+   function fromString (text : String) return tguiColor;
 
    ----------------------------------------------------------------------------
 private
 
-
+   pragma Import (C, tguiColorBlack, "tguiColorBlack");
+   pragma Import (C, tguiColorWhite, "tguiColorWhite");
+   pragma Import (C, tguiColorRed, "tguiColorRed");
+   pragma Import (C, tguiColorGreen, "tguiColorGreen");
+   pragma Import (C, tguiColorBlue, "tguiColorBlue");
+   pragma Import (C, tguiColorYellow, "tguiColorYellow");
+   pragma Import (C, tguiColorMagenta, "tguiColorMagenta");
+   pragma Import (C, tguiColorCyan, "tguiColorCyan");
+   pragma Import (C, tguiColorTransparent, "tguiColorTransparent");
+   pragma Import (C, fromRGB, "tguiColor_fromRGB");
+   pragma Import (C, fromRGBA, "tguiColor_fromRGBA");
+   pragma Import (C, fromString, "tguiColor_fromString");
 
 end TGUI.Color;
 

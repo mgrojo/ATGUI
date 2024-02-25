@@ -16,100 +16,71 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Color;
 
 package TGUI.Renderers.KnobRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_copy";
+   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_setBorders";
+   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_getBorders";
+   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
 
-   procedure setBackgroundColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_setBackgroundColor";
+   procedure setBackgroundColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_getBackgroundColor";
+   function getBackgroundColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setThumbColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_setThumbColor";
+   procedure setThumbColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getThumbColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_getThumbColor";
+   function getThumbColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_setBorderColor";
+   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_getBorderColor";
+   function getBorderColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_setTextureBackground";
+   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureBackground (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_getTextureBackground";
+   function getTextureBackground
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setTextureForeground (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_setTextureForeground";
+   procedure setTextureForeground (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureForeground (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_getTextureForeground";
+   function getTextureForeground
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setImageRotation (renderer : access tguiRenderer; rotation : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_setImageRotation";
+   procedure setImageRotation (renderer : access tguiRenderer; rotation : tguiFloat);
 
-   function getImageRotation (renderer : access constant tguiRenderer) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnobRenderer_getImageRotation";
+   function getImageRotation (renderer : access constant tguiRenderer) return tguiFloat;
 
 private
 
-
+   pragma Import (C, create, "tguiKnobRenderer_create");
+   pragma Import (C, copy, "tguiKnobRenderer_copy");
+   pragma Import (C, setBorders, "tguiKnobRenderer_setBorders");
+   pragma Import (C, getBorders, "tguiKnobRenderer_getBorders");
+   pragma Import (C, setBackgroundColor, "tguiKnobRenderer_setBackgroundColor");
+   pragma Import (C, getBackgroundColor, "tguiKnobRenderer_getBackgroundColor");
+   pragma Import (C, setThumbColor, "tguiKnobRenderer_setThumbColor");
+   pragma Import (C, getThumbColor, "tguiKnobRenderer_getThumbColor");
+   pragma Import (C, setBorderColor, "tguiKnobRenderer_setBorderColor");
+   pragma Import (C, getBorderColor, "tguiKnobRenderer_getBorderColor");
+   pragma Import (C, setTextureBackground, "tguiKnobRenderer_setTextureBackground");
+   pragma Import (C, getTextureBackground, "tguiKnobRenderer_getTextureBackground");
+   pragma Import (C, setTextureForeground, "tguiKnobRenderer_setTextureForeground");
+   pragma Import (C, getTextureForeground, "tguiKnobRenderer_getTextureForeground");
+   pragma Import (C, setImageRotation, "tguiKnobRenderer_setImageRotation");
+   pragma Import (C, getImageRotation, "tguiKnobRenderer_getImageRotation");
 
 end TGUI.Renderers.KnobRenderer;
 

@@ -16,70 +16,51 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Color;
 
 package TGUI.Renderers.PanelRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPanelRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPanelRenderer_copy";
+   function copy (other : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPanelRenderer_setBorders";
+   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPanelRenderer_getBorders";
+   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
 
-   procedure setBackgroundColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPanelRenderer_setBackgroundColor";
+   procedure setBackgroundColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPanelRenderer_getBackgroundColor";
+   function getBackgroundColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPanelRenderer_setBorderColor";
+   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPanelRenderer_getBorderColor";
+   function getBorderColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPanelRenderer_setTextureBackground";
+   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureBackground (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPanelRenderer_getTextureBackground";
+   function getTextureBackground
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
 private
 
-
+   pragma Import (C, create, "tguiPanelRenderer_create");
+   pragma Import (C, copy, "tguiPanelRenderer_copy");
+   pragma Import (C, setBorders, "tguiPanelRenderer_setBorders");
+   pragma Import (C, getBorders, "tguiPanelRenderer_getBorders");
+   pragma Import (C, setBackgroundColor, "tguiPanelRenderer_setBackgroundColor");
+   pragma Import (C, getBackgroundColor, "tguiPanelRenderer_getBackgroundColor");
+   pragma Import (C, setBorderColor, "tguiPanelRenderer_setBorderColor");
+   pragma Import (C, getBorderColor, "tguiPanelRenderer_getBorderColor");
+   pragma Import (C, setTextureBackground, "tguiPanelRenderer_setTextureBackground");
+   pragma Import (C, getTextureBackground, "tguiPanelRenderer_getTextureBackground");
 
 end TGUI.Renderers.PanelRenderer;
 

@@ -16,96 +16,69 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Alignment;
 with TGUI.ScrollbarPolicy;
 
 package TGUI.Widgets.Label is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setText (widget : access tguiWidget; text : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_setText";
+   procedure setText (widget : access tguiWidget; text : tguiUtf32);
 
-   function getText (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_getText";
+   function getText (widget : access constant tguiWidget) return tguiUtf32;
 
-   procedure setHorizontalAlignment (widget : access tguiWidget; alignment : TGUI.Alignment.tguiHorizontalAlignment)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_setHorizontalAlignment";
+   procedure setHorizontalAlignment
+     (widget : access tguiWidget; alignment : TGUI.Alignment.tguiHorizontalAlignment);
 
-   function getHorizontalAlignment (widget : access constant tguiWidget) return TGUI.Alignment.tguiHorizontalAlignment
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_getHorizontalAlignment";
+   function getHorizontalAlignment
+     (widget : access constant tguiWidget) return TGUI.Alignment.tguiHorizontalAlignment;
 
-   procedure setVerticalAlignment (widget : access tguiWidget; alignment : TGUI.Alignment.tguiVerticalAlignment)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_setVerticalAlignment";
+   procedure setVerticalAlignment
+     (widget : access tguiWidget; alignment : TGUI.Alignment.tguiVerticalAlignment);
 
-   function getVerticalAlignment (widget : access constant tguiWidget) return TGUI.Alignment.tguiVerticalAlignment
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_getVerticalAlignment";
+   function getVerticalAlignment
+     (widget : access constant tguiWidget) return TGUI.Alignment.tguiVerticalAlignment;
 
-   procedure setAutoSize (widget : access tguiWidget; autoSize : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_setAutoSize";
+   procedure setAutoSize (widget : access tguiWidget; autoSize : tguiBool);
 
-   function getAutoSize (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_getAutoSize";
+   function getAutoSize (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setMaximumTextWidth (widget : access tguiWidget; maximumTextWidth : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_setMaximumTextWidth";
+   procedure setMaximumTextWidth (widget : access tguiWidget; maximumTextWidth : tguiFloat);
 
-   function getMaximumTextWidth (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_getMaximumTextWidth";
+   function getMaximumTextWidth (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure ignoreMouseEvents (widget : access tguiWidget; ignore : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_ignoreMouseEvents";
+   procedure ignoreMouseEvents (widget : access tguiWidget; ignore : tguiBool);
 
-   function isIgnoringMouseEvents (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_isIgnoringMouseEvents";
+   function isIgnoringMouseEvents (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setScrollbarPolicy (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_setScrollbarPolicy";
+   procedure setScrollbarPolicy
+     (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
 
-   function getScrollbarPolicy (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiLabel_getScrollbarPolicy";
+   function getScrollbarPolicy
+     (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
 
 private
 
-
+   pragma Import (C, create, "tguiLabel_create");
+   pragma Import (C, setText, "tguiLabel_setText");
+   pragma Import (C, getText, "tguiLabel_getText");
+   pragma Import (C, setHorizontalAlignment, "tguiLabel_setHorizontalAlignment");
+   pragma Import (C, getHorizontalAlignment, "tguiLabel_getHorizontalAlignment");
+   pragma Import (C, setVerticalAlignment, "tguiLabel_setVerticalAlignment");
+   pragma Import (C, getVerticalAlignment, "tguiLabel_getVerticalAlignment");
+   pragma Import (C, setAutoSize, "tguiLabel_setAutoSize");
+   pragma Import (C, getAutoSize, "tguiLabel_getAutoSize");
+   pragma Import (C, setMaximumTextWidth, "tguiLabel_setMaximumTextWidth");
+   pragma Import (C, getMaximumTextWidth, "tguiLabel_getMaximumTextWidth");
+   pragma Import (C, ignoreMouseEvents, "tguiLabel_ignoreMouseEvents");
+   pragma Import (C, isIgnoringMouseEvents, "tguiLabel_isIgnoringMouseEvents");
+   pragma Import (C, setScrollbarPolicy, "tguiLabel_setScrollbarPolicy");
+   pragma Import (C, getScrollbarPolicy, "tguiLabel_getScrollbarPolicy");
 
 end TGUI.Widgets.Label;
 

@@ -16,31 +16,28 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
 package TGUI.RenderStates is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
    type anon_array1087 is array (0 .. 15) of aliased tguiFloat;
    type tguiTransform is record
       matrix : aliased anon_array1087;
-   end record
-   with Convention => C_Pass_By_Copy;
+   end record with
+     Convention => C_Pass_By_Copy;
 
    type tguiRenderStates is record
       transform : aliased tguiTransform;
-   end record
-   with Convention => C_Pass_By_Copy;
+   end record with
+     Convention => C_Pass_By_Copy;
 
    ----------------------------------------------------------------------------
+
 private
-
-
 
 end TGUI.RenderStates;
 

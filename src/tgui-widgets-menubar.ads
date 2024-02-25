@@ -16,151 +16,91 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with System;
 
 package TGUI.Widgets.MenuBar is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure addMenu (widget : access tguiWidget; text : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_addMenu";
+   procedure addMenu (widget : access tguiWidget; text : tguiUtf32);
 
    function addMenuItem
-     (widget : access tguiWidget;
-      menu : tguiUtf32;
-      text : tguiUtf32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_addMenuItem";
+     (widget : access tguiWidget; menu : tguiUtf32; text : tguiUtf32) return tguiBool;
 
-   function addMenuItemToLastMenu (widget : access tguiWidget; text : tguiUtf32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_addMenuItemToLastMenu";
+   function addMenuItemToLastMenu (widget : access tguiWidget; text : tguiUtf32) return tguiBool;
 
    function addMenuItemHierarchy
-     (widget : access tguiWidget;
-      hierarcy : System.Address;
-      hierarchyLength : tguiUint32;
-      createParents : tguiBool) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_addMenuItemHierarchy";
+     (widget        : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32;
+      createParents : tguiBool) return tguiBool;
 
-   function removeMenu (widget : access tguiWidget; menu : tguiUtf32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_removeMenu";
+   function removeMenu (widget : access tguiWidget; menu : tguiUtf32) return tguiBool;
 
    function removeMenuItem
-     (widget : access tguiWidget;
-      menu : tguiUtf32;
-      menuItem : tguiUtf32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_removeMenuItem";
+     (widget : access tguiWidget; menu : tguiUtf32; menuItem : tguiUtf32) return tguiBool;
 
    function removeMenuItemHierarchy
-     (widget : access tguiWidget;
-      hierarcy : System.Address;
-      hierarchyLength : tguiUint32;
-      removeParentsWhenEmpty : tguiBool) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_removeMenuItemHierarchy";
+     (widget : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32;
+      removeParentsWhenEmpty : tguiBool) return tguiBool;
 
-   procedure removeAllMenus (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_removeAllMenus";
+   procedure removeAllMenus (widget : access tguiWidget);
 
    function setMenuEnabled
-     (widget : access tguiWidget;
-      text : tguiUtf32;
-      enabled : tguiBool) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_setMenuEnabled";
+     (widget : access tguiWidget; text : tguiUtf32; enabled : tguiBool) return tguiBool;
 
-   function getMenuEnabled (widget : access tguiWidget; text : tguiUtf32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_getMenuEnabled";
+   function getMenuEnabled (widget : access tguiWidget; text : tguiUtf32) return tguiBool;
 
    function setMenuItemEnabled
-     (widget : access tguiWidget;
-      menu : tguiUtf32;
-      text : tguiUtf32;
-      enabled : tguiBool) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_setMenuItemEnabled";
+     (widget : access tguiWidget; menu : tguiUtf32; text : tguiUtf32; enabled : tguiBool)
+      return tguiBool;
 
    function getMenuItemEnabled
-     (widget : access tguiWidget;
-      menu : tguiUtf32;
-      text : tguiUtf32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_getMenuItemEnabled";
+     (widget : access tguiWidget; menu : tguiUtf32; text : tguiUtf32) return tguiBool;
 
    function setMenuItemEnabledHierarchy
-     (widget : access tguiWidget;
-      hierarcy : System.Address;
-      hierarchyLength : tguiUint32;
-      enabled : tguiBool) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_setMenuItemEnabledHierarchy";
+     (widget  : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32;
+      enabled : tguiBool) return tguiBool;
 
    function getMenuItemEnabledHierarchy
-     (widget : access tguiWidget;
-      hierarcy : System.Address;
-      hierarchyLength : tguiUint32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_getMenuItemEnabledHierarchy";
+     (widget : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32)
+      return tguiBool;
 
-   procedure setMinimumSubMenuWidth (widget : access tguiWidget; minimumWidth : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_setMinimumSubMenuWidth";
+   procedure setMinimumSubMenuWidth (widget : access tguiWidget; minimumWidth : tguiFloat);
 
-   function getMinimumSubMenuWidth (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_getMinimumSubMenuWidth";
+   function getMinimumSubMenuWidth (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setInvertedMenuDirection (widget : access tguiWidget; invertDirection : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_setInvertedMenuDirection";
+   procedure setInvertedMenuDirection (widget : access tguiWidget; invertDirection : tguiBool);
 
-   function getInvertedMenuDirection (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_getInvertedMenuDirection";
+   function getInvertedMenuDirection (widget : access constant tguiWidget) return tguiBool;
 
-   procedure closeMenu (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBar_closeMenu";
+   procedure closeMenu (widget : access tguiWidget);
 
 private
 
-
+   pragma Import (C, create, "tguiMenuBar_create");
+   pragma Import (C, addMenu, "tguiMenuBar_addMenu");
+   pragma Import (C, addMenuItem, "tguiMenuBar_addMenuItem");
+   pragma Import (C, addMenuItemToLastMenu, "tguiMenuBar_addMenuItemToLastMenu");
+   pragma Import (C, addMenuItemHierarchy, "tguiMenuBar_addMenuItemHierarchy");
+   pragma Import (C, removeMenu, "tguiMenuBar_removeMenu");
+   pragma Import (C, removeMenuItem, "tguiMenuBar_removeMenuItem");
+   pragma Import (C, removeMenuItemHierarchy, "tguiMenuBar_removeMenuItemHierarchy");
+   pragma Import (C, removeAllMenus, "tguiMenuBar_removeAllMenus");
+   pragma Import (C, setMenuEnabled, "tguiMenuBar_setMenuEnabled");
+   pragma Import (C, getMenuEnabled, "tguiMenuBar_getMenuEnabled");
+   pragma Import (C, setMenuItemEnabled, "tguiMenuBar_setMenuItemEnabled");
+   pragma Import (C, getMenuItemEnabled, "tguiMenuBar_getMenuItemEnabled");
+   pragma Import (C, setMenuItemEnabledHierarchy, "tguiMenuBar_setMenuItemEnabledHierarchy");
+   pragma Import (C, getMenuItemEnabledHierarchy, "tguiMenuBar_getMenuItemEnabledHierarchy");
+   pragma Import (C, setMinimumSubMenuWidth, "tguiMenuBar_setMinimumSubMenuWidth");
+   pragma Import (C, getMinimumSubMenuWidth, "tguiMenuBar_getMinimumSubMenuWidth");
+   pragma Import (C, setInvertedMenuDirection, "tguiMenuBar_setInvertedMenuDirection");
+   pragma Import (C, getInvertedMenuDirection, "tguiMenuBar_getInvertedMenuDirection");
+   pragma Import (C, closeMenu, "tguiMenuBar_closeMenu");
 
 end TGUI.Widgets.MenuBar;
 

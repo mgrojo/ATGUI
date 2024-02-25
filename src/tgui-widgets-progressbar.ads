@@ -16,86 +16,58 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Widgets.ProgressBar is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
    type tguiFillDirection is
      (tguiFillDirectionLeftToRight,
       tguiFillDirectionRightToLeft,
       tguiFillDirectionTopToBottom,
-      tguiFillDirectionBottomToTop)
-   with Convention => C;
+      tguiFillDirectionBottomToTop) with
+     Convention => C;
 
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBar_create";
+   function create return access tguiWidget;
 
-   procedure setMinimum (widget : access tguiWidget; minimum : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBar_setMinimum";
+   procedure setMinimum (widget : access tguiWidget; minimum : tguiUint32);
 
-   function getMinimum (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBar_getMinimum";
+   function getMinimum (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setMaximum (widget : access tguiWidget; maximum : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBar_setMaximum";
+   procedure setMaximum (widget : access tguiWidget; maximum : tguiUint32);
 
-   function getMaximum (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBar_getMaximum";
+   function getMaximum (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setValue (widget : access tguiWidget; value : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBar_setValue";
+   procedure setValue (widget : access tguiWidget; value : tguiUint32);
 
-   function getValue (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBar_getValue";
+   function getValue (widget : access constant tguiWidget) return tguiUint32;
 
-   function incrementValue (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBar_incrementValue";
+   function incrementValue (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setText (widget : access tguiWidget; text : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBar_setText";
+   procedure setText (widget : access tguiWidget; text : tguiUtf32);
 
-   function getText (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBar_getText";
+   function getText (widget : access constant tguiWidget) return tguiUtf32;
 
-   procedure setFillDirection (widget : access tguiWidget; fillDirection : tguiFillDirection)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBar_setFillDirection";
+   procedure setFillDirection (widget : access tguiWidget; fillDirection : tguiFillDirection);
 
-   function getFillDirection (widget : access constant tguiWidget) return tguiFillDirection
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBar_getFillDirection";
+   function getFillDirection (widget : access constant tguiWidget) return tguiFillDirection;
 
 private
 
-
+   pragma Import (C, create, "tguiProgressBar_create");
+   pragma Import (C, setMinimum, "tguiProgressBar_setMinimum");
+   pragma Import (C, getMinimum, "tguiProgressBar_getMinimum");
+   pragma Import (C, setMaximum, "tguiProgressBar_setMaximum");
+   pragma Import (C, getMaximum, "tguiProgressBar_getMaximum");
+   pragma Import (C, setValue, "tguiProgressBar_setValue");
+   pragma Import (C, getValue, "tguiProgressBar_getValue");
+   pragma Import (C, incrementValue, "tguiProgressBar_incrementValue");
+   pragma Import (C, setText, "tguiProgressBar_setText");
+   pragma Import (C, getText, "tguiProgressBar_getText");
+   pragma Import (C, setFillDirection, "tguiProgressBar_setFillDirection");
+   pragma Import (C, getFillDirection, "tguiProgressBar_getFillDirection");
 
 end TGUI.Widgets.ProgressBar;
 

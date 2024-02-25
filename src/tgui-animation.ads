@@ -16,39 +16,35 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
 package TGUI.Animation is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
    subtype tguiShowEffectType is tguiUint32;
-   tguiShowEffectType_ShowEffectTypeFade : constant tguiShowEffectType := 0;
-   tguiShowEffectType_ShowEffectTypeScale : constant tguiShowEffectType := 1;
-   tguiShowEffectType_ShowEffectTypeSlideToRight : constant tguiShowEffectType := 2;
-   tguiShowEffectType_ShowEffectTypeSlideToLeft : constant tguiShowEffectType := 3;
-   tguiShowEffectType_ShowEffectTypeSlideToBottom : constant tguiShowEffectType := 4;
-   tguiShowEffectType_ShowEffectTypeSlideToTop : constant tguiShowEffectType := 5;
-   tguiShowEffectType_ShowEffectTypeSlideFromLeft : constant tguiShowEffectType := 2;
-   tguiShowEffectType_ShowEffectTypeSlideFromRight : constant tguiShowEffectType := 3;
-   tguiShowEffectType_ShowEffectTypeSlideFromTop : constant tguiShowEffectType := 4;
+   tguiShowEffectType_ShowEffectTypeFade            : constant tguiShowEffectType := 0;
+   tguiShowEffectType_ShowEffectTypeScale           : constant tguiShowEffectType := 1;
+   tguiShowEffectType_ShowEffectTypeSlideToRight    : constant tguiShowEffectType := 2;
+   tguiShowEffectType_ShowEffectTypeSlideToLeft     : constant tguiShowEffectType := 3;
+   tguiShowEffectType_ShowEffectTypeSlideToBottom   : constant tguiShowEffectType := 4;
+   tguiShowEffectType_ShowEffectTypeSlideToTop      : constant tguiShowEffectType := 5;
+   tguiShowEffectType_ShowEffectTypeSlideFromLeft   : constant tguiShowEffectType := 2;
+   tguiShowEffectType_ShowEffectTypeSlideFromRight  : constant tguiShowEffectType := 3;
+   tguiShowEffectType_ShowEffectTypeSlideFromTop    : constant tguiShowEffectType := 4;
    tguiShowEffectType_ShowEffectTypeSlideFromBottom : constant tguiShowEffectType := 5;
 
-  --!< Position is being changed
-  --!< Size is being changed
-  --!< Opacity is being changed
+   --!< Position is being changed
+   --!< Size is being changed
+   --!< Opacity is being changed
    type tguiAnimationType is
      (tguiAnimationTypeMove,
       tguiAnimationTypeResize,
-      tguiAnimationTypeOpacity)
-   with Convention => C;
+      tguiAnimationTypeOpacity) with
+     Convention => C;
 
 private
-
-
 
 end TGUI.Animation;
 

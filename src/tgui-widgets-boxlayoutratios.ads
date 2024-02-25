@@ -16,78 +16,43 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
-
 package TGUI.Widgets.BoxLayoutRatios is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
    procedure add
-     (layout : access tguiWidget;
-      widget : access tguiWidget;
-      ratio : tguiFloat;
-      widgetName : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayoutRatios_add";
+     (layout     : access tguiWidget; widget : access tguiWidget; ratio : tguiFloat;
+      widgetName : tguiUtf32);
 
    procedure insert
-     (layout : access tguiWidget;
-      index : tguiSize_t;
-      widget : access tguiWidget;
-      ratio : tguiFloat;
-      widgetName : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayoutRatios_insert";
+     (layout : access tguiWidget; index : tguiSize_t; widget : access tguiWidget; ratio : tguiFloat;
+      widgetName : tguiUtf32);
 
-   procedure addSpace (layout : access tguiWidget; ratio : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayoutRatios_addSpace";
+   procedure addSpace (layout : access tguiWidget; ratio : tguiFloat);
 
-   procedure insertSpace
-     (layout : access tguiWidget;
-      index : tguiSize_t;
-      ratio : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayoutRatios_insertSpace";
+   procedure insertSpace (layout : access tguiWidget; index : tguiSize_t; ratio : tguiFloat);
 
-   procedure setRatio
-     (layout : access tguiWidget;
-      widget : access tguiWidget;
-      ratio : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayoutRatios_setRatio";
+   procedure setRatio (layout : access tguiWidget; widget : access tguiWidget; ratio : tguiFloat);
 
-   procedure setRatioAtIndex
-     (layout : access tguiWidget;
-      index : tguiSize_t;
-      ratio : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayoutRatios_setRatioAtIndex";
+   procedure setRatioAtIndex (layout : access tguiWidget; index : tguiSize_t; ratio : tguiFloat);
 
-   function getRatio (layout : access tguiWidget; widget : access tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayoutRatios_getRatio";
+   function getRatio (layout : access tguiWidget; widget : access tguiWidget) return tguiFloat;
 
-   function getRatioAtIndex (layout : access tguiWidget; index : tguiSize_t) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayoutRatios_getRatioAtIndex";
+   function getRatioAtIndex (layout : access tguiWidget; index : tguiSize_t) return tguiFloat;
 
 private
 
-
+   pragma Import (C, add, "tguiBoxLayoutRatios_add");
+   pragma Import (C, insert, "tguiBoxLayoutRatios_insert");
+   pragma Import (C, addSpace, "tguiBoxLayoutRatios_addSpace");
+   pragma Import (C, insertSpace, "tguiBoxLayoutRatios_insertSpace");
+   pragma Import (C, setRatio, "tguiBoxLayoutRatios_setRatio");
+   pragma Import (C, setRatioAtIndex, "tguiBoxLayoutRatios_setRatioAtIndex");
+   pragma Import (C, getRatio, "tguiBoxLayoutRatios_getRatio");
+   pragma Import (C, getRatioAtIndex, "tguiBoxLayoutRatios_getRatioAtIndex");
 
 end TGUI.Widgets.BoxLayoutRatios;
 

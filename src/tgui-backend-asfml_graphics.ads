@@ -16,7 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
@@ -28,27 +27,20 @@ package TGUI.Backend.ASFML_Graphics is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-
    ----------------------------------------------------------------------------
-   function create (window : Sf.Graphics.sfRenderWindow_Ptr) return access tguiGui
-   with Import => True,
-     Convention => C,
-     External_Name => "tguiGuiCSFMLGraphics_create";
+   function create (window : Sf.Graphics.sfRenderWindow_Ptr) return access tguiGui;
 
-   procedure free (gui : access tguiGui)
-   with Import => True,
-     Convention => C,
-     External_Name => "tguiGuiCSFMLGraphics_free";
+   procedure free (gui : access tguiGui);
 
-   procedure handleEvent (gui : access tguiGui; event : access constant Sf.Window.Event.sfEvent)
-   with Import => True,
-     Convention => C,
-     External_Name => "tguiGuiCSFMLGraphics_handleEvent";
+   procedure handleEvent
+     (gui : access tguiGui; event : access constant Sf.Window.Event.sfEvent);
 
-   ----------------------------------------------------------------------------
+----------------------------------------------------------------------------
 private
 
-
+   pragma Import (C, create, "tguiGuiCSFMLGraphics_create");
+   pragma Import (C, free, "tguiGuiCSFMLGraphics_free");
+   pragma Import (C, handleEvent, "tguiGuiCSFMLGraphics_handleEvent");
 
 end TGUI.Backend.ASFML_Graphics;
 

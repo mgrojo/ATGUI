@@ -16,39 +16,27 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Widgets.MessageBox is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMessageBox_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setText (widget : access tguiWidget; text : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMessageBox_setText";
+   procedure setText (widget : access tguiWidget; text : tguiUtf32);
 
-   function getText (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMessageBox_getText";
+   function getText (widget : access constant tguiWidget) return tguiUtf32;
 
-   procedure addButton (widget : access tguiWidget; text : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMessageBox_addButton";
+   procedure addButton (widget : access tguiWidget; text : tguiUtf32);
 
 private
 
-
+   pragma Import (C, create, "tguiMessageBox_create");
+   pragma Import (C, setText, "tguiMessageBox_setText");
+   pragma Import (C, getText, "tguiMessageBox_getText");
+   pragma Import (C, addButton, "tguiMessageBox_addButton");
 
 end TGUI.Widgets.MessageBox;
 

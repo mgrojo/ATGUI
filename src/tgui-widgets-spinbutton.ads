@@ -16,74 +16,48 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Widgets.SpinButton is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButton_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setMinimum (widget : access tguiWidget; minimum : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButton_setMinimum";
+   procedure setMinimum (widget : access tguiWidget; minimum : tguiFloat);
 
-   function getMinimum (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButton_getMinimum";
+   function getMinimum (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setMaximum (widget : access tguiWidget; maximum : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButton_setMaximum";
+   procedure setMaximum (widget : access tguiWidget; maximum : tguiFloat);
 
-   function getMaximum (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButton_getMaximum";
+   function getMaximum (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setValue (widget : access tguiWidget; value : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButton_setValue";
+   procedure setValue (widget : access tguiWidget; value : tguiFloat);
 
-   function getValue (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButton_getValue";
+   function getValue (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setStep (widget : access tguiWidget; step : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButton_setStep";
+   procedure setStep (widget : access tguiWidget; step : tguiFloat);
 
-   function getStep (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButton_getStep";
+   function getStep (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setVerticalScroll (widget : access tguiWidget; vertical : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButton_setVerticalScroll";
+   procedure setVerticalScroll (widget : access tguiWidget; vertical : tguiBool);
 
-   function getVerticalScroll (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButton_getVerticalScroll";
+   function getVerticalScroll (widget : access constant tguiWidget) return tguiBool;
 
 private
 
-
+   pragma Import (C, create, "tguiSpinButton_create");
+   pragma Import (C, setMinimum, "tguiSpinButton_setMinimum");
+   pragma Import (C, getMinimum, "tguiSpinButton_getMinimum");
+   pragma Import (C, setMaximum, "tguiSpinButton_setMaximum");
+   pragma Import (C, getMaximum, "tguiSpinButton_getMaximum");
+   pragma Import (C, setValue, "tguiSpinButton_setValue");
+   pragma Import (C, getValue, "tguiSpinButton_getValue");
+   pragma Import (C, setStep, "tguiSpinButton_setStep");
+   pragma Import (C, getStep, "tguiSpinButton_getStep");
+   pragma Import (C, setVerticalScroll, "tguiSpinButton_setVerticalScroll");
+   pragma Import (C, getVerticalScroll, "tguiSpinButton_getVerticalScroll");
 
 end TGUI.Widgets.SpinButton;
 

@@ -16,105 +16,73 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
 with TGUI.Rect;
 
-
-
 package TGUI.Font is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-  --!< Offset to move horizontally to the next tguiCharacter
-  --!< Bounding rectangle of the glyph, in coordinates relative to the baseline
-  --!< Texture coordinates of the glyph inside the font's texture
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   --!< Offset to move horizontally to the next tguiCharacter
+   --!< Bounding rectangle of the glyph, in coordinates relative to the baseline
+   --!< Texture coordinates of the glyph inside the font's texture
    type tguiFontGlyph is record
-      advance : aliased tguiFloat;
-      bounds : aliased TGUI.Rect.tguiFloatRect;
+      advance     : aliased tguiFloat;
+      bounds      : aliased TGUI.Rect.tguiFloatRect;
       textureRect : aliased TGUI.Rect.tguiUIntRect;
-   end record
-   with Convention => C_Pass_By_Copy;
+   end record with
+     Convention => C_Pass_By_Copy;
 
-   procedure setGlobalFont (font : access tguiFont)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_setGlobalFont";
+   procedure setGlobalFont (font : access tguiFont);
 
-   function getGlobalFont return access tguiFont
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_getGlobalFont";
+   function getGlobalFont return access tguiFont;
 
-   function createNull return access tguiFont
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_createNull";
+   function createNull return access tguiFont;
 
-   function createFromFile (filename : tguiUtf32) return access tguiFont
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_createFromFile";
+   function createFromFile (filename : tguiUtf32) return access tguiFont;
 
-   function createFromMemory (data : access tguiUint8; dataSize : tguiSize_t) return access tguiFont
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_createFromMemory";
+   function createFromMemory
+     (data : access tguiUint8; dataSize : tguiSize_t) return access tguiFont;
 
-   procedure free (font : access tguiFont)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_free";
+   procedure free (font : access tguiFont);
 
-   function getId (font : access constant tguiFont) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_getId";
+   function getId (font : access constant tguiFont) return tguiUtf32;
 
    function getGlyph
-     (font : access constant tguiFont;
-      tguiCharacterSize : tguiUint32;
-      bold : tguiBool;
-      outlineThickness : tguiFloat) return tguiFontGlyph
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_getGlyph";
+     (font             : access constant tguiFont; tguiCharacterSize : tguiUint32; bold : tguiBool;
+      outlineThickness : tguiFloat) return tguiFontGlyph;
 
    function getKerning
-     (font : access constant tguiFont;
-      first : tguiUint32;
-      second : tguiUint32;
-      tguiCharacterSize : tguiUint32;
-      bold : tguiBool) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_getKerning";
+     (font              : access constant tguiFont; first : tguiUint32; second : tguiUint32;
+      tguiCharacterSize : tguiUint32; bold : tguiBool) return tguiFloat;
 
-   function getLineSpacing (font : access constant tguiFont; tguiCharacterSize : tguiUint32) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_getLineSpacing";
+   function getLineSpacing
+     (font : access constant tguiFont; tguiCharacterSize : tguiUint32) return tguiFloat;
 
-   function getFontHeight (font : access constant tguiFont; tguiCharacterSize : tguiUint32) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_getFontHeight";
+   function getFontHeight
+     (font : access constant tguiFont; tguiCharacterSize : tguiUint32) return tguiFloat;
 
-   procedure setSmooth (font : access tguiFont; smooth : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_setSmooth";
+   procedure setSmooth (font : access tguiFont; smooth : tguiBool);
 
-   function isSmooth (font : access constant tguiFont) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiFont_isSmooth";
+   function isSmooth (font : access constant tguiFont) return tguiBool;
 
 private
 
-
+   pragma Import (C, setGlobalFont, "tguiFont_setGlobalFont");
+   pragma Import (C, getGlobalFont, "tguiFont_getGlobalFont");
+   pragma Import (C, createNull, "tguiFont_createNull");
+   pragma Import (C, createFromFile, "tguiFont_createFromFile");
+   pragma Import (C, createFromMemory, "tguiFont_createFromMemory");
+   pragma Import (C, free, "tguiFont_free");
+   pragma Import (C, getId, "tguiFont_getId");
+   pragma Import (C, getGlyph, "tguiFont_getGlyph");
+   pragma Import (C, getKerning, "tguiFont_getKerning");
+   pragma Import (C, getLineSpacing, "tguiFont_getLineSpacing");
+   pragma Import (C, getFontHeight, "tguiFont_getFontHeight");
+   pragma Import (C, setSmooth, "tguiFont_setSmooth");
+   pragma Import (C, isSmooth, "tguiFont_isSmooth");
 
 end TGUI.Font;
 

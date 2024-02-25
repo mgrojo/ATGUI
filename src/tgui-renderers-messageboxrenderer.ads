@@ -16,50 +16,36 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Color;
 
 package TGUI.Renderers.MessageBoxRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMessageBoxRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMessageBoxRenderer_copy";
+   function copy (other : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMessageBoxRenderer_setTextColor";
+   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getTextColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMessageBoxRenderer_getTextColor";
+   function getTextColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setButton (renderer : access tguiRenderer; rendererData : access tguiRendererData)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMessageBoxRenderer_setButton";
+   procedure setButton (renderer : access tguiRenderer; rendererData : access tguiRendererData);
 
-   function getButton (renderer : access constant tguiRenderer) return access tguiRendererData
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMessageBoxRenderer_getButton";
+   function getButton (renderer : access constant tguiRenderer) return access tguiRendererData;
 
 private
 
-
+   pragma Import (C, create, "tguiMessageBoxRenderer_create");
+   pragma Import (C, copy, "tguiMessageBoxRenderer_copy");
+   pragma Import (C, setTextColor, "tguiMessageBoxRenderer_setTextColor");
+   pragma Import (C, getTextColor, "tguiMessageBoxRenderer_getTextColor");
+   pragma Import (C, setButton, "tguiMessageBoxRenderer_setButton");
+   pragma Import (C, getButton, "tguiMessageBoxRenderer_getButton");
 
 end TGUI.Renderers.MessageBoxRenderer;
 

@@ -16,84 +16,54 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Widgets.Knob is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setStartRotation (widget : access tguiWidget; startRotation : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_setStartRotation";
+   procedure setStartRotation (widget : access tguiWidget; startRotation : tguiFloat);
 
-   function getStartRotation (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_getStartRotation";
+   function getStartRotation (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setEndRotation (widget : access tguiWidget; startRotation : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_setEndRotation";
+   procedure setEndRotation (widget : access tguiWidget; startRotation : tguiFloat);
 
-   function getEndRotation (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_getEndRotation";
+   function getEndRotation (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setMinimum (widget : access tguiWidget; minimum : tguiInt)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_setMinimum";
+   procedure setMinimum (widget : access tguiWidget; minimum : tguiInt);
 
-   function getMinimum (widget : access constant tguiWidget) return tguiInt
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_getMinimum";
+   function getMinimum (widget : access constant tguiWidget) return tguiInt;
 
-   procedure setMaximum (widget : access tguiWidget; maximum : tguiInt)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_setMaximum";
+   procedure setMaximum (widget : access tguiWidget; maximum : tguiInt);
 
-   function getMaximum (widget : access constant tguiWidget) return tguiInt
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_getMaximum";
+   function getMaximum (widget : access constant tguiWidget) return tguiInt;
 
-   procedure setValue (widget : access tguiWidget; value : tguiInt)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_setValue";
+   procedure setValue (widget : access tguiWidget; value : tguiInt);
 
-   function getValue (widget : access constant tguiWidget) return tguiInt
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_getValue";
+   function getValue (widget : access constant tguiWidget) return tguiInt;
 
-   procedure setClockwiseTurning (widget : access tguiWidget; clockwise : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_setClockwiseTurning";
+   procedure setClockwiseTurning (widget : access tguiWidget; clockwise : tguiBool);
 
-   function getClockwiseTurning (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiKnob_getClockwiseTurning";
+   function getClockwiseTurning (widget : access constant tguiWidget) return tguiBool;
 
 private
 
-
+   pragma Import (C, create, "tguiKnob_create");
+   pragma Import (C, setStartRotation, "tguiKnob_setStartRotation");
+   pragma Import (C, getStartRotation, "tguiKnob_getStartRotation");
+   pragma Import (C, setEndRotation, "tguiKnob_setEndRotation");
+   pragma Import (C, getEndRotation, "tguiKnob_getEndRotation");
+   pragma Import (C, setMinimum, "tguiKnob_setMinimum");
+   pragma Import (C, getMinimum, "tguiKnob_getMinimum");
+   pragma Import (C, setMaximum, "tguiKnob_setMaximum");
+   pragma Import (C, getMaximum, "tguiKnob_getMaximum");
+   pragma Import (C, setValue, "tguiKnob_setValue");
+   pragma Import (C, getValue, "tguiKnob_getValue");
+   pragma Import (C, setClockwiseTurning, "tguiKnob_setClockwiseTurning");
+   pragma Import (C, getClockwiseTurning, "tguiKnob_getClockwiseTurning");
 
 end TGUI.Widgets.Knob;
 

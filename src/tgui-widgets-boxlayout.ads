@@ -16,39 +16,26 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
-
 package TGUI.Widgets.BoxLayout is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
    procedure insert
-     (layout : access tguiWidget;
-      index : tguiSize_t;
-      widget : access tguiWidget;
-      widgetName : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayout_insert";
+     (layout     : access tguiWidget; index : tguiSize_t; widget : access tguiWidget;
+      widgetName : tguiUtf32);
 
-   function removeAtIndex (layout : access tguiWidget; index : tguiSize_t) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayout_removeAtIndex";
+   function removeAtIndex (layout : access tguiWidget; index : tguiSize_t) return tguiBool;
 
-   function getAtIndex (layout : access tguiWidget; index : tguiSize_t) return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBoxLayout_getAtIndex";
+   function getAtIndex (layout : access tguiWidget; index : tguiSize_t) return access tguiWidget;
 
 private
 
-
+   pragma Import (C, insert, "tguiBoxLayout_insert");
+   pragma Import (C, removeAtIndex, "tguiBoxLayout_removeAtIndex");
+   pragma Import (C, getAtIndex, "tguiBoxLayout_getAtIndex");
 
 end TGUI.Widgets.BoxLayout;
 

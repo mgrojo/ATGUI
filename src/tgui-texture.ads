@@ -16,10 +16,8 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Rect;
 
@@ -29,143 +27,89 @@ with TGUI.Color;
 
 package TGUI.Texture is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function createNull return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_createNull";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function createNull return access tguiTexture;
 
    function createFromFile
-     (filename : tguiUtf32;
-      partRect : TGUI.Rect.tguiUIntRect;
-      middleRect : TGUI.Rect.tguiUIntRect) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_createFromFile";
+     (filename : tguiUtf32; partRect : TGUI.Rect.tguiUIntRect; middleRect : TGUI.Rect.tguiUIntRect)
+      return access tguiTexture;
 
    function createFromFileEx
-     (filename : tguiUtf32;
-      partRect : TGUI.Rect.tguiUIntRect;
-      middleRect : TGUI.Rect.tguiUIntRect;
-      smoothing : tguiBool) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_createFromFileEx";
+     (filename  : tguiUtf32; partRect : TGUI.Rect.tguiUIntRect; middleRect : TGUI.Rect.tguiUIntRect;
+      smoothing : tguiBool) return access tguiTexture;
 
    function createFromMemory
-     (data : access tguiUint8;
-      dataSize : tguiSize_t;
-      partRect : TGUI.Rect.tguiUIntRect;
-      middleRect : TGUI.Rect.tguiUIntRect) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_createFromMemory";
+     (data       : access tguiUint8; dataSize : tguiSize_t; partRect : TGUI.Rect.tguiUIntRect;
+      middleRect : TGUI.Rect.tguiUIntRect) return access tguiTexture;
 
    function createFromMemoryEx
-     (data : access tguiUint8;
-      dataSize : tguiSize_t;
-      partRect : TGUI.Rect.tguiUIntRect;
-      middleRect : TGUI.Rect.tguiUIntRect;
-      smoothing : tguiBool) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_createFromMemoryEx";
+     (data       : access tguiUint8; dataSize : tguiSize_t; partRect : TGUI.Rect.tguiUIntRect;
+      middleRect : TGUI.Rect.tguiUIntRect; smoothing : tguiBool) return access tguiTexture;
 
    function createFromPixelData
-     (size : TGUI.Vector2.tguiVector2u;
-      pixels : access tguiUint8;
-      partRect : TGUI.Rect.tguiUIntRect;
-      middleRect : TGUI.Rect.tguiUIntRect) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_createFromPixelData";
+     (size     : TGUI.Vector2.tguiVector2u; pixels : access tguiUint8;
+      partRect : TGUI.Rect.tguiUIntRect; middleRect : TGUI.Rect.tguiUIntRect)
+      return access tguiTexture;
 
    function createFromPixelDataEx
-     (size : TGUI.Vector2.tguiVector2u;
-      pixels : access tguiUint8;
-      partRect : TGUI.Rect.tguiUIntRect;
-      middleRect : TGUI.Rect.tguiUIntRect;
-      smoothing : tguiBool) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_createFromPixelDataEx";
+     (size     : TGUI.Vector2.tguiVector2u; pixels : access tguiUint8;
+      partRect : TGUI.Rect.tguiUIntRect; middleRect : TGUI.Rect.tguiUIntRect; smoothing : tguiBool)
+      return access tguiTexture;
 
    function createFromBase64
-     (imageAsBase64 : String;
-      partRect : TGUI.Rect.tguiUIntRect;
-      middleRect : TGUI.Rect.tguiUIntRect) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_createFromBase64";
+     (imageAsBase64 : String; partRect : TGUI.Rect.tguiUIntRect;
+      middleRect    : TGUI.Rect.tguiUIntRect) return access tguiTexture;
 
    function createFromBase64Ex
-     (imageAsBase64 : String;
-      partRect : TGUI.Rect.tguiUIntRect;
-      middleRect : TGUI.Rect.tguiUIntRect;
-      smoothing : tguiBool) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_createFromBase64Ex";
+     (imageAsBase64 : String; partRect : TGUI.Rect.tguiUIntRect;
+      middleRect    : TGUI.Rect.tguiUIntRect; smoothing : tguiBool) return access tguiTexture;
 
-   procedure free (texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_free";
+   procedure free (texture : access tguiTexture);
 
-   function getId (texture : access constant tguiTexture) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_getId";
+   function getId (texture : access constant tguiTexture) return tguiUtf32;
 
-   function getImageSize (texture : access constant tguiTexture) return TGUI.Vector2.tguiVector2u
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_getImageSize";
+   function getImageSize (texture : access constant tguiTexture) return TGUI.Vector2.tguiVector2u;
 
-   function getPartRect (texture : access constant tguiTexture) return TGUI.Rect.tguiUIntRect
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_getPartRect";
+   function getPartRect (texture : access constant tguiTexture) return TGUI.Rect.tguiUIntRect;
 
-   function getMiddleRect (texture : access constant tguiTexture) return TGUI.Rect.tguiUIntRect
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_getMiddleRect";
+   function getMiddleRect (texture : access constant tguiTexture) return TGUI.Rect.tguiUIntRect;
 
-   function isSmooth (texture : access constant tguiTexture) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_isSmooth";
+   function isSmooth (texture : access constant tguiTexture) return tguiBool;
 
-   procedure setColor (texture : access tguiTexture; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_setColor";
+   procedure setColor (texture : access tguiTexture; color : access TGUI.Color.tguiColor);
 
-   function getColor (texture : access constant tguiTexture) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_getColor";
+   function getColor (texture : access constant tguiTexture) return access TGUI.Color.tguiColor;
 
-   function isTransparentPixel (texture : access constant tguiTexture; pos : TGUI.Vector2.tguiVector2u) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_isTransparentPixel";
+   function isTransparentPixel
+     (texture : access constant tguiTexture; pos : TGUI.Vector2.tguiVector2u) return tguiBool;
 
-   procedure setDefaultSmooth (smooth : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_setDefaultSmooth";
+   procedure setDefaultSmooth (smooth : tguiBool);
 
-   function getDefaultSmooth return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTexture_getDefaultSmooth";
+   function getDefaultSmooth return tguiBool;
 
 private
 
-
+   pragma Import (C, createNull, "tguiTexture_createNull");
+   pragma Import (C, createFromFile, "tguiTexture_createFromFile");
+   pragma Import (C, createFromFileEx, "tguiTexture_createFromFileEx");
+   pragma Import (C, createFromMemory, "tguiTexture_createFromMemory");
+   pragma Import (C, createFromMemoryEx, "tguiTexture_createFromMemoryEx");
+   pragma Import (C, createFromPixelData, "tguiTexture_createFromPixelData");
+   pragma Import (C, createFromPixelDataEx, "tguiTexture_createFromPixelDataEx");
+   pragma Import (C, createFromBase64, "tguiTexture_createFromBase64");
+   pragma Import (C, createFromBase64Ex, "tguiTexture_createFromBase64Ex");
+   pragma Import (C, free, "tguiTexture_free");
+   pragma Import (C, getId, "tguiTexture_getId");
+   pragma Import (C, getImageSize, "tguiTexture_getImageSize");
+   pragma Import (C, getPartRect, "tguiTexture_getPartRect");
+   pragma Import (C, getMiddleRect, "tguiTexture_getMiddleRect");
+   pragma Import (C, isSmooth, "tguiTexture_isSmooth");
+   pragma Import (C, setColor, "tguiTexture_setColor");
+   pragma Import (C, getColor, "tguiTexture_getColor");
+   pragma Import (C, isTransparentPixel, "tguiTexture_isTransparentPixel");
+   pragma Import (C, setDefaultSmooth, "tguiTexture_setDefaultSmooth");
+   pragma Import (C, getDefaultSmooth, "tguiTexture_getDefaultSmooth");
 
 end TGUI.Texture;
 

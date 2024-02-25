@@ -16,34 +16,24 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Widgets.Button is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiButton_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setText (widget : access tguiWidget; text : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiButton_setText";
+   procedure setText (widget : access tguiWidget; text : tguiUtf32);
 
-   function getText (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiButton_getText";
+   function getText (widget : access constant tguiWidget) return tguiUtf32;
 
 private
 
-
+   pragma Import (C, create, "tguiButton_create");
+   pragma Import (C, setText, "tguiButton_setText");
+   pragma Import (C, getText, "tguiButton_getText");
 
 end TGUI.Widgets.Button;
 

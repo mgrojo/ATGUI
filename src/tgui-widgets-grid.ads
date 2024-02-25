@@ -16,115 +16,70 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
-
 
 with TGUI.Alignment;
 
 package TGUI.Widgets.Grid is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setAutoSize (widget : access tguiWidget; autoSize : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_setAutoSize";
+   procedure setAutoSize (widget : access tguiWidget; autoSize : tguiBool);
 
-   function getAutoSize (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_getAutoSize";
+   function getAutoSize (widget : access constant tguiWidget) return tguiBool;
 
    procedure addWidget
-     (grid : access tguiWidget;
-      widget : access tguiWidget;
-      row : tguiSize_t;
-      col : tguiSize_t;
-      alignment : TGUI.Alignment.tguiAlignment;
-      padding : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_addWidget";
+     (grid      : access tguiWidget; widget : access tguiWidget; row : tguiSize_t; col : tguiSize_t;
+      alignment : TGUI.Alignment.tguiAlignment; padding : access tguiOutline);
 
    function getWidget
-     (grid : access tguiWidget;
-      row : tguiSize_t;
-      col : tguiSize_t) return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_getWidget";
+     (grid : access tguiWidget; row : tguiSize_t; col : tguiSize_t) return access tguiWidget;
 
    procedure setWidgetPadding
-     (grid : access tguiWidget;
-      widget : access tguiWidget;
-      padding : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_setWidgetPadding";
+     (grid : access tguiWidget; widget : access tguiWidget; padding : access tguiOutline);
 
    procedure setWidgetPaddingByCell
-     (grid : access tguiWidget;
-      row : tguiSize_t;
-      col : tguiSize_t;
-      padding : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_setWidgetPaddingByCell";
+     (grid : access tguiWidget; row : tguiSize_t; col : tguiSize_t; padding : access tguiOutline);
 
-   function getWidgetPadding (grid : access tguiWidget; widget : access tguiWidget) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_getWidgetPadding";
+   function getWidgetPadding
+     (grid : access tguiWidget; widget : access tguiWidget) return access tguiOutline;
 
    function getWidgetPaddingByCell
-     (grid : access tguiWidget;
-      row : tguiSize_t;
-      col : tguiSize_t) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_getWidgetPaddingByCell";
+     (grid : access tguiWidget; row : tguiSize_t; col : tguiSize_t) return access tguiOutline;
 
    procedure setWidgetAlignment
-     (grid : access tguiWidget;
-      widget : access tguiWidget;
-      alignment : TGUI.Alignment.tguiAlignment)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_setWidgetAlignment";
+     (grid      : access tguiWidget; widget : access tguiWidget;
+      alignment : TGUI.Alignment.tguiAlignment);
 
    procedure setWidgetAlignmentByCell
-     (grid : access tguiWidget;
-      row : tguiSize_t;
-      col : tguiSize_t;
-      alignment : TGUI.Alignment.tguiAlignment)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_setWidgetAlignmentByCell";
+     (grid      : access tguiWidget; row : tguiSize_t; col : tguiSize_t;
+      alignment : TGUI.Alignment.tguiAlignment);
 
-   function getWidgetAlignment (grid : access tguiWidget; widget : access tguiWidget) return TGUI.Alignment.tguiAlignment
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_getWidgetAlignment";
+   function getWidgetAlignment
+     (grid : access tguiWidget; widget : access tguiWidget) return TGUI.Alignment.tguiAlignment;
 
    function getWidgetAlignmentByCell
-     (grid : access tguiWidget;
-      row : tguiSize_t;
-      col : tguiSize_t) return TGUI.Alignment.tguiAlignment
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiGrid_getWidgetAlignmentByCell";
+     (grid : access tguiWidget; row : tguiSize_t; col : tguiSize_t)
+      return TGUI.Alignment.tguiAlignment;
 
 private
 
-
+   pragma Import (C, create, "tguiGrid_create");
+   pragma Import (C, setAutoSize, "tguiGrid_setAutoSize");
+   pragma Import (C, getAutoSize, "tguiGrid_getAutoSize");
+   pragma Import (C, addWidget, "tguiGrid_addWidget");
+   pragma Import (C, getWidget, "tguiGrid_getWidget");
+   pragma Import (C, setWidgetPadding, "tguiGrid_setWidgetPadding");
+   pragma Import (C, setWidgetPaddingByCell, "tguiGrid_setWidgetPaddingByCell");
+   pragma Import (C, getWidgetPadding, "tguiGrid_getWidgetPadding");
+   pragma Import (C, getWidgetPaddingByCell, "tguiGrid_getWidgetPaddingByCell");
+   pragma Import (C, setWidgetAlignment, "tguiGrid_setWidgetAlignment");
+   pragma Import (C, setWidgetAlignmentByCell, "tguiGrid_setWidgetAlignmentByCell");
+   pragma Import (C, getWidgetAlignment, "tguiGrid_getWidgetAlignment");
+   pragma Import (C, getWidgetAlignmentByCell, "tguiGrid_getWidgetAlignmentByCell");
 
 end TGUI.Widgets.Grid;
 

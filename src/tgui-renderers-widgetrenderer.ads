@@ -16,84 +16,55 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Renderers.WidgetRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_copy";
+   function copy (other : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure free (renderer : access tguiRenderer)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_free";
+   procedure free (renderer : access tguiRenderer);
 
-   procedure setOpacity (renderer : access tguiRenderer; alpha : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_setOpacity";
+   procedure setOpacity (renderer : access tguiRenderer; alpha : tguiFloat);
 
-   function getOpacity (renderer : access constant tguiRenderer) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_getOpacity";
+   function getOpacity (renderer : access constant tguiRenderer) return tguiFloat;
 
-   procedure setOpacityDisabled (renderer : access tguiRenderer; alpha : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_setOpacityDisabled";
+   procedure setOpacityDisabled (renderer : access tguiRenderer; alpha : tguiFloat);
 
-   function getOpacityDisabled (renderer : access constant tguiRenderer) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_getOpacityDisabled";
+   function getOpacityDisabled (renderer : access constant tguiRenderer) return tguiFloat;
 
-   procedure setFont (renderer : access tguiRenderer; font : access tguiFont)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_setFont";
+   procedure setFont (renderer : access tguiRenderer; font : access tguiFont);
 
-   function getFont (renderer : access constant tguiRenderer) return access tguiFont
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_getFont";
+   function getFont (renderer : access constant tguiRenderer) return access tguiFont;
 
-   procedure setTransparentTexture (renderer : access tguiRenderer; ignoreTransparentParts : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_setTransparentTexture";
+   procedure setTransparentTexture
+     (renderer : access tguiRenderer; ignoreTransparentParts : tguiBool);
 
-   function getTransparentTexture (renderer : access tguiRenderer) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_getTransparentTexture";
+   function getTransparentTexture (renderer : access tguiRenderer) return tguiBool;
 
-   procedure setData (renderer : access tguiRenderer; data : access tguiRendererData)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_setData";
+   procedure setData (renderer : access tguiRenderer; data : access tguiRendererData);
 
-   function getData (renderer : access constant tguiRenderer) return access tguiRendererData
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidgetRenderer_getData";
+   function getData (renderer : access constant tguiRenderer) return access tguiRendererData;
 
 private
 
-
+   pragma Import (C, create, "tguiWidgetRenderer_create");
+   pragma Import (C, copy, "tguiWidgetRenderer_copy");
+   pragma Import (C, free, "tguiWidgetRenderer_free");
+   pragma Import (C, setOpacity, "tguiWidgetRenderer_setOpacity");
+   pragma Import (C, getOpacity, "tguiWidgetRenderer_getOpacity");
+   pragma Import (C, setOpacityDisabled, "tguiWidgetRenderer_setOpacityDisabled");
+   pragma Import (C, getOpacityDisabled, "tguiWidgetRenderer_getOpacityDisabled");
+   pragma Import (C, setFont, "tguiWidgetRenderer_setFont");
+   pragma Import (C, getFont, "tguiWidgetRenderer_getFont");
+   pragma Import (C, setTransparentTexture, "tguiWidgetRenderer_setTransparentTexture");
+   pragma Import (C, getTransparentTexture, "tguiWidgetRenderer_getTransparentTexture");
+   pragma Import (C, setData, "tguiWidgetRenderer_setData");
+   pragma Import (C, getData, "tguiWidgetRenderer_getData");
 
 end TGUI.Renderers.WidgetRenderer;
 

@@ -16,74 +16,48 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Widgets.RangeSlider is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRangeSlider_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setMinimum (widget : access tguiWidget; minimum : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRangeSlider_setMinimum";
+   procedure setMinimum (widget : access tguiWidget; minimum : tguiFloat);
 
-   function getMinimum (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRangeSlider_getMinimum";
+   function getMinimum (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setMaximum (widget : access tguiWidget; maximum : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRangeSlider_setMaximum";
+   procedure setMaximum (widget : access tguiWidget; maximum : tguiFloat);
 
-   function getMaximum (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRangeSlider_getMaximum";
+   function getMaximum (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setSelectionStart (widget : access tguiWidget; value : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRangeSlider_setSelectionStart";
+   procedure setSelectionStart (widget : access tguiWidget; value : tguiFloat);
 
-   function getSelectionStart (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRangeSlider_getSelectionStart";
+   function getSelectionStart (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setSelectionEnd (widget : access tguiWidget; value : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRangeSlider_setSelectionEnd";
+   procedure setSelectionEnd (widget : access tguiWidget; value : tguiFloat);
 
-   function getSelectionEnd (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRangeSlider_getSelectionEnd";
+   function getSelectionEnd (widget : access constant tguiWidget) return tguiFloat;
 
-   procedure setStep (widget : access tguiWidget; step : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRangeSlider_setStep";
+   procedure setStep (widget : access tguiWidget; step : tguiFloat);
 
-   function getStep (widget : access constant tguiWidget) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiRangeSlider_getStep";
+   function getStep (widget : access constant tguiWidget) return tguiFloat;
 
 private
 
-
+   pragma Import (C, create, "tguiRangeSlider_create");
+   pragma Import (C, setMinimum, "tguiRangeSlider_setMinimum");
+   pragma Import (C, getMinimum, "tguiRangeSlider_getMinimum");
+   pragma Import (C, setMaximum, "tguiRangeSlider_setMaximum");
+   pragma Import (C, getMaximum, "tguiRangeSlider_getMaximum");
+   pragma Import (C, setSelectionStart, "tguiRangeSlider_setSelectionStart");
+   pragma Import (C, getSelectionStart, "tguiRangeSlider_getSelectionStart");
+   pragma Import (C, setSelectionEnd, "tguiRangeSlider_setSelectionEnd");
+   pragma Import (C, getSelectionEnd, "tguiRangeSlider_getSelectionEnd");
+   pragma Import (C, setStep, "tguiRangeSlider_setStep");
+   pragma Import (C, getStep, "tguiRangeSlider_getStep");
 
 end TGUI.Widgets.RangeSlider;
 

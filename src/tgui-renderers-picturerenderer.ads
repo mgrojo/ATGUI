@@ -16,39 +16,27 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Renderers.PictureRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPictureRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPictureRenderer_copy";
+   function copy (other : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setTexture (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPictureRenderer_setTexture";
+   procedure setTexture (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTexture (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPictureRenderer_getTexture";
+   function getTexture (renderer : access constant tguiRenderer) return access tguiTexture;
 
 private
 
-
+   pragma Import (C, create, "tguiPictureRenderer_create");
+   pragma Import (C, copy, "tguiPictureRenderer_copy");
+   pragma Import (C, setTexture, "tguiPictureRenderer_setTexture");
+   pragma Import (C, getTexture, "tguiPictureRenderer_getTexture");
 
 end TGUI.Renderers.PictureRenderer;
 

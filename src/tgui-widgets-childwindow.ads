@@ -16,116 +16,77 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Vector2;
 with TGUI.Alignment;
 
 package TGUI.Widgets.ChildWindow is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setMaximumSize (widget : access tguiWidget; maxSize : TGUI.Vector2.tguiVector2f)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_setMaximumSize";
+   procedure setMaximumSize (widget : access tguiWidget; maxSize : TGUI.Vector2.tguiVector2f);
 
-   function getMaximumSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_getMaximumSize";
+   function getMaximumSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
-   procedure setMinimumSize (widget : access tguiWidget; minSize : TGUI.Vector2.tguiVector2f)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_setMinimumSize";
+   procedure setMinimumSize (widget : access tguiWidget; minSize : TGUI.Vector2.tguiVector2f);
 
-   function getMinimumSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_getMinimumSize";
+   function getMinimumSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
-   procedure setTitle (widget : access tguiWidget; text : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_setTitle";
+   procedure setTitle (widget : access tguiWidget; text : tguiUtf32);
 
-   function getTitle (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_getTitle";
+   function getTitle (widget : access constant tguiWidget) return tguiUtf32;
 
-   procedure setTitleTextSize (widget : access tguiWidget; textSize : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_setTitleTextSize";
+   procedure setTitleTextSize (widget : access tguiWidget; textSize : tguiUint32);
 
-   function getTitleTextSize (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_getTitleTextSize";
+   function getTitleTextSize (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setTitleAlignment (widget : access tguiWidget; alignment : TGUI.Alignment.tguiHorizontalAlignment)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_setTitleAlignment";
+   procedure setTitleAlignment
+     (widget : access tguiWidget; alignment : TGUI.Alignment.tguiHorizontalAlignment);
 
-   function getTitleAlignment (widget : access constant tguiWidget) return TGUI.Alignment.tguiHorizontalAlignment
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_getTitleAlignment";
+   function getTitleAlignment
+     (widget : access constant tguiWidget) return TGUI.Alignment.tguiHorizontalAlignment;
 
-   procedure setTitleButtons (widget : access tguiWidget; buttons : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_setTitleButtons";
+   procedure setTitleButtons (widget : access tguiWidget; buttons : tguiUint32);
 
-   function getTitleButtons (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_getTitleButtons";
+   function getTitleButtons (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setResizable (widget : access tguiWidget; resizable : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_setResizable";
+   procedure setResizable (widget : access tguiWidget; resizable : tguiBool);
 
-   function isResizable (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_isResizable";
+   function isResizable (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setKeepInParent (widget : access tguiWidget; keepInParent : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_setKeepInParent";
+   procedure setKeepInParent (widget : access tguiWidget; keepInParent : tguiBool);
 
-   function isKeptInParent (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_isKeptInParent";
+   function isKeptInParent (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setPositionLocked (widget : access tguiWidget; positionLocked : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_setPositionLocked";
+   procedure setPositionLocked (widget : access tguiWidget; positionLocked : tguiBool);
 
-   function isPositionLocked (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChildWindow_isPositionLocked";
+   function isPositionLocked (widget : access constant tguiWidget) return tguiBool;
 
 private
 
-
+   pragma Import (C, create, "tguiChildWindow_create");
+   pragma Import (C, setMaximumSize, "tguiChildWindow_setMaximumSize");
+   pragma Import (C, getMaximumSize, "tguiChildWindow_getMaximumSize");
+   pragma Import (C, setMinimumSize, "tguiChildWindow_setMinimumSize");
+   pragma Import (C, getMinimumSize, "tguiChildWindow_getMinimumSize");
+   pragma Import (C, setTitle, "tguiChildWindow_setTitle");
+   pragma Import (C, getTitle, "tguiChildWindow_getTitle");
+   pragma Import (C, setTitleTextSize, "tguiChildWindow_setTitleTextSize");
+   pragma Import (C, getTitleTextSize, "tguiChildWindow_getTitleTextSize");
+   pragma Import (C, setTitleAlignment, "tguiChildWindow_setTitleAlignment");
+   pragma Import (C, getTitleAlignment, "tguiChildWindow_getTitleAlignment");
+   pragma Import (C, setTitleButtons, "tguiChildWindow_setTitleButtons");
+   pragma Import (C, getTitleButtons, "tguiChildWindow_getTitleButtons");
+   pragma Import (C, setResizable, "tguiChildWindow_setResizable");
+   pragma Import (C, isResizable, "tguiChildWindow_isResizable");
+   pragma Import (C, setKeepInParent, "tguiChildWindow_setKeepInParent");
+   pragma Import (C, isKeptInParent, "tguiChildWindow_isKeptInParent");
+   pragma Import (C, setPositionLocked, "tguiChildWindow_setPositionLocked");
+   pragma Import (C, isPositionLocked, "tguiChildWindow_isPositionLocked");
 
 end TGUI.Widgets.ChildWindow;
 

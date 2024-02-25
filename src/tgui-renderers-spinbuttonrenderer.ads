@@ -16,140 +16,100 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Color;
 
 package TGUI.Renderers.SpinButtonRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_copy";
+   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_setBorders";
+   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_getBorders";
+   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
 
-   procedure setBorderBetweenArrows (renderer : access tguiRenderer; border : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_setBorderBetweenArrows";
+   procedure setBorderBetweenArrows (renderer : access tguiRenderer; border : tguiFloat);
 
-   function getBorderBetweenArrows (renderer : access constant tguiRenderer) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_getBorderBetweenArrows";
+   function getBorderBetweenArrows (renderer : access constant tguiRenderer) return tguiFloat;
 
-   procedure setBackgroundColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_setBackgroundColor";
+   procedure setBackgroundColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_getBackgroundColor";
+   function getBackgroundColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setBackgroundColorHover (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_setBackgroundColorHover";
+   procedure setBackgroundColorHover
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColorHover (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_getBackgroundColorHover";
+   function getBackgroundColorHover
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setArrowColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_setArrowColor";
+   procedure setArrowColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getArrowColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_getArrowColor";
+   function getArrowColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setArrowColorHover (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_setArrowColorHover";
+   procedure setArrowColorHover
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getArrowColorHover (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_getArrowColorHover";
+   function getArrowColorHover
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_setBorderColor";
+   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_getBorderColor";
+   function getBorderColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextureArrowUp (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_setTextureArrowUp";
+   procedure setTextureArrowUp (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureArrowUp (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_getTextureArrowUp";
+   function getTextureArrowUp (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setTextureArrowUpHover (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_setTextureArrowUpHover";
+   procedure setTextureArrowUpHover (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureArrowUpHover (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_getTextureArrowUpHover";
+   function getTextureArrowUpHover
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setTextureArrowDown (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_setTextureArrowDown";
+   procedure setTextureArrowDown (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureArrowDown (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_getTextureArrowDown";
+   function getTextureArrowDown (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setTextureArrowDownHover (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_setTextureArrowDownHover";
+   procedure setTextureArrowDownHover
+     (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureArrowDownHover (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiSpinButtonRenderer_getTextureArrowDownHover";
+   function getTextureArrowDownHover
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
 private
 
-
+   pragma Import (C, create, "tguiSpinButtonRenderer_create");
+   pragma Import (C, copy, "tguiSpinButtonRenderer_copy");
+   pragma Import (C, setBorders, "tguiSpinButtonRenderer_setBorders");
+   pragma Import (C, getBorders, "tguiSpinButtonRenderer_getBorders");
+   pragma Import (C, setBorderBetweenArrows, "tguiSpinButtonRenderer_setBorderBetweenArrows");
+   pragma Import (C, getBorderBetweenArrows, "tguiSpinButtonRenderer_getBorderBetweenArrows");
+   pragma Import (C, setBackgroundColor, "tguiSpinButtonRenderer_setBackgroundColor");
+   pragma Import (C, getBackgroundColor, "tguiSpinButtonRenderer_getBackgroundColor");
+   pragma Import (C, setBackgroundColorHover, "tguiSpinButtonRenderer_setBackgroundColorHover");
+   pragma Import (C, getBackgroundColorHover, "tguiSpinButtonRenderer_getBackgroundColorHover");
+   pragma Import (C, setArrowColor, "tguiSpinButtonRenderer_setArrowColor");
+   pragma Import (C, getArrowColor, "tguiSpinButtonRenderer_getArrowColor");
+   pragma Import (C, setArrowColorHover, "tguiSpinButtonRenderer_setArrowColorHover");
+   pragma Import (C, getArrowColorHover, "tguiSpinButtonRenderer_getArrowColorHover");
+   pragma Import (C, setBorderColor, "tguiSpinButtonRenderer_setBorderColor");
+   pragma Import (C, getBorderColor, "tguiSpinButtonRenderer_getBorderColor");
+   pragma Import (C, setTextureArrowUp, "tguiSpinButtonRenderer_setTextureArrowUp");
+   pragma Import (C, getTextureArrowUp, "tguiSpinButtonRenderer_getTextureArrowUp");
+   pragma Import (C, setTextureArrowUpHover, "tguiSpinButtonRenderer_setTextureArrowUpHover");
+   pragma Import (C, getTextureArrowUpHover, "tguiSpinButtonRenderer_getTextureArrowUpHover");
+   pragma Import (C, setTextureArrowDown, "tguiSpinButtonRenderer_setTextureArrowDown");
+   pragma Import (C, getTextureArrowDown, "tguiSpinButtonRenderer_getTextureArrowDown");
+   pragma Import (C, setTextureArrowDownHover, "tguiSpinButtonRenderer_setTextureArrowDownHover");
+   pragma Import (C, getTextureArrowDownHover, "tguiSpinButtonRenderer_getTextureArrowDownHover");
 
 end TGUI.Renderers.SpinButtonRenderer;
 

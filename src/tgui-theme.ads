@@ -16,73 +16,46 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
-
 package TGUI.Theme is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiTheme
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTheme_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiTheme;
 
-   function copy (theme : access constant tguiTheme) return access tguiTheme
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTheme_copy";
+   function copy (theme : access constant tguiTheme) return access tguiTheme;
 
-   procedure free (theme : access tguiTheme)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTheme_free";
+   procedure free (theme : access tguiTheme);
 
-   function load (theme : access tguiTheme; filename : String) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTheme_load";
+   function load (theme : access tguiTheme; filename : String) return tguiBool;
 
-   function getRenderer (theme : access tguiTheme; id : String) return access tguiRendererData
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTheme_getRenderer";
+   function getRenderer (theme : access tguiTheme; id : String) return access tguiRendererData;
 
    procedure addRenderer
-     (theme : access tguiTheme;
-      id : String;
-      renderer : access tguiRendererData)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTheme_addRenderer";
+     (theme : access tguiTheme; id : String; renderer : access tguiRendererData);
 
-   function removeRenderer (theme : access tguiTheme; id : String) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTheme_removeRenderer";
+   function removeRenderer (theme : access tguiTheme; id : String) return tguiBool;
 
-   function getPrimary (theme : access constant tguiTheme) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTheme_getPrimary";
+   function getPrimary (theme : access constant tguiTheme) return tguiUtf32;
 
-   procedure setDefault (defaultTheme : access tguiTheme)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTheme_setDefault";
+   procedure setDefault (defaultTheme : access tguiTheme);
 
-   function getDefault return access tguiTheme
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTheme_getDefault";
+   function getDefault return access tguiTheme;
 
 private
 
-
+   pragma Import (C, create, "tguiTheme_create");
+   pragma Import (C, copy, "tguiTheme_copy");
+   pragma Import (C, free, "tguiTheme_free");
+   pragma Import (C, load, "tguiTheme_load");
+   pragma Import (C, getRenderer, "tguiTheme_getRenderer");
+   pragma Import (C, addRenderer, "tguiTheme_addRenderer");
+   pragma Import (C, removeRenderer, "tguiTheme_removeRenderer");
+   pragma Import (C, getPrimary, "tguiTheme_getPrimary");
+   pragma Import (C, setDefault, "tguiTheme_setDefault");
+   pragma Import (C, getDefault, "tguiTheme_getDefault");
 
 end TGUI.Theme;
 

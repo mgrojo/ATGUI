@@ -16,117 +16,73 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with System;
 
 package TGUI.Widgets.TreeView is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
    function addItem
-     (widget : access tguiWidget;
-      hierarcy : System.Address;
-      hierarchyLength : tguiUint32;
-      createParents : tguiBool) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_addItem";
+     (widget        : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32;
+      createParents : tguiBool) return tguiBool;
 
    procedure expand
-     (widget : access tguiWidget;
-      hierarcy : System.Address;
-      hierarchyLength : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_expand";
+     (widget : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32);
 
    procedure collapse
-     (widget : access tguiWidget;
-      hierarcy : System.Address;
-      hierarchyLength : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_collapse";
+     (widget : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32);
 
-   procedure expandAll (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_expandAll";
+   procedure expandAll (widget : access tguiWidget);
 
-   procedure collapseAll (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_collapseAll";
+   procedure collapseAll (widget : access tguiWidget);
 
    function selectItem
-     (widget : access tguiWidget;
-      hierarcy : System.Address;
-      hierarchyLength : tguiUint32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_selectItem";
+     (widget : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32)
+      return tguiBool;
 
    function removeItem
-     (widget : access tguiWidget;
-      hierarcy : System.Address;
-      hierarchyLength : tguiUint32;
-      removeParentsWhenEmpty : tguiBool) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_removeItem";
+     (widget : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32;
+      removeParentsWhenEmpty : tguiBool) return tguiBool;
 
-   procedure removeAllItems (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_removeAllItems";
+   procedure removeAllItems (widget : access tguiWidget);
 
-   procedure deselectItem (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_deselectItem";
+   procedure deselectItem (widget : access tguiWidget);
 
-   procedure setItemHeight (widget : access tguiWidget; itemHeight : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_setItemHeight";
+   procedure setItemHeight (widget : access tguiWidget; itemHeight : tguiUint32);
 
-   function getItemHeight (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_getItemHeight";
+   function getItemHeight (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setVerticalScrollbarValue (widget : access tguiWidget; value : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_setVerticalScrollbarValue";
+   procedure setVerticalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
 
-   function getVerticalScrollbarValue (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_getVerticalScrollbarValue";
+   function getVerticalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setHorizontalScrollbarValue (widget : access tguiWidget; value : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_setHorizontalScrollbarValue";
+   procedure setHorizontalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
 
-   function getHorizontalScrollbarValue (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiTreeView_getHorizontalScrollbarValue";
+   function getHorizontalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
 
 private
 
-
+   pragma Import (C, create, "tguiTreeView_create");
+   pragma Import (C, addItem, "tguiTreeView_addItem");
+   pragma Import (C, expand, "tguiTreeView_expand");
+   pragma Import (C, collapse, "tguiTreeView_collapse");
+   pragma Import (C, expandAll, "tguiTreeView_expandAll");
+   pragma Import (C, collapseAll, "tguiTreeView_collapseAll");
+   pragma Import (C, selectItem, "tguiTreeView_selectItem");
+   pragma Import (C, removeItem, "tguiTreeView_removeItem");
+   pragma Import (C, removeAllItems, "tguiTreeView_removeAllItems");
+   pragma Import (C, deselectItem, "tguiTreeView_deselectItem");
+   pragma Import (C, setItemHeight, "tguiTreeView_setItemHeight");
+   pragma Import (C, getItemHeight, "tguiTreeView_getItemHeight");
+   pragma Import (C, setVerticalScrollbarValue, "tguiTreeView_setVerticalScrollbarValue");
+   pragma Import (C, getVerticalScrollbarValue, "tguiTreeView_getVerticalScrollbarValue");
+   pragma Import (C, setHorizontalScrollbarValue, "tguiTreeView_setHorizontalScrollbarValue");
+   pragma Import (C, getHorizontalScrollbarValue, "tguiTreeView_getHorizontalScrollbarValue");
 
 end TGUI.Widgets.TreeView;
 

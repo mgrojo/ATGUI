@@ -16,10 +16,8 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.RenderStates;
 with TGUI.Rect;
@@ -27,114 +25,76 @@ with TGUI.Vector2;
 with TGUI.Color;
 with TGUI.Vertex;
 
-
 package TGUI.BackendRenderTarget is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
    procedure drawWidget
      (target : access tguiBackendRenderTarget;
-      states : access constant TGUI.RenderStates.tguiRenderStates;
-      widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBackendRenderTarget_drawWidget";
+      states : access constant TGUI.RenderStates.tguiRenderStates; widget : access tguiWidget);
 
    procedure addClippingLayer
      (target : access tguiBackendRenderTarget;
-      states : access constant TGUI.RenderStates.tguiRenderStates;
-      rect : TGUI.Rect.tguiFloatRect)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBackendRenderTarget_addClippingLayer";
+      states : access constant TGUI.RenderStates.tguiRenderStates; rect : TGUI.Rect.tguiFloatRect);
 
-   procedure removeClippingLayer (target : access tguiBackendRenderTarget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBackendRenderTarget_removeClippingLayer";
+   procedure removeClippingLayer (target : access tguiBackendRenderTarget);
 
    procedure drawBorders
-     (target : access tguiBackendRenderTarget;
-      states : access constant TGUI.RenderStates.tguiRenderStates;
-      borders : access constant tguiOutline;
-      size : TGUI.Vector2.tguiVector2f;
-      color : access constant TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBackendRenderTarget_drawBorders";
+     (target  : access tguiBackendRenderTarget;
+      states  : access constant TGUI.RenderStates.tguiRenderStates;
+      borders : access constant tguiOutline; size : TGUI.Vector2.tguiVector2f;
+      color   : access constant TGUI.Color.tguiColor);
 
    procedure drawFilledRect
      (target : access tguiBackendRenderTarget;
-      states : access constant TGUI.RenderStates.tguiRenderStates;
-      size : TGUI.Vector2.tguiVector2f;
-      color : access constant TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBackendRenderTarget_drawFilledRect";
+      states : access constant TGUI.RenderStates.tguiRenderStates; size : TGUI.Vector2.tguiVector2f;
+      color  : access constant TGUI.Color.tguiColor);
 
    procedure drawSprite
      (target : access tguiBackendRenderTarget;
       states : access constant TGUI.RenderStates.tguiRenderStates;
-      sprite : access constant tguiSprite)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBackendRenderTarget_drawSprite";
+      sprite : access constant tguiSprite);
 
    procedure drawText
      (target : access tguiBackendRenderTarget;
-      states : access constant TGUI.RenderStates.tguiRenderStates;
-      text : access constant tguiText)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBackendRenderTarget_drawText";
+      states : access constant TGUI.RenderStates.tguiRenderStates; text : access constant tguiText);
 
    procedure drawTriangle
      (target : access tguiBackendRenderTarget;
-      states : access constant TGUI.RenderStates.tguiRenderStates;
-      point1 : TGUI.Vertex.tguiVertex;
-      point2 : TGUI.Vertex.tguiVertex;
-      point3 : TGUI.Vertex.tguiVertex)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBackendRenderTarget_drawTriangle";
+      states : access constant TGUI.RenderStates.tguiRenderStates; point1 : TGUI.Vertex.tguiVertex;
+      point2 : TGUI.Vertex.tguiVertex; point3 : TGUI.Vertex.tguiVertex);
 
    procedure drawCircle
-     (target : access tguiBackendRenderTarget;
-      states : access constant TGUI.RenderStates.tguiRenderStates;
-      size : tguiFloat;
-      backgroundColor : access constant TGUI.Color.tguiColor;
-      borderThickness : tguiFloat;
-      borderColor : access constant TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBackendRenderTarget_drawCircle";
+     (target          : access tguiBackendRenderTarget;
+      states          : access constant TGUI.RenderStates.tguiRenderStates; size : tguiFloat;
+      backgroundColor : access constant TGUI.Color.tguiColor; borderThickness : tguiFloat;
+      borderColor     : access constant TGUI.Color.tguiColor);
 
    procedure drawRoundedRectangle
-     (target : access tguiBackendRenderTarget;
-      states : access constant TGUI.RenderStates.tguiRenderStates;
-      size : TGUI.Vector2.tguiVector2f;
-      backgroundColor : access constant TGUI.Color.tguiColor;
-      radius : tguiFloat;
-      borders : access constant tguiOutline;
-      borderColor : access constant TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBackendRenderTarget_drawRoundedRectangle";
+     (target          : access tguiBackendRenderTarget;
+      states : access constant TGUI.RenderStates.tguiRenderStates; size : TGUI.Vector2.tguiVector2f;
+      backgroundColor : access constant TGUI.Color.tguiColor; radius : tguiFloat;
+      borders : access constant tguiOutline; borderColor : access constant TGUI.Color.tguiColor);
 
    procedure drawVertexArray
-     (target : access tguiBackendRenderTarget;
-      states : access constant TGUI.RenderStates.tguiRenderStates;
-      vertices : access constant TGUI.Vertex.tguiVertex;
-      vertexCount : tguiSize_t;
-      indices : access tguiUint32;
-      indexCount : tguiSize_t)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiBackendRenderTarget_drawVertexArray";
+     (target   : access tguiBackendRenderTarget;
+      states   : access constant TGUI.RenderStates.tguiRenderStates;
+      vertices : access constant TGUI.Vertex.tguiVertex; vertexCount : tguiSize_t;
+      indices  : access tguiUint32; indexCount : tguiSize_t);
 
 private
 
-
+   pragma Import (C, drawWidget, "tguiBackendRenderTarget_drawWidget");
+   pragma Import (C, addClippingLayer, "tguiBackendRenderTarget_addClippingLayer");
+   pragma Import (C, removeClippingLayer, "tguiBackendRenderTarget_removeClippingLayer");
+   pragma Import (C, drawBorders, "tguiBackendRenderTarget_drawBorders");
+   pragma Import (C, drawFilledRect, "tguiBackendRenderTarget_drawFilledRect");
+   pragma Import (C, drawSprite, "tguiBackendRenderTarget_drawSprite");
+   pragma Import (C, drawText, "tguiBackendRenderTarget_drawText");
+   pragma Import (C, drawTriangle, "tguiBackendRenderTarget_drawTriangle");
+   pragma Import (C, drawCircle, "tguiBackendRenderTarget_drawCircle");
+   pragma Import (C, drawRoundedRectangle, "tguiBackendRenderTarget_drawRoundedRectangle");
+   pragma Import (C, drawVertexArray, "tguiBackendRenderTarget_drawVertexArray");
 
 end TGUI.BackendRenderTarget;
 

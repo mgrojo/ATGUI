@@ -16,34 +16,24 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Widgets.Picture is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPicture_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure ignoreMouseEvents (widget : access tguiWidget; ignore : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPicture_ignoreMouseEvents";
+   procedure ignoreMouseEvents (widget : access tguiWidget; ignore : tguiBool);
 
-   function isIgnoringMouseEvents (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiPicture_isIgnoringMouseEvents";
+   function isIgnoringMouseEvents (widget : access constant tguiWidget) return tguiBool;
 
 private
 
-
+   pragma Import (C, create, "tguiPicture_create");
+   pragma Import (C, ignoreMouseEvents, "tguiPicture_ignoreMouseEvents");
+   pragma Import (C, isIgnoringMouseEvents, "tguiPicture_isIgnoringMouseEvents");
 
 end TGUI.Widgets.Picture;
 

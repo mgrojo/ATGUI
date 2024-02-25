@@ -16,100 +16,69 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Color;
 
 package TGUI.Renderers.ChatBoxRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_copy";
+   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_setBorders";
+   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_getBorders";
+   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
 
-   procedure setPadding (renderer : access tguiRenderer; padding : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_setPadding";
+   procedure setPadding (renderer : access tguiRenderer; padding : access tguiOutline);
 
-   function getPadding (renderer : access constant tguiRenderer) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_getPadding";
+   function getPadding (renderer : access constant tguiRenderer) return access tguiOutline;
 
-   procedure setBackgroundColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_setBackgroundColor";
+   procedure setBackgroundColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_getBackgroundColor";
+   function getBackgroundColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_setBorderColor";
+   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_getBorderColor";
+   function getBorderColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_setTextureBackground";
+   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureBackground (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_getTextureBackground";
+   function getTextureBackground
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setScrollbar (renderer : access tguiRenderer; rendererData : access tguiRendererData)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_setScrollbar";
+   procedure setScrollbar (renderer : access tguiRenderer; rendererData : access tguiRendererData);
 
-   function getScrollbar (renderer : access constant tguiRenderer) return access tguiRendererData
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_getScrollbar";
+   function getScrollbar (renderer : access constant tguiRenderer) return access tguiRendererData;
 
-   procedure setScrollbarWidth (renderer : access tguiRenderer; width : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_setScrollbarWidth";
+   procedure setScrollbarWidth (renderer : access tguiRenderer; width : tguiFloat);
 
-   function getScrollbarWidth (renderer : access constant tguiRenderer) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiChatBoxRenderer_getScrollbarWidth";
+   function getScrollbarWidth (renderer : access constant tguiRenderer) return tguiFloat;
 
 private
 
-
+   pragma Import (C, create, "tguiChatBoxRenderer_create");
+   pragma Import (C, copy, "tguiChatBoxRenderer_copy");
+   pragma Import (C, setBorders, "tguiChatBoxRenderer_setBorders");
+   pragma Import (C, getBorders, "tguiChatBoxRenderer_getBorders");
+   pragma Import (C, setPadding, "tguiChatBoxRenderer_setPadding");
+   pragma Import (C, getPadding, "tguiChatBoxRenderer_getPadding");
+   pragma Import (C, setBackgroundColor, "tguiChatBoxRenderer_setBackgroundColor");
+   pragma Import (C, getBackgroundColor, "tguiChatBoxRenderer_getBackgroundColor");
+   pragma Import (C, setBorderColor, "tguiChatBoxRenderer_setBorderColor");
+   pragma Import (C, getBorderColor, "tguiChatBoxRenderer_getBorderColor");
+   pragma Import (C, setTextureBackground, "tguiChatBoxRenderer_setTextureBackground");
+   pragma Import (C, getTextureBackground, "tguiChatBoxRenderer_getTextureBackground");
+   pragma Import (C, setScrollbar, "tguiChatBoxRenderer_setScrollbar");
+   pragma Import (C, getScrollbar, "tguiChatBoxRenderer_getScrollbar");
+   pragma Import (C, setScrollbarWidth, "tguiChatBoxRenderer_setScrollbarWidth");
+   pragma Import (C, getScrollbarWidth, "tguiChatBoxRenderer_getScrollbarWidth");
 
 end TGUI.Renderers.ChatBoxRenderer;
 

@@ -16,10 +16,8 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Vector2;
 with TGUI.Layout;
@@ -34,512 +32,323 @@ with TGUI.Cursor;
 
 package TGUI.Widget is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function copy (other : access constant tguiWidget) return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_copy";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function copy (other : access constant tguiWidget) return access tguiWidget;
 
-   procedure free (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_free";
+   procedure free (widget : access tguiWidget);
 
-   procedure setPosition (widget : access tguiWidget; position : TGUI.Vector2.tguiVector2f)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setPosition";
+   procedure setPosition (widget : access tguiWidget; position : TGUI.Vector2.tguiVector2f);
 
-   procedure setPositionFromLayout (widget : access tguiWidget; layout : access tguiLayout2d)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setPositionFromLayout";
+   procedure setPositionFromLayout (widget : access tguiWidget; layout : access tguiLayout2d);
 
-   function getPosition (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getPosition";
+   function getPosition (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
-   function getAbsolutePosition (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getAbsolutePosition";
+   function getAbsolutePosition
+     (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
-   function getWidgetOffset (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getWidgetOffset";
+   function getWidgetOffset (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
-   procedure setWidth (widget : access tguiWidget; width : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setWidth";
+   procedure setWidth (widget : access tguiWidget; width : tguiFloat);
 
-   procedure setWidthFromLayout (widget : access tguiWidget; layout : access tguiLayout)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setWidthFromLayout";
+   procedure setWidthFromLayout (widget : access tguiWidget; layout : access tguiLayout);
 
-   procedure setHeight (widget : access tguiWidget; height : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setHeight";
+   procedure setHeight (widget : access tguiWidget; height : tguiFloat);
 
-   procedure setHeightFromLayout (widget : access tguiWidget; layout : access tguiLayout)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setHeightFromLayout";
+   procedure setHeightFromLayout (widget : access tguiWidget; layout : access tguiLayout);
 
-   procedure setSize (widget : access tguiWidget; size : TGUI.Vector2.tguiVector2f)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setSize";
+   procedure setSize (widget : access tguiWidget; size : TGUI.Vector2.tguiVector2f);
 
-   procedure setSizeFromLayout (widget : access tguiWidget; layout : access tguiLayout2d)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setSizeFromLayout";
+   procedure setSizeFromLayout (widget : access tguiWidget; layout : access tguiLayout2d);
 
-   function getSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getSize";
+   function getSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
-   function getFullSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getFullSize";
+   function getFullSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
-   procedure setAutoLayout (widget : access constant tguiWidget; layout : TGUI.Layout.tguiAutoLayout)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setAutoLayout";
+   procedure setAutoLayout
+     (widget : access constant tguiWidget; layout : TGUI.Layout.tguiAutoLayout);
 
-   function getAutoLayout (widget : access constant tguiWidget) return TGUI.Layout.tguiAutoLayout
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getAutoLayout";
+   function getAutoLayout (widget : access constant tguiWidget) return TGUI.Layout.tguiAutoLayout;
 
-   procedure setOrigin (widget : access tguiWidget; origin : TGUI.Vector2.tguiVector2f)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setOrigin";
+   procedure setOrigin (widget : access tguiWidget; origin : TGUI.Vector2.tguiVector2f);
 
-   function getOrigin (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getOrigin";
+   function getOrigin (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
    function signalConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalConnect";
+     (widget : access tguiWidget; signalName : String; c_function : access procedure)
+      return tguiUint32;
 
    -- tguiWidget_free must be called on the first parameter in the callback function
    function signalConnectEx
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : access tguiWidget; arg2 : tguiUtf32)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalConnectEx";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : access tguiWidget; arg2 : tguiUtf32)) return tguiUint32;
 
    function signalIntConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : tguiInt)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalIntConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : tguiInt)) return tguiUint32;
 
    function signalUIntConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : tguiUint32)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalUIntConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : tguiUint32)) return tguiUint32;
 
    function signalBoolConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : tguiBool)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalBoolConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : tguiBool)) return tguiUint32;
 
    function signalFloatConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : tguiFloat)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalFloatConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : tguiFloat)) return tguiUint32;
 
    function signalColorConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : TGUI.Color.tguiColor)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalColorConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : TGUI.Color.tguiColor)) return tguiUint32;
 
    function signalStringConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : tguiUtf32)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalStringConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : tguiUtf32)) return tguiUint32;
 
    function signalVector2fConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : TGUI.Vector2.tguiVector2f)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalVector2fConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : TGUI.Vector2.tguiVector2f)) return tguiUint32;
 
    function signalFloatRectConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : TGUI.Rect.tguiFloatRect)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalFloatRectConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : TGUI.Rect.tguiFloatRect)) return tguiUint32;
 
    function signalRangeConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : tguiFloat; arg2 : tguiFloat)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalRangeConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : tguiFloat; arg2 : tguiFloat)) return tguiUint32;
 
    -- tguiWidget_free must be called on the parameter in the callback function
    function signalChildWindowConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : access tguiWidget)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalChildWindowConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : access tguiWidget)) return tguiUint32;
 
    function signalItemConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : tguiInt)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalItemConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : tguiInt)) return tguiUint32;
 
    function signalPanelListBoxItemConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : tguiInt)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalPanelListBoxItemConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : tguiInt)) return tguiUint32;
 
    -- List of strings
    function signalFileDialogPathsConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalFileDialogPathsConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32;
 
    function signalShowEffectConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : TGUI.Animation.tguiShowEffectType; arg2 : tguiBool)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalShowEffectConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : TGUI.Animation.tguiShowEffectType; arg2 : tguiBool))
+      return tguiUint32;
 
    function signalAnimationTypeConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : TGUI.Animation.tguiAnimationType)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalAnimationTypeConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : TGUI.Animation.tguiAnimationType)) return tguiUint32;
 
    -- List of strings
    function signalItemHierarchyConnect
-     (widget : access tguiWidget;
-      signalName : String;
-      c_function : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalItemHierarchyConnect";
+     (widget     : access tguiWidget; signalName : String;
+      c_function : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32;
 
    function signalDisconnect
-     (widget : access tguiWidget;
-      signalName : String;
-      id : tguiUint32) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalDisconnect";
+     (widget : access tguiWidget; signalName : String; id : tguiUint32) return tguiBool;
 
-   procedure signalDisconnectAll (widget : access tguiWidget; signalName : String)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_signalDisconnectAll";
+   procedure signalDisconnectAll (widget : access tguiWidget; signalName : String);
 
    function setSignalEnabled
-     (widget : access tguiWidget;
-      signalName : String;
-      enabled : tguiBool) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setSignalEnabled";
+     (widget : access tguiWidget; signalName : String; enabled : tguiBool) return tguiBool;
 
-   function isSignalEnabled (widget : access tguiWidget; signalName : String) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_isSignalEnabled";
+   function isSignalEnabled (widget : access tguiWidget; signalName : String) return tguiBool;
 
-   function setRenderer (widget : access tguiWidget; renderer : access tguiRendererData) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setRenderer";
+   function setRenderer
+     (widget : access tguiWidget; renderer : access tguiRendererData) return tguiBool;
 
-   function getRenderer (widget : access constant tguiWidget) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getRenderer";
+   function getRenderer (widget : access constant tguiWidget) return access tguiRenderer;
 
-   function getSharedRenderer (widget : access constant tguiWidget) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getSharedRenderer";
+   function getSharedRenderer (widget : access constant tguiWidget) return access tguiRenderer;
 
-   procedure setVisible (widget : access tguiWidget; visible : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setVisible";
+   procedure setVisible (widget : access tguiWidget; visible : tguiBool);
 
-   function isVisible (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_isVisible";
+   function isVisible (widget : access constant tguiWidget) return tguiBool;
 
    procedure showWithEffect
-     (widget : access tguiWidget;
-      c_type : TGUI.Animation.tguiShowEffectType;
-      duration : TGUI.Duration.tguiDuration)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_showWithEffect";
+     (widget   : access tguiWidget; c_type : TGUI.Animation.tguiShowEffectType;
+      duration : TGUI.Duration.tguiDuration);
 
    procedure hideWithEffect
-     (widget : access tguiWidget;
-      c_type : TGUI.Animation.tguiShowEffectType;
-      duration : TGUI.Duration.tguiDuration)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_hideWithEffect";
+     (widget   : access tguiWidget; c_type : TGUI.Animation.tguiShowEffectType;
+      duration : TGUI.Duration.tguiDuration);
 
    procedure moveWithAnimation
-     (widget : access tguiWidget;
-      position : TGUI.Vector2.tguiVector2f;
-      duration : TGUI.Duration.tguiDuration)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_moveWithAnimation";
+     (widget   : access tguiWidget; position : TGUI.Vector2.tguiVector2f;
+      duration : TGUI.Duration.tguiDuration);
 
    procedure resizeWithAnimation
-     (widget : access tguiWidget;
-      size : TGUI.Vector2.tguiVector2f;
-      duration : TGUI.Duration.tguiDuration)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_resizeWithAnimation";
+     (widget   : access tguiWidget; size : TGUI.Vector2.tguiVector2f;
+      duration : TGUI.Duration.tguiDuration);
 
-   procedure setEnabled (widget : access tguiWidget; enabled : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setEnabled";
+   procedure setEnabled (widget : access tguiWidget; enabled : tguiBool);
 
-   function isEnabled (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_isEnabled";
+   function isEnabled (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setFocused (widget : access tguiWidget; focused : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setFocused";
+   procedure setFocused (widget : access tguiWidget; focused : tguiBool);
 
-   function isFocused (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_isFocused";
+   function isFocused (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setFocusable (widget : access tguiWidget; focusable : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setFocusable";
+   procedure setFocusable (widget : access tguiWidget; focusable : tguiBool);
 
-   function isFocusable (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_isFocusable";
+   function isFocusable (widget : access constant tguiWidget) return tguiBool;
 
-   function getWidgetType (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getWidgetType";
+   function getWidgetType (widget : access constant tguiWidget) return tguiUtf32;
 
-   procedure moveToFront (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_moveToFront";
+   procedure moveToFront (widget : access tguiWidget);
 
-   procedure moveToBack (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_moveToBack";
+   procedure moveToBack (widget : access tguiWidget);
 
-   procedure setUserData (widget : access tguiWidget; data : Standard.System.Address)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setUserData";
+   procedure setUserData (widget : access tguiWidget; data : Standard.System.Address);
 
-   function getUserData (widget : access constant tguiWidget) return System.Address
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getUserData";
+   function getUserData (widget : access constant tguiWidget) return System.Address;
 
-   function hasUserData (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_hasUserData";
+   function hasUserData (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setToolTip (widget : access tguiWidget; toolTip : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setToolTip";
+   procedure setToolTip (widget : access tguiWidget; toolTip : access tguiWidget);
 
-   function getToolTip (widget : access constant tguiWidget) return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getToolTip";
+   function getToolTip (widget : access constant tguiWidget) return access tguiWidget;
 
-   function getParent (widget : access constant tguiWidget) return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getParent";
+   function getParent (widget : access constant tguiWidget) return access tguiWidget;
 
-   function isAnimationPlaying (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_isAnimationPlaying";
+   function isAnimationPlaying (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setTextSize (widget : access tguiWidget; size : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setTextSize";
+   procedure setTextSize (widget : access tguiWidget; size : tguiUint32);
 
-   function getTextSize (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getTextSize";
+   function getTextSize (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setWidgetName (widget : access tguiWidget; name : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setWidgetName";
+   procedure setWidgetName (widget : access tguiWidget; name : tguiUtf32);
 
-   function getWidgetName (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getWidgetName";
+   function getWidgetName (widget : access constant tguiWidget) return tguiUtf32;
 
-   procedure setMouseCursor (widget : access tguiWidget; cursor : TGUI.Cursor.tguiCursorType)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setMouseCursor";
+   procedure setMouseCursor (widget : access tguiWidget; cursor : TGUI.Cursor.tguiCursorType);
 
-   function getMouseCursor (widget : access constant tguiWidget) return TGUI.Cursor.tguiCursorType
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getMouseCursor";
+   function getMouseCursor (widget : access constant tguiWidget) return TGUI.Cursor.tguiCursorType;
 
-   procedure setNavigationUp (widget : access tguiWidget; widgetAbove : access constant tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setNavigationUp";
+   procedure setNavigationUp (widget : access tguiWidget; widgetAbove : access constant tguiWidget);
 
-   procedure setNavigationDown (widget : access tguiWidget; widgetBelow : access constant tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setNavigationDown";
+   procedure setNavigationDown
+     (widget : access tguiWidget; widgetBelow : access constant tguiWidget);
 
-   procedure setNavigationLeft (widget : access tguiWidget; widgetLeft : access constant tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setNavigationLeft";
+   procedure setNavigationLeft
+     (widget : access tguiWidget; widgetLeft : access constant tguiWidget);
 
-   procedure setNavigationRight (widget : access tguiWidget; widgetRight : access constant tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setNavigationRight";
+   procedure setNavigationRight
+     (widget : access tguiWidget; widgetRight : access constant tguiWidget);
 
-   function getNavigationUp (widget : access constant tguiWidget) return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getNavigationUp";
+   function getNavigationUp (widget : access constant tguiWidget) return access tguiWidget;
 
-   function getNavigationDown (widget : access constant tguiWidget) return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getNavigationDown";
+   function getNavigationDown (widget : access constant tguiWidget) return access tguiWidget;
 
-   function getNavigationLeft (widget : access constant tguiWidget) return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getNavigationLeft";
+   function getNavigationLeft (widget : access constant tguiWidget) return access tguiWidget;
 
-   function getNavigationRight (widget : access constant tguiWidget) return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_getNavigationRight";
+   function getNavigationRight (widget : access constant tguiWidget) return access tguiWidget;
 
-   procedure finishAllAnimations (widget : access tguiWidget)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_finishAllAnimations";
+   procedure finishAllAnimations (widget : access tguiWidget);
 
-   procedure setAutoLayoutUpdateEnabled (widget : access tguiWidget; enabled : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_setAutoLayoutUpdateEnabled";
+   procedure setAutoLayoutUpdateEnabled (widget : access tguiWidget; enabled : tguiBool);
 
-   procedure updateTime (widget : access tguiWidget; duration : TGUI.Duration.tguiDuration)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_updateTime";
+   procedure updateTime (widget : access tguiWidget; duration : TGUI.Duration.tguiDuration);
 
-   function isMouseDown (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_isMouseDown";
+   function isMouseDown (widget : access constant tguiWidget) return tguiBool;
 
-   function isMouseOnWidget (widget : access constant tguiWidget; pos : TGUI.Vector2.tguiVector2f) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiWidget_isMouseOnWidget";
+   function isMouseOnWidget
+     (widget : access constant tguiWidget; pos : TGUI.Vector2.tguiVector2f) return tguiBool;
 
 private
 
-
+   pragma Import (C, copy, "tguiWidget_copy");
+   pragma Import (C, free, "tguiWidget_free");
+   pragma Import (C, setPosition, "tguiWidget_setPosition");
+   pragma Import (C, setPositionFromLayout, "tguiWidget_setPositionFromLayout");
+   pragma Import (C, getPosition, "tguiWidget_getPosition");
+   pragma Import (C, getAbsolutePosition, "tguiWidget_getAbsolutePosition");
+   pragma Import (C, getWidgetOffset, "tguiWidget_getWidgetOffset");
+   pragma Import (C, setWidth, "tguiWidget_setWidth");
+   pragma Import (C, setWidthFromLayout, "tguiWidget_setWidthFromLayout");
+   pragma Import (C, setHeight, "tguiWidget_setHeight");
+   pragma Import (C, setHeightFromLayout, "tguiWidget_setHeightFromLayout");
+   pragma Import (C, setSize, "tguiWidget_setSize");
+   pragma Import (C, setSizeFromLayout, "tguiWidget_setSizeFromLayout");
+   pragma Import (C, getSize, "tguiWidget_getSize");
+   pragma Import (C, getFullSize, "tguiWidget_getFullSize");
+   pragma Import (C, setAutoLayout, "tguiWidget_setAutoLayout");
+   pragma Import (C, getAutoLayout, "tguiWidget_getAutoLayout");
+   pragma Import (C, setOrigin, "tguiWidget_setOrigin");
+   pragma Import (C, getOrigin, "tguiWidget_getOrigin");
+   pragma Import (C, signalConnect, "tguiWidget_signalConnect");
+   pragma Import (C, signalConnectEx, "tguiWidget_signalConnectEx");
+   pragma Import (C, signalIntConnect, "tguiWidget_signalIntConnect");
+   pragma Import (C, signalUIntConnect, "tguiWidget_signalUIntConnect");
+   pragma Import (C, signalBoolConnect, "tguiWidget_signalBoolConnect");
+   pragma Import (C, signalFloatConnect, "tguiWidget_signalFloatConnect");
+   pragma Import (C, signalColorConnect, "tguiWidget_signalColorConnect");
+   pragma Import (C, signalStringConnect, "tguiWidget_signalStringConnect");
+   pragma Import (C, signalVector2fConnect, "tguiWidget_signalVector2fConnect");
+   pragma Import (C, signalFloatRectConnect, "tguiWidget_signalFloatRectConnect");
+   pragma Import (C, signalRangeConnect, "tguiWidget_signalRangeConnect");
+   pragma Import (C, signalChildWindowConnect, "tguiWidget_signalChildWindowConnect");
+   pragma Import (C, signalItemConnect, "tguiWidget_signalItemConnect");
+   pragma Import (C, signalPanelListBoxItemConnect, "tguiWidget_signalPanelListBoxItemConnect");
+   pragma Import (C, signalFileDialogPathsConnect, "tguiWidget_signalFileDialogPathsConnect");
+   pragma Import (C, signalShowEffectConnect, "tguiWidget_signalShowEffectConnect");
+   pragma Import (C, signalAnimationTypeConnect, "tguiWidget_signalAnimationTypeConnect");
+   pragma Import (C, signalItemHierarchyConnect, "tguiWidget_signalItemHierarchyConnect");
+   pragma Import (C, signalDisconnect, "tguiWidget_signalDisconnect");
+   pragma Import (C, signalDisconnectAll, "tguiWidget_signalDisconnectAll");
+   pragma Import (C, setSignalEnabled, "tguiWidget_setSignalEnabled");
+   pragma Import (C, isSignalEnabled, "tguiWidget_isSignalEnabled");
+   pragma Import (C, setRenderer, "tguiWidget_setRenderer");
+   pragma Import (C, getRenderer, "tguiWidget_getRenderer");
+   pragma Import (C, getSharedRenderer, "tguiWidget_getSharedRenderer");
+   pragma Import (C, setVisible, "tguiWidget_setVisible");
+   pragma Import (C, isVisible, "tguiWidget_isVisible");
+   pragma Import (C, showWithEffect, "tguiWidget_showWithEffect");
+   pragma Import (C, hideWithEffect, "tguiWidget_hideWithEffect");
+   pragma Import (C, moveWithAnimation, "tguiWidget_moveWithAnimation");
+   pragma Import (C, resizeWithAnimation, "tguiWidget_resizeWithAnimation");
+   pragma Import (C, setEnabled, "tguiWidget_setEnabled");
+   pragma Import (C, isEnabled, "tguiWidget_isEnabled");
+   pragma Import (C, setFocused, "tguiWidget_setFocused");
+   pragma Import (C, isFocused, "tguiWidget_isFocused");
+   pragma Import (C, setFocusable, "tguiWidget_setFocusable");
+   pragma Import (C, isFocusable, "tguiWidget_isFocusable");
+   pragma Import (C, getWidgetType, "tguiWidget_getWidgetType");
+   pragma Import (C, moveToFront, "tguiWidget_moveToFront");
+   pragma Import (C, moveToBack, "tguiWidget_moveToBack");
+   pragma Import (C, setUserData, "tguiWidget_setUserData");
+   pragma Import (C, getUserData, "tguiWidget_getUserData");
+   pragma Import (C, hasUserData, "tguiWidget_hasUserData");
+   pragma Import (C, setToolTip, "tguiWidget_setToolTip");
+   pragma Import (C, getToolTip, "tguiWidget_getToolTip");
+   pragma Import (C, getParent, "tguiWidget_getParent");
+   pragma Import (C, isAnimationPlaying, "tguiWidget_isAnimationPlaying");
+   pragma Import (C, setTextSize, "tguiWidget_setTextSize");
+   pragma Import (C, getTextSize, "tguiWidget_getTextSize");
+   pragma Import (C, setWidgetName, "tguiWidget_setWidgetName");
+   pragma Import (C, getWidgetName, "tguiWidget_getWidgetName");
+   pragma Import (C, setMouseCursor, "tguiWidget_setMouseCursor");
+   pragma Import (C, getMouseCursor, "tguiWidget_getMouseCursor");
+   pragma Import (C, setNavigationUp, "tguiWidget_setNavigationUp");
+   pragma Import (C, setNavigationDown, "tguiWidget_setNavigationDown");
+   pragma Import (C, setNavigationLeft, "tguiWidget_setNavigationLeft");
+   pragma Import (C, setNavigationRight, "tguiWidget_setNavigationRight");
+   pragma Import (C, getNavigationUp, "tguiWidget_getNavigationUp");
+   pragma Import (C, getNavigationDown, "tguiWidget_getNavigationDown");
+   pragma Import (C, getNavigationLeft, "tguiWidget_getNavigationLeft");
+   pragma Import (C, getNavigationRight, "tguiWidget_getNavigationRight");
+   pragma Import (C, finishAllAnimations, "tguiWidget_finishAllAnimations");
+   pragma Import (C, setAutoLayoutUpdateEnabled, "tguiWidget_setAutoLayoutUpdateEnabled");
+   pragma Import (C, updateTime, "tguiWidget_updateTime");
+   pragma Import (C, isMouseDown, "tguiWidget_isMouseDown");
+   pragma Import (C, isMouseOnWidget, "tguiWidget_isMouseOnWidget");
 
 end TGUI.Widget;
 

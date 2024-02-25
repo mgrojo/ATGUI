@@ -16,49 +16,33 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
-
-
 package TGUI.Renderers.ScrollablePanelRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanelRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanelRenderer_copy";
+   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setScrollbar (renderer : access tguiRenderer; rendererData : access tguiRendererData)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanelRenderer_setScrollbar";
+   procedure setScrollbar (renderer : access tguiRenderer; rendererData : access tguiRendererData);
 
-   function getScrollbar (renderer : access constant tguiRenderer) return access tguiRendererData
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanelRenderer_getScrollbar";
+   function getScrollbar (renderer : access constant tguiRenderer) return access tguiRendererData;
 
-   procedure setScrollbarWidth (renderer : access tguiRenderer; width : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanelRenderer_setScrollbarWidth";
+   procedure setScrollbarWidth (renderer : access tguiRenderer; width : tguiFloat);
 
-   function getScrollbarWidth (renderer : access constant tguiRenderer) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiScrollablePanelRenderer_getScrollbarWidth";
+   function getScrollbarWidth (renderer : access constant tguiRenderer) return tguiFloat;
 
 private
 
-
+   pragma Import (C, create, "tguiScrollablePanelRenderer_create");
+   pragma Import (C, copy, "tguiScrollablePanelRenderer_copy");
+   pragma Import (C, setScrollbar, "tguiScrollablePanelRenderer_setScrollbar");
+   pragma Import (C, getScrollbar, "tguiScrollablePanelRenderer_getScrollbar");
+   pragma Import (C, setScrollbarWidth, "tguiScrollablePanelRenderer_setScrollbarWidth");
+   pragma Import (C, getScrollbarWidth, "tguiScrollablePanelRenderer_getScrollbarWidth");
 
 end TGUI.Renderers.ScrollablePanelRenderer;
 

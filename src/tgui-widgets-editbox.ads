@@ -16,139 +16,88 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
-
 
 with TGUI.Alignment;
 
 package TGUI.Widgets.EditBox is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiWidget
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiWidget;
 
-   procedure setText (widget : access tguiWidget; text : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_setText";
+   procedure setText (widget : access tguiWidget; text : tguiUtf32);
 
-   function getText (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_getText";
+   function getText (widget : access constant tguiWidget) return tguiUtf32;
 
-   procedure setDefaultText (widget : access tguiWidget; text : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_setDefaultText";
+   procedure setDefaultText (widget : access tguiWidget; text : tguiUtf32);
 
-   function getDefaultText (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_getDefaultText";
+   function getDefaultText (widget : access constant tguiWidget) return tguiUtf32;
 
-   procedure selectText
-     (widget : access tguiWidget;
-      start : tguiSize_t;
-      length : tguiSize_t)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_selectText";
+   procedure selectText (widget : access tguiWidget; start : tguiSize_t; length : tguiSize_t);
 
-   function getSelectedText (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_getSelectedText";
+   function getSelectedText (widget : access constant tguiWidget) return tguiUtf32;
 
-   procedure setPasswordCharacter (widget : access tguiWidget; passwordChar : tguiChar)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_setPasswordCharacter";
+   procedure setPasswordCharacter (widget : access tguiWidget; passwordChar : tguiChar);
 
-   function getPasswordCharacter (widget : access constant tguiWidget) return tguiChar
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_getPasswordCharacter";
+   function getPasswordCharacter (widget : access constant tguiWidget) return tguiChar;
 
-   procedure setMaximumCharacters (widget : access tguiWidget; maximumCharacters : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_setMaximumCharacters";
+   procedure setMaximumCharacters (widget : access tguiWidget; maximumCharacters : tguiUint32);
 
-   function getMaximumCharacters (widget : access constant tguiWidget) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_getMaximumCharacters";
+   function getMaximumCharacters (widget : access constant tguiWidget) return tguiUint32;
 
-   procedure setAlignment (widget : access tguiWidget; alignment : TGUI.Alignment.tguiHorizontalAlignment)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_setAlignment";
+   procedure setAlignment
+     (widget : access tguiWidget; alignment : TGUI.Alignment.tguiHorizontalAlignment);
 
-   function getAlignment (widget : access constant tguiWidget) return TGUI.Alignment.tguiHorizontalAlignment
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_getAlignment";
+   function getAlignment
+     (widget : access constant tguiWidget) return TGUI.Alignment.tguiHorizontalAlignment;
 
-   procedure limitTextWidth (widget : access tguiWidget; limitWidth : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_limitTextWidth";
+   procedure limitTextWidth (widget : access tguiWidget; limitWidth : tguiBool);
 
-   function isTextWidthLimited (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_isTextWidthLimited";
+   function isTextWidthLimited (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setReadOnly (widget : access tguiWidget; readOnly : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_setReadOnly";
+   procedure setReadOnly (widget : access tguiWidget; readOnly : tguiBool);
 
-   function isReadOnly (widget : access constant tguiWidget) return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_isReadOnly";
+   function isReadOnly (widget : access constant tguiWidget) return tguiBool;
 
-   procedure setCaretPosition (widget : access tguiWidget; caretPosition : tguiSize_t)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_setCaretPosition";
+   procedure setCaretPosition (widget : access tguiWidget; caretPosition : tguiSize_t);
 
-   function getCaretPosition (widget : access constant tguiWidget) return tguiSize_t
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_getCaretPosition";
+   function getCaretPosition (widget : access constant tguiWidget) return tguiSize_t;
 
-   procedure setInputValidator (widget : access tguiWidget; validator : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_setInputValidator";
+   procedure setInputValidator (widget : access tguiWidget; validator : tguiUtf32);
 
-   function getInputValidator (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_getInputValidator";
+   function getInputValidator (widget : access constant tguiWidget) return tguiUtf32;
 
-   procedure setSuffix (widget : access tguiWidget; suffix : tguiUtf32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_setSuffix";
+   procedure setSuffix (widget : access tguiWidget; suffix : tguiUtf32);
 
-   function getSuffix (widget : access constant tguiWidget) return tguiUtf32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiEditBox_getSuffix";
+   function getSuffix (widget : access constant tguiWidget) return tguiUtf32;
 
 private
 
-
+   pragma Import (C, create, "tguiEditBox_create");
+   pragma Import (C, setText, "tguiEditBox_setText");
+   pragma Import (C, getText, "tguiEditBox_getText");
+   pragma Import (C, setDefaultText, "tguiEditBox_setDefaultText");
+   pragma Import (C, getDefaultText, "tguiEditBox_getDefaultText");
+   pragma Import (C, selectText, "tguiEditBox_selectText");
+   pragma Import (C, getSelectedText, "tguiEditBox_getSelectedText");
+   pragma Import (C, setPasswordCharacter, "tguiEditBox_setPasswordCharacter");
+   pragma Import (C, getPasswordCharacter, "tguiEditBox_getPasswordCharacter");
+   pragma Import (C, setMaximumCharacters, "tguiEditBox_setMaximumCharacters");
+   pragma Import (C, getMaximumCharacters, "tguiEditBox_getMaximumCharacters");
+   pragma Import (C, setAlignment, "tguiEditBox_setAlignment");
+   pragma Import (C, getAlignment, "tguiEditBox_getAlignment");
+   pragma Import (C, limitTextWidth, "tguiEditBox_limitTextWidth");
+   pragma Import (C, isTextWidthLimited, "tguiEditBox_isTextWidthLimited");
+   pragma Import (C, setReadOnly, "tguiEditBox_setReadOnly");
+   pragma Import (C, isReadOnly, "tguiEditBox_isReadOnly");
+   pragma Import (C, setCaretPosition, "tguiEditBox_setCaretPosition");
+   pragma Import (C, getCaretPosition, "tguiEditBox_getCaretPosition");
+   pragma Import (C, setInputValidator, "tguiEditBox_setInputValidator");
+   pragma Import (C, getInputValidator, "tguiEditBox_getInputValidator");
+   pragma Import (C, setSuffix, "tguiEditBox_setSuffix");
+   pragma Import (C, getSuffix, "tguiEditBox_getSuffix");
 
 end TGUI.Widgets.EditBox;
 

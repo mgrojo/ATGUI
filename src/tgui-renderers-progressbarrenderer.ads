@@ -16,120 +16,85 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Color;
 
 package TGUI.Renderers.ProgressBarRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_copy";
+   function copy (other : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_setBorders";
+   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_getBorders";
+   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
 
-   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_setTextColor";
+   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getTextColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_getTextColor";
+   function getTextColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextColorFilled (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_setTextColorFilled";
+   procedure setTextColorFilled
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getTextColorFilled (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_getTextColorFilled";
+   function getTextColorFilled
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setBackgroundColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_setBackgroundColor";
+   procedure setBackgroundColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_getBackgroundColor";
+   function getBackgroundColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setFillColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_setFillColor";
+   procedure setFillColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getFillColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_getFillColor";
+   function getFillColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_setBorderColor";
+   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_getBorderColor";
+   function getBorderColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_setTextureBackground";
+   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureBackground (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_getTextureBackground";
+   function getTextureBackground
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setTextureFill (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_setTextureFill";
+   procedure setTextureFill (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureFill (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_getTextureFill";
+   function getTextureFill (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setTextStyle (renderer : access tguiRenderer; style : tguiUint32)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_setTextStyle";
+   procedure setTextStyle (renderer : access tguiRenderer; style : tguiUint32);
 
-   function getTextStyle (renderer : access tguiRenderer) return tguiUint32
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiProgressBarRenderer_getTextStyle";
+   function getTextStyle (renderer : access tguiRenderer) return tguiUint32;
 
 private
 
-
+   pragma Import (C, create, "tguiProgressBarRenderer_create");
+   pragma Import (C, copy, "tguiProgressBarRenderer_copy");
+   pragma Import (C, setBorders, "tguiProgressBarRenderer_setBorders");
+   pragma Import (C, getBorders, "tguiProgressBarRenderer_getBorders");
+   pragma Import (C, setTextColor, "tguiProgressBarRenderer_setTextColor");
+   pragma Import (C, getTextColor, "tguiProgressBarRenderer_getTextColor");
+   pragma Import (C, setTextColorFilled, "tguiProgressBarRenderer_setTextColorFilled");
+   pragma Import (C, getTextColorFilled, "tguiProgressBarRenderer_getTextColorFilled");
+   pragma Import (C, setBackgroundColor, "tguiProgressBarRenderer_setBackgroundColor");
+   pragma Import (C, getBackgroundColor, "tguiProgressBarRenderer_getBackgroundColor");
+   pragma Import (C, setFillColor, "tguiProgressBarRenderer_setFillColor");
+   pragma Import (C, getFillColor, "tguiProgressBarRenderer_getFillColor");
+   pragma Import (C, setBorderColor, "tguiProgressBarRenderer_setBorderColor");
+   pragma Import (C, getBorderColor, "tguiProgressBarRenderer_getBorderColor");
+   pragma Import (C, setTextureBackground, "tguiProgressBarRenderer_setTextureBackground");
+   pragma Import (C, getTextureBackground, "tguiProgressBarRenderer_getTextureBackground");
+   pragma Import (C, setTextureFill, "tguiProgressBarRenderer_setTextureFill");
+   pragma Import (C, getTextureFill, "tguiProgressBarRenderer_getTextureFill");
+   pragma Import (C, setTextStyle, "tguiProgressBarRenderer_setTextStyle");
+   pragma Import (C, getTextStyle, "tguiProgressBarRenderer_getTextStyle");
 
 end TGUI.Renderers.ProgressBarRenderer;
 

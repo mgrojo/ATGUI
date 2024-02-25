@@ -16,51 +16,36 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
 
 with TGUI.Duration;
 with TGUI.Vector2;
 
-
 package TGUI.ToolTip is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   procedure setInitialDelay (c_delay : TGUI.Duration.tguiDuration)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiToolTip_setInitialDelay";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   procedure setInitialDelay (c_delay : TGUI.Duration.tguiDuration);
 
-   function getInitialDelay return TGUI.Duration.tguiDuration
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiToolTip_getInitialDelay";
+   function getInitialDelay return TGUI.Duration.tguiDuration;
 
-   procedure setDistanceToMouse (distance : TGUI.Vector2.tguiVector2f)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiToolTip_setDistanceToMouse";
+   procedure setDistanceToMouse (distance : TGUI.Vector2.tguiVector2f);
 
-   function getDistanceToMouse return TGUI.Vector2.tguiVector2f
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiToolTip_getDistanceToMouse";
+   function getDistanceToMouse return TGUI.Vector2.tguiVector2f;
 
-   procedure setShowOnDisabledWidget (show : tguiBool)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiToolTip_setShowOnDisabledWidget";
+   procedure setShowOnDisabledWidget (show : tguiBool);
 
-   function getShowOnDisabledWidget return tguiBool
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiToolTip_getShowOnDisabledWidget";
+   function getShowOnDisabledWidget return tguiBool;
 
 private
 
-
+   pragma Import (C, setInitialDelay, "tguiToolTip_setInitialDelay");
+   pragma Import (C, getInitialDelay, "tguiToolTip_getInitialDelay");
+   pragma Import (C, setDistanceToMouse, "tguiToolTip_setDistanceToMouse");
+   pragma Import (C, getDistanceToMouse, "tguiToolTip_getDistanceToMouse");
+   pragma Import (C, setShowOnDisabledWidget, "tguiToolTip_setShowOnDisabledWidget");
+   pragma Import (C, getShowOnDisabledWidget, "tguiToolTip_getShowOnDisabledWidget");
 
 end TGUI.ToolTip;
 

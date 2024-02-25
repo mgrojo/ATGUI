@@ -16,120 +16,93 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
-
 --//////////////////////////////////////////////////////////
 pragma Warnings (Off, "-gnatwu");
-
 
 with TGUI.Color;
 
 package TGUI.Renderers.MenuBarRenderer is
 
-  ----------------------------------------------------------------------------
-  ----------------------------------------------------------------------------
-   function create return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_create";
+   ----------------------------------------------------------------------------
+   ----------------------------------------------------------------------------
+   function create return access tguiRenderer;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_copy";
+   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
 
-   procedure setBackgroundColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_setBackgroundColor";
+   procedure setBackgroundColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_getBackgroundColor";
+   function getBackgroundColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setSelectedBackgroundColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_setSelectedBackgroundColor";
+   procedure setSelectedBackgroundColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getSelectedBackgroundColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_getSelectedBackgroundColor";
+   function getSelectedBackgroundColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_setTextColor";
+   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getTextColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_getTextColor";
+   function getTextColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setSelectedTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_setSelectedTextColor";
+   procedure setSelectedTextColor
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getSelectedTextColor (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_getSelectedTextColor";
+   function getSelectedTextColor
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextColorDisabled (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_setTextColorDisabled";
+   procedure setTextColorDisabled
+     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
 
-   function getTextColorDisabled (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_getTextColorDisabled";
+   function getTextColorDisabled
+     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
 
-   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_setTextureBackground";
+   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureBackground (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_getTextureBackground";
+   function getTextureBackground
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setTextureItemBackground (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_setTextureItemBackground";
+   procedure setTextureItemBackground
+     (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureItemBackground (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_getTextureItemBackground";
+   function getTextureItemBackground
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setTextureSelectedItemBackground (renderer : access tguiRenderer; texture : access tguiTexture)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_setTextureSelectedItemBackground";
+   procedure setTextureSelectedItemBackground
+     (renderer : access tguiRenderer; texture : access tguiTexture);
 
-   function getTextureSelectedItemBackground (renderer : access constant tguiRenderer) return access tguiTexture
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_getTextureSelectedItemBackground";
+   function getTextureSelectedItemBackground
+     (renderer : access constant tguiRenderer) return access tguiTexture;
 
-   procedure setDistanceToSide (renderer : access tguiRenderer; distanceToSide : tguiFloat)
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_setDistanceToSide";
+   procedure setDistanceToSide (renderer : access tguiRenderer; distanceToSide : tguiFloat);
 
-   function getDistanceToSide (renderer : access constant tguiRenderer) return tguiFloat
-   with Import => True,
-        Convention => C,
-        External_Name => "tguiMenuBarRenderer_getDistanceToSide";
+   function getDistanceToSide (renderer : access constant tguiRenderer) return tguiFloat;
 
 private
 
-
+   pragma Import (C, create, "tguiMenuBarRenderer_create");
+   pragma Import (C, copy, "tguiMenuBarRenderer_copy");
+   pragma Import (C, setBackgroundColor, "tguiMenuBarRenderer_setBackgroundColor");
+   pragma Import (C, getBackgroundColor, "tguiMenuBarRenderer_getBackgroundColor");
+   pragma Import (C, setSelectedBackgroundColor, "tguiMenuBarRenderer_setSelectedBackgroundColor");
+   pragma Import (C, getSelectedBackgroundColor, "tguiMenuBarRenderer_getSelectedBackgroundColor");
+   pragma Import (C, setTextColor, "tguiMenuBarRenderer_setTextColor");
+   pragma Import (C, getTextColor, "tguiMenuBarRenderer_getTextColor");
+   pragma Import (C, setSelectedTextColor, "tguiMenuBarRenderer_setSelectedTextColor");
+   pragma Import (C, getSelectedTextColor, "tguiMenuBarRenderer_getSelectedTextColor");
+   pragma Import (C, setTextColorDisabled, "tguiMenuBarRenderer_setTextColorDisabled");
+   pragma Import (C, getTextColorDisabled, "tguiMenuBarRenderer_getTextColorDisabled");
+   pragma Import (C, setTextureBackground, "tguiMenuBarRenderer_setTextureBackground");
+   pragma Import (C, getTextureBackground, "tguiMenuBarRenderer_getTextureBackground");
+   pragma Import (C, setTextureItemBackground, "tguiMenuBarRenderer_setTextureItemBackground");
+   pragma Import (C, getTextureItemBackground, "tguiMenuBarRenderer_getTextureItemBackground");
+   pragma Import
+     (C, setTextureSelectedItemBackground, "tguiMenuBarRenderer_setTextureSelectedItemBackground");
+   pragma Import
+     (C, getTextureSelectedItemBackground, "tguiMenuBarRenderer_getTextureSelectedItemBackground");
+   pragma Import (C, setDistanceToSide, "tguiMenuBarRenderer_setDistanceToSide");
+   pragma Import (C, getDistanceToSide, "tguiMenuBarRenderer_getDistanceToSide");
 
 end TGUI.Renderers.MenuBarRenderer;
 
