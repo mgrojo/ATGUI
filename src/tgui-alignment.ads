@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Alignment is
 
    ----------------------------------------------------------------------------
@@ -50,6 +47,3 @@ package TGUI.Alignment is
 private
 
 end TGUI.Alignment;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

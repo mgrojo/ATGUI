@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Color;
 
 package TGUI.Renderers.ListBoxRenderer is
@@ -150,6 +147,3 @@ private
    pragma Import (C, getScrollbarWidth, "tguiListBoxRenderer_getScrollbarWidth");
 
 end TGUI.Renderers.ListBoxRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

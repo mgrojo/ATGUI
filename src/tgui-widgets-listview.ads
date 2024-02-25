@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Alignment;
 
 with System;
@@ -238,6 +235,3 @@ private
    pragma Import (C, sort, "tguiListView_sort");
 
 end TGUI.Widgets.ListView;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

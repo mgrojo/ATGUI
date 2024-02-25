@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.BoxLayoutRatios is
 
    ----------------------------------------------------------------------------
@@ -55,6 +52,3 @@ private
    pragma Import (C, getRatioAtIndex, "tguiBoxLayoutRatios_getRatioAtIndex");
 
 end TGUI.Widgets.BoxLayoutRatios;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

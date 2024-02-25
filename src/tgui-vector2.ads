@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Vector2 is
 
    ----------------------------------------------------------------------------
@@ -60,6 +57,3 @@ private
    pragma Import (C, tguiVector2f_Null, "tguiVector2f_Null");
 
 end TGUI.Vector2;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

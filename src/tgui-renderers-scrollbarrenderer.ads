@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Color;
 
 package TGUI.Renderers.ScrollbarRenderer is
@@ -151,6 +148,3 @@ private
    pragma Import (C, getTextureArrowDownHover, "tguiScrollbarRenderer_getTextureArrowDownHover");
 
 end TGUI.Renderers.ScrollbarRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

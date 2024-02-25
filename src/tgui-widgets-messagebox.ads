@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.MessageBox is
 
    ----------------------------------------------------------------------------
@@ -39,6 +36,3 @@ private
    pragma Import (C, addButton, "tguiMessageBox_addButton");
 
 end TGUI.Widgets.MessageBox;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

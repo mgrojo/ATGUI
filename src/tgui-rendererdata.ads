@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.RendererData is
 
    ----------------------------------------------------------------------------
@@ -33,6 +30,3 @@ private
    pragma Import (C, free, "tguiRendererData_free");
 
 end TGUI.RendererData;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

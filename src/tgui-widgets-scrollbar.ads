@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.Scrollbar is
 
    ----------------------------------------------------------------------------
@@ -69,6 +66,3 @@ private
    pragma Import (C, getDefaultWidth, "tguiScrollbar_getDefaultWidth");
 
 end TGUI.Widgets.Scrollbar;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

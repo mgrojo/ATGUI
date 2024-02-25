@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.RenderStates is
 
    ----------------------------------------------------------------------------
@@ -40,6 +37,3 @@ package TGUI.RenderStates is
 private
 
 end TGUI.RenderStates;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

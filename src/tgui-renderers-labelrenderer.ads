@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Color;
 
 package TGUI.Renderers.LabelRenderer is
@@ -108,6 +105,3 @@ private
    pragma Import (C, getTextureBackground, "tguiLabelRenderer_getTextureBackground");
 
 end TGUI.Renderers.LabelRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

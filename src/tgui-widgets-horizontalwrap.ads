@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.HorizontalWrap is
 
    ----------------------------------------------------------------------------
@@ -30,6 +27,3 @@ private
    pragma Import (C, create, "tguiHorizontalWrap_create");
 
 end TGUI.Widgets.HorizontalWrap;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

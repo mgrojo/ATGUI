@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Color;
 
 package TGUI.Renderers.ChildWindowRenderer is
@@ -155,6 +152,3 @@ private
    pragma Import (C, getMinimizeButton, "tguiChildWindowRenderer_getMinimizeButton");
 
 end TGUI.Renderers.ChildWindowRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

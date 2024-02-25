@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Event is
 
    ----------------------------------------------------------------------------
@@ -324,6 +321,3 @@ package TGUI.Event is
 private
 
 end TGUI.Event;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

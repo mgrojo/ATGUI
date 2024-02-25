@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Rect;
 
 with TGUI.Vector2;
@@ -112,6 +109,3 @@ private
    pragma Import (C, getDefaultSmooth, "tguiTexture_getDefaultSmooth");
 
 end TGUI.Texture;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

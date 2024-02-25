@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Cursor is
 
    ----------------------------------------------------------------------------
@@ -61,6 +58,3 @@ package TGUI.Cursor is
 private
 
 end TGUI.Cursor;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

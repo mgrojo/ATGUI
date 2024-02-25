@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Renderers.GroupRenderer is
 
    ----------------------------------------------------------------------------
@@ -39,6 +36,3 @@ private
    pragma Import (C, getPadding, "tguiGroupRenderer_getPadding");
 
 end TGUI.Renderers.GroupRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Vector2;
 with TGUI.Color;
 
@@ -36,6 +33,3 @@ package TGUI.Vertex is
 private
 
 end TGUI.Vertex;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

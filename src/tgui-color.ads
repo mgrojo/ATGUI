@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Color is
 
    ----------------------------------------------------------------------------
@@ -85,6 +82,3 @@ private
    pragma Import (C, fromString, "tguiColor_fromString");
 
 end TGUI.Color;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

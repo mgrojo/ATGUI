@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Duration;
 
 package TGUI.Global is
@@ -52,6 +49,3 @@ private
    pragma Import (C, setBindingWidgetCleanupCallback, "tgui_setBindingWidgetCleanupCallback");
 
 end TGUI.Global;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

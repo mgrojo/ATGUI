@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.ScrollbarPolicy;
 
 package TGUI.Widgets.TextArea is
@@ -110,6 +107,3 @@ private
    pragma Import (C, getLinesCount, "tguiTextArea_getLinesCount");
 
 end TGUI.Widgets.TextArea;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

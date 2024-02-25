@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Rect is
 
    ----------------------------------------------------------------------------
@@ -95,6 +92,3 @@ private
    pragma Import (C, tguiUIntRect_Null, "tguiUIntRect_Null");
 
 end TGUI.Rect;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

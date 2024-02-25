@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.BoxLayout is
 
    ----------------------------------------------------------------------------
@@ -38,6 +35,3 @@ private
    pragma Import (C, getAtIndex, "tguiBoxLayout_getAtIndex");
 
 end TGUI.Widgets.BoxLayout;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

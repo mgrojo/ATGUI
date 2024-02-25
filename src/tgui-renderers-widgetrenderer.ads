@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Renderers.WidgetRenderer is
 
    ----------------------------------------------------------------------------
@@ -67,6 +64,3 @@ private
    pragma Import (C, getData, "tguiWidgetRenderer_getData");
 
 end TGUI.Renderers.WidgetRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

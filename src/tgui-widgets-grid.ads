@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Alignment;
 
 package TGUI.Widgets.Grid is
@@ -82,6 +79,3 @@ private
    pragma Import (C, getWidgetAlignmentByCell, "tguiGrid_getWidgetAlignmentByCell");
 
 end TGUI.Widgets.Grid;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

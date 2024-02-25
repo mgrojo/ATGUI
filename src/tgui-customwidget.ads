@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Vector2;
 with TGUI.Duration;
 with TGUI.Event;
@@ -143,6 +140,3 @@ private
    pragma Import (C, setDrawCallback, "tguiCustomWidget_setDrawCallback");
 
 end TGUI.CustomWidget;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

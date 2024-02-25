@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with System;
 
 package TGUI.Widgets.MenuBar is
@@ -103,6 +100,3 @@ private
    pragma Import (C, closeMenu, "tguiMenuBar_closeMenu");
 
 end TGUI.Widgets.MenuBar;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

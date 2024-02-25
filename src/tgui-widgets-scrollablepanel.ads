@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Vector2;
 with TGUI.ScrollbarPolicy;
 
@@ -89,6 +86,3 @@ private
    pragma Import (C, getContentOffset, "tguiScrollablePanel_getContentOffset");
 
 end TGUI.Widgets.ScrollablePanel;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

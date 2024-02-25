@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.Picture is
 
    ----------------------------------------------------------------------------
@@ -36,6 +33,3 @@ private
    pragma Import (C, isIgnoringMouseEvents, "tguiPicture_isIgnoringMouseEvents");
 
 end TGUI.Widgets.Picture;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

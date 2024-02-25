@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Color;
 
 package TGUI.Renderers.MessageBoxRenderer is
@@ -48,6 +45,3 @@ private
    pragma Import (C, getButton, "tguiMessageBoxRenderer_getButton");
 
 end TGUI.Renderers.MessageBoxRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

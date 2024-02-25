@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.Button is
 
    ----------------------------------------------------------------------------
@@ -36,6 +33,3 @@ private
    pragma Import (C, getText, "tguiButton_getText");
 
 end TGUI.Widgets.Button;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

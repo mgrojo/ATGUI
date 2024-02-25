@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Alignment;
 with TGUI.ScrollbarPolicy;
 
@@ -81,6 +78,3 @@ private
    pragma Import (C, getScrollbarPolicy, "tguiLabel_getScrollbarPolicy");
 
 end TGUI.Widgets.Label;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

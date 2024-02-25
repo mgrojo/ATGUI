@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Vector2;
 with TGUI.Color;
 
@@ -138,6 +135,3 @@ private
    pragma Import (C, getLineWidth, "tguiText_getLineWidth");
 
 end TGUI.Text;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Outline is
 
    ----------------------------------------------------------------------------
@@ -56,6 +53,3 @@ private
    pragma Import (C, getBottom, "tguiOutline_getBottom");
 
 end TGUI.Outline;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

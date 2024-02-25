@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.RadioButtonGroup is
 
    ----------------------------------------------------------------------------
@@ -30,6 +27,3 @@ private
    pragma Import (C, create, "tguiRadioButtonGroup_create");
 
 end TGUI.Widgets.RadioButtonGroup;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

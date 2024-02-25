@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.CheckBox is
 
    ----------------------------------------------------------------------------
@@ -30,6 +27,3 @@ private
    pragma Import (C, create, "tguiCheckBox_create");
 
 end TGUI.Widgets.CheckBox;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with System;
 with TGUI.Vector2;
 
@@ -101,6 +98,3 @@ private
    pragma Import (C, saveWidgetsToFile, "tguiContainer_saveWidgetsToFile");
 
 end TGUI.Container;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

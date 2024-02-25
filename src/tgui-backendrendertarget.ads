@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.RenderStates;
 with TGUI.Rect;
 with TGUI.Vector2;
@@ -97,6 +94,3 @@ private
    pragma Import (C, drawVertexArray, "tguiBackendRenderTarget_drawVertexArray");
 
 end TGUI.BackendRenderTarget;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

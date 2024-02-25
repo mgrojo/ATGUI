@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.ProgressBar is
 
    ----------------------------------------------------------------------------
@@ -70,6 +67,3 @@ private
    pragma Import (C, getFillDirection, "tguiProgressBar_getFillDirection");
 
 end TGUI.Widgets.ProgressBar;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

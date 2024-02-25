@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Color;
 
 package TGUI.Renderers.TreeViewRenderer is
@@ -153,6 +150,3 @@ private
    pragma Import (C, getScrollbarWidth, "tguiTreeViewRenderer_getScrollbarWidth");
 
 end TGUI.Renderers.TreeViewRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

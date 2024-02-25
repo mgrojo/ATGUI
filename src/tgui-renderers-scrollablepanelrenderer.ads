@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Renderers.ScrollablePanelRenderer is
 
    ----------------------------------------------------------------------------
@@ -45,6 +42,3 @@ private
    pragma Import (C, getScrollbarWidth, "tguiScrollablePanelRenderer_getScrollbarWidth");
 
 end TGUI.Renderers.ScrollablePanelRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

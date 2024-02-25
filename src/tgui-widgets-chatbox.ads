@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Color;
 
 package TGUI.Widgets.ChatBox is
@@ -101,6 +98,3 @@ private
    pragma Import (C, getScrollbarValue, "tguiChatBox_getScrollbarValue");
 
 end TGUI.Widgets.ChatBox;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

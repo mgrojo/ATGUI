@@ -125,7 +125,10 @@
 
 
 
-    gsub("pragma Style_Checks \\(Off\\);", "--//////////////////////////////////////////////////////////");
+    gsub("pragma Style_Checks \\(Off\\);", "")
+    gsub("pragma Style_Checks \\(On\\);", "")
+    gsub(/pragma Warnings .Off, "-gnatwu".;/, "")
+    gsub(/pragma Warnings .On, "-gnatwu".;/, "")
 
     gsub(" *-- /usr/include/TGUI/.*", "")
     gsub("^limited with ", "with ")

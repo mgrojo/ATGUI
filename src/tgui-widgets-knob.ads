@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.Knob is
 
    ----------------------------------------------------------------------------
@@ -66,6 +63,3 @@ private
    pragma Import (C, getClockwiseTurning, "tguiKnob_getClockwiseTurning");
 
 end TGUI.Widgets.Knob;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

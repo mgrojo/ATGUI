@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Vector2;
 with TGUI.Rect;
 
@@ -97,6 +94,3 @@ private
    pragma Import (C, getScalingType, "tguiSprite_getScalingType");
 
 end TGUI.Sprite;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

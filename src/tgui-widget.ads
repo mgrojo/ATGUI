@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Vector2;
 with TGUI.Layout;
 
@@ -351,6 +348,3 @@ private
    pragma Import (C, isMouseOnWidget, "tguiWidget_isMouseOnWidget");
 
 end TGUI.Widget;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

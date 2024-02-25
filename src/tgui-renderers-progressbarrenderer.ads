@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Color;
 
 package TGUI.Renderers.ProgressBarRenderer is
@@ -97,6 +94,3 @@ private
    pragma Import (C, getTextStyle, "tguiProgressBarRenderer_getTextStyle");
 
 end TGUI.Renderers.ProgressBarRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

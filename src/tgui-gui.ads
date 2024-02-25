@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Rect;
 
 with System;
@@ -183,6 +180,3 @@ private
    pragma Import (C, mainLoop, "tguiGui_mainLoop");
 
 end TGUI.Gui;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

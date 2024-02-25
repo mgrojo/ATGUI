@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.Tabs is
 
    ----------------------------------------------------------------------------
@@ -102,6 +99,3 @@ private
    pragma Import (C, getMinimumTabWidth, "tguiTabs_getMinimumTabWidth");
 
 end TGUI.Widgets.Tabs;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Widgets.SpinButton is
 
    ----------------------------------------------------------------------------
@@ -60,6 +57,3 @@ private
    pragma Import (C, getVerticalScroll, "tguiSpinButton_getVerticalScroll");
 
 end TGUI.Widgets.SpinButton;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

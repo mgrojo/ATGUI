@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Alignment;
 
 package TGUI.Widgets.EditBox is
@@ -100,6 +97,3 @@ private
    pragma Import (C, getSuffix, "tguiEditBox_getSuffix");
 
 end TGUI.Widgets.EditBox;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

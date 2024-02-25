@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Color;
 
 package TGUI.Renderers.EditBoxRenderer is
@@ -224,6 +221,3 @@ private
    pragma Import (C, getDefaultTextStyle, "tguiEditBoxRenderer_getDefaultTextStyle");
 
 end TGUI.Renderers.EditBoxRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

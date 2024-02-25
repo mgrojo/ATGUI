@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Vector2;
 with TGUI.Alignment;
 
@@ -89,6 +86,3 @@ private
    pragma Import (C, isPositionLocked, "tguiChildWindow_isPositionLocked");
 
 end TGUI.Widgets.ChildWindow;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

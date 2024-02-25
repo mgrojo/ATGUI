@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Color;
 
 package TGUI.Renderers.SliderRenderer is
@@ -112,6 +109,3 @@ private
    pragma Import (C, getTextureThumbHover, "tguiSliderRenderer_getTextureThumbHover");
 
 end TGUI.Renderers.SliderRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

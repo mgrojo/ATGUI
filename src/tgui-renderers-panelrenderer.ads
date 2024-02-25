@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Color;
 
 package TGUI.Renderers.PanelRenderer is
@@ -63,6 +60,3 @@ private
    pragma Import (C, getTextureBackground, "tguiPanelRenderer_getTextureBackground");
 
 end TGUI.Renderers.PanelRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

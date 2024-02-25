@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with System;
 
 package TGUI.Widgets.TreeView is
@@ -85,6 +82,3 @@ private
    pragma Import (C, getHorizontalScrollbarValue, "tguiTreeView_getHorizontalScrollbarValue");
 
 end TGUI.Widgets.TreeView;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

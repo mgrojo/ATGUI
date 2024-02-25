@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 with TGUI.Color;
 
 package TGUI.Renderers.KnobRenderer is
@@ -83,6 +80,3 @@ private
    pragma Import (C, getImageRotation, "tguiKnobRenderer_getImageRotation");
 
 end TGUI.Renderers.KnobRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");

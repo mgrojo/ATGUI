@@ -16,9 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
-
 package TGUI.Renderers.BoxLayoutRenderer is
 
    ----------------------------------------------------------------------------
@@ -39,6 +36,3 @@ private
    pragma Import (C, getSpaceBetweenWidgets, "tguiBoxLayoutRenderer_getSpaceBetweenWidgets");
 
 end TGUI.Renderers.BoxLayoutRenderer;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");
