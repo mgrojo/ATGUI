@@ -37,7 +37,7 @@ package TGUI.Global is
    -- A binding for another language that uses CTGUI may store a global map of resources with the widget pointer as key,
    -- this callback allows the binding to release all resources that were still attached to the freed widget.
    procedure setBindingWidgetCleanupCallback
-     (c_function : access procedure (arg1 : access tguiWidget));
+     (callback : access procedure (arg1 : access tguiWidget));
 
 private
 

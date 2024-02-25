@@ -72,81 +72,81 @@ package TGUI.Widget is
    function getOrigin (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
    function signalConnect
-     (widget : access tguiWidget; signalName : String; c_function : access procedure)
+     (widget : access tguiWidget; signalName : String; callback : access procedure)
       return tguiUint32;
 
    -- tguiWidget_free must be called on the first parameter in the callback function
    function signalConnectEx
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : access tguiWidget; arg2 : tguiUtf32)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : access tguiWidget; arg2 : tguiUtf32)) return tguiUint32;
 
    function signalIntConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : tguiInt)) return tguiUint32;
+     (widget : access tguiWidget; signalName : String; callback : access procedure (arg1 : tguiInt))
+      return tguiUint32;
 
    function signalUIntConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : tguiUint32)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : tguiUint32)) return tguiUint32;
 
    function signalBoolConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : tguiBool)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : tguiBool)) return tguiUint32;
 
    function signalFloatConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : tguiFloat)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : tguiFloat)) return tguiUint32;
 
    function signalColorConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : TGUI.Color.tguiColor)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : TGUI.Color.tguiColor)) return tguiUint32;
 
    function signalStringConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : tguiUtf32)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : tguiUtf32)) return tguiUint32;
 
    function signalVector2fConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : TGUI.Vector2.tguiVector2f)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f)) return tguiUint32;
 
    function signalFloatRectConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : TGUI.Rect.tguiFloatRect)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : TGUI.Rect.tguiFloatRect)) return tguiUint32;
 
    function signalRangeConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : tguiFloat; arg2 : tguiFloat)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : tguiFloat; arg2 : tguiFloat)) return tguiUint32;
 
    -- tguiWidget_free must be called on the parameter in the callback function
    function signalChildWindowConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : access tguiWidget)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : access tguiWidget)) return tguiUint32;
 
    function signalItemConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : tguiInt)) return tguiUint32;
+     (widget : access tguiWidget; signalName : String; callback : access procedure (arg1 : tguiInt))
+      return tguiUint32;
 
    function signalPanelListBoxItemConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : tguiInt)) return tguiUint32;
+     (widget : access tguiWidget; signalName : String; callback : access procedure (arg1 : tguiInt))
+      return tguiUint32;
 
    -- List of strings
    function signalFileDialogPathsConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32;
 
    function signalShowEffectConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : TGUI.Animation.tguiShowEffectType; arg2 : tguiBool))
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : TGUI.Animation.tguiShowEffectType; arg2 : tguiBool))
       return tguiUint32;
 
    function signalAnimationTypeConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : TGUI.Animation.tguiAnimationType)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : TGUI.Animation.tguiAnimationType)) return tguiUint32;
 
    -- List of strings
    function signalItemHierarchyConnect
-     (widget     : access tguiWidget; signalName : String;
-      c_function : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32;
+     (widget   : access tguiWidget; signalName : String;
+      callback : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32;
 
    function signalDisconnect
      (widget : access tguiWidget; signalName : String; id : tguiUint32) return tguiBool;
@@ -170,11 +170,11 @@ package TGUI.Widget is
    function isVisible (widget : access constant tguiWidget) return tguiBool;
 
    procedure showWithEffect
-     (widget   : access tguiWidget; c_type : TGUI.Animation.tguiShowEffectType;
+     (widget   : access tguiWidget; effectType : TGUI.Animation.tguiShowEffectType;
       duration : TGUI.Duration.tguiDuration);
 
    procedure hideWithEffect
-     (widget   : access tguiWidget; c_type : TGUI.Animation.tguiShowEffectType;
+     (widget   : access tguiWidget; effectType : TGUI.Animation.tguiShowEffectType;
       duration : TGUI.Duration.tguiDuration);
 
    procedure moveWithAnimation

@@ -23,7 +23,7 @@ package TGUI.ToolTip is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   procedure setInitialDelay (c_delay : TGUI.Duration.tguiDuration);
+   procedure setInitialDelay (value : TGUI.Duration.tguiDuration);
 
    function getInitialDelay return TGUI.Duration.tguiDuration;
 

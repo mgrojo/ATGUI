@@ -27,10 +27,10 @@ package TGUI.Widgets.Tabs is
    function getAutoSize (widget : access constant tguiWidget) return tguiBool;
 
    function add
-     (widget : access tguiWidget; text : tguiUtf32; c_select : tguiBool) return tguiSize_t;
+     (widget : access tguiWidget; text : tguiUtf32; selected : tguiBool) return tguiSize_t;
 
    procedure insert
-     (widget : access tguiWidget; index : tguiSize_t; text : tguiUtf32; c_select : tguiBool);
+     (widget : access tguiWidget; index : tguiSize_t; text : tguiUtf32; selected : tguiBool);
 
    function getText (widget : access constant tguiWidget; index : tguiSize_t) return tguiUtf32;
 

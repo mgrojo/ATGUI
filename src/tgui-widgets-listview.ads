@@ -167,8 +167,8 @@ package TGUI.Widgets.ListView is
    function getHorizontalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
 
    procedure sort
-     (widget     : access tguiWidget; index : tguiSize_t;
-      c_function : access function (arg1 : tguiUtf32; arg2 : tguiUtf32) return tguiBool);
+     (widget   : access tguiWidget; index : tguiSize_t;
+      callback : access function (arg1 : tguiUtf32; arg2 : tguiUtf32) return tguiBool);
 
 private
 

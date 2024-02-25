@@ -110,11 +110,11 @@ package TGUI.Gui is
 
    function updateTime (gui : access tguiGui) return tguiBool;
 
-   procedure setOverrideMouseCursor (gui : access tguiGui; c_type : TGUI.Cursor.tguiCursorType);
+   procedure setOverrideMouseCursor (gui : access tguiGui; cursorType : TGUI.Cursor.tguiCursorType);
 
    procedure restoreOverrideMouseCursor (gui : access tguiGui);
 
-   procedure requestMouseCursor (gui : access tguiGui; c_type : TGUI.Cursor.tguiCursorType);
+   procedure requestMouseCursor (gui : access tguiGui; cursorType : TGUI.Cursor.tguiCursorType);
 
    function mapPixelToCoords
      (gui : access constant tguiGui; pixel : TGUI.Vector2.tguiVector2i)

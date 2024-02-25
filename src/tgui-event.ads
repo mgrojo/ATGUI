@@ -260,53 +260,53 @@ package TGUI.Event is
      Convention => C;
 
    type tguiKeyEvent is record
-      c_type   : aliased tguiEventType;
-      code     : aliased tguiKeyboardKey;
-      alt      : aliased tguiBool;
-      control  : aliased tguiBool;
-      shift    : aliased tguiBool;
-      c_system : aliased tguiBool;
+      eventType : aliased tguiEventType;
+      code      : aliased tguiKeyboardKey;
+      alt       : aliased tguiBool;
+      control   : aliased tguiBool;
+      shift     : aliased tguiBool;
+      system  : aliased tguiBool;
    end record with
      Convention => C_Pass_By_Copy;
 
    type tguiTextEvent is record
-      c_type  : aliased tguiEventType;
-      unicode : aliased tguiUint32;
+      eventType : aliased tguiEventType;
+      unicode   : aliased tguiUint32;
    end record with
      Convention => C_Pass_By_Copy;
 
    type tguiMouseMoveEvent is record
-      c_type : aliased tguiEventType;
-      x      : aliased tguiInt;
-      y      : aliased tguiInt;
+      eventType : aliased tguiEventType;
+      x         : aliased tguiInt;
+      y         : aliased tguiInt;
    end record with
      Convention => C_Pass_By_Copy;
 
    type tguiMouseButtonEvent is record
-      c_type : aliased tguiEventType;
-      button : aliased tguiMouseButton;
-      x      : aliased tguiInt;
-      y      : aliased tguiInt;
+      eventType : aliased tguiEventType;
+      button    : aliased tguiMouseButton;
+      x         : aliased tguiInt;
+      y         : aliased tguiInt;
    end record with
      Convention => C_Pass_By_Copy;
 
    type tguiMouseWheelEvent is record
-      c_type  : aliased tguiEventType;
-      c_delta : aliased tguiFloat;
-      x       : aliased tguiInt;
-      y       : aliased tguiInt;
+      eventType  : aliased tguiEventType;
+      eventDelta : aliased tguiFloat;
+      x          : aliased tguiInt;
+      y          : aliased tguiInt;
    end record with
      Convention => C_Pass_By_Copy;
 
    type tguiSizeEvent is record
-      c_type : aliased tguiEventType;
-      width  : aliased tguiUint32;
-      height : aliased tguiUint32;
+      eventType : aliased tguiEventType;
+      width     : aliased tguiUint32;
+      height    : aliased tguiUint32;
    end record with
      Convention => C_Pass_By_Copy;
 
    type tguiEvent is record
-      c_type      : aliased tguiEventType;
+      eventType   : aliased tguiEventType;
       key         : aliased tguiKeyEvent;
       text        : aliased tguiTextEvent;
       mouseMove   : aliased tguiMouseMoveEvent;

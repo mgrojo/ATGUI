@@ -146,6 +146,15 @@
     gsub("TGUI\\.Config\\.", "")
     gsub("string : String", "text : String")
 
+    # Adjust some identifiers that are Ada keywords
+    gsub(/c_function/, "callback")
+    gsub(/c_constant/, "value")
+    gsub(/c_delay/, "value")
+    gsub(/c_select/, "selected")
+    gsub(/c_delta/, "eventDelta")
+    gsub(/c_type : aliased tguiEventType/, "eventType : aliased tguiEventType")
+    gsub(/c_system : aliased tguiBool/, "system : aliased tguiBool")
+
     print
 
 }

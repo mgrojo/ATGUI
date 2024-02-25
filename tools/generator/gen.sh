@@ -59,6 +59,8 @@ do
         s/with TGUI.Types;//g;
         s%--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////%----------------------------------------------------------------------------%;
         s%  -- include/CTGUI/.*%%;
+        s/c_type : \(.*tguiCursorType\)/cursorType : \1/g;
+        s/c_type : \(.*tguiShowEffectType\)/effectType : \1/g;
         s/\\\\/@/g  " $NEW_FILE
 
             gnatpp --vertical-enum-types --max-line-length=100 $NEW_FILE

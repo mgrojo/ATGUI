@@ -16,8 +16,6 @@
 -- 3. This notice may not be removed or altered from any source distribution.
 ------------------------------------------------------------
 
---//////////////////////////////////////////////////////////
-pragma Warnings (Off, "-gnatwu");
 
 with TGUI.Vector2;
 
@@ -46,7 +44,7 @@ package TGUI.Layout is
      Convention => C;
 
    ----------------------------------------------------------------------------
-   function create (c_constant : tguiFloat) return access tguiLayout;
+   function create (value : tguiFloat) return access tguiLayout;
 
    function createFromString (expression : String) return access tguiLayout;
 
@@ -95,7 +93,7 @@ package TGUI.Layout is
 
    package Layout2d is
 
-      function create (c_constant : TGUI.Vector2.tguiVector2f) return access tguiLayout2d;
+      function create (value : TGUI.Vector2.tguiVector2f) return access tguiLayout2d;
 
       function createFromLayouts
         (x : access tguiLayout; y : access tguiLayout) return access tguiLayout2d;
@@ -158,6 +156,3 @@ private
    pragma Import (C, bindMax, "tguiBindMax");
 
 end TGUI.Layout;
-
-pragma Style_Checks (On);
-pragma Warnings (On, "-gnatwu");
