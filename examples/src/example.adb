@@ -34,7 +34,7 @@ procedure Example is
    buttonColor : aliased TGUI.Color.tguiColor :=
      TGUI.Color.fromRGB (128, 220, 128);
    buttonRenderer : access tguiRenderer;
-   Event  : Sf.Window.Event.sfEvent;
+   Event  : aliased Sf.Window.Event.sfEvent;
    signalResult : tguiUint32;
 begin
 
@@ -58,6 +58,7 @@ begin
          if Event.eventType = Sf.Window.Event.sfEvtClosed then
             RenderWindow.close (Window);
          end if;
+         Backend.ASFML_Graphics.handleEvent (The_GUI, Event'Access);
       end loop;
       RenderWindow.clear (Window, Sf.Graphics.Color.sfBlack);
       Gui.draw (The_GUI);

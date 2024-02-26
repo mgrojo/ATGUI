@@ -74,7 +74,7 @@ package TGUI.Widget is
    type procedureCallback is access procedure with Convention => C;
 
    function signalConnect
-     (widget : access tguiWidget; signalName : String; callback : access procedure)
+     (widget : access tguiWidget; signalName : String; callback : procedureCallback)
       return tguiUint32;
 
    -- tguiWidget_free must be called on the first parameter in the callback function

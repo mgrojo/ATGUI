@@ -1,11 +1,11 @@
 package body TGUI.Widget is
 
    function signalConnect
-     (widget : access tguiWidget; signalName : String; callback : access procedure)
+     (widget : access tguiWidget; signalName : String; callback : procedureCallback)
      return tguiUint32
    is
       function Internal
-        (widget : access tguiWidget; signalName : C.char_array; callback : access procedure)
+        (widget : access tguiWidget; signalName : C.char_array; callback : procedureCallback)
         return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalConnect");
    begin
