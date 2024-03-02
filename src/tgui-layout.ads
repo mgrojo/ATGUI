@@ -121,7 +121,6 @@ package TGUI.Layout is
    private
       pragma Import (C, create, "tguiLayout2d_create");
       pragma Import (C, createFromLayouts, "tguiLayout2d_createFromLayouts");
-      pragma Import (C, createFromString, "tguiLayout2d_createFromString");
       pragma Import (C, copy, "tguiLayout2d_copy");
       pragma Import (C, free, "tguiLayout2d_free");
       pragma Import (C, getValue, "tguiLayout2d_getValue");
@@ -136,7 +135,6 @@ package TGUI.Layout is
 private
 
    pragma Import (C, create, "tguiLayout_create");
-   pragma Import (C, createFromString, "tguiLayout_createFromString");
    pragma Import (C, copy, "tguiLayout_copy");
    pragma Import (C, free, "tguiLayout_free");
    pragma Import (C, replaceValue, "tguiLayout_replaceValue");

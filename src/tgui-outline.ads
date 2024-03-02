@@ -44,7 +44,6 @@ package TGUI.Outline is
 private
 
    pragma Import (C, create, "tguiOutline_create");
-   pragma Import (C, createFromStrings, "tguiOutline_createFromStrings");
    pragma Import (C, copy, "tguiOutline_copy");
    pragma Import (C, free, "tguiOutline_free");
    pragma Import (C, getLeft, "tguiOutline_getLeft");

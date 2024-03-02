@@ -1,4 +1,4 @@
-with Ada.Text_IO;         use Ada.Text_IO;
+with Ada.Text_IO;
 
 with Signals;
 
@@ -19,18 +19,18 @@ with TGUI.Renderers.ButtonRenderer;
 
 procedure Example is
 
-   use Sf; use Sf.Graphics; use Sf.Window;
-   use TGUI; use TGUI.Widgets;
+   use Sf; use Sf.Graphics;
+   use TGUI;
    use type Sf.Window.Event.sfEventType;
 
-   videoMode : Sf.Window.VideoMode.sfVideoMode := (400, 300, 32);
-   Window : sfRenderWindow_Ptr := RenderWindow.create
+   videoMode : constant Sf.Window.VideoMode.sfVideoMode := (400, 300, 32);
+   Window : constant sfRenderWindow_Ptr := RenderWindow.create
      (videoMode, "ATGUI example (CSFML-GRAPHICS)");
    --  The tguiGui object should always be the first CTGUI object to create
-   The_GUI : access tguiGui := Backend.ASFML_Graphics.create (Window);
-   button : access tguiWidget := Widgets.Button.create;
-   position : Vector2.tguiVector2f := (40.0, 30.0);
-   size : Vector2.tguiVector2f := (200.0, 40.0);
+   The_GUI : constant tguiGui_Ptr := Backend.ASFML_Graphics.create (Window);
+   button : constant access tguiWidget := Widgets.Button.create;
+   position : constant Vector2.tguiVector2f := (40.0, 30.0);
+   size : constant Vector2.tguiVector2f := (200.0, 40.0);
    buttonColor : aliased TGUI.Color.tguiColor :=
      TGUI.Color.fromRGB (128, 220, 128);
    buttonRenderer : access tguiRenderer;
@@ -47,10 +47,13 @@ begin
    Widget.setSize (button, size);
 
    buttonRenderer := Widget.getRenderer (button);
-   Renderers.ButtonRenderer.setBackgroundColor (buttonRenderer, buttonColor'Access);
+   Renderers.ButtonRenderer.setBackgroundColor (buttonRenderer,
+                                                buttonColor'Access);
    Renderers.WidgetRenderer.free (buttonRenderer);
 
-   signalResult := Widget.signalConnect (button, "Pressed", Signals.Button_Clicked'Access);
+   signalResult := Widget.signalConnect (button,
+                                         "Pressed",
+                                         Signals.Button_Clicked'Access);
    Ada.Text_IO.Put_Line (signalResult'Image);
 
    while RenderWindow.isOpen (Window) = sfTrue loop

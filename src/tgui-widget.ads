@@ -71,10 +71,8 @@ package TGUI.Widget is
 
    function getOrigin (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
 
-   type procedureCallback is access procedure with Convention => C;
-
    function signalConnect
-     (widget : access tguiWidget; signalName : String; callback : procedureCallback)
+     (widget : access tguiWidget; signalName : String; callback : access procedure)
       return tguiUint32;
 
    -- tguiWidget_free must be called on the first parameter in the callback function
@@ -282,27 +280,6 @@ private
    pragma Import (C, getAutoLayout, "tguiWidget_getAutoLayout");
    pragma Import (C, setOrigin, "tguiWidget_setOrigin");
    pragma Import (C, getOrigin, "tguiWidget_getOrigin");
-   pragma Import (C, signalConnectEx, "tguiWidget_signalConnectEx");
-   pragma Import (C, signalIntConnect, "tguiWidget_signalIntConnect");
-   pragma Import (C, signalUIntConnect, "tguiWidget_signalUIntConnect");
-   pragma Import (C, signalBoolConnect, "tguiWidget_signalBoolConnect");
-   pragma Import (C, signalFloatConnect, "tguiWidget_signalFloatConnect");
-   pragma Import (C, signalColorConnect, "tguiWidget_signalColorConnect");
-   pragma Import (C, signalStringConnect, "tguiWidget_signalStringConnect");
-   pragma Import (C, signalVector2fConnect, "tguiWidget_signalVector2fConnect");
-   pragma Import (C, signalFloatRectConnect, "tguiWidget_signalFloatRectConnect");
-   pragma Import (C, signalRangeConnect, "tguiWidget_signalRangeConnect");
-   pragma Import (C, signalChildWindowConnect, "tguiWidget_signalChildWindowConnect");
-   pragma Import (C, signalItemConnect, "tguiWidget_signalItemConnect");
-   pragma Import (C, signalPanelListBoxItemConnect, "tguiWidget_signalPanelListBoxItemConnect");
-   pragma Import (C, signalFileDialogPathsConnect, "tguiWidget_signalFileDialogPathsConnect");
-   pragma Import (C, signalShowEffectConnect, "tguiWidget_signalShowEffectConnect");
-   pragma Import (C, signalAnimationTypeConnect, "tguiWidget_signalAnimationTypeConnect");
-   pragma Import (C, signalItemHierarchyConnect, "tguiWidget_signalItemHierarchyConnect");
-   pragma Import (C, signalDisconnect, "tguiWidget_signalDisconnect");
-   pragma Import (C, signalDisconnectAll, "tguiWidget_signalDisconnectAll");
-   pragma Import (C, setSignalEnabled, "tguiWidget_setSignalEnabled");
-   pragma Import (C, isSignalEnabled, "tguiWidget_isSignalEnabled");
    pragma Import (C, setRenderer, "tguiWidget_setRenderer");
    pragma Import (C, getRenderer, "tguiWidget_getRenderer");
    pragma Import (C, getSharedRenderer, "tguiWidget_getSharedRenderer");

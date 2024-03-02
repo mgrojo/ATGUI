@@ -55,9 +55,9 @@ package TGUI.Text is
 
    function getSize (text : access constant tguiText) return TGUI.Vector2.tguiVector2f;
 
-   procedure setString (text : access tguiText; string : tguiUtf32);
+   procedure setString (text : access tguiText; string : Wide_Wide_String);
 
-   function getString (text : access constant tguiText) return tguiUtf32;
+   function getString (text : access constant tguiText) return Wide_Wide_String;
 
    procedure setCharacterSize (text : access tguiText; size : tguiUint32);
 
@@ -112,8 +112,6 @@ private
    pragma Import (C, setPosition, "tguiText_setPosition");
    pragma Import (C, getPosition, "tguiText_getPosition");
    pragma Import (C, getSize, "tguiText_getSize");
-   pragma Import (C, setString, "tguiText_setString");
-   pragma Import (C, getString, "tguiText_getString");
    pragma Import (C, setCharacterSize, "tguiText_setCharacterSize");
    pragma Import (C, getCharacterSize, "tguiText_getCharacterSize");
    pragma Import (C, setColor, "tguiText_setColor");

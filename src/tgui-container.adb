@@ -32,4 +32,13 @@ package body TGUI.Container is
       return Internal (container, Interfaces.C.To_C (filename), replaceExisting);
    end loadWidgetsFromFile;
 
+   function saveWidgetsToFile (container : access tguiWidget; filename : String) return tguiBool is
+      function Internal
+        (container : access tguiWidget;
+         filename : Interfaces.C.char_array) return tguiBool;
+      pragma Import (C, Internal, "tguiContainer_saveWidgetsToFile");
+   begin
+      return Internal (container, Interfaces.C.To_C (filename));
+   end saveWidgetsToFile;
+
 end TGUI.Container;
