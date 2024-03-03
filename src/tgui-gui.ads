@@ -29,106 +29,104 @@ package TGUI.Gui is
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   procedure setAbsoluteViewport (gui : access tguiGui; viewport : TGUI.Rect.tguiFloatRect);
+   procedure setAbsoluteViewport (gui : tguiGui_Ptr; viewport : TGUI.Rect.tguiFloatRect);
 
-   procedure setRelativeViewport (gui : access tguiGui; viewport : TGUI.Rect.tguiFloatRect);
+   procedure setRelativeViewport (gui : tguiGui_Ptr; viewport : TGUI.Rect.tguiFloatRect);
 
-   function getViewport (gui : access constant tguiGui) return TGUI.Rect.tguiFloatRect;
+   function getViewport (gui : tguiGui_Cons) return TGUI.Rect.tguiFloatRect;
 
-   procedure setAbsoluteView (gui : access tguiGui; view : TGUI.Rect.tguiFloatRect);
+   procedure setAbsoluteView (gui : tguiGui_Ptr; view : TGUI.Rect.tguiFloatRect);
 
-   procedure setRelativeView (gui : access tguiGui; view : TGUI.Rect.tguiFloatRect);
+   procedure setRelativeView (gui : tguiGui_Ptr; view : TGUI.Rect.tguiFloatRect);
 
-   function getView (gui : access constant tguiGui) return TGUI.Rect.tguiFloatRect;
+   function getView (gui : tguiGui_Cons) return TGUI.Rect.tguiFloatRect;
 
-   procedure setTabKeyUsageEnabled (gui : access tguiGui; enabled : tguiBool);
+   procedure setTabKeyUsageEnabled (gui : tguiGui_Ptr; enabled : tguiBool);
 
-   function isTabKeyUsageEnabled (gui : access tguiGui) return tguiBool;
+   function isTabKeyUsageEnabled (gui : tguiGui_Ptr) return tguiBool;
 
-   procedure draw (gui : access tguiGui);
+   procedure draw (gui : tguiGui_Ptr);
 
-   procedure setFont (gui : access tguiGui; font : access tguiFont);
+   procedure setFont (gui : tguiGui_Ptr; font : tguiFont_Ptr);
 
-   function getFont (gui : access constant tguiGui) return access tguiFont;
+   function getFont (gui : tguiGui_Cons) return tguiFont_Ptr;
 
-   procedure add (gui : access tguiGui; widget : access tguiWidget; widgetName : Wide_Wide_String);
+   procedure add (gui : tguiGui_Ptr; widget : tguiWidget_Ptr; widgetName : Wide_Wide_String);
 
-   function get (gui : access tguiGui; widgetName : tguiUtf32) return access tguiWidget;
+   function get (gui : tguiGui_Ptr; widgetName : tguiUtf32) return tguiWidget_Ptr;
 
    -- tguiWidget_free must be called on each element in the returned
-   function getWidgets (gui : access tguiGui; count : access tguiSize_t) return System.Address;
+   function getWidgets (gui : tguiGui_Ptr; count : out tguiSize_t) return System.Address;
 
-   function remove (gui : access tguiGui; widget : access tguiWidget) return tguiBool;
+   function remove (gui : tguiGui_Ptr; widget : tguiWidget_Ptr) return tguiBool;
 
-   procedure removeAllWidgets (gui : access tguiGui);
+   procedure removeAllWidgets (gui : tguiGui_Ptr);
 
-   function getFocusedChild (gui : access tguiGui) return access tguiWidget;
+   function getFocusedChild (gui : tguiGui_Ptr) return tguiWidget_Ptr;
 
-   function getFocusedLeaf (gui : access tguiGui) return access tguiWidget;
+   function getFocusedLeaf (gui : tguiGui_Ptr) return tguiWidget_Ptr;
 
    function getWidgetAtPos
-     (gui : access tguiGui; pos : TGUI.Vector2.tguiVector2f; recursive : tguiBool)
-      return access tguiWidget;
+     (gui : tguiGui_Ptr; pos : TGUI.Vector2.tguiVector2f; recursive : tguiBool)
+      return tguiWidget_Ptr;
 
    function getWidgetBelowMouseCursor
-     (gui : access tguiGui; mousePos : TGUI.Vector2.tguiVector2i; recursive : tguiBool)
-      return access tguiWidget;
+     (gui : tguiGui_Ptr; mousePos : TGUI.Vector2.tguiVector2i; recursive : tguiBool)
+      return tguiWidget_Ptr;
 
-   function focusNextWidget (gui : access tguiGui; recursive : tguiBool) return tguiBool;
+   function focusNextWidget (gui : tguiGui_Ptr; recursive : tguiBool) return tguiBool;
 
-   function focusPreviousWidget (gui : access tguiGui; recursive : tguiBool) return tguiBool;
+   function focusPreviousWidget (gui : tguiGui_Ptr; recursive : tguiBool) return tguiBool;
 
-   procedure unfocusAllWidgets (gui : access tguiGui);
+   procedure unfocusAllWidgets (gui : tguiGui_Ptr);
 
-   procedure moveWidgetToFront (gui : access tguiGui; widget : access tguiWidget);
+   procedure moveWidgetToFront (gui : tguiGui_Ptr; widget : tguiWidget_Ptr);
 
-   procedure moveWidgetToBack (gui : access tguiGui; widget : access tguiWidget);
+   procedure moveWidgetToBack (gui : tguiGui_Ptr; widget : tguiWidget_Ptr);
 
-   function moveWidgetForward (gui : access tguiGui; widget : access tguiWidget) return tguiSize_t;
+   function moveWidgetForward (gui : tguiGui_Ptr; widget : tguiWidget_Ptr) return tguiSize_t;
 
-   function moveWidgetBackward (gui : access tguiGui; widget : access tguiWidget) return tguiSize_t;
+   function moveWidgetBackward (gui : tguiGui_Ptr; widget : tguiWidget_Ptr) return tguiSize_t;
 
    function setWidgetIndex
-     (gui : access tguiGui; widget : access tguiWidget; index : tguiSize_t) return tguiBool;
+     (gui : tguiGui_Ptr; widget : tguiWidget_Ptr; index : tguiSize_t) return tguiBool;
 
-   function getWidgetIndex (gui : access tguiGui; widget : access tguiWidget) return tguiInt;
+   function getWidgetIndex (gui : tguiGui_Ptr; widget : tguiWidget_Ptr) return tguiInt;
 
-   procedure setOpacity (gui : access tguiGui; alpha : tguiFloat);
+   procedure setOpacity (gui : tguiGui_Ptr; alpha : tguiFloat);
 
-   function getOpacity (gui : access constant tguiGui) return tguiFloat;
+   function getOpacity (gui : tguiGui_Cons) return tguiFloat;
 
-   procedure setTextSize (gui : access tguiGui; size : tguiUint32);
+   procedure setTextSize (gui : tguiGui_Ptr; size : tguiUint32);
 
-   function getTextSize (gui : access constant tguiGui) return tguiUint32;
+   function getTextSize (gui : tguiGui_Cons) return tguiUint32;
 
    function loadWidgetsFromFile
-     (gui : access tguiGui; filename : String; replaceExisting : tguiBool) return tguiBool;
+     (gui : tguiGui_Ptr; filename : String; replaceExisting : tguiBool) return tguiBool;
 
-   function saveWidgetsToFile (gui : access tguiGui; filename : String) return tguiBool;
+   function saveWidgetsToFile (gui : tguiGui_Ptr; filename : String) return tguiBool;
 
-   procedure setDrawingUpdatesTime (gui : access tguiGui; drawUpdatesTime : tguiBool);
+   procedure setDrawingUpdatesTime (gui : tguiGui_Ptr; drawUpdatesTime : tguiBool);
 
-   function updateTime (gui : access tguiGui) return tguiBool;
+   function updateTime (gui : tguiGui_Ptr) return tguiBool;
 
-   procedure setOverrideMouseCursor (gui : access tguiGui; cursorType : TGUI.Cursor.tguiCursorType);
+   procedure setOverrideMouseCursor (gui : tguiGui_Ptr; cursorType : TGUI.Cursor.tguiCursorType);
 
-   procedure restoreOverrideMouseCursor (gui : access tguiGui);
+   procedure restoreOverrideMouseCursor (gui : tguiGui_Ptr);
 
-   procedure requestMouseCursor (gui : access tguiGui; cursorType : TGUI.Cursor.tguiCursorType);
+   procedure requestMouseCursor (gui : tguiGui_Ptr; cursorType : TGUI.Cursor.tguiCursorType);
 
    function mapPixelToCoords
-     (gui : access constant tguiGui; pixel : TGUI.Vector2.tguiVector2i)
-      return TGUI.Vector2.tguiVector2f;
+     (gui : tguiGui_Cons; pixel : TGUI.Vector2.tguiVector2i) return TGUI.Vector2.tguiVector2f;
 
    function mapCoordsToPixel
-     (gui : access constant tguiGui; coord : TGUI.Vector2.tguiVector2f)
-      return TGUI.Vector2.tguiVector2f;
+     (gui : tguiGui_Cons; coord : TGUI.Vector2.tguiVector2f) return TGUI.Vector2.tguiVector2f;
 
-   procedure setKeyboardNavigationEnabled (gui : access tguiGui; enabled : tguiBool);
+   procedure setKeyboardNavigationEnabled (gui : tguiGui_Ptr; enabled : tguiBool);
 
-   function isKeyboardNavigationEnabled (gui : access constant tguiGui) return tguiBool;
+   function isKeyboardNavigationEnabled (gui : tguiGui_Cons) return tguiBool;
 
-   procedure mainLoop (gui : access tguiGui; clearColor : access TGUI.Color.tguiColor);
+   procedure mainLoop (gui : tguiGui_Ptr; clearColor : access TGUI.Color.tguiColor);
 
 ----------------------------------------------------------------------------
 private

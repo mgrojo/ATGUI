@@ -22,43 +22,37 @@ package TGUI.Renderers.KnobRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
+   function copy (renderer : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
+   procedure setBorders (renderer : tguiRenderer_Ptr; borders : tguiOutline_Ptr);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
+   function getBorders (renderer : tguiRenderer_Cons) return tguiOutline_Ptr;
 
-   procedure setBackgroundColor
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBackgroundColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBackgroundColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setThumbColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setThumbColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getThumbColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getThumbColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBorderColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBorderColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureBackground (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureBackground
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureBackground (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureForeground (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureForeground (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureForeground
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureForeground (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setImageRotation (renderer : access tguiRenderer; rotation : tguiFloat);
+   procedure setImageRotation (renderer : tguiRenderer_Ptr; rotation : tguiFloat);
 
-   function getImageRotation (renderer : access constant tguiRenderer) return tguiFloat;
+   function getImageRotation (renderer : tguiRenderer_Cons) return tguiFloat;
 
 private
 

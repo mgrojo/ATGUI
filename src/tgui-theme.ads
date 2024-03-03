@@ -20,26 +20,25 @@ package TGUI.Theme is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiTheme;
+   function create return tguiTheme_Ptr;
 
-   function copy (theme : access constant tguiTheme) return access tguiTheme;
+   function copy (theme : tguiTheme_Cons) return tguiTheme_Ptr;
 
-   procedure free (theme : access tguiTheme);
+   procedure free (theme : tguiTheme_Ptr);
 
-   function load (theme : access tguiTheme; filename : String) return tguiBool;
+   function load (theme : tguiTheme_Ptr; filename : String) return tguiBool;
 
-   function getRenderer (theme : access tguiTheme; id : String) return access tguiRendererData;
+   function getRenderer (theme : tguiTheme_Ptr; id : String) return tguiRendererData_Ptr;
 
-   procedure addRenderer
-     (theme : access tguiTheme; id : String; renderer : access tguiRendererData);
+   procedure addRenderer (theme : tguiTheme_Ptr; id : String; renderer : tguiRendererData_Ptr);
 
-   function removeRenderer (theme : access tguiTheme; id : String) return tguiBool;
+   function removeRenderer (theme : tguiTheme_Ptr; id : String) return tguiBool;
 
-   function getPrimary (theme : access constant tguiTheme) return tguiUtf32;
+   function getPrimary (theme : tguiTheme_Cons) return tguiUtf32;
 
-   procedure setDefault (defaultTheme : access tguiTheme);
+   procedure setDefault (defaultTheme : tguiTheme_Ptr);
 
-   function getDefault return access tguiTheme;
+   function getDefault return tguiTheme_Ptr;
 
 private
 

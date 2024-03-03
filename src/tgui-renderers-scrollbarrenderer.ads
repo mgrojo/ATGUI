@@ -22,91 +22,77 @@ package TGUI.Renderers.ScrollbarRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
+   function copy (renderer : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure setTrackColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTrackColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTrackColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTrackColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTrackColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTrackColorHover (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTrackColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTrackColorHover (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setThumbColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setThumbColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getThumbColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getThumbColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setThumbColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setThumbColorHover (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getThumbColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getThumbColorHover (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setArrowBackgroundColor
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getArrowBackgroundColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setArrowBackgroundColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getArrowBackgroundColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setArrowColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setArrowColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getArrowColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getArrowColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setArrowColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setArrowColorHover (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getArrowColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getArrowColorHover (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTextureTrack (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureTrack (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureTrack (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureTrack (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureTrackHover (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureTrackHover (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureTrackHover
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureTrackHover (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureThumb (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureThumb (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureThumb (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureThumb (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureThumbHover (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureThumbHover (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureThumbHover
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureThumbHover (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureArrowUp (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureArrowUp (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureArrowUp (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureArrowUp (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureArrowUpHover (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureArrowUpHover (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureArrowUpHover
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureArrowUpHover (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureArrowDown (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureArrowDown (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureArrowDown (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureArrowDown (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureArrowDownHover
-     (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureArrowDownHover (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureArrowDownHover
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureArrowDownHover (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
 private
 

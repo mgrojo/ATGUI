@@ -21,12 +21,11 @@ package TGUI.Widgets.BoxLayout is
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
    procedure insert
-     (layout     : access tguiWidget; index : tguiSize_t; widget : access tguiWidget;
-      widgetName : tguiUtf32);
+     (layout : tguiWidget_Ptr; index : tguiSize_t; widget : tguiWidget_Ptr; widgetName : tguiUtf32);
 
-   function removeAtIndex (layout : access tguiWidget; index : tguiSize_t) return tguiBool;
+   function removeAtIndex (layout : tguiWidget_Ptr; index : tguiSize_t) return tguiBool;
 
-   function getAtIndex (layout : access tguiWidget; index : tguiSize_t) return access tguiWidget;
+   function getAtIndex (layout : tguiWidget_Ptr; index : tguiSize_t) return tguiWidget_Ptr;
 
 private
 

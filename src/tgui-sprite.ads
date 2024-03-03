@@ -36,42 +36,42 @@ package TGUI.Sprite is
      Convention => C;
 
    ----------------------------------------------------------------------------
-   function createNull return access tguiSprite;
+   function createNull return tguiSprite_Ptr;
 
    -- The texture is copied by this function, the caller still keeps ownership of the passed value and thus the caller is still responsible for freeing it.
-   function createFromTexture (texture : access tguiTexture) return access tguiSprite;
+   function createFromTexture (texture : tguiTexture_Ptr) return tguiSprite_Ptr;
 
-   procedure free (sprite : access tguiSprite);
+   procedure free (sprite : tguiSprite_Ptr);
 
    -- The texture is copied by this function, the caller still keeps ownership of the passed value and thus the caller is still responsible for freeing it.
-   procedure setTexture (sprite : access tguiSprite; texture : access tguiTexture);
+   procedure setTexture (sprite : tguiSprite_Ptr; texture : tguiTexture_Ptr);
 
-   function isSet (sprite : access constant tguiSprite) return tguiBool;
+   function isSet (sprite : tguiSprite_Cons) return tguiBool;
 
-   procedure setSize (sprite : access tguiSprite; size : TGUI.Vector2.tguiVector2f);
+   procedure setSize (sprite : tguiSprite_Ptr; size : TGUI.Vector2.tguiVector2f);
 
-   function getSize (sprite : access constant tguiSprite) return TGUI.Vector2.tguiVector2f;
+   function getSize (sprite : tguiSprite_Cons) return TGUI.Vector2.tguiVector2f;
 
-   procedure setOpacity (sprite : access tguiSprite; opacity : tguiFloat);
+   procedure setOpacity (sprite : tguiSprite_Ptr; opacity : tguiFloat);
 
-   function getOpacity (sprite : access constant tguiSprite) return tguiFloat;
+   function getOpacity (sprite : tguiSprite_Cons) return tguiFloat;
 
-   procedure setVisibleRect (sprite : access tguiSprite; visibleRect : TGUI.Rect.tguiFloatRect);
+   procedure setVisibleRect (sprite : tguiSprite_Ptr; visibleRect : TGUI.Rect.tguiFloatRect);
 
-   function getVisibleRect (sprite : access constant tguiSprite) return TGUI.Rect.tguiFloatRect;
+   function getVisibleRect (sprite : tguiSprite_Cons) return TGUI.Rect.tguiFloatRect;
 
-   procedure setPosition (sprite : access tguiSprite; position : TGUI.Vector2.tguiVector2f);
+   procedure setPosition (sprite : tguiSprite_Ptr; position : TGUI.Vector2.tguiVector2f);
 
-   function getPosition (sprite : access constant tguiSprite) return TGUI.Vector2.tguiVector2f;
+   function getPosition (sprite : tguiSprite_Cons) return TGUI.Vector2.tguiVector2f;
 
-   procedure setRotation (sprite : access tguiSprite; angle : tguiFloat);
+   procedure setRotation (sprite : tguiSprite_Ptr; angle : tguiFloat);
 
-   function getRotation (sprite : access constant tguiSprite) return tguiFloat;
+   function getRotation (sprite : tguiSprite_Cons) return tguiFloat;
 
    function isTransparentPixel
-     (sprite : access constant tguiSprite; pos : TGUI.Vector2.tguiVector2f) return tguiBool;
+     (sprite : tguiSprite_Cons; pos : TGUI.Vector2.tguiVector2f) return tguiBool;
 
-   function getScalingType (sprite : access constant tguiSprite) return tguiSpriteScalingType;
+   function getScalingType (sprite : tguiSprite_Cons) return tguiSpriteScalingType;
 
 private
 

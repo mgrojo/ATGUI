@@ -24,79 +24,79 @@ package TGUI.Text is
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
    function getStaticExtraHorizontalPadding
-     (font : access constant tguiFont; tguiCharacterSize : tguiUint32) return tguiFloat;
+     (font : tguiFont_Cons; tguiCharacterSize : tguiUint32) return tguiFloat;
 
    function getStaticExtraHorizontalOffset
-     (font : access constant tguiFont; tguiCharacterSize : tguiUint32) return tguiFloat;
+     (font : tguiFont_Cons; tguiCharacterSize : tguiUint32) return tguiFloat;
 
    function getStaticExtraVerticalPadding (characterSize : tguiUint32) return tguiFloat;
 
    function getStaticLineHeight
-     (font : access constant tguiFont; tguiCharacterSize : tguiUint32) return tguiFloat;
+     (font : tguiFont_Cons; tguiCharacterSize : tguiUint32) return tguiFloat;
 
    function getStaticLineWidth
-     (text      : tguiUtf32; font : access constant tguiFont; tguiCharacterSize : tguiUint32;
+     (text      : tguiUtf32; font : tguiFont_Cons; tguiCharacterSize : tguiUint32;
       textStyle : tguiUint32) return tguiFloat;
 
    function findBestTextSize
-     (font : access constant tguiFont; height : tguiFloat; fit : tguiInt) return tguiUint32;
+     (font : tguiFont_Cons; height : tguiFloat; fit : tguiInt) return tguiUint32;
 
    function wordWrap
-     (maxWidth : tguiFloat; text : tguiUtf32; font : access constant tguiFont;
-      textSize : tguiUint32; bold : tguiBool) return tguiUtf32;
+     (maxWidth : tguiFloat; text : tguiUtf32; font : tguiFont_Cons; textSize : tguiUint32;
+      bold     : tguiBool) return tguiUtf32;
 
-   function create return access tguiText;
+   function create return tguiText_Ptr;
 
-   procedure free (text : access tguiText);
+   procedure free (text : tguiText_Ptr);
 
-   procedure setPosition (text : access tguiText; position : TGUI.Vector2.tguiVector2f);
+   procedure setPosition (text : tguiText_Ptr; position : TGUI.Vector2.tguiVector2f);
 
-   function getPosition (text : access constant tguiText) return TGUI.Vector2.tguiVector2f;
+   function getPosition (text : tguiText_Cons) return TGUI.Vector2.tguiVector2f;
 
-   function getSize (text : access constant tguiText) return TGUI.Vector2.tguiVector2f;
+   function getSize (text : tguiText_Cons) return TGUI.Vector2.tguiVector2f;
 
-   procedure setString (text : access tguiText; string : Wide_Wide_String);
+   procedure setString (text : tguiText_Ptr; string : Wide_Wide_String);
 
-   function getString (text : access constant tguiText) return Wide_Wide_String;
+   function getString (text : tguiText_Cons) return Wide_Wide_String;
 
-   procedure setCharacterSize (text : access tguiText; size : tguiUint32);
+   procedure setCharacterSize (text : tguiText_Ptr; size : tguiUint32);
 
-   function getCharacterSize (text : access constant tguiText) return tguiUint32;
+   function getCharacterSize (text : tguiText_Cons) return tguiUint32;
 
-   procedure setColor (text : access tguiText; color : access TGUI.Color.tguiColor);
+   procedure setColor (text : tguiText_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getColor (text : access constant tguiText) return access TGUI.Color.tguiColor;
+   function getColor (text : tguiText_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setOpacity (text : access tguiText; opacity : tguiFloat);
+   procedure setOpacity (text : tguiText_Ptr; opacity : tguiFloat);
 
-   function getOpacity (text : access constant tguiText) return tguiFloat;
+   function getOpacity (text : tguiText_Cons) return tguiFloat;
 
-   procedure setFont (text : access tguiText; font : access tguiFont);
+   procedure setFont (text : tguiText_Ptr; font : tguiFont_Ptr);
 
-   function getFont (text : access constant tguiText) return access tguiFont;
+   function getFont (text : tguiText_Cons) return tguiFont_Ptr;
 
-   procedure setStyle (text : access tguiText; style : tguiUint32);
+   procedure setStyle (text : tguiText_Ptr; style : tguiUint32);
 
-   function getStyle (text : access constant tguiText) return tguiUint32;
+   function getStyle (text : tguiText_Cons) return tguiUint32;
 
-   procedure setOutlineColor (text : access tguiText; color : access TGUI.Color.tguiColor);
+   procedure setOutlineColor (text : tguiText_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getOutlineColor (text : access constant tguiText) return access TGUI.Color.tguiColor;
+   function getOutlineColor (text : tguiText_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setOutlineThickness (text : access tguiText; thickness : tguiFloat);
+   procedure setOutlineThickness (text : tguiText_Ptr; thickness : tguiFloat);
 
-   function getOutlineThickness (text : access constant tguiText) return tguiFloat;
+   function getOutlineThickness (text : tguiText_Cons) return tguiFloat;
 
    function findCharacterPos
-     (text : access constant tguiText; index : tguiSize_t) return TGUI.Vector2.tguiVector2f;
+     (text : tguiText_Cons; index : tguiSize_t) return TGUI.Vector2.tguiVector2f;
 
-   function getExtraHorizontalPadding (text : access constant tguiText) return tguiFloat;
+   function getExtraHorizontalPadding (text : tguiText_Cons) return tguiFloat;
 
-   function getExtraHorizontalOffset (text : access constant tguiText) return tguiFloat;
+   function getExtraHorizontalOffset (text : tguiText_Cons) return tguiFloat;
 
-   function getLineHeight (text : access constant tguiText) return tguiFloat;
+   function getLineHeight (text : tguiText_Cons) return tguiFloat;
 
-   function getLineWidth (text : access constant tguiText) return tguiFloat;
+   function getLineWidth (text : tguiText_Cons) return tguiFloat;
 
 private
 

@@ -44,79 +44,79 @@ package TGUI.Layout is
      Convention => C;
 
    ----------------------------------------------------------------------------
-   function create (value : tguiFloat) return access tguiLayout;
+   function create (value : tguiFloat) return tguiLayout_Ptr;
 
-   function createFromString (expression : String) return access tguiLayout;
+   function createFromString (expression : String) return tguiLayout_Ptr;
 
-   function copy (other : access constant tguiLayout) return access tguiLayout;
+   function copy (other : tguiLayout_Cons) return tguiLayout_Ptr;
 
-   procedure free (layout : access tguiLayout);
+   procedure free (layout : tguiLayout_Ptr);
 
-   procedure replaceValue (layout : access tguiLayout; newLayout : access constant tguiLayout);
+   procedure replaceValue (layout : tguiLayout_Ptr; newLayout : tguiLayout_Cons);
 
-   function getValue (layout : access constant tguiLayout) return tguiFloat;
+   function getValue (layout : tguiLayout_Cons) return tguiFloat;
 
-   function isConstant (layout : access constant tguiLayout) return tguiBool;
-
-   ----------------------------------------------------------------------------
+   function isConstant (layout : tguiLayout_Cons) return tguiBool;
 
    ----------------------------------------------------------------------------
-   function bindPosX (widget : access constant tguiWidget) return access tguiLayout;
 
-   function bindPosY (widget : access constant tguiWidget) return access tguiLayout;
+   ----------------------------------------------------------------------------
+   function bindPosX (widget : tguiWidget_Cons) return tguiLayout_Ptr;
 
-   function bindLeft (widget : access constant tguiWidget) return access tguiLayout;
+   function bindPosY (widget : tguiWidget_Cons) return tguiLayout_Ptr;
 
-   function bindTop (widget : access constant tguiWidget) return access tguiLayout;
+   function bindLeft (widget : tguiWidget_Cons) return tguiLayout_Ptr;
 
-   function bindWidth (widget : access constant tguiWidget) return access tguiLayout;
+   function bindTop (widget : tguiWidget_Cons) return tguiLayout_Ptr;
 
-   function bindHeight (widget : access constant tguiWidget) return access tguiLayout;
+   function bindWidth (widget : tguiWidget_Cons) return tguiLayout_Ptr;
 
-   function bindInnerWidth (container : access constant tguiWidget) return access tguiLayout;
+   function bindHeight (widget : tguiWidget_Cons) return tguiLayout_Ptr;
 
-   function bindInnerHeight (container : access constant tguiWidget) return access tguiLayout;
+   function bindInnerWidth (container : tguiWidget_Cons) return tguiLayout_Ptr;
 
-   function bindRight (widget : access constant tguiWidget) return access tguiLayout;
+   function bindInnerHeight (container : tguiWidget_Cons) return tguiLayout_Ptr;
 
-   function bindBottom (widget : access constant tguiWidget) return access tguiLayout;
+   function bindRight (widget : tguiWidget_Cons) return tguiLayout_Ptr;
+
+   function bindBottom (widget : tguiWidget_Cons) return tguiLayout_Ptr;
 
    function bindMin
-     (value1 : access constant tguiLayout; value2 : access constant tguiLayout)
-     return access tguiLayout;
+     (value1 : tguiLayout_Cons; value2 : tguiLayout_Cons)
+     return tguiLayout_Ptr;
 
    function bindMax
-     (value1 : access constant tguiLayout; value2 : access constant tguiLayout)
-     return access tguiLayout;
+     (value1 : tguiLayout_Cons; value2 : tguiLayout_Cons)
+     return tguiLayout_Ptr;
 
    ----------------------------------------------------------------------------
 
    package Layout2d is
 
-      function create (value : TGUI.Vector2.tguiVector2f) return access tguiLayout2d;
+      function create (value : TGUI.Vector2.tguiVector2f) return tguiLayout2d_Ptr;
 
       function createFromLayouts
-        (x : access tguiLayout; y : access tguiLayout) return access tguiLayout2d;
+        (x : tguiLayout_Ptr; y : tguiLayout_Ptr) return tguiLayout2d_Ptr;
 
-      function createFromString (expression : String) return access tguiLayout2d;
+      function createFromString (expression : String) return tguiLayout2d_Ptr;
 
-      function copy (other : access constant tguiLayout2d) return access tguiLayout2d;
+      function copy (other : tguiLayout2d_Cons) return tguiLayout2d_Ptr;
 
-      procedure free (layout : access tguiLayout2d);
+      procedure free (layout : tguiLayout2d_Ptr);
 
-      function getValue (layout : access constant tguiLayout2d) return TGUI.Vector2.tguiVector2f;
-
-      -- tguiLayout_free must be called on the return value
-      function getX (layout : access constant tguiLayout2d) return access tguiLayout;
+      function getValue (layout : tguiLayout2d_Cons) return TGUI.Vector2.tguiVector2f;
 
       -- tguiLayout_free must be called on the return value
-      function getY (layout : access constant tguiLayout2d) return access tguiLayout;
+      function getX (layout : tguiLayout2d_Cons) return tguiLayout_Ptr;
 
-      function bindPosition (widget : access constant tguiWidget) return access tguiLayout2d;
+      -- tguiLayout_free must be called on the return value
+      function getY (layout : tguiLayout2d_Cons) return tguiLayout_Ptr;
 
-      function bindSize (widget : access constant tguiWidget) return access tguiLayout2d;
+      function bindPosition (widget : tguiWidget_Cons) return tguiLayout2d_Ptr;
 
-      function bindInnerSize (container : access constant tguiWidget) return access tguiLayout2d;
+      function bindSize (widget : tguiWidget_Cons) return tguiLayout2d_Ptr;
+
+      function bindInnerSize (container : tguiWidget_Cons) return tguiLayout2d_Ptr;
 
    private
       pragma Import (C, create, "tguiLayout2d_create");

@@ -22,45 +22,45 @@ package TGUI.Widgets.TreeView is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
    function addItem
-     (widget        : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32;
+     (widget        : tguiWidget_Ptr; hierarchy : System.Address; hierarchyLength : tguiUint32;
       createParents : tguiBool) return tguiBool;
 
    procedure expand
-     (widget : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32);
+     (widget : tguiWidget_Ptr; hierarchy : System.Address; hierarchyLength : tguiUint32);
 
    procedure collapse
-     (widget : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32);
+     (widget : tguiWidget_Ptr; hierarchy : System.Address; hierarchyLength : tguiUint32);
 
-   procedure expandAll (widget : access tguiWidget);
+   procedure expandAll (widget : tguiWidget_Ptr);
 
-   procedure collapseAll (widget : access tguiWidget);
+   procedure collapseAll (widget : tguiWidget_Ptr);
 
    function selectItem
-     (widget : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32)
+     (widget : tguiWidget_Ptr; hierarchy : System.Address; hierarchyLength : tguiUint32)
       return tguiBool;
 
    function removeItem
-     (widget : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32;
+     (widget : tguiWidget_Ptr; hierarchy : System.Address; hierarchyLength : tguiUint32;
       removeParentsWhenEmpty : tguiBool) return tguiBool;
 
-   procedure removeAllItems (widget : access tguiWidget);
+   procedure removeAllItems (widget : tguiWidget_Ptr);
 
-   procedure deselectItem (widget : access tguiWidget);
+   procedure deselectItem (widget : tguiWidget_Ptr);
 
-   procedure setItemHeight (widget : access tguiWidget; itemHeight : tguiUint32);
+   procedure setItemHeight (widget : tguiWidget_Ptr; itemHeight : tguiUint32);
 
-   function getItemHeight (widget : access constant tguiWidget) return tguiUint32;
+   function getItemHeight (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setVerticalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
+   procedure setVerticalScrollbarValue (widget : tguiWidget_Ptr; value : tguiUint32);
 
-   function getVerticalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
+   function getVerticalScrollbarValue (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setHorizontalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
+   procedure setHorizontalScrollbarValue (widget : tguiWidget_Ptr; value : tguiUint32);
 
-   function getHorizontalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
+   function getHorizontalScrollbarValue (widget : tguiWidget_Cons) return tguiUint32;
 
 private
 

@@ -23,45 +23,45 @@ package TGUI.Widgets.ChildWindow is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setMaximumSize (widget : access tguiWidget; maxSize : TGUI.Vector2.tguiVector2f);
+   procedure setMaximumSize (widget : tguiWidget_Ptr; maxSize : TGUI.Vector2.tguiVector2f);
 
-   function getMaximumSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
+   function getMaximumSize (widget : tguiWidget_Cons) return TGUI.Vector2.tguiVector2f;
 
-   procedure setMinimumSize (widget : access tguiWidget; minSize : TGUI.Vector2.tguiVector2f);
+   procedure setMinimumSize (widget : tguiWidget_Ptr; minSize : TGUI.Vector2.tguiVector2f);
 
-   function getMinimumSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
+   function getMinimumSize (widget : tguiWidget_Cons) return TGUI.Vector2.tguiVector2f;
 
-   procedure setTitle (widget : access tguiWidget; text : tguiUtf32);
+   procedure setTitle (widget : tguiWidget_Ptr; text : tguiUtf32);
 
-   function getTitle (widget : access constant tguiWidget) return tguiUtf32;
+   function getTitle (widget : tguiWidget_Cons) return tguiUtf32;
 
-   procedure setTitleTextSize (widget : access tguiWidget; textSize : tguiUint32);
+   procedure setTitleTextSize (widget : tguiWidget_Ptr; textSize : tguiUint32);
 
-   function getTitleTextSize (widget : access constant tguiWidget) return tguiUint32;
+   function getTitleTextSize (widget : tguiWidget_Cons) return tguiUint32;
 
    procedure setTitleAlignment
-     (widget : access tguiWidget; alignment : TGUI.Alignment.tguiHorizontalAlignment);
+     (widget : tguiWidget_Ptr; alignment : TGUI.Alignment.tguiHorizontalAlignment);
 
    function getTitleAlignment
-     (widget : access constant tguiWidget) return TGUI.Alignment.tguiHorizontalAlignment;
+     (widget : tguiWidget_Cons) return TGUI.Alignment.tguiHorizontalAlignment;
 
-   procedure setTitleButtons (widget : access tguiWidget; buttons : tguiUint32);
+   procedure setTitleButtons (widget : tguiWidget_Ptr; buttons : tguiUint32);
 
-   function getTitleButtons (widget : access constant tguiWidget) return tguiUint32;
+   function getTitleButtons (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setResizable (widget : access tguiWidget; resizable : tguiBool);
+   procedure setResizable (widget : tguiWidget_Ptr; resizable : tguiBool);
 
-   function isResizable (widget : access constant tguiWidget) return tguiBool;
+   function isResizable (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setKeepInParent (widget : access tguiWidget; keepInParent : tguiBool);
+   procedure setKeepInParent (widget : tguiWidget_Ptr; keepInParent : tguiBool);
 
-   function isKeptInParent (widget : access constant tguiWidget) return tguiBool;
+   function isKeptInParent (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setPositionLocked (widget : access tguiWidget; positionLocked : tguiBool);
+   procedure setPositionLocked (widget : tguiWidget_Ptr; positionLocked : tguiBool);
 
-   function isPositionLocked (widget : access constant tguiWidget) return tguiBool;
+   function isPositionLocked (widget : tguiWidget_Cons) return tguiBool;
 
 private
 

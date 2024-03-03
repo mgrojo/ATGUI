@@ -23,56 +23,52 @@ package TGUI.Container is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   procedure add
-     (container : access tguiWidget; widget : access tguiWidget; widgetName : tguiUtf32);
+   procedure add (container : tguiWidget_Ptr; widget : tguiWidget_Ptr; widgetName : tguiUtf32);
 
-   function get (container : access tguiWidget; widgetName : tguiUtf32) return access tguiWidget;
+   function get (container : tguiWidget_Ptr; widgetName : tguiUtf32) return tguiWidget_Ptr;
 
    -- tguiWidget_free must be called on each element in the returned list
-   function getWidgets
-     (container : access tguiWidget; count : access tguiSize_t) return System.Address;
+   function getWidgets (container : tguiWidget_Ptr; count : access tguiSize_t) return System.Address;
 
-   function remove (container : access tguiWidget; widget : access tguiWidget) return tguiBool;
+   function remove (container : tguiWidget_Ptr; widget : tguiWidget_Ptr) return tguiBool;
 
-   procedure removeAllWidgets (container : access tguiWidget);
+   procedure removeAllWidgets (container : tguiWidget_Ptr);
 
-   procedure moveWidgetToFront (container : access tguiWidget; widget : access tguiWidget);
+   procedure moveWidgetToFront (container : tguiWidget_Ptr; widget : tguiWidget_Ptr);
 
-   procedure moveWidgetToBack (container : access tguiWidget; widget : access tguiWidget);
+   procedure moveWidgetToBack (container : tguiWidget_Ptr; widget : tguiWidget_Ptr);
 
    function moveWidgetForward
-     (container : access tguiWidget; widget : access tguiWidget) return tguiSize_t;
+     (container : tguiWidget_Ptr; widget : tguiWidget_Ptr) return tguiSize_t;
 
    function moveWidgetBackward
-     (container : access tguiWidget; widget : access tguiWidget) return tguiSize_t;
+     (container : tguiWidget_Ptr; widget : tguiWidget_Ptr) return tguiSize_t;
 
    function setWidgetIndex
-     (container : access tguiWidget; widget : access tguiWidget; index : tguiSize_t)
-      return tguiBool;
+     (container : tguiWidget_Ptr; widget : tguiWidget_Ptr; index : tguiSize_t) return tguiBool;
 
-   function getWidgetIndex
-     (container : access tguiWidget; widget : access tguiWidget) return tguiInt;
+   function getWidgetIndex (container : tguiWidget_Ptr; widget : tguiWidget_Ptr) return tguiInt;
 
-   function getFocusedChild (container : access tguiWidget) return access tguiWidget;
+   function getFocusedChild (container : tguiWidget_Ptr) return tguiWidget_Ptr;
 
-   function getFocusedLeaf (container : access tguiWidget) return access tguiWidget;
+   function getFocusedLeaf (container : tguiWidget_Ptr) return tguiWidget_Ptr;
 
    function getWidgetAtPosition
-     (container : access tguiWidget; x : tguiFloat; y : tguiFloat; recursive : tguiBool)
-      return access tguiWidget;
+     (container : tguiWidget_Ptr; x : tguiFloat; y : tguiFloat; recursive : tguiBool)
+      return tguiWidget_Ptr;
 
-   function focusNextWidget (container : access tguiWidget) return tguiBool;
+   function focusNextWidget (container : tguiWidget_Ptr) return tguiBool;
 
-   function focusPreviousWidget (container : access tguiWidget) return tguiBool;
+   function focusPreviousWidget (container : tguiWidget_Ptr) return tguiBool;
 
-   function getInnerSize (container : access tguiWidget) return TGUI.Vector2.tguiVector2f;
+   function getInnerSize (container : tguiWidget_Ptr) return TGUI.Vector2.tguiVector2f;
 
-   function getChildWidgetsOffset (container : access tguiWidget) return TGUI.Vector2.tguiVector2f;
+   function getChildWidgetsOffset (container : tguiWidget_Ptr) return TGUI.Vector2.tguiVector2f;
 
    function loadWidgetsFromFile
-     (container : access tguiWidget; filename : String; replaceExisting : tguiBool) return tguiBool;
+     (container : tguiWidget_Ptr; filename : String; replaceExisting : tguiBool) return tguiBool;
 
-   function saveWidgetsToFile (container : access tguiWidget; filename : String) return tguiBool;
+   function saveWidgetsToFile (container : tguiWidget_Ptr; filename : String) return tguiBool;
 
 private
 

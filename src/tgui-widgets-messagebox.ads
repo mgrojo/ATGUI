@@ -20,13 +20,13 @@ package TGUI.Widgets.MessageBox is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setText (widget : access tguiWidget; text : tguiUtf32);
+   procedure setText (widget : tguiWidget_Ptr; text : tguiUtf32);
 
-   function getText (widget : access constant tguiWidget) return tguiUtf32;
+   function getText (widget : tguiWidget_Cons) return tguiUtf32;
 
-   procedure addButton (widget : access tguiWidget; text : tguiUtf32);
+   procedure addButton (widget : tguiWidget_Ptr; text : tguiUtf32);
 
 private
 

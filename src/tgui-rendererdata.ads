@@ -20,9 +20,9 @@ package TGUI.RendererData is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function copy (data : access constant tguiRendererData) return access tguiRendererData;
+   function copy (data : tguiRendererData_Cons) return tguiRendererData_Ptr;
 
-   procedure free (data : access tguiRendererData);
+   procedure free (data : tguiRendererData_Ptr);
 
 private
 

@@ -22,55 +22,53 @@ package TGUI.Widgets.ChatBox is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure addLine (widget : access tguiWidget; text : tguiUtf32);
+   procedure addLine (widget : tguiWidget_Ptr; text : tguiUtf32);
 
    procedure addLineWithColor
-     (widget : access tguiWidget; text : tguiUtf32; color : access TGUI.Color.tguiColor);
+     (widget : tguiWidget_Ptr; text : tguiUtf32; color : access TGUI.Color.tguiColor);
 
    procedure addLineWithColorAndStyle
-     (widget : access tguiWidget; text : tguiUtf32; color : access TGUI.Color.tguiColor;
+     (widget : tguiWidget_Ptr; text : tguiUtf32; color : access TGUI.Color.tguiColor;
       style  : tguiUint32);
 
-   function getLine (widget : access constant tguiWidget; lineIndex : tguiSize_t) return tguiUtf32;
+   function getLine (widget : tguiWidget_Cons; lineIndex : tguiSize_t) return tguiUtf32;
 
    function getLineColor
-     (widget : access constant tguiWidget; lineIndex : tguiSize_t)
-      return access TGUI.Color.tguiColor;
+     (widget : tguiWidget_Cons; lineIndex : tguiSize_t) return access TGUI.Color.tguiColor;
 
-   function getLineTextStyle
-     (widget : access constant tguiWidget; lineIndex : tguiSize_t) return tguiUint32;
+   function getLineTextStyle (widget : tguiWidget_Cons; lineIndex : tguiSize_t) return tguiUint32;
 
-   function removeLine (widget : access tguiWidget; lineIndex : tguiSize_t) return tguiBool;
+   function removeLine (widget : tguiWidget_Ptr; lineIndex : tguiSize_t) return tguiBool;
 
-   procedure removeAllLines (widget : access tguiWidget);
+   procedure removeAllLines (widget : tguiWidget_Ptr);
 
-   function getLineAmount (widget : access constant tguiWidget) return tguiSize_t;
+   function getLineAmount (widget : tguiWidget_Cons) return tguiSize_t;
 
-   procedure setLineLimit (widget : access tguiWidget; maxLines : tguiSize_t);
+   procedure setLineLimit (widget : tguiWidget_Ptr; maxLines : tguiSize_t);
 
-   function getLineLimit (widget : access constant tguiWidget) return tguiSize_t;
+   function getLineLimit (widget : tguiWidget_Cons) return tguiSize_t;
 
-   procedure setTextColor (widget : access tguiWidget; color : access TGUI.Color.tguiColor);
+   procedure setTextColor (widget : tguiWidget_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTextColor (widget : access constant tguiWidget) return access TGUI.Color.tguiColor;
+   function getTextColor (widget : tguiWidget_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTextStyle (widget : access tguiWidget; style : tguiUint32);
+   procedure setTextStyle (widget : tguiWidget_Ptr; style : tguiUint32);
 
-   function getTextStyle (widget : access constant tguiWidget) return tguiUint32;
+   function getTextStyle (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setLinesStartFromTop (widget : access tguiWidget; startFromTop : tguiBool);
+   procedure setLinesStartFromTop (widget : tguiWidget_Ptr; startFromTop : tguiBool);
 
-   function getLinesStartFromTop (widget : access constant tguiWidget) return tguiBool;
+   function getLinesStartFromTop (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setNewLinesBelowOthers (widget : access tguiWidget; newLinesBelowOthers : tguiBool);
+   procedure setNewLinesBelowOthers (widget : tguiWidget_Ptr; newLinesBelowOthers : tguiBool);
 
-   function getNewLinesBelowOthers (widget : access constant tguiWidget) return tguiBool;
+   function getNewLinesBelowOthers (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setScrollbarValue (widget : access tguiWidget; value : tguiUint32);
+   procedure setScrollbarValue (widget : tguiWidget_Ptr; value : tguiUint32);
 
-   function getScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
+   function getScrollbarValue (widget : tguiWidget_Cons) return tguiUint32;
 
 private
 

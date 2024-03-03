@@ -1,11 +1,11 @@
 package body TGUI.Widget is
 
    function signalConnect
-     (widget : access tguiWidget; signalName : String; callback : access procedure)
+     (widget : tguiWidget_Ptr; signalName : String; callback : access procedure)
      return tguiUint32
    is
       function Internal
-        (widget : access tguiWidget; signalName : C.char_array; callback : access procedure)
+        (widget : tguiWidget_Ptr; signalName : C.char_array; callback : access procedure)
         return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalConnect");
    begin
@@ -13,22 +13,22 @@ package body TGUI.Widget is
    end signalConnect;
 
    function signalConnectEx
-     (widget   : access tguiWidget; signalName : String;
-      callback : access procedure (arg1 : access tguiWidget; arg2 : tguiUtf32)) return tguiUint32
+     (widget   : tguiWidget_Ptr; signalName : String;
+      callback : access procedure (arg1 : tguiWidget_Ptr; arg2 : tguiUtf32)) return tguiUint32
      is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
-         callback : access procedure (arg1 : access tguiWidget; arg2 : tguiUtf32)) return tguiUint32;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
+         callback : access procedure (arg1 : tguiWidget_Ptr; arg2 : tguiUtf32)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalConnectEx");
    begin
       return Internal (widget, C.To_C (signalName), callback);
    end signalConnectEx;
 
    function signalIntConnect
-     (widget : access tguiWidget; signalName : String; callback : access procedure (arg1 : tguiInt))
+     (widget : tguiWidget_Ptr; signalName : String; callback : access procedure (arg1 : tguiInt))
       return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : tguiInt)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalIntConnect");
    begin
@@ -36,10 +36,10 @@ package body TGUI.Widget is
    end signalIntConnect;
 
    function signalUIntConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : tguiUint32)) return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : tguiUint32)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalUIntConnect");
    begin
@@ -47,10 +47,10 @@ package body TGUI.Widget is
    end signalUIntConnect;
 
    function signalBoolConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : tguiBool)) return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : tguiBool)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalBoolConnect");
    begin
@@ -58,10 +58,10 @@ package body TGUI.Widget is
    end signalBoolConnect;
 
    function signalFloatConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : tguiFloat)) return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : tguiFloat)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalFloatConnect");
    begin
@@ -69,10 +69,10 @@ package body TGUI.Widget is
    end signalFloatConnect;
 
    function signalColorConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : TGUI.Color.tguiColor)) return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : TGUI.Color.tguiColor)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalColorConnect");
    begin
@@ -80,10 +80,10 @@ package body TGUI.Widget is
    end signalColorConnect;
 
    function signalStringConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : tguiUtf32)) return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : tguiUtf32)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalStringConnect");
    begin
@@ -91,10 +91,10 @@ package body TGUI.Widget is
    end signalStringConnect;
 
    function signalVector2fConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f)) return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalVector2fConnect");
    begin
@@ -102,10 +102,10 @@ package body TGUI.Widget is
    end signalVector2fConnect;
 
    function signalFloatRectConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : TGUI.Rect.tguiFloatRect)) return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : TGUI.Rect.tguiFloatRect)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalFloatRectConnect");
    begin
@@ -113,11 +113,11 @@ package body TGUI.Widget is
    end signalFloatRectConnect;
 
    function signalRangeConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : tguiFloat; arg2 : tguiFloat)) return tguiUint32
    is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : tguiFloat; arg2 : tguiFloat)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalRangeConnect");
    begin
@@ -126,21 +126,21 @@ package body TGUI.Widget is
 
    -- tguiWidget_free must be called on the parameter in the callback function
    function signalChildWindowConnect
-     (widget   : access tguiWidget; signalName : String;
-      callback : access procedure (arg1 : access tguiWidget)) return tguiUint32 is
+     (widget   : tguiWidget_Ptr; signalName : String;
+      callback : access procedure (arg1 : tguiWidget_Ptr)) return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
-         callback : access procedure (arg1 : access tguiWidget)) return tguiUint32;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
+         callback : access procedure (arg1 : tguiWidget_Ptr)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalChildWindowConnect");
    begin
       return Internal (widget, C.To_C (signalName), callback);
    end signalChildWindowConnect;
 
    function signalItemConnect
-     (widget : access tguiWidget; signalName : String; callback : access procedure (arg1 : tguiInt))
+     (widget : tguiWidget_Ptr; signalName : String; callback : access procedure (arg1 : tguiInt))
       return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : tguiInt)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalItemConnect");
    begin
@@ -148,10 +148,10 @@ package body TGUI.Widget is
    end signalItemConnect;
 
    function signalPanelListBoxItemConnect
-     (widget : access tguiWidget; signalName : String; callback : access procedure (arg1 : tguiInt))
+     (widget : tguiWidget_Ptr; signalName : String; callback : access procedure (arg1 : tguiInt))
       return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : tguiInt)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalPanelListBoxItemConnect");
    begin
@@ -160,10 +160,10 @@ package body TGUI.Widget is
 
    -- List of strings
    function signalFileDialogPathsConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalFileDialogPathsConnect");
    begin
@@ -171,11 +171,11 @@ package body TGUI.Widget is
    end signalFileDialogPathsConnect;
 
    function signalShowEffectConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : TGUI.Animation.tguiShowEffectType; arg2 : tguiBool))
       return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : TGUI.Animation.tguiShowEffectType; arg2 : tguiBool))
         return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalShowEffectConnect");
@@ -184,10 +184,10 @@ package body TGUI.Widget is
    end signalShowEffectConnect;
 
    function signalAnimationTypeConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : TGUI.Animation.tguiAnimationType)) return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : TGUI.Animation.tguiAnimationType)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalAnimationTypeConnect");
    begin
@@ -196,10 +196,10 @@ package body TGUI.Widget is
 
    -- List of strings
    function signalItemHierarchyConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32 is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array;
          callback : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32;
       pragma Import (C, Internal, "tguiWidget_signalItemHierarchyConnect");
    begin
@@ -207,35 +207,35 @@ package body TGUI.Widget is
    end signalItemHierarchyConnect;
 
    function signalDisconnect
-     (widget : access tguiWidget; signalName : String; id : tguiUint32) return tguiBool is
+     (widget : tguiWidget_Ptr; signalName : String; id : tguiUint32) return tguiBool is
       function Internal
-        (widget : access tguiWidget; signalName : C.char_array;
+        (widget : tguiWidget_Ptr; signalName : C.char_array;
          id : tguiUint32) return tguiBool;
       pragma Import (C, Internal, "tguiWidget_signalDisconnect");
    begin
       return Internal (widget, C.To_C (signalName), id);
    end signalDisconnect;
 
-   procedure signalDisconnectAll (widget : access tguiWidget; signalName : String) is
+   procedure signalDisconnectAll (widget : tguiWidget_Ptr; signalName : String) is
       procedure Internal
-        (widget   : access tguiWidget; signalName : C.char_array);
+        (widget   : tguiWidget_Ptr; signalName : C.char_array);
       pragma Import (C, Internal, "tguiWidget_signalDisconnect");
    begin
       Internal (widget, C.To_C (signalName));
    end signalDisconnectAll;
 
    function setSignalEnabled
-     (widget : access tguiWidget; signalName : String; enabled : tguiBool) return tguiBool is
+     (widget : tguiWidget_Ptr; signalName : String; enabled : tguiBool) return tguiBool is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array; enabled : tguiBool) return tguiBool;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array; enabled : tguiBool) return tguiBool;
       pragma Import (C, Internal, "tguiWidget_setSignalEnabled");
    begin
       return Internal (widget, C.To_C (signalName), enabled);
    end setSignalEnabled;
 
-   function isSignalEnabled (widget : access tguiWidget; signalName : String) return tguiBool is
+   function isSignalEnabled (widget : tguiWidget_Ptr; signalName : String) return tguiBool is
       function Internal
-        (widget   : access tguiWidget; signalName : C.char_array) return tguiBool;
+        (widget   : tguiWidget_Ptr; signalName : C.char_array) return tguiBool;
       pragma Import (C, Internal, "tguiWidget_isSignalEnabled");
    begin
       return Internal (widget, C.To_C (signalName));

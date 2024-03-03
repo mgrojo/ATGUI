@@ -28,12 +28,12 @@ procedure Example is
      (videoMode, "ATGUI example (CSFML-GRAPHICS)");
    --  The tguiGui object should always be the first CTGUI object to create
    The_GUI : constant tguiGui_Ptr := Backend.ASFML_Graphics.create (Window);
-   button : constant access tguiWidget := Widgets.Button.create;
+   button : constant tguiWidget_Ptr := Widgets.Button.create;
    position : constant Vector2.tguiVector2f := (40.0, 30.0);
    size : constant Vector2.tguiVector2f := (200.0, 40.0);
    buttonColor : aliased TGUI.Color.tguiColor :=
      TGUI.Color.fromRGB (128, 220, 128);
-   buttonRenderer : access tguiRenderer;
+   buttonRenderer : tguiRenderer_Ptr;
    Event  : aliased Sf.Window.Event.sfEvent;
    signalResult : tguiUint32;
 begin

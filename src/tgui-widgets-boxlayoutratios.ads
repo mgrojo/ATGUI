@@ -21,24 +21,23 @@ package TGUI.Widgets.BoxLayoutRatios is
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
    procedure add
-     (layout     : access tguiWidget; widget : access tguiWidget; ratio : tguiFloat;
-      widgetName : tguiUtf32);
+     (layout : tguiWidget_Ptr; widget : tguiWidget_Ptr; ratio : tguiFloat; widgetName : tguiUtf32);
 
    procedure insert
-     (layout : access tguiWidget; index : tguiSize_t; widget : access tguiWidget; ratio : tguiFloat;
+     (layout     : tguiWidget_Ptr; index : tguiSize_t; widget : tguiWidget_Ptr; ratio : tguiFloat;
       widgetName : tguiUtf32);
 
-   procedure addSpace (layout : access tguiWidget; ratio : tguiFloat);
+   procedure addSpace (layout : tguiWidget_Ptr; ratio : tguiFloat);
 
-   procedure insertSpace (layout : access tguiWidget; index : tguiSize_t; ratio : tguiFloat);
+   procedure insertSpace (layout : tguiWidget_Ptr; index : tguiSize_t; ratio : tguiFloat);
 
-   procedure setRatio (layout : access tguiWidget; widget : access tguiWidget; ratio : tguiFloat);
+   procedure setRatio (layout : tguiWidget_Ptr; widget : tguiWidget_Ptr; ratio : tguiFloat);
 
-   procedure setRatioAtIndex (layout : access tguiWidget; index : tguiSize_t; ratio : tguiFloat);
+   procedure setRatioAtIndex (layout : tguiWidget_Ptr; index : tguiSize_t; ratio : tguiFloat);
 
-   function getRatio (layout : access tguiWidget; widget : access tguiWidget) return tguiFloat;
+   function getRatio (layout : tguiWidget_Ptr; widget : tguiWidget_Ptr) return tguiFloat;
 
-   function getRatioAtIndex (layout : access tguiWidget; index : tguiSize_t) return tguiFloat;
+   function getRatioAtIndex (layout : tguiWidget_Ptr; index : tguiSize_t) return tguiFloat;
 
 private
 

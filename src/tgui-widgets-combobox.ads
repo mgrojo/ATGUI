@@ -28,76 +28,74 @@ package TGUI.Widgets.ComboBox is
       tguiExpandDirectionAutomatic) with
      Convention => C;
 
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setItemsToDisplay (widget : access tguiWidget; itemsToDisplay : tguiSize_t);
+   procedure setItemsToDisplay (widget : tguiWidget_Ptr; itemsToDisplay : tguiSize_t);
 
-   function getItemsToDisplay (widget : access constant tguiWidget) return tguiSize_t;
+   function getItemsToDisplay (widget : tguiWidget_Cons) return tguiSize_t;
 
-   function addItem (widget : access tguiWidget; item : tguiUtf32; id : tguiUtf32) return tguiBool;
+   function addItem (widget : tguiWidget_Ptr; item : tguiUtf32; id : tguiUtf32) return tguiBool;
 
-   function getItemById (widget : access constant tguiWidget; id : tguiUtf32) return tguiUtf32;
+   function getItemById (widget : tguiWidget_Cons; id : tguiUtf32) return tguiUtf32;
 
-   function setSelectedItem (widget : access tguiWidget; item : tguiUtf32) return tguiBool;
+   function setSelectedItem (widget : tguiWidget_Ptr; item : tguiUtf32) return tguiBool;
 
-   function setSelectedItemById (widget : access tguiWidget; id : tguiUtf32) return tguiBool;
+   function setSelectedItemById (widget : tguiWidget_Ptr; id : tguiUtf32) return tguiBool;
 
-   function setSelectedItemByIndex (widget : access tguiWidget; index : tguiSize_t) return tguiBool;
+   function setSelectedItemByIndex (widget : tguiWidget_Ptr; index : tguiSize_t) return tguiBool;
 
-   procedure deselectItem (widget : access tguiWidget);
+   procedure deselectItem (widget : tguiWidget_Ptr);
 
-   function removeItem (widget : access tguiWidget; item : tguiUtf32) return tguiBool;
+   function removeItem (widget : tguiWidget_Ptr; item : tguiUtf32) return tguiBool;
 
-   function removeItemById (widget : access tguiWidget; id : tguiUtf32) return tguiBool;
+   function removeItemById (widget : tguiWidget_Ptr; id : tguiUtf32) return tguiBool;
 
-   function removeItemByIndex (widget : access tguiWidget; index : tguiSize_t) return tguiBool;
+   function removeItemByIndex (widget : tguiWidget_Ptr; index : tguiSize_t) return tguiBool;
 
-   procedure removeAllItems (widget : access tguiWidget);
+   procedure removeAllItems (widget : tguiWidget_Ptr);
 
-   function getSelectedItem (widget : access constant tguiWidget) return tguiUtf32;
+   function getSelectedItem (widget : tguiWidget_Cons) return tguiUtf32;
 
-   function getSelectedItemId (widget : access constant tguiWidget) return tguiUtf32;
+   function getSelectedItemId (widget : tguiWidget_Cons) return tguiUtf32;
 
-   function getSelectedItemIndex (widget : access constant tguiWidget) return tguiInt;
+   function getSelectedItemIndex (widget : tguiWidget_Cons) return tguiInt;
 
    function changeItem
-     (widget : access tguiWidget; originalValue : tguiUtf32; newValue : tguiUtf32) return tguiBool;
+     (widget : tguiWidget_Ptr; originalValue : tguiUtf32; newValue : tguiUtf32) return tguiBool;
 
    function changeItemById
-     (widget : access tguiWidget; id : tguiUtf32; newValue : tguiUtf32) return tguiBool;
+     (widget : tguiWidget_Ptr; id : tguiUtf32; newValue : tguiUtf32) return tguiBool;
 
    function changeItemByIndex
-     (widget : access tguiWidget; index : tguiSize_t; newValue : tguiUtf32) return tguiBool;
+     (widget : tguiWidget_Ptr; index : tguiSize_t; newValue : tguiUtf32) return tguiBool;
 
-   function getItemCount (widget : access constant tguiWidget) return tguiSize_t;
+   function getItemCount (widget : tguiWidget_Cons) return tguiSize_t;
 
-   function getItems
-     (widget : access constant tguiWidget; count : access tguiSize_t) return System.Address;
+   function getItems (widget : tguiWidget_Cons; count : access tguiSize_t) return System.Address;
 
-   function getItemIds
-     (widget : access constant tguiWidget; count : access tguiSize_t) return System.Address;
+   function getItemIds (widget : tguiWidget_Cons; count : access tguiSize_t) return System.Address;
 
-   procedure setMaximumItems (widget : access tguiWidget; maxItems : tguiUint32);
+   procedure setMaximumItems (widget : tguiWidget_Ptr; maxItems : tguiUint32);
 
-   function getMaximumItems (widget : access constant tguiWidget) return tguiSize_t;
+   function getMaximumItems (widget : tguiWidget_Cons) return tguiSize_t;
 
-   procedure setDefaultText (widget : access tguiWidget; text : tguiUtf32);
+   procedure setDefaultText (widget : tguiWidget_Ptr; text : tguiUtf32);
 
-   function getDefaultText (widget : access constant tguiWidget) return tguiUtf32;
+   function getDefaultText (widget : tguiWidget_Cons) return tguiUtf32;
 
-   procedure setExpandDirection (widget : access tguiWidget; expandDirection : tguiExpandDirection);
+   procedure setExpandDirection (widget : tguiWidget_Ptr; expandDirection : tguiExpandDirection);
 
-   function getExpandDirection (widget : access constant tguiWidget) return tguiExpandDirection;
+   function getExpandDirection (widget : tguiWidget_Cons) return tguiExpandDirection;
 
-   function contains (widget : access tguiWidget; item : tguiUtf32) return tguiBool with
+   function contains (widget : tguiWidget_Ptr; item : tguiUtf32) return tguiBool with
      Import => True, Convention => C, External_Name => "tguiComboBox_contains";
 
-   function containsId (widget : access tguiWidget; id : tguiUtf32) return tguiBool with
+   function containsId (widget : tguiWidget_Ptr; id : tguiUtf32) return tguiBool with
      Import => True, Convention => C, External_Name => "tguiComboBox_containsId";
 
-   procedure setChangeItemOnScroll (widget : access tguiWidget; changeOnScroll : tguiBool);
+   procedure setChangeItemOnScroll (widget : tguiWidget_Ptr; changeOnScroll : tguiBool);
 
-   function getChangeItemOnScroll (widget : access constant tguiWidget) return tguiBool;
+   function getChangeItemOnScroll (widget : tguiWidget_Cons) return tguiBool;
 
 private
 

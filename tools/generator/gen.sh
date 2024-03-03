@@ -61,6 +61,8 @@ do
         s%  -- include/CTGUI/.*%%;
         s/c_type : \(.*tguiCursorType\)/cursorType : \1/g;
         s/c_type : \(.*tguiShowEffectType\)/effectType : \1/g;
+        s/ access \(tgui[a-zA-Z0-9]*\)/ \1_Ptr/g;
+        s/ access constant \(tgui[a-zA-Z0-9]*\)/ \1_Cons/g;
         s/\\\\/@/g  " $NEW_FILE
 
             gnatpp --vertical-enum-types --max-line-length=100 $NEW_FILE

@@ -22,61 +22,60 @@ package TGUI.Widgets.TextArea is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setText (widget : access tguiWidget; text : tguiUtf32);
+   procedure setText (widget : tguiWidget_Ptr; text : tguiUtf32);
 
-   procedure addText (widget : access tguiWidget; text : tguiUtf32);
+   procedure addText (widget : tguiWidget_Ptr; text : tguiUtf32);
 
-   function getText (widget : access constant tguiWidget) return tguiUtf32;
+   function getText (widget : tguiWidget_Cons) return tguiUtf32;
 
-   procedure setDefaultText (widget : access tguiWidget; text : tguiUtf32);
+   procedure setDefaultText (widget : tguiWidget_Ptr; text : tguiUtf32);
 
-   function getDefaultText (widget : access constant tguiWidget) return tguiUtf32;
+   function getDefaultText (widget : tguiWidget_Cons) return tguiUtf32;
 
    procedure setSelectedText
-     (widget            : access constant tguiWidget; selectionStartIndex : tguiSize_t;
-      selectionEndIndex : tguiSize_t);
+     (widget : tguiWidget_Cons; selectionStartIndex : tguiSize_t; selectionEndIndex : tguiSize_t);
 
-   function getSelectedText (widget : access constant tguiWidget) return tguiUtf32;
+   function getSelectedText (widget : tguiWidget_Cons) return tguiUtf32;
 
-   function getSelectionStart (widget : access constant tguiWidget) return tguiSize_t;
+   function getSelectionStart (widget : tguiWidget_Cons) return tguiSize_t;
 
-   function getSelectionEnd (widget : access constant tguiWidget) return tguiSize_t;
+   function getSelectionEnd (widget : tguiWidget_Cons) return tguiSize_t;
 
-   procedure setMaximumCharacters (widget : access tguiWidget; maximumCharacters : tguiSize_t);
+   procedure setMaximumCharacters (widget : tguiWidget_Ptr; maximumCharacters : tguiSize_t);
 
-   function getMaximumCharacters (widget : access constant tguiWidget) return tguiSize_t;
+   function getMaximumCharacters (widget : tguiWidget_Cons) return tguiSize_t;
 
-   procedure setCaretPosition (widget : access tguiWidget; tguiCharactersBeforeCaret : tguiSize_t);
+   procedure setCaretPosition (widget : tguiWidget_Ptr; tguiCharactersBeforeCaret : tguiSize_t);
 
-   function getCaretPosition (widget : access constant tguiWidget) return tguiSize_t;
+   function getCaretPosition (widget : tguiWidget_Cons) return tguiSize_t;
 
-   procedure setReadOnly (widget : access tguiWidget; readOnly : tguiBool);
+   procedure setReadOnly (widget : tguiWidget_Ptr; readOnly : tguiBool);
 
-   function isReadOnly (widget : access constant tguiWidget) return tguiBool;
+   function isReadOnly (widget : tguiWidget_Cons) return tguiBool;
 
    procedure setVerticalScrollbarPolicy
-     (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
+     (widget : tguiWidget_Ptr; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
 
    function getVerticalScrollbarPolicy
-     (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
+     (widget : tguiWidget_Cons) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
 
    procedure setHorizontalScrollbarPolicy
-     (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
+     (widget : tguiWidget_Ptr; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
 
    function getHorizontalScrollbarPolicy
-     (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
+     (widget : tguiWidget_Cons) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
 
-   procedure setVerticalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
+   procedure setVerticalScrollbarValue (widget : tguiWidget_Ptr; value : tguiUint32);
 
-   function getVerticalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
+   function getVerticalScrollbarValue (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setHorizontalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
+   procedure setHorizontalScrollbarValue (widget : tguiWidget_Ptr; value : tguiUint32);
 
-   function getHorizontalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
+   function getHorizontalScrollbarValue (widget : tguiWidget_Cons) return tguiUint32;
 
-   function getLinesCount (widget : access constant tguiWidget) return tguiSize_t;
+   function getLinesCount (widget : tguiWidget_Cons) return tguiSize_t;
 
 private
 

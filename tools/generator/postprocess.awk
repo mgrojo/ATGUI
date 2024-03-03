@@ -153,7 +153,7 @@
     gsub(/c_select/, "selected")
     gsub(/c_delta/, "eventDelta")
     gsub(/c_type : aliased tguiEventType/, "eventType : aliased tguiEventType")
-    gsub(/c_system : aliased tguiBool/, "system : aliased tguiBool")
+    gsub(/c_system : aliased/, "system : aliased")
 
     print
 

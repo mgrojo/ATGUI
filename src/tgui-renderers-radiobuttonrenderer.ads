@@ -22,203 +22,175 @@ package TGUI.Renderers.RadioButtonRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
+   function copy (renderer : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure setTextDistanceRatio (renderer : access tguiRenderer; ratio : tguiFloat);
+   procedure setTextDistanceRatio (renderer : tguiRenderer_Ptr; ratio : tguiFloat);
 
-   function getTextDistanceRatio (renderer : access constant tguiRenderer) return tguiFloat;
+   function getTextDistanceRatio (renderer : tguiRenderer_Cons) return tguiFloat;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
+   procedure setBorders (renderer : tguiRenderer_Ptr; borders : tguiOutline_Ptr);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
+   function getBorders (renderer : tguiRenderer_Cons) return tguiOutline_Ptr;
 
-   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTextColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTextColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTextColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTextColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTextColorHover (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTextColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTextColorHover (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setTextColorDisabled
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTextColorDisabled
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTextColorDisabled (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTextColorChecked
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTextColorChecked (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTextColorChecked
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTextColorChecked (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setTextColorCheckedHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getTextColorCheckedHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setTextColorCheckedDisabled
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getTextColorCheckedDisabled
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setBackgroundColor
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBackgroundColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBackgroundColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBackgroundColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getBackgroundColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBackgroundColorDisabled
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getBackgroundColorDisabled
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBackgroundColorChecked
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getBackgroundColorChecked
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBackgroundColorCheckedHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getBackgroundColorCheckedHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBackgroundColorCheckedDisabled
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getBackgroundColorCheckedDisabled
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBorderColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBorderColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBorderColorHover (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBorderColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBorderColorHover (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBorderColorFocused
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBorderColorFocused
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBorderColorFocused (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBorderColorDisabled
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getBorderColorDisabled
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBorderColorChecked
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBorderColorChecked
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBorderColorChecked (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBorderColorCheckedHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getBorderColorCheckedHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBorderColorCheckedFocused
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getBorderColorCheckedFocused
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBorderColorCheckedDisabled
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getBorderColorCheckedDisabled
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setCheckColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setCheckColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getCheckColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getCheckColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setCheckColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setCheckColorHover (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getCheckColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getCheckColorHover (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setCheckColorDisabled
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getCheckColorDisabled
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getCheckColorDisabled (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTextureUnchecked (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureUnchecked (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureUnchecked (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureUnchecked (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureChecked (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureChecked (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureChecked (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureChecked (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureUncheckedHover
-     (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureUncheckedHover (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureUncheckedHover
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureUncheckedHover (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureCheckedHover (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureCheckedHover (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureCheckedHover
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureCheckedHover (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureUncheckedFocused
-     (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureUncheckedFocused (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureUncheckedFocused
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureUncheckedFocused (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureCheckedFocused
-     (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureCheckedFocused (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureCheckedFocused
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureCheckedFocused (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureUncheckedDisabled
-     (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureUncheckedDisabled (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureUncheckedDisabled
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureUncheckedDisabled (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureCheckedDisabled
-     (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureCheckedDisabled (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureCheckedDisabled
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureCheckedDisabled (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextStyle (renderer : access tguiRenderer; style : tguiUint32);
+   procedure setTextStyle (renderer : tguiRenderer_Ptr; style : tguiUint32);
 
-   function getTextStyle (renderer : access tguiRenderer) return tguiUint32;
+   function getTextStyle (renderer : tguiRenderer_Ptr) return tguiUint32;
 
-   procedure setTextStyleChecked (renderer : access tguiRenderer; style : tguiUint32);
+   procedure setTextStyleChecked (renderer : tguiRenderer_Ptr; style : tguiUint32);
 
-   function getTextStyleChecked (renderer : access tguiRenderer) return tguiUint32;
+   function getTextStyleChecked (renderer : tguiRenderer_Ptr) return tguiUint32;
 
 private
 

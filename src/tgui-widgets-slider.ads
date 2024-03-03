@@ -20,35 +20,35 @@ package TGUI.Widgets.Slider is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setMinimum (widget : access tguiWidget; minimum : tguiFloat);
+   procedure setMinimum (widget : tguiWidget_Ptr; minimum : tguiFloat);
 
-   function getMinimum (widget : access constant tguiWidget) return tguiFloat;
+   function getMinimum (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure setMaximum (widget : access tguiWidget; maximum : tguiFloat);
+   procedure setMaximum (widget : tguiWidget_Ptr; maximum : tguiFloat);
 
-   function getMaximum (widget : access constant tguiWidget) return tguiFloat;
+   function getMaximum (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure setValue (widget : access tguiWidget; value : tguiFloat);
+   procedure setValue (widget : tguiWidget_Ptr; value : tguiFloat);
 
-   function getValue (widget : access constant tguiWidget) return tguiFloat;
+   function getValue (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure setStep (widget : access tguiWidget; step : tguiFloat);
+   procedure setStep (widget : tguiWidget_Ptr; step : tguiFloat);
 
-   function getStep (widget : access constant tguiWidget) return tguiFloat;
+   function getStep (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure setVerticalScroll (widget : access tguiWidget; vertical : tguiBool);
+   procedure setVerticalScroll (widget : tguiWidget_Ptr; vertical : tguiBool);
 
-   function getVerticalScroll (widget : access constant tguiWidget) return tguiBool;
+   function getVerticalScroll (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setInvertedDirection (widget : access tguiWidget; invertedDirection : tguiBool);
+   procedure setInvertedDirection (widget : tguiWidget_Ptr; invertedDirection : tguiBool);
 
-   function getInvertedDirection (widget : access constant tguiWidget) return tguiBool;
+   function getInvertedDirection (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setChangeValueOnScroll (widget : access tguiWidget; changeValueOnScroll : tguiBool);
+   procedure setChangeValueOnScroll (widget : tguiWidget_Ptr; changeValueOnScroll : tguiBool);
 
-   function getChangeValueOnScroll (widget : access constant tguiWidget) return tguiBool;
+   function getChangeValueOnScroll (widget : tguiWidget_Cons) return tguiBool;
 
 private
 

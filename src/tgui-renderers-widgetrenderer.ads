@@ -20,32 +20,31 @@ package TGUI.Renderers.WidgetRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer;
+   function copy (other : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure free (renderer : access tguiRenderer);
+   procedure free (renderer : tguiRenderer_Ptr);
 
-   procedure setOpacity (renderer : access tguiRenderer; alpha : tguiFloat);
+   procedure setOpacity (renderer : tguiRenderer_Ptr; alpha : tguiFloat);
 
-   function getOpacity (renderer : access constant tguiRenderer) return tguiFloat;
+   function getOpacity (renderer : tguiRenderer_Cons) return tguiFloat;
 
-   procedure setOpacityDisabled (renderer : access tguiRenderer; alpha : tguiFloat);
+   procedure setOpacityDisabled (renderer : tguiRenderer_Ptr; alpha : tguiFloat);
 
-   function getOpacityDisabled (renderer : access constant tguiRenderer) return tguiFloat;
+   function getOpacityDisabled (renderer : tguiRenderer_Cons) return tguiFloat;
 
-   procedure setFont (renderer : access tguiRenderer; font : access tguiFont);
+   procedure setFont (renderer : tguiRenderer_Ptr; font : tguiFont_Ptr);
 
-   function getFont (renderer : access constant tguiRenderer) return access tguiFont;
+   function getFont (renderer : tguiRenderer_Cons) return tguiFont_Ptr;
 
-   procedure setTransparentTexture
-     (renderer : access tguiRenderer; ignoreTransparentParts : tguiBool);
+   procedure setTransparentTexture (renderer : tguiRenderer_Ptr; ignoreTransparentParts : tguiBool);
 
-   function getTransparentTexture (renderer : access tguiRenderer) return tguiBool;
+   function getTransparentTexture (renderer : tguiRenderer_Ptr) return tguiBool;
 
-   procedure setData (renderer : access tguiRenderer; data : access tguiRendererData);
+   procedure setData (renderer : tguiRenderer_Ptr; data : tguiRendererData_Ptr);
 
-   function getData (renderer : access constant tguiRenderer) return access tguiRendererData;
+   function getData (renderer : tguiRenderer_Cons) return tguiRendererData_Ptr;
 
 private
 

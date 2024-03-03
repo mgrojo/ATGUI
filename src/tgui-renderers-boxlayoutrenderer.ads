@@ -20,13 +20,13 @@ package TGUI.Renderers.BoxLayoutRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer;
+   function copy (other : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure setSpaceBetweenWidgets (renderer : access tguiRenderer; space : tguiFloat);
+   procedure setSpaceBetweenWidgets (renderer : tguiRenderer_Ptr; space : tguiFloat);
 
-   function getSpaceBetweenWidgets (renderer : access constant tguiRenderer) return tguiFloat;
+   function getSpaceBetweenWidgets (renderer : tguiRenderer_Cons) return tguiFloat;
 
 private
 

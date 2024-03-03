@@ -28,12 +28,12 @@ package TGUI.Backend.ASFML_Graphics is
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create (window : Sf.Graphics.sfRenderWindow_Ptr) return access tguiGui;
+   function create (window : Sf.Graphics.sfRenderWindow_Ptr) return tguiGui_Ptr;
 
-   procedure free (gui : access tguiGui);
+   procedure free (gui : tguiGui_Ptr);
 
    procedure handleEvent
-     (gui : access tguiGui; event : access constant Sf.Window.Event.sfEvent);
+     (gui : tguiGui_Ptr; event : access constant Sf.Window.Event.sfEvent);
 
 ----------------------------------------------------------------------------
 private

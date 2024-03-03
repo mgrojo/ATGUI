@@ -20,13 +20,13 @@ package TGUI.Widgets.BitmapButton is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setImage (widget : access tguiWidget; image : access tguiTexture);
+   procedure setImage (widget : tguiWidget_Ptr; image : tguiTexture_Ptr);
 
-   procedure setImageScaling (widget : access tguiWidget; imageScaling : tguiFloat);
+   procedure setImageScaling (widget : tguiWidget_Ptr; imageScaling : tguiFloat);
 
-   function getImageScaling (widget : access constant tguiWidget) return tguiFloat;
+   function getImageScaling (widget : tguiWidget_Cons) return tguiFloat;
 
 private
 

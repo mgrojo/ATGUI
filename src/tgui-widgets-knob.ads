@@ -20,31 +20,31 @@ package TGUI.Widgets.Knob is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setStartRotation (widget : access tguiWidget; startRotation : tguiFloat);
+   procedure setStartRotation (widget : tguiWidget_Ptr; startRotation : tguiFloat);
 
-   function getStartRotation (widget : access constant tguiWidget) return tguiFloat;
+   function getStartRotation (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure setEndRotation (widget : access tguiWidget; startRotation : tguiFloat);
+   procedure setEndRotation (widget : tguiWidget_Ptr; startRotation : tguiFloat);
 
-   function getEndRotation (widget : access constant tguiWidget) return tguiFloat;
+   function getEndRotation (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure setMinimum (widget : access tguiWidget; minimum : tguiInt);
+   procedure setMinimum (widget : tguiWidget_Ptr; minimum : tguiInt);
 
-   function getMinimum (widget : access constant tguiWidget) return tguiInt;
+   function getMinimum (widget : tguiWidget_Cons) return tguiInt;
 
-   procedure setMaximum (widget : access tguiWidget; maximum : tguiInt);
+   procedure setMaximum (widget : tguiWidget_Ptr; maximum : tguiInt);
 
-   function getMaximum (widget : access constant tguiWidget) return tguiInt;
+   function getMaximum (widget : tguiWidget_Cons) return tguiInt;
 
-   procedure setValue (widget : access tguiWidget; value : tguiInt);
+   procedure setValue (widget : tguiWidget_Ptr; value : tguiInt);
 
-   function getValue (widget : access constant tguiWidget) return tguiInt;
+   function getValue (widget : tguiWidget_Cons) return tguiInt;
 
-   procedure setClockwiseTurning (widget : access tguiWidget; clockwise : tguiBool);
+   procedure setClockwiseTurning (widget : tguiWidget_Ptr; clockwise : tguiBool);
 
-   function getClockwiseTurning (widget : access constant tguiWidget) return tguiBool;
+   function getClockwiseTurning (widget : tguiWidget_Cons) return tguiBool;
 
 private
 

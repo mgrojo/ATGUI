@@ -22,73 +22,64 @@ package TGUI.Renderers.TextBoxRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
+   function copy (renderer : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
+   procedure setBorders (renderer : tguiRenderer_Ptr; borders : tguiOutline_Ptr);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
+   function getBorders (renderer : tguiRenderer_Cons) return tguiOutline_Ptr;
 
-   procedure setPadding (renderer : access tguiRenderer; padding : access tguiOutline);
+   procedure setPadding (renderer : tguiRenderer_Ptr; padding : tguiOutline_Ptr);
 
-   function getPadding (renderer : access constant tguiRenderer) return access tguiOutline;
+   function getPadding (renderer : tguiRenderer_Cons) return tguiOutline_Ptr;
 
-   procedure setBackgroundColor
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBackgroundColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBackgroundColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTextColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTextColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTextColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setDefaultTextColor
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setDefaultTextColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getDefaultTextColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getDefaultTextColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setSelectedTextColor
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getSelectedTextColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getSelectedTextColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setSelectedTextBackgroundColor
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getSelectedTextBackgroundColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBorderColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBorderColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setCaretColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setCaretColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getCaretColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getCaretColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureBackground (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureBackground
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureBackground (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setCaretWidth (renderer : access constant tguiRenderer; width : tguiFloat);
+   procedure setCaretWidth (renderer : tguiRenderer_Cons; width : tguiFloat);
 
-   function getCaretWidth (renderer : access constant tguiRenderer) return tguiFloat;
+   function getCaretWidth (renderer : tguiRenderer_Cons) return tguiFloat;
 
-   procedure setScrollbar (renderer : access tguiRenderer; rendererData : access tguiRendererData);
+   procedure setScrollbar (renderer : tguiRenderer_Ptr; rendererData : tguiRendererData_Ptr);
 
-   function getScrollbar (renderer : access constant tguiRenderer) return access tguiRendererData;
+   function getScrollbar (renderer : tguiRenderer_Cons) return tguiRendererData_Ptr;
 
-   procedure setScrollbarWidth (renderer : access tguiRenderer; width : tguiFloat);
+   procedure setScrollbarWidth (renderer : tguiRenderer_Ptr; width : tguiFloat);
 
-   function getScrollbarWidth (renderer : access constant tguiRenderer) return tguiFloat;
+   function getScrollbarWidth (renderer : tguiRenderer_Cons) return tguiFloat;
 
 private
 

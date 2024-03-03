@@ -20,7 +20,7 @@ package TGUI.Widgets.ClickableWidget is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
 private
 

@@ -20,13 +20,13 @@ package TGUI.Renderers.GroupRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer;
+   function copy (other : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure setPadding (renderer : access tguiRenderer; padding : access tguiOutline);
+   procedure setPadding (renderer : tguiRenderer_Ptr; padding : tguiOutline_Ptr);
 
-   function getPadding (renderer : access constant tguiRenderer) return access tguiOutline;
+   function getPadding (renderer : tguiRenderer_Cons) return tguiOutline_Ptr;
 
 private
 

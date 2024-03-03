@@ -20,17 +20,17 @@ package TGUI.Renderers.ScrollablePanelRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
+   function copy (renderer : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure setScrollbar (renderer : access tguiRenderer; rendererData : access tguiRendererData);
+   procedure setScrollbar (renderer : tguiRenderer_Ptr; rendererData : tguiRendererData_Ptr);
 
-   function getScrollbar (renderer : access constant tguiRenderer) return access tguiRendererData;
+   function getScrollbar (renderer : tguiRenderer_Cons) return tguiRendererData_Ptr;
 
-   procedure setScrollbarWidth (renderer : access tguiRenderer; width : tguiFloat);
+   procedure setScrollbarWidth (renderer : tguiRenderer_Ptr; width : tguiFloat);
 
-   function getScrollbarWidth (renderer : access constant tguiRenderer) return tguiFloat;
+   function getScrollbarWidth (renderer : tguiRenderer_Cons) return tguiFloat;
 
 private
 

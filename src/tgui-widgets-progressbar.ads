@@ -27,29 +27,29 @@ package TGUI.Widgets.ProgressBar is
       tguiFillDirectionBottomToTop) with
      Convention => C;
 
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setMinimum (widget : access tguiWidget; minimum : tguiUint32);
+   procedure setMinimum (widget : tguiWidget_Ptr; minimum : tguiUint32);
 
-   function getMinimum (widget : access constant tguiWidget) return tguiUint32;
+   function getMinimum (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setMaximum (widget : access tguiWidget; maximum : tguiUint32);
+   procedure setMaximum (widget : tguiWidget_Ptr; maximum : tguiUint32);
 
-   function getMaximum (widget : access constant tguiWidget) return tguiUint32;
+   function getMaximum (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setValue (widget : access tguiWidget; value : tguiUint32);
+   procedure setValue (widget : tguiWidget_Ptr; value : tguiUint32);
 
-   function getValue (widget : access constant tguiWidget) return tguiUint32;
+   function getValue (widget : tguiWidget_Cons) return tguiUint32;
 
-   function incrementValue (widget : access constant tguiWidget) return tguiUint32;
+   function incrementValue (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setText (widget : access tguiWidget; text : tguiUtf32);
+   procedure setText (widget : tguiWidget_Ptr; text : tguiUtf32);
 
-   function getText (widget : access constant tguiWidget) return tguiUtf32;
+   function getText (widget : tguiWidget_Cons) return tguiUtf32;
 
-   procedure setFillDirection (widget : access tguiWidget; fillDirection : tguiFillDirection);
+   procedure setFillDirection (widget : tguiWidget_Ptr; fillDirection : tguiFillDirection);
 
-   function getFillDirection (widget : access constant tguiWidget) return tguiFillDirection;
+   function getFillDirection (widget : tguiWidget_Cons) return tguiFillDirection;
 
 private
 

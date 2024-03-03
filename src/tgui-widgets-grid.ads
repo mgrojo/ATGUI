@@ -22,44 +22,43 @@ package TGUI.Widgets.Grid is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setAutoSize (widget : access tguiWidget; autoSize : tguiBool);
+   procedure setAutoSize (widget : tguiWidget_Ptr; autoSize : tguiBool);
 
-   function getAutoSize (widget : access constant tguiWidget) return tguiBool;
+   function getAutoSize (widget : tguiWidget_Cons) return tguiBool;
 
    procedure addWidget
-     (grid      : access tguiWidget; widget : access tguiWidget; row : tguiSize_t; col : tguiSize_t;
-      alignment : TGUI.Alignment.tguiAlignment; padding : access tguiOutline);
+     (grid      : tguiWidget_Ptr; widget : tguiWidget_Ptr; row : tguiSize_t; col : tguiSize_t;
+      alignment : TGUI.Alignment.tguiAlignment; padding : tguiOutline_Ptr);
 
    function getWidget
-     (grid : access tguiWidget; row : tguiSize_t; col : tguiSize_t) return access tguiWidget;
+     (grid : tguiWidget_Ptr; row : tguiSize_t; col : tguiSize_t) return tguiWidget_Ptr;
 
    procedure setWidgetPadding
-     (grid : access tguiWidget; widget : access tguiWidget; padding : access tguiOutline);
+     (grid : tguiWidget_Ptr; widget : tguiWidget_Ptr; padding : tguiOutline_Ptr);
 
    procedure setWidgetPaddingByCell
-     (grid : access tguiWidget; row : tguiSize_t; col : tguiSize_t; padding : access tguiOutline);
+     (grid : tguiWidget_Ptr; row : tguiSize_t; col : tguiSize_t; padding : tguiOutline_Ptr);
 
    function getWidgetPadding
-     (grid : access tguiWidget; widget : access tguiWidget) return access tguiOutline;
+     (grid : tguiWidget_Ptr; widget : tguiWidget_Ptr) return tguiOutline_Ptr;
 
    function getWidgetPaddingByCell
-     (grid : access tguiWidget; row : tguiSize_t; col : tguiSize_t) return access tguiOutline;
+     (grid : tguiWidget_Ptr; row : tguiSize_t; col : tguiSize_t) return tguiOutline_Ptr;
 
    procedure setWidgetAlignment
-     (grid      : access tguiWidget; widget : access tguiWidget;
-      alignment : TGUI.Alignment.tguiAlignment);
+     (grid : tguiWidget_Ptr; widget : tguiWidget_Ptr; alignment : TGUI.Alignment.tguiAlignment);
 
    procedure setWidgetAlignmentByCell
-     (grid      : access tguiWidget; row : tguiSize_t; col : tguiSize_t;
+     (grid      : tguiWidget_Ptr; row : tguiSize_t; col : tguiSize_t;
       alignment : TGUI.Alignment.tguiAlignment);
 
    function getWidgetAlignment
-     (grid : access tguiWidget; widget : access tguiWidget) return TGUI.Alignment.tguiAlignment;
+     (grid : tguiWidget_Ptr; widget : tguiWidget_Ptr) return TGUI.Alignment.tguiAlignment;
 
    function getWidgetAlignmentByCell
-     (grid : access tguiWidget; row : tguiSize_t; col : tguiSize_t)
+     (grid : tguiWidget_Ptr; row : tguiSize_t; col : tguiSize_t)
       return TGUI.Alignment.tguiAlignment;
 
 private

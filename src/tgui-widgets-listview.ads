@@ -25,149 +25,146 @@ package TGUI.Widgets.ListView is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
    function addColumn
-     (widget          : access tguiWidget; text : tguiUtf32; width : tguiFloat;
+     (widget          : tguiWidget_Ptr; text : tguiUtf32; width : tguiFloat;
       columnAlignment : TGUI.Alignment.tguiHorizontalAlignment) return tguiSize_t;
 
-   procedure setColumnText (widget : access tguiWidget; index : tguiSize_t; text : tguiUtf32);
+   procedure setColumnText (widget : tguiWidget_Ptr; index : tguiSize_t; text : tguiUtf32);
 
-   function getColumnText (widget : access tguiWidget; index : tguiSize_t) return tguiUtf32;
+   function getColumnText (widget : tguiWidget_Ptr; index : tguiSize_t) return tguiUtf32;
 
-   procedure setColumnWidth (widget : access tguiWidget; index : tguiSize_t; width : tguiFloat);
+   procedure setColumnWidth (widget : tguiWidget_Ptr; index : tguiSize_t; width : tguiFloat);
 
-   function getColumnWidth (widget : access tguiWidget; index : tguiSize_t) return tguiFloat;
+   function getColumnWidth (widget : tguiWidget_Ptr; index : tguiSize_t) return tguiFloat;
 
    procedure setColumnAlignment
-     (widget          : access tguiWidget; index : tguiSize_t;
+     (widget          : tguiWidget_Ptr; index : tguiSize_t;
       columnAlignment : TGUI.Alignment.tguiHorizontalAlignment);
 
    function getColumnAlignment
-     (widget : access tguiWidget; index : tguiSize_t) return TGUI.Alignment.tguiHorizontalAlignment;
+     (widget : tguiWidget_Ptr; index : tguiSize_t) return TGUI.Alignment.tguiHorizontalAlignment;
 
-   procedure removeAllColumns (widget : access tguiWidget);
+   procedure removeAllColumns (widget : tguiWidget_Ptr);
 
-   function getColumnCount (widget : access constant tguiWidget) return tguiSize_t;
+   function getColumnCount (widget : tguiWidget_Cons) return tguiSize_t;
 
-   procedure setHeaderHeight (widget : access tguiWidget; height : tguiFloat);
+   procedure setHeaderHeight (widget : tguiWidget_Ptr; height : tguiFloat);
 
-   function getHeaderHeight (widget : access tguiWidget) return tguiFloat;
+   function getHeaderHeight (widget : tguiWidget_Ptr) return tguiFloat;
 
-   function getCurrentHeaderHeight (widget : access tguiWidget) return tguiFloat;
+   function getCurrentHeaderHeight (widget : tguiWidget_Ptr) return tguiFloat;
 
-   procedure setHeaderVisible (widget : access tguiWidget; showHeader : tguiBool);
+   procedure setHeaderVisible (widget : tguiWidget_Ptr; showHeader : tguiBool);
 
-   function getHeaderVisible (widget : access tguiWidget) return tguiBool;
+   function getHeaderVisible (widget : tguiWidget_Ptr) return tguiBool;
 
-   function addItem (widget : access tguiWidget; text : tguiUtf32) return tguiSize_t;
+   function addItem (widget : tguiWidget_Ptr; text : tguiUtf32) return tguiSize_t;
 
    function addItemRow
-     (widget : access tguiWidget; item : System.Address; itemLength : tguiUint32) return tguiSize_t;
+     (widget : tguiWidget_Ptr; item : System.Address; itemLength : tguiUint32) return tguiSize_t;
 
    function changeItem
-     (widget     : access tguiWidget; index : tguiSize_t; item : System.Address;
-      itemLength : tguiUint32) return tguiBool;
-
-   function changeSubItem
-     (widget : access tguiWidget; index : tguiSize_t; column : tguiSize_t; text : tguiUtf32)
+     (widget : tguiWidget_Ptr; index : tguiSize_t; item : System.Address; itemLength : tguiUint32)
       return tguiBool;
 
-   function removeItem (widget : access tguiWidget; index : tguiSize_t) return tguiBool;
+   function changeSubItem
+     (widget : tguiWidget_Ptr; index : tguiSize_t; column : tguiSize_t; text : tguiUtf32)
+      return tguiBool;
 
-   procedure removeAllItems (widget : access tguiWidget);
+   function removeItem (widget : tguiWidget_Ptr; index : tguiSize_t) return tguiBool;
 
-   procedure setSelectedItem (widget : access tguiWidget; index : tguiSize_t);
+   procedure removeAllItems (widget : tguiWidget_Ptr);
+
+   procedure setSelectedItem (widget : tguiWidget_Ptr; index : tguiSize_t);
 
    procedure setSelectedItems
-     (widget : access tguiWidget; indices : access tguiSize_t; indicesLength : tguiUint32);
+     (widget : tguiWidget_Ptr; indices : access tguiSize_t; indicesLength : tguiUint32);
 
-   function getSelectedItemIndex (widget : access constant tguiWidget) return tguiInt;
+   function getSelectedItemIndex (widget : tguiWidget_Cons) return tguiInt;
 
    function getSelectedItemIndices
-     (widget : access constant tguiWidget; count : access tguiSize_t) return access tguiSize_t;
+     (widget : tguiWidget_Cons; count : access tguiSize_t) return access tguiSize_t;
 
-   procedure deselectItems (widget : access tguiWidget);
+   procedure deselectItems (widget : tguiWidget_Ptr);
 
-   procedure setMultiSelect (widget : access tguiWidget; multiSelect : tguiBool);
+   procedure setMultiSelect (widget : tguiWidget_Ptr; multiSelect : tguiBool);
 
-   function getMultiSelect (widget : access constant tguiWidget) return tguiBool;
+   function getMultiSelect (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setItemIcon
-     (widget : access tguiWidget; index : tguiSize_t; texture : access tguiTexture);
+   procedure setItemIcon (widget : tguiWidget_Ptr; index : tguiSize_t; texture : tguiTexture_Ptr);
 
-   function getItemCount (widget : access constant tguiWidget) return tguiSize_t;
+   function getItemCount (widget : tguiWidget_Cons) return tguiSize_t;
 
-   function getItem (widget : access tguiWidget; index : tguiSize_t) return tguiUtf32;
+   function getItem (widget : tguiWidget_Ptr; index : tguiSize_t) return tguiUtf32;
 
    function getItemCell
-     (widget : access tguiWidget; rowIndex : tguiSize_t; columnIndex : tguiSize_t) return tguiUtf32;
+     (widget : tguiWidget_Ptr; rowIndex : tguiSize_t; columnIndex : tguiSize_t) return tguiUtf32;
 
    function getItemRow
-     (widget : access constant tguiWidget; index : tguiSize_t; count : access tguiSize_t)
-      return System.Address;
+     (widget : tguiWidget_Cons; index : tguiSize_t; count : access tguiSize_t) return System.Address;
 
-   function getItems
-     (widget : access constant tguiWidget; count : access tguiSize_t) return System.Address;
+   function getItems (widget : tguiWidget_Cons; count : access tguiSize_t) return System.Address;
 
-   procedure setItemHeight (widget : access tguiWidget; height : tguiUint32);
+   procedure setItemHeight (widget : tguiWidget_Ptr; height : tguiUint32);
 
-   function getItemHeight (widget : access constant tguiWidget) return tguiUint32;
+   function getItemHeight (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setHeaderTextSize (widget : access tguiWidget; size : tguiUint32);
+   procedure setHeaderTextSize (widget : tguiWidget_Ptr; size : tguiUint32);
 
-   function getHeaderTextSize (widget : access constant tguiWidget) return tguiUint32;
+   function getHeaderTextSize (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setSeparatorWidth (widget : access tguiWidget; width : tguiUint32);
+   procedure setSeparatorWidth (widget : tguiWidget_Ptr; width : tguiUint32);
 
-   function getSeparatorWidth (widget : access constant tguiWidget) return tguiUint32;
+   function getSeparatorWidth (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setHeaderSeparatorHeight (widget : access tguiWidget; height : tguiUint32);
+   procedure setHeaderSeparatorHeight (widget : tguiWidget_Ptr; height : tguiUint32);
 
-   function getHeaderSeparatorHeight (widget : access constant tguiWidget) return tguiUint32;
+   function getHeaderSeparatorHeight (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setGridLinesWidth (widget : access tguiWidget; width : tguiUint32);
+   procedure setGridLinesWidth (widget : tguiWidget_Ptr; width : tguiUint32);
 
-   function getGridLinesWidth (widget : access constant tguiWidget) return tguiUint32;
+   function getGridLinesWidth (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setAutoScroll (widget : access tguiWidget; autoScroll : tguiBool);
+   procedure setAutoScroll (widget : tguiWidget_Ptr; autoScroll : tguiBool);
 
-   function getAutoScroll (widget : access constant tguiWidget) return tguiBool;
+   function getAutoScroll (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setShowVerticalGridLines (widget : access tguiWidget; showGridLines : tguiBool);
+   procedure setShowVerticalGridLines (widget : tguiWidget_Ptr; showGridLines : tguiBool);
 
-   function getShowVerticalGridLines (widget : access constant tguiWidget) return tguiBool;
+   function getShowVerticalGridLines (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setShowHorizontalGridLines (widget : access tguiWidget; showGridLines : tguiBool);
+   procedure setShowHorizontalGridLines (widget : tguiWidget_Ptr; showGridLines : tguiBool);
 
-   function getShowHorizontalGridLines (widget : access constant tguiWidget) return tguiBool;
+   function getShowHorizontalGridLines (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setExpandLastColumn (widget : access tguiWidget; expand : tguiBool);
+   procedure setExpandLastColumn (widget : tguiWidget_Ptr; expand : tguiBool);
 
-   function getExpandLastColumn (widget : access constant tguiWidget) return tguiBool;
+   function getExpandLastColumn (widget : tguiWidget_Cons) return tguiBool;
 
    procedure setVerticalScrollbarPolicy
-     (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
+     (widget : tguiWidget_Ptr; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
 
    function getVerticalScrollbarPolicy
-     (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
+     (widget : tguiWidget_Cons) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
 
    procedure setHorizontalScrollbarPolicy
-     (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
+     (widget : tguiWidget_Ptr; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
 
    function getHorizontalScrollbarPolicy
-     (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
+     (widget : tguiWidget_Cons) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
 
-   procedure setVerticalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
+   procedure setVerticalScrollbarValue (widget : tguiWidget_Ptr; value : tguiUint32);
 
-   function getVerticalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
+   function getVerticalScrollbarValue (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setHorizontalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
+   procedure setHorizontalScrollbarValue (widget : tguiWidget_Ptr; value : tguiUint32);
 
-   function getHorizontalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
+   function getHorizontalScrollbarValue (widget : tguiWidget_Cons) return tguiUint32;
 
    procedure sort
-     (widget   : access tguiWidget; index : tguiSize_t;
+     (widget   : tguiWidget_Ptr; index : tguiSize_t;
       callback : access function (arg1 : tguiUtf32; arg2 : tguiUtf32) return tguiBool);
 
 private

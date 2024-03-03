@@ -32,38 +32,35 @@ package TGUI.Font is
    end record with
      Convention => C_Pass_By_Copy;
 
-   procedure setGlobalFont (font : access tguiFont);
+   procedure setGlobalFont (font : tguiFont_Ptr);
 
-   function getGlobalFont return access tguiFont;
+   function getGlobalFont return tguiFont_Ptr;
 
-   function createNull return access tguiFont;
+   function createNull return tguiFont_Ptr;
 
-   function createFromFile (filename : tguiUtf32) return access tguiFont;
+   function createFromFile (filename : tguiUtf32) return tguiFont_Ptr;
 
-   function createFromMemory
-     (data : access tguiUint8; dataSize : tguiSize_t) return access tguiFont;
+   function createFromMemory (data : access tguiUint8; dataSize : tguiSize_t) return tguiFont_Ptr;
 
-   procedure free (font : access tguiFont);
+   procedure free (font : tguiFont_Ptr);
 
-   function getId (font : access constant tguiFont) return tguiUtf32;
+   function getId (font : tguiFont_Cons) return tguiUtf32;
 
    function getGlyph
-     (font             : access constant tguiFont; tguiCharacterSize : tguiUint32; bold : tguiBool;
+     (font             : tguiFont_Cons; tguiCharacterSize : tguiUint32; bold : tguiBool;
       outlineThickness : tguiFloat) return tguiFontGlyph;
 
    function getKerning
-     (font              : access constant tguiFont; first : tguiUint32; second : tguiUint32;
-      tguiCharacterSize : tguiUint32; bold : tguiBool) return tguiFloat;
+     (font : tguiFont_Cons; first : tguiUint32; second : tguiUint32; tguiCharacterSize : tguiUint32;
+      bold : tguiBool) return tguiFloat;
 
-   function getLineSpacing
-     (font : access constant tguiFont; tguiCharacterSize : tguiUint32) return tguiFloat;
+   function getLineSpacing (font : tguiFont_Cons; tguiCharacterSize : tguiUint32) return tguiFloat;
 
-   function getFontHeight
-     (font : access constant tguiFont; tguiCharacterSize : tguiUint32) return tguiFloat;
+   function getFontHeight (font : tguiFont_Cons; tguiCharacterSize : tguiUint32) return tguiFloat;
 
-   procedure setSmooth (font : access tguiFont; smooth : tguiBool);
+   procedure setSmooth (font : tguiFont_Ptr; smooth : tguiBool);
 
-   function isSmooth (font : access constant tguiFont) return tguiBool;
+   function isSmooth (font : tguiFont_Cons) return tguiBool;
 
 private
 

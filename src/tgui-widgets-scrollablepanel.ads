@@ -23,43 +23,43 @@ package TGUI.Widgets.ScrollablePanel is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setContentSize (widget : access tguiWidget; contentSize : TGUI.Vector2.tguiVector2f);
+   procedure setContentSize (widget : tguiWidget_Ptr; contentSize : TGUI.Vector2.tguiVector2f);
 
-   function getContentSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
+   function getContentSize (widget : tguiWidget_Cons) return TGUI.Vector2.tguiVector2f;
 
-   function getScrollbarWidth (widget : access constant tguiWidget) return tguiFloat;
+   function getScrollbarWidth (widget : tguiWidget_Cons) return tguiFloat;
 
    procedure setVerticalScrollbarPolicy
-     (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
+     (widget : tguiWidget_Ptr; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
 
    function getVerticalScrollbarPolicy
-     (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
+     (widget : tguiWidget_Cons) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
 
    procedure setHorizontalScrollbarPolicy
-     (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
+     (widget : tguiWidget_Ptr; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
 
    function getHorizontalScrollbarPolicy
-     (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
+     (widget : tguiWidget_Cons) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
 
-   procedure setVerticalScrollAmount (widget : access tguiWidget; scrollAmount : tguiUint32);
+   procedure setVerticalScrollAmount (widget : tguiWidget_Ptr; scrollAmount : tguiUint32);
 
-   function getVerticalScrollAmount (widget : access constant tguiWidget) return tguiUint32;
+   function getVerticalScrollAmount (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setHorizontalScrollAmount (widget : access tguiWidget; scrollAmount : tguiUint32);
+   procedure setHorizontalScrollAmount (widget : tguiWidget_Ptr; scrollAmount : tguiUint32);
 
-   function getHorizontalScrollAmount (widget : access constant tguiWidget) return tguiUint32;
+   function getHorizontalScrollAmount (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setVerticalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
+   procedure setVerticalScrollbarValue (widget : tguiWidget_Ptr; value : tguiUint32);
 
-   function getVerticalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
+   function getVerticalScrollbarValue (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setHorizontalScrollbarValue (widget : access tguiWidget; value : tguiUint32);
+   procedure setHorizontalScrollbarValue (widget : tguiWidget_Ptr; value : tguiUint32);
 
-   function getHorizontalScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
+   function getHorizontalScrollbarValue (widget : tguiWidget_Cons) return tguiUint32;
 
-   function getContentOffset (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
+   function getContentOffset (widget : tguiWidget_Cons) return TGUI.Vector2.tguiVector2f;
 
 private
 

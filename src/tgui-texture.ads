@@ -26,60 +26,58 @@ package TGUI.Texture is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function createNull return access tguiTexture;
+   function createNull return tguiTexture_Ptr;
 
    function createFromFile
      (filename : tguiUtf32; partRect : TGUI.Rect.tguiUIntRect; middleRect : TGUI.Rect.tguiUIntRect)
-      return access tguiTexture;
+      return tguiTexture_Ptr;
 
    function createFromFileEx
      (filename  : tguiUtf32; partRect : TGUI.Rect.tguiUIntRect; middleRect : TGUI.Rect.tguiUIntRect;
-      smoothing : tguiBool) return access tguiTexture;
+      smoothing : tguiBool) return tguiTexture_Ptr;
 
    function createFromMemory
      (data       : access tguiUint8; dataSize : tguiSize_t; partRect : TGUI.Rect.tguiUIntRect;
-      middleRect : TGUI.Rect.tguiUIntRect) return access tguiTexture;
+      middleRect : TGUI.Rect.tguiUIntRect) return tguiTexture_Ptr;
 
    function createFromMemoryEx
      (data       : access tguiUint8; dataSize : tguiSize_t; partRect : TGUI.Rect.tguiUIntRect;
-      middleRect : TGUI.Rect.tguiUIntRect; smoothing : tguiBool) return access tguiTexture;
+      middleRect : TGUI.Rect.tguiUIntRect; smoothing : tguiBool) return tguiTexture_Ptr;
 
    function createFromPixelData
-     (size     : TGUI.Vector2.tguiVector2u; pixels : access tguiUint8;
-      partRect : TGUI.Rect.tguiUIntRect; middleRect : TGUI.Rect.tguiUIntRect)
-      return access tguiTexture;
+     (size : TGUI.Vector2.tguiVector2u; pixels : access tguiUint8; partRect : TGUI.Rect.tguiUIntRect;
+      middleRect : TGUI.Rect.tguiUIntRect) return tguiTexture_Ptr;
 
    function createFromPixelDataEx
-     (size     : TGUI.Vector2.tguiVector2u; pixels : access tguiUint8;
-      partRect : TGUI.Rect.tguiUIntRect; middleRect : TGUI.Rect.tguiUIntRect; smoothing : tguiBool)
-      return access tguiTexture;
+     (size : TGUI.Vector2.tguiVector2u; pixels : access tguiUint8; partRect : TGUI.Rect.tguiUIntRect;
+      middleRect : TGUI.Rect.tguiUIntRect; smoothing : tguiBool) return tguiTexture_Ptr;
 
    function createFromBase64
      (imageAsBase64 : String; partRect : TGUI.Rect.tguiUIntRect;
-      middleRect    : TGUI.Rect.tguiUIntRect) return access tguiTexture;
+      middleRect    : TGUI.Rect.tguiUIntRect) return tguiTexture_Ptr;
 
    function createFromBase64Ex
      (imageAsBase64 : String; partRect : TGUI.Rect.tguiUIntRect;
-      middleRect    : TGUI.Rect.tguiUIntRect; smoothing : tguiBool) return access tguiTexture;
+      middleRect    : TGUI.Rect.tguiUIntRect; smoothing : tguiBool) return tguiTexture_Ptr;
 
-   procedure free (texture : access tguiTexture);
+   procedure free (texture : tguiTexture_Ptr);
 
-   function getId (texture : access constant tguiTexture) return tguiUtf32;
+   function getId (texture : tguiTexture_Cons) return tguiUtf32;
 
-   function getImageSize (texture : access constant tguiTexture) return TGUI.Vector2.tguiVector2u;
+   function getImageSize (texture : tguiTexture_Cons) return TGUI.Vector2.tguiVector2u;
 
-   function getPartRect (texture : access constant tguiTexture) return TGUI.Rect.tguiUIntRect;
+   function getPartRect (texture : tguiTexture_Cons) return TGUI.Rect.tguiUIntRect;
 
-   function getMiddleRect (texture : access constant tguiTexture) return TGUI.Rect.tguiUIntRect;
+   function getMiddleRect (texture : tguiTexture_Cons) return TGUI.Rect.tguiUIntRect;
 
-   function isSmooth (texture : access constant tguiTexture) return tguiBool;
+   function isSmooth (texture : tguiTexture_Cons) return tguiBool;
 
-   procedure setColor (texture : access tguiTexture; color : access TGUI.Color.tguiColor);
+   procedure setColor (texture : tguiTexture_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getColor (texture : access constant tguiTexture) return access TGUI.Color.tguiColor;
+   function getColor (texture : tguiTexture_Cons) return access TGUI.Color.tguiColor;
 
    function isTransparentPixel
-     (texture : access constant tguiTexture; pos : TGUI.Vector2.tguiVector2u) return tguiBool;
+     (texture : tguiTexture_Cons; pos : TGUI.Vector2.tguiVector2u) return tguiBool;
 
    procedure setDefaultSmooth (smooth : tguiBool);
 

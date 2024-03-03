@@ -18,19 +18,19 @@
 
 package body TGUI.Gui is
 
-   procedure add (gui : access tguiGui; widget : access tguiWidget; widgetName : Wide_Wide_String)
+   procedure add (gui : tguiGui_Ptr; widget : tguiWidget_Ptr; widgetName : Wide_Wide_String)
    is
       procedure Internal
-        (gui : access tguiGui; widget : access tguiWidget; widgetName : Interfaces.C.char32_array);
+        (gui : tguiGui_Ptr; widget : tguiWidget_Ptr; widgetName : Interfaces.C.char32_array);
       pragma Import (C, Internal, "tguiGui_add");
    begin
       Internal (gui, widget, Interfaces.C.To_C (widgetName));
    end add;
 
    function loadWidgetsFromFile
-     (gui : access tguiGui; filename : String; replaceExisting : tguiBool) return tguiBool is
+     (gui : tguiGui_Ptr; filename : String; replaceExisting : tguiBool) return tguiBool is
       function Internal
-        (gui : access tguiGui;
+        (gui : tguiGui_Ptr;
          filename : Interfaces.C.char_array;
          replaceExisting : tguiBool)
         return tguiBool;
@@ -39,9 +39,9 @@ package body TGUI.Gui is
       return Internal (gui, Interfaces.C.To_C (filename), replaceExisting);
    end loadWidgetsFromFile;
 
-   function saveWidgetsToFile (gui : access tguiGui; filename : String) return tguiBool is
+   function saveWidgetsToFile (gui : tguiGui_Ptr; filename : String) return tguiBool is
       function Internal
-        (gui : access tguiGui;
+        (gui : tguiGui_Ptr;
          filename : Interfaces.C.char_array)
         return tguiBool;
       pragma Import (C, Internal, "tguiGui_saveWidgetsToFile");

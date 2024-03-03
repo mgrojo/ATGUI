@@ -20,33 +20,33 @@ package TGUI.Widgets.Scrollbar is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setViewportSize (widget : access tguiWidget; viewport : tguiUint32);
+   procedure setViewportSize (widget : tguiWidget_Ptr; viewport : tguiUint32);
 
-   function getViewportSize (widget : access constant tguiWidget) return tguiUint32;
+   function getViewportSize (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setMaximum (widget : access tguiWidget; maximum : tguiUint32);
+   procedure setMaximum (widget : tguiWidget_Ptr; maximum : tguiUint32);
 
-   function getMaximum (widget : access constant tguiWidget) return tguiUint32;
+   function getMaximum (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setValue (widget : access tguiWidget; value : tguiUint32);
+   procedure setValue (widget : tguiWidget_Ptr; value : tguiUint32);
 
-   function getValue (widget : access constant tguiWidget) return tguiUint32;
+   function getValue (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setScrollAmount (widget : access tguiWidget; scrollAmount : tguiUint32);
+   procedure setScrollAmount (widget : tguiWidget_Ptr; scrollAmount : tguiUint32);
 
-   function getScrollAmount (widget : access constant tguiWidget) return tguiUint32;
+   function getScrollAmount (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setAutoHide (widget : access tguiWidget; autoHide : tguiBool);
+   procedure setAutoHide (widget : tguiWidget_Ptr; autoHide : tguiBool);
 
-   function getAutoHide (widget : access constant tguiWidget) return tguiBool;
+   function getAutoHide (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setVerticalScroll (widget : access tguiWidget; vertical : tguiBool);
+   procedure setVerticalScroll (widget : tguiWidget_Ptr; vertical : tguiBool);
 
-   function getVerticalScroll (widget : access constant tguiWidget) return tguiBool;
+   function getVerticalScroll (widget : tguiWidget_Cons) return tguiBool;
 
-   function getDefaultWidth (widget : access constant tguiWidget) return tguiFloat;
+   function getDefaultWidth (widget : tguiWidget_Cons) return tguiFloat;
 
 private
 

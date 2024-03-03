@@ -20,13 +20,13 @@ package TGUI.Renderers.PictureRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer;
+   function copy (other : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure setTexture (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTexture (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTexture (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTexture (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
 private
 

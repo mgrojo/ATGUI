@@ -22,76 +22,64 @@ package TGUI.Renderers.RangeSliderRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
+   function copy (renderer : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
+   procedure setBorders (renderer : tguiRenderer_Ptr; borders : tguiOutline_Ptr);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
+   function getBorders (renderer : tguiRenderer_Cons) return tguiOutline_Ptr;
 
-   procedure setTrackColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTrackColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTrackColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTrackColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTrackColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTrackColorHover (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTrackColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTrackColorHover (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setSelectedTrackColor
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getSelectedTrackColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getSelectedTrackColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setSelectedTrackColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getSelectedTrackColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setThumbColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setThumbColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getThumbColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getThumbColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setThumbColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setThumbColorHover (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getThumbColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getThumbColorHover (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBorderColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBorderColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBorderColorHover (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBorderColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBorderColorHover (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTextureTrack (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureTrack (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureTrack (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureTrack (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureTrackHover (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureTrackHover (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureTrackHover
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureTrackHover (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureThumb (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureThumb (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureThumb (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureThumb (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureThumbHover (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureThumbHover (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureThumbHover
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureThumbHover (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
 private
 

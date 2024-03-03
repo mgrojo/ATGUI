@@ -31,233 +31,226 @@ package TGUI.Widget is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function copy (other : access constant tguiWidget) return access tguiWidget;
+   function copy (other : tguiWidget_Cons) return tguiWidget_Ptr;
 
-   procedure free (widget : access tguiWidget);
+   procedure free (widget : tguiWidget_Ptr);
 
-   procedure setPosition (widget : access tguiWidget; position : TGUI.Vector2.tguiVector2f);
+   procedure setPosition (widget : tguiWidget_Ptr; position : TGUI.Vector2.tguiVector2f);
 
-   procedure setPositionFromLayout (widget : access tguiWidget; layout : access tguiLayout2d);
+   procedure setPositionFromLayout (widget : tguiWidget_Ptr; layout : tguiLayout2d_Ptr);
 
-   function getPosition (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
+   function getPosition (widget : tguiWidget_Cons) return TGUI.Vector2.tguiVector2f;
 
-   function getAbsolutePosition
-     (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
+   function getAbsolutePosition (widget : tguiWidget_Cons) return TGUI.Vector2.tguiVector2f;
 
-   function getWidgetOffset (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
+   function getWidgetOffset (widget : tguiWidget_Cons) return TGUI.Vector2.tguiVector2f;
 
-   procedure setWidth (widget : access tguiWidget; width : tguiFloat);
+   procedure setWidth (widget : tguiWidget_Ptr; width : tguiFloat);
 
-   procedure setWidthFromLayout (widget : access tguiWidget; layout : access tguiLayout);
+   procedure setWidthFromLayout (widget : tguiWidget_Ptr; layout : tguiLayout_Ptr);
 
-   procedure setHeight (widget : access tguiWidget; height : tguiFloat);
+   procedure setHeight (widget : tguiWidget_Ptr; height : tguiFloat);
 
-   procedure setHeightFromLayout (widget : access tguiWidget; layout : access tguiLayout);
+   procedure setHeightFromLayout (widget : tguiWidget_Ptr; layout : tguiLayout_Ptr);
 
-   procedure setSize (widget : access tguiWidget; size : TGUI.Vector2.tguiVector2f);
+   procedure setSize (widget : tguiWidget_Ptr; size : TGUI.Vector2.tguiVector2f);
 
-   procedure setSizeFromLayout (widget : access tguiWidget; layout : access tguiLayout2d);
+   procedure setSizeFromLayout (widget : tguiWidget_Ptr; layout : tguiLayout2d_Ptr);
 
-   function getSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
+   function getSize (widget : tguiWidget_Cons) return TGUI.Vector2.tguiVector2f;
 
-   function getFullSize (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
+   function getFullSize (widget : tguiWidget_Cons) return TGUI.Vector2.tguiVector2f;
 
-   procedure setAutoLayout
-     (widget : access constant tguiWidget; layout : TGUI.Layout.tguiAutoLayout);
+   procedure setAutoLayout (widget : tguiWidget_Cons; layout : TGUI.Layout.tguiAutoLayout);
 
-   function getAutoLayout (widget : access constant tguiWidget) return TGUI.Layout.tguiAutoLayout;
+   function getAutoLayout (widget : tguiWidget_Cons) return TGUI.Layout.tguiAutoLayout;
 
-   procedure setOrigin (widget : access tguiWidget; origin : TGUI.Vector2.tguiVector2f);
+   procedure setOrigin (widget : tguiWidget_Ptr; origin : TGUI.Vector2.tguiVector2f);
 
-   function getOrigin (widget : access constant tguiWidget) return TGUI.Vector2.tguiVector2f;
+   function getOrigin (widget : tguiWidget_Cons) return TGUI.Vector2.tguiVector2f;
 
    function signalConnect
-     (widget : access tguiWidget; signalName : String; callback : access procedure)
-      return tguiUint32;
+     (widget : tguiWidget_Ptr; signalName : String; callback : access procedure) return tguiUint32;
 
    -- tguiWidget_free must be called on the first parameter in the callback function
    function signalConnectEx
-     (widget   : access tguiWidget; signalName : String;
-      callback : access procedure (arg1 : access tguiWidget; arg2 : tguiUtf32)) return tguiUint32;
+     (widget   : tguiWidget_Ptr; signalName : String;
+      callback : access procedure (arg1 : tguiWidget_Ptr; arg2 : tguiUtf32)) return tguiUint32;
 
    function signalIntConnect
-     (widget : access tguiWidget; signalName : String; callback : access procedure (arg1 : tguiInt))
+     (widget : tguiWidget_Ptr; signalName : String; callback : access procedure (arg1 : tguiInt))
       return tguiUint32;
 
    function signalUIntConnect
-     (widget   : access tguiWidget; signalName : String;
-      callback : access procedure (arg1 : tguiUint32)) return tguiUint32;
+     (widget : tguiWidget_Ptr; signalName : String; callback : access procedure (arg1 : tguiUint32))
+      return tguiUint32;
 
    function signalBoolConnect
-     (widget   : access tguiWidget; signalName : String;
-      callback : access procedure (arg1 : tguiBool)) return tguiUint32;
+     (widget : tguiWidget_Ptr; signalName : String; callback : access procedure (arg1 : tguiBool))
+      return tguiUint32;
 
    function signalFloatConnect
-     (widget   : access tguiWidget; signalName : String;
-      callback : access procedure (arg1 : tguiFloat)) return tguiUint32;
+     (widget : tguiWidget_Ptr; signalName : String; callback : access procedure (arg1 : tguiFloat))
+      return tguiUint32;
 
    function signalColorConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : TGUI.Color.tguiColor)) return tguiUint32;
 
    function signalStringConnect
-     (widget   : access tguiWidget; signalName : String;
-      callback : access procedure (arg1 : tguiUtf32)) return tguiUint32;
+     (widget : tguiWidget_Ptr; signalName : String; callback : access procedure (arg1 : tguiUtf32))
+      return tguiUint32;
 
    function signalVector2fConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f)) return tguiUint32;
 
    function signalFloatRectConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : TGUI.Rect.tguiFloatRect)) return tguiUint32;
 
    function signalRangeConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : tguiFloat; arg2 : tguiFloat)) return tguiUint32;
 
    -- tguiWidget_free must be called on the parameter in the callback function
    function signalChildWindowConnect
-     (widget   : access tguiWidget; signalName : String;
-      callback : access procedure (arg1 : access tguiWidget)) return tguiUint32;
+     (widget   : tguiWidget_Ptr; signalName : String;
+      callback : access procedure (arg1 : tguiWidget_Ptr)) return tguiUint32;
 
    function signalItemConnect
-     (widget : access tguiWidget; signalName : String; callback : access procedure (arg1 : tguiInt))
+     (widget : tguiWidget_Ptr; signalName : String; callback : access procedure (arg1 : tguiInt))
       return tguiUint32;
 
    function signalPanelListBoxItemConnect
-     (widget : access tguiWidget; signalName : String; callback : access procedure (arg1 : tguiInt))
+     (widget : tguiWidget_Ptr; signalName : String; callback : access procedure (arg1 : tguiInt))
       return tguiUint32;
 
    -- List of strings
    function signalFileDialogPathsConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32;
 
    function signalShowEffectConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : TGUI.Animation.tguiShowEffectType; arg2 : tguiBool))
       return tguiUint32;
 
    function signalAnimationTypeConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : TGUI.Animation.tguiAnimationType)) return tguiUint32;
 
    -- List of strings
    function signalItemHierarchyConnect
-     (widget   : access tguiWidget; signalName : String;
+     (widget   : tguiWidget_Ptr; signalName : String;
       callback : access procedure (arg1 : tguiSize_t; arg2 : System.Address)) return tguiUint32;
 
    function signalDisconnect
-     (widget : access tguiWidget; signalName : String; id : tguiUint32) return tguiBool;
+     (widget : tguiWidget_Ptr; signalName : String; id : tguiUint32) return tguiBool;
 
-   procedure signalDisconnectAll (widget : access tguiWidget; signalName : String);
+   procedure signalDisconnectAll (widget : tguiWidget_Ptr; signalName : String);
 
    function setSignalEnabled
-     (widget : access tguiWidget; signalName : String; enabled : tguiBool) return tguiBool;
+     (widget : tguiWidget_Ptr; signalName : String; enabled : tguiBool) return tguiBool;
 
-   function isSignalEnabled (widget : access tguiWidget; signalName : String) return tguiBool;
+   function isSignalEnabled (widget : tguiWidget_Ptr; signalName : String) return tguiBool;
 
-   function setRenderer
-     (widget : access tguiWidget; renderer : access tguiRendererData) return tguiBool;
+   function setRenderer (widget : tguiWidget_Ptr; renderer : tguiRendererData_Ptr) return tguiBool;
 
-   function getRenderer (widget : access constant tguiWidget) return access tguiRenderer;
+   function getRenderer (widget : tguiWidget_Cons) return tguiRenderer_Ptr;
 
-   function getSharedRenderer (widget : access constant tguiWidget) return access tguiRenderer;
+   function getSharedRenderer (widget : tguiWidget_Cons) return tguiRenderer_Ptr;
 
-   procedure setVisible (widget : access tguiWidget; visible : tguiBool);
+   procedure setVisible (widget : tguiWidget_Ptr; visible : tguiBool);
 
-   function isVisible (widget : access constant tguiWidget) return tguiBool;
+   function isVisible (widget : tguiWidget_Cons) return tguiBool;
 
    procedure showWithEffect
-     (widget   : access tguiWidget; effectType : TGUI.Animation.tguiShowEffectType;
+     (widget   : tguiWidget_Ptr; effectType : TGUI.Animation.tguiShowEffectType;
       duration : TGUI.Duration.tguiDuration);
 
    procedure hideWithEffect
-     (widget   : access tguiWidget; effectType : TGUI.Animation.tguiShowEffectType;
+     (widget   : tguiWidget_Ptr; effectType : TGUI.Animation.tguiShowEffectType;
       duration : TGUI.Duration.tguiDuration);
 
    procedure moveWithAnimation
-     (widget   : access tguiWidget; position : TGUI.Vector2.tguiVector2f;
+     (widget   : tguiWidget_Ptr; position : TGUI.Vector2.tguiVector2f;
       duration : TGUI.Duration.tguiDuration);
 
    procedure resizeWithAnimation
-     (widget   : access tguiWidget; size : TGUI.Vector2.tguiVector2f;
+     (widget   : tguiWidget_Ptr; size : TGUI.Vector2.tguiVector2f;
       duration : TGUI.Duration.tguiDuration);
 
-   procedure setEnabled (widget : access tguiWidget; enabled : tguiBool);
+   procedure setEnabled (widget : tguiWidget_Ptr; enabled : tguiBool);
 
-   function isEnabled (widget : access constant tguiWidget) return tguiBool;
+   function isEnabled (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setFocused (widget : access tguiWidget; focused : tguiBool);
+   procedure setFocused (widget : tguiWidget_Ptr; focused : tguiBool);
 
-   function isFocused (widget : access constant tguiWidget) return tguiBool;
+   function isFocused (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setFocusable (widget : access tguiWidget; focusable : tguiBool);
+   procedure setFocusable (widget : tguiWidget_Ptr; focusable : tguiBool);
 
-   function isFocusable (widget : access constant tguiWidget) return tguiBool;
+   function isFocusable (widget : tguiWidget_Cons) return tguiBool;
 
-   function getWidgetType (widget : access constant tguiWidget) return tguiUtf32;
+   function getWidgetType (widget : tguiWidget_Cons) return tguiUtf32;
 
-   procedure moveToFront (widget : access tguiWidget);
+   procedure moveToFront (widget : tguiWidget_Ptr);
 
-   procedure moveToBack (widget : access tguiWidget);
+   procedure moveToBack (widget : tguiWidget_Ptr);
 
-   procedure setUserData (widget : access tguiWidget; data : Standard.System.Address);
+   procedure setUserData (widget : tguiWidget_Ptr; data : Standard.System.Address);
 
-   function getUserData (widget : access constant tguiWidget) return System.Address;
+   function getUserData (widget : tguiWidget_Cons) return System.Address;
 
-   function hasUserData (widget : access constant tguiWidget) return tguiBool;
+   function hasUserData (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setToolTip (widget : access tguiWidget; toolTip : access tguiWidget);
+   procedure setToolTip (widget : tguiWidget_Ptr; toolTip : tguiWidget_Ptr);
 
-   function getToolTip (widget : access constant tguiWidget) return access tguiWidget;
+   function getToolTip (widget : tguiWidget_Cons) return tguiWidget_Ptr;
 
-   function getParent (widget : access constant tguiWidget) return access tguiWidget;
+   function getParent (widget : tguiWidget_Cons) return tguiWidget_Ptr;
 
-   function isAnimationPlaying (widget : access constant tguiWidget) return tguiBool;
+   function isAnimationPlaying (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setTextSize (widget : access tguiWidget; size : tguiUint32);
+   procedure setTextSize (widget : tguiWidget_Ptr; size : tguiUint32);
 
-   function getTextSize (widget : access constant tguiWidget) return tguiUint32;
+   function getTextSize (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setWidgetName (widget : access tguiWidget; name : tguiUtf32);
+   procedure setWidgetName (widget : tguiWidget_Ptr; name : tguiUtf32);
 
-   function getWidgetName (widget : access constant tguiWidget) return tguiUtf32;
+   function getWidgetName (widget : tguiWidget_Cons) return tguiUtf32;
 
-   procedure setMouseCursor (widget : access tguiWidget; cursor : TGUI.Cursor.tguiCursorType);
+   procedure setMouseCursor (widget : tguiWidget_Ptr; cursor : TGUI.Cursor.tguiCursorType);
 
-   function getMouseCursor (widget : access constant tguiWidget) return TGUI.Cursor.tguiCursorType;
+   function getMouseCursor (widget : tguiWidget_Cons) return TGUI.Cursor.tguiCursorType;
 
-   procedure setNavigationUp (widget : access tguiWidget; widgetAbove : access constant tguiWidget);
+   procedure setNavigationUp (widget : tguiWidget_Ptr; widgetAbove : tguiWidget_Cons);
 
-   procedure setNavigationDown
-     (widget : access tguiWidget; widgetBelow : access constant tguiWidget);
+   procedure setNavigationDown (widget : tguiWidget_Ptr; widgetBelow : tguiWidget_Cons);
 
-   procedure setNavigationLeft
-     (widget : access tguiWidget; widgetLeft : access constant tguiWidget);
+   procedure setNavigationLeft (widget : tguiWidget_Ptr; widgetLeft : tguiWidget_Cons);
 
-   procedure setNavigationRight
-     (widget : access tguiWidget; widgetRight : access constant tguiWidget);
+   procedure setNavigationRight (widget : tguiWidget_Ptr; widgetRight : tguiWidget_Cons);
 
-   function getNavigationUp (widget : access constant tguiWidget) return access tguiWidget;
+   function getNavigationUp (widget : tguiWidget_Cons) return tguiWidget_Ptr;
 
-   function getNavigationDown (widget : access constant tguiWidget) return access tguiWidget;
+   function getNavigationDown (widget : tguiWidget_Cons) return tguiWidget_Ptr;
 
-   function getNavigationLeft (widget : access constant tguiWidget) return access tguiWidget;
+   function getNavigationLeft (widget : tguiWidget_Cons) return tguiWidget_Ptr;
 
-   function getNavigationRight (widget : access constant tguiWidget) return access tguiWidget;
+   function getNavigationRight (widget : tguiWidget_Cons) return tguiWidget_Ptr;
 
-   procedure finishAllAnimations (widget : access tguiWidget);
+   procedure finishAllAnimations (widget : tguiWidget_Ptr);
 
-   procedure setAutoLayoutUpdateEnabled (widget : access tguiWidget; enabled : tguiBool);
+   procedure setAutoLayoutUpdateEnabled (widget : tguiWidget_Ptr; enabled : tguiBool);
 
-   procedure updateTime (widget : access tguiWidget; duration : TGUI.Duration.tguiDuration);
+   procedure updateTime (widget : tguiWidget_Ptr; duration : TGUI.Duration.tguiDuration);
 
-   function isMouseDown (widget : access constant tguiWidget) return tguiBool;
+   function isMouseDown (widget : tguiWidget_Cons) return tguiBool;
 
    function isMouseOnWidget
-     (widget : access constant tguiWidget; pos : TGUI.Vector2.tguiVector2f) return tguiBool;
+     (widget : tguiWidget_Cons; pos : TGUI.Vector2.tguiVector2f) return tguiBool;
 
 private
 

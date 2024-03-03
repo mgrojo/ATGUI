@@ -27,54 +27,52 @@ package TGUI.BackendRenderTarget is
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
    procedure drawWidget
-     (target : access tguiBackendRenderTarget;
-      states : access constant TGUI.RenderStates.tguiRenderStates; widget : access tguiWidget);
+     (target : tguiBackendRenderTarget_Ptr;
+      states : access constant TGUI.RenderStates.tguiRenderStates; widget : tguiWidget_Ptr);
 
    procedure addClippingLayer
-     (target : access tguiBackendRenderTarget;
+     (target : tguiBackendRenderTarget_Ptr;
       states : access constant TGUI.RenderStates.tguiRenderStates; rect : TGUI.Rect.tguiFloatRect);
 
-   procedure removeClippingLayer (target : access tguiBackendRenderTarget);
+   procedure removeClippingLayer (target : tguiBackendRenderTarget_Ptr);
 
    procedure drawBorders
-     (target  : access tguiBackendRenderTarget;
-      states  : access constant TGUI.RenderStates.tguiRenderStates;
-      borders : access constant tguiOutline; size : TGUI.Vector2.tguiVector2f;
-      color   : access constant TGUI.Color.tguiColor);
+     (target : tguiBackendRenderTarget_Ptr;
+      states : access constant TGUI.RenderStates.tguiRenderStates; borders : tguiOutline_Cons;
+      size   : TGUI.Vector2.tguiVector2f; color : access constant TGUI.Color.tguiColor);
 
    procedure drawFilledRect
-     (target : access tguiBackendRenderTarget;
+     (target : tguiBackendRenderTarget_Ptr;
       states : access constant TGUI.RenderStates.tguiRenderStates; size : TGUI.Vector2.tguiVector2f;
       color  : access constant TGUI.Color.tguiColor);
 
    procedure drawSprite
-     (target : access tguiBackendRenderTarget;
-      states : access constant TGUI.RenderStates.tguiRenderStates;
-      sprite : access constant tguiSprite);
+     (target : tguiBackendRenderTarget_Ptr;
+      states : access constant TGUI.RenderStates.tguiRenderStates; sprite : tguiSprite_Cons);
 
    procedure drawText
-     (target : access tguiBackendRenderTarget;
-      states : access constant TGUI.RenderStates.tguiRenderStates; text : access constant tguiText);
+     (target : tguiBackendRenderTarget_Ptr;
+      states : access constant TGUI.RenderStates.tguiRenderStates; text : tguiText_Cons);
 
    procedure drawTriangle
-     (target : access tguiBackendRenderTarget;
+     (target : tguiBackendRenderTarget_Ptr;
       states : access constant TGUI.RenderStates.tguiRenderStates; point1 : TGUI.Vertex.tguiVertex;
       point2 : TGUI.Vertex.tguiVertex; point3 : TGUI.Vertex.tguiVertex);
 
    procedure drawCircle
-     (target          : access tguiBackendRenderTarget;
+     (target          : tguiBackendRenderTarget_Ptr;
       states          : access constant TGUI.RenderStates.tguiRenderStates; size : tguiFloat;
       backgroundColor : access constant TGUI.Color.tguiColor; borderThickness : tguiFloat;
       borderColor     : access constant TGUI.Color.tguiColor);
 
    procedure drawRoundedRectangle
-     (target          : access tguiBackendRenderTarget;
+     (target          : tguiBackendRenderTarget_Ptr;
       states : access constant TGUI.RenderStates.tguiRenderStates; size : TGUI.Vector2.tguiVector2f;
       backgroundColor : access constant TGUI.Color.tguiColor; radius : tguiFloat;
-      borders : access constant tguiOutline; borderColor : access constant TGUI.Color.tguiColor);
+      borders         : tguiOutline_Cons; borderColor : access constant TGUI.Color.tguiColor);
 
    procedure drawVertexArray
-     (target   : access tguiBackendRenderTarget;
+     (target   : tguiBackendRenderTarget_Ptr;
       states   : access constant TGUI.RenderStates.tguiRenderStates;
       vertices : access constant TGUI.Vertex.tguiVertex; vertexCount : tguiSize_t;
       indices  : access tguiUint32; indexCount : tguiSize_t);

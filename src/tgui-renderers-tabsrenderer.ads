@@ -22,105 +22,93 @@ package TGUI.Renderers.TabsRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (renderer : access constant tguiRenderer) return access tguiRenderer;
+   function copy (renderer : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
+   procedure setBorders (renderer : tguiRenderer_Ptr; borders : tguiOutline_Ptr);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
+   function getBorders (renderer : tguiRenderer_Cons) return tguiOutline_Ptr;
 
-   procedure setBackgroundColor
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBackgroundColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBackgroundColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBackgroundColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getBackgroundColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setSelectedBackgroundColor
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getSelectedBackgroundColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setSelectedBackgroundColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getSelectedBackgroundColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBackgroundColorDisabled
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getBackgroundColorDisabled
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTextColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTextColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTextColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTextColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTextColorHover (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTextColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTextColorHover (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setSelectedTextColor
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getSelectedTextColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getSelectedTextColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setSelectedTextColorHover
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
    function getSelectedTextColorHover
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+     (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setTextColorDisabled
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTextColorDisabled
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTextColorDisabled (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBorderColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBorderColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTextureTab (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureTab (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureTab (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureTab (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureTabHover (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureTabHover (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureTabHover (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureTabHover (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureSelectedTab (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureSelectedTab (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureSelectedTab
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureSelectedTab (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureSelectedTabHover
-     (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureSelectedTabHover (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureSelectedTabHover
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureSelectedTabHover (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureDisabledTab (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureDisabledTab (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureDisabledTab
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureDisabledTab (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setDistanceToSide (renderer : access tguiRenderer; distanceToSide : tguiFloat);
+   procedure setDistanceToSide (renderer : tguiRenderer_Ptr; distanceToSide : tguiFloat);
 
-   function getDistanceToSide (renderer : access constant tguiRenderer) return tguiFloat;
+   function getDistanceToSide (renderer : tguiRenderer_Cons) return tguiFloat;
 
 private
 

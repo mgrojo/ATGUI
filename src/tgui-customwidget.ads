@@ -25,86 +25,85 @@ package TGUI.CustomWidget is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
    procedure setPositionChangedCallback
-     (widget : access tguiWidget; callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f));
+     (widget : tguiWidget_Ptr; callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f));
 
    procedure setSizeChangedCallback
-     (widget : access tguiWidget; callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f));
+     (widget : tguiWidget_Ptr; callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f));
 
    procedure setVisibleChangedCallback
-     (widget : access tguiWidget; callback : access procedure (arg1 : tguiBool));
+     (widget : tguiWidget_Ptr; callback : access procedure (arg1 : tguiBool));
 
    procedure setEnableChangedCallback
-     (widget : access tguiWidget; callback : access procedure (arg1 : tguiBool));
+     (widget : tguiWidget_Ptr; callback : access procedure (arg1 : tguiBool));
 
    procedure setFocusChangedCallback
-     (widget : access tguiWidget; callback : access procedure (arg1 : tguiBool));
+     (widget : tguiWidget_Ptr; callback : access procedure (arg1 : tguiBool));
 
    procedure setCanGainFocusCallback
-     (widget : access tguiWidget; callback : access function return tguiBool);
+     (widget : tguiWidget_Ptr; callback : access function return tguiBool);
 
    procedure setGetFullSizeCallback
-     (widget : access tguiWidget; callback : access function return TGUI.Vector2.tguiVector2f);
+     (widget : tguiWidget_Ptr; callback : access function return TGUI.Vector2.tguiVector2f);
 
    procedure setGetWidgetOffsetCallback
-     (widget : access tguiWidget; callback : access function return TGUI.Vector2.tguiVector2f);
+     (widget : tguiWidget_Ptr; callback : access function return TGUI.Vector2.tguiVector2f);
 
    procedure setUpdateTimeCallback
-     (widget   : access tguiWidget;
+     (widget   : tguiWidget_Ptr;
       callback : access function (arg1 : TGUI.Duration.tguiDuration) return tguiBool);
 
    procedure setMouseOnWidgetCallback
-     (widget   : access tguiWidget;
+     (widget   : tguiWidget_Ptr;
       callback : access function (arg1 : TGUI.Vector2.tguiVector2f) return tguiBool);
 
    procedure setLeftMousePressedCallback
-     (widget   : access tguiWidget;
+     (widget   : tguiWidget_Ptr;
       callback : access function (arg1 : TGUI.Vector2.tguiVector2f) return tguiBool);
 
    procedure setLeftMouseReleasedCallback
-     (widget : access tguiWidget; callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f));
+     (widget : tguiWidget_Ptr; callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f));
 
    procedure setRightMousePressedCallback
-     (widget : access tguiWidget; callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f));
+     (widget : tguiWidget_Ptr; callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f));
 
    procedure setRightMouseReleasedCallback
-     (widget : access tguiWidget; callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f));
+     (widget : tguiWidget_Ptr; callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f));
 
    procedure setMouseMovedCallback
-     (widget : access tguiWidget; callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f));
+     (widget : tguiWidget_Ptr; callback : access procedure (arg1 : TGUI.Vector2.tguiVector2f));
 
    procedure setKeyPressedCallback
-     (widget : access tguiWidget; callback : access procedure (arg1 : TGUI.Event.tguiKeyEvent));
+     (widget : tguiWidget_Ptr; callback : access procedure (arg1 : TGUI.Event.tguiKeyEvent));
 
    procedure setTextEnteredCallback
-     (widget : access tguiWidget; callback : access procedure (arg1 : tguiUint32));
+     (widget : tguiWidget_Ptr; callback : access procedure (arg1 : tguiUint32));
 
    procedure setScrolledCallback
-     (widget   : access tguiWidget;
+     (widget   : tguiWidget_Ptr;
       callback : access function
         (arg1 : tguiFloat; arg2 : TGUI.Vector2.tguiVector2f; arg3 : tguiBool) return tguiBool);
 
    procedure setMouseNoLongerOnWidgetCallback
-     (widget : access tguiWidget; callback : access procedure);
+     (widget : tguiWidget_Ptr; callback : access procedure);
 
    procedure setLeftMouseButtonNoLongerDownCallback
-     (widget : access tguiWidget; callback : access procedure);
+     (widget : tguiWidget_Ptr; callback : access procedure);
 
-   procedure setMouseEnteredWidgetCallback
-     (widget : access tguiWidget; callback : access procedure);
+   procedure setMouseEnteredWidgetCallback (widget : tguiWidget_Ptr; callback : access procedure);
 
-   procedure setMouseLeftWidgetCallback (widget : access tguiWidget; callback : access procedure);
+   procedure setMouseLeftWidgetCallback (widget : tguiWidget_Ptr; callback : access procedure);
 
    procedure setRendererChangedCallback
-     (widget : access tguiWidget; callback : access function (arg1 : tguiUtf32) return tguiBool);
+     (widget : tguiWidget_Ptr; callback : access function (arg1 : tguiUtf32) return tguiBool);
 
    -- Parameters should NOT be freed inside callback function
    procedure setDrawCallback
-     (widget   : access tguiWidget;
+     (widget   : tguiWidget_Ptr;
       callback : access procedure
-        (arg1 : access tguiBackendRenderTarget; arg2 : access TGUI.RenderStates.tguiRenderStates));
+        (arg1 : tguiBackendRenderTarget_Ptr; arg2 : access TGUI.RenderStates.tguiRenderStates));
 
 private
 

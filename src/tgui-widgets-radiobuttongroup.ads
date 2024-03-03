@@ -20,7 +20,7 @@ package TGUI.Widgets.RadioButtonGroup is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
 private
 

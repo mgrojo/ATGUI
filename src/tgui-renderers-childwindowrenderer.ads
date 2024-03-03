@@ -22,91 +22,79 @@ package TGUI.Renderers.ChildWindowRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer;
+   function copy (other : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure setBorders (renderer : access tguiRenderer; borders : access tguiOutline);
+   procedure setBorders (renderer : tguiRenderer_Ptr; borders : tguiOutline_Ptr);
 
-   function getBorders (renderer : access constant tguiRenderer) return access tguiOutline;
+   function getBorders (renderer : tguiRenderer_Cons) return tguiOutline_Ptr;
 
-   procedure setTitleBarColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTitleBarColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTitleBarColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTitleBarColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setTitleColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTitleColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTitleColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTitleColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setBackgroundColor
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBackgroundColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBackgroundColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBackgroundColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setBorderColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setBorderColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBorderColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBorderColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
    procedure setBorderColorFocused
-     (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+     (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getBorderColorFocused
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getBorderColorFocused (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setBorderBelowTitleBar (renderer : access tguiRenderer; border : tguiFloat);
+   procedure setBorderBelowTitleBar (renderer : tguiRenderer_Ptr; border : tguiFloat);
 
-   function getBorderBelowTitleBar (renderer : access tguiRenderer) return tguiFloat;
+   function getBorderBelowTitleBar (renderer : tguiRenderer_Ptr) return tguiFloat;
 
-   procedure setTitleBarHeight (renderer : access tguiRenderer; height : tguiFloat);
+   procedure setTitleBarHeight (renderer : tguiRenderer_Ptr; height : tguiFloat);
 
-   function getTitleBarHeight (renderer : access tguiRenderer) return tguiFloat;
+   function getTitleBarHeight (renderer : tguiRenderer_Ptr) return tguiFloat;
 
-   procedure setDistanceToSide (renderer : access tguiRenderer; distance : tguiFloat);
+   procedure setDistanceToSide (renderer : tguiRenderer_Ptr; distance : tguiFloat);
 
-   function getDistanceToSide (renderer : access tguiRenderer) return tguiFloat;
+   function getDistanceToSide (renderer : tguiRenderer_Ptr) return tguiFloat;
 
-   procedure setPaddingBetweenButtons (renderer : access tguiRenderer; padding : tguiFloat);
+   procedure setPaddingBetweenButtons (renderer : tguiRenderer_Ptr; padding : tguiFloat);
 
-   function getPaddingBetweenButtons (renderer : access tguiRenderer) return tguiFloat;
+   function getPaddingBetweenButtons (renderer : tguiRenderer_Ptr) return tguiFloat;
 
    procedure setMinimumResizableBorderWidth
-     (renderer : access tguiRenderer; minimumBorderWidth : tguiFloat);
+     (renderer : tguiRenderer_Ptr; minimumBorderWidth : tguiFloat);
 
-   function getMinimumResizableBorderWidth (renderer : access tguiRenderer) return tguiFloat;
+   function getMinimumResizableBorderWidth (renderer : tguiRenderer_Ptr) return tguiFloat;
 
-   procedure setShowTextOnTitleButtons (renderer : access tguiRenderer; showTitle : tguiBool);
+   procedure setShowTextOnTitleButtons (renderer : tguiRenderer_Ptr; showTitle : tguiBool);
 
-   function getShowTextOnTitleButtons (renderer : access tguiRenderer) return tguiBool;
+   function getShowTextOnTitleButtons (renderer : tguiRenderer_Ptr) return tguiBool;
 
-   procedure setTextureTitleBar (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureTitleBar (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureTitleBar (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureTitleBar (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setTextureBackground (renderer : access tguiRenderer; texture : access tguiTexture);
+   procedure setTextureBackground (renderer : tguiRenderer_Ptr; texture : tguiTexture_Ptr);
 
-   function getTextureBackground
-     (renderer : access constant tguiRenderer) return access tguiTexture;
+   function getTextureBackground (renderer : tguiRenderer_Cons) return tguiTexture_Ptr;
 
-   procedure setCloseButton
-     (renderer : access tguiRenderer; rendererData : access tguiRendererData);
+   procedure setCloseButton (renderer : tguiRenderer_Ptr; rendererData : tguiRendererData_Ptr);
 
-   function getCloseButton (renderer : access constant tguiRenderer) return access tguiRendererData;
+   function getCloseButton (renderer : tguiRenderer_Cons) return tguiRendererData_Ptr;
 
-   procedure setMaximizeButton
-     (renderer : access tguiRenderer; rendererData : access tguiRendererData);
+   procedure setMaximizeButton (renderer : tguiRenderer_Ptr; rendererData : tguiRendererData_Ptr);
 
-   function getMaximizeButton
-     (renderer : access constant tguiRenderer) return access tguiRendererData;
+   function getMaximizeButton (renderer : tguiRenderer_Cons) return tguiRendererData_Ptr;
 
-   procedure setMinimizeButton
-     (renderer : access tguiRenderer; rendererData : access tguiRendererData);
+   procedure setMinimizeButton (renderer : tguiRenderer_Ptr; rendererData : tguiRendererData_Ptr);
 
-   function getMinimizeButton
-     (renderer : access constant tguiRenderer) return access tguiRendererData;
+   function getMinimizeButton (renderer : tguiRenderer_Cons) return tguiRendererData_Ptr;
 
 private
 

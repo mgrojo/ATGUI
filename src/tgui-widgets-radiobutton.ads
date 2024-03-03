@@ -20,19 +20,19 @@ package TGUI.Widgets.RadioButton is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setChecked (widget : access tguiWidget; checked : tguiBool);
+   procedure setChecked (widget : tguiWidget_Ptr; checked : tguiBool);
 
-   function isChecked (widget : access constant tguiWidget) return tguiBool;
+   function isChecked (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setText (widget : access tguiWidget; text : tguiUtf32);
+   procedure setText (widget : tguiWidget_Ptr; text : tguiUtf32);
 
-   function getText (widget : access constant tguiWidget) return tguiUtf32;
+   function getText (widget : tguiWidget_Cons) return tguiUtf32;
 
-   procedure setTextClickable (widget : access tguiWidget; clickable : tguiBool);
+   procedure setTextClickable (widget : tguiWidget_Ptr; clickable : tguiBool);
 
-   function isTextClickable (widget : access constant tguiWidget) return tguiBool;
+   function isTextClickable (widget : tguiWidget_Cons) return tguiBool;
 
 private
 

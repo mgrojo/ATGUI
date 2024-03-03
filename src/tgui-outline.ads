@@ -23,22 +23,22 @@ package TGUI.Outline is
    ----------------------------------------------------------------------------
    function create
      (left : tguiFloat; top : tguiFloat; right : tguiFloat; bottom : tguiFloat)
-      return access tguiOutline;
+      return tguiOutline_Ptr;
 
    function createFromStrings
-     (left : String; top : String; right : String; bottom : String) return access tguiOutline;
+     (left : String; top : String; right : String; bottom : String) return tguiOutline_Ptr;
 
-   function copy (other : access constant tguiOutline) return access tguiOutline;
+   function copy (other : tguiOutline_Cons) return tguiOutline_Ptr;
 
-   procedure free (outline : access tguiOutline);
+   procedure free (outline : tguiOutline_Ptr);
 
-   function getLeft (outline : access constant tguiOutline) return tguiFloat;
+   function getLeft (outline : tguiOutline_Cons) return tguiFloat;
 
-   function getTop (outline : access constant tguiOutline) return tguiFloat;
+   function getTop (outline : tguiOutline_Cons) return tguiFloat;
 
-   function getRight (outline : access constant tguiOutline) return tguiFloat;
+   function getRight (outline : tguiOutline_Cons) return tguiFloat;
 
-   function getBottom (outline : access constant tguiOutline) return tguiFloat;
+   function getBottom (outline : tguiOutline_Cons) return tguiFloat;
 
    ----------------------------------------------------------------------------
 private

@@ -20,27 +20,27 @@ package TGUI.Widgets.RangeSlider is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setMinimum (widget : access tguiWidget; minimum : tguiFloat);
+   procedure setMinimum (widget : tguiWidget_Ptr; minimum : tguiFloat);
 
-   function getMinimum (widget : access constant tguiWidget) return tguiFloat;
+   function getMinimum (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure setMaximum (widget : access tguiWidget; maximum : tguiFloat);
+   procedure setMaximum (widget : tguiWidget_Ptr; maximum : tguiFloat);
 
-   function getMaximum (widget : access constant tguiWidget) return tguiFloat;
+   function getMaximum (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure setSelectionStart (widget : access tguiWidget; value : tguiFloat);
+   procedure setSelectionStart (widget : tguiWidget_Ptr; value : tguiFloat);
 
-   function getSelectionStart (widget : access constant tguiWidget) return tguiFloat;
+   function getSelectionStart (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure setSelectionEnd (widget : access tguiWidget; value : tguiFloat);
+   procedure setSelectionEnd (widget : tguiWidget_Ptr; value : tguiFloat);
 
-   function getSelectionEnd (widget : access constant tguiWidget) return tguiFloat;
+   function getSelectionEnd (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure setStep (widget : access tguiWidget; step : tguiFloat);
+   procedure setStep (widget : tguiWidget_Ptr; step : tguiFloat);
 
-   function getStep (widget : access constant tguiWidget) return tguiFloat;
+   function getStep (widget : tguiWidget_Cons) return tguiFloat;
 
 private
 

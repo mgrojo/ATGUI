@@ -22,53 +22,52 @@ package TGUI.Widgets.EditBox is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setText (widget : access tguiWidget; text : tguiUtf32);
+   procedure setText (widget : tguiWidget_Ptr; text : tguiUtf32);
 
-   function getText (widget : access constant tguiWidget) return tguiUtf32;
+   function getText (widget : tguiWidget_Cons) return tguiUtf32;
 
-   procedure setDefaultText (widget : access tguiWidget; text : tguiUtf32);
+   procedure setDefaultText (widget : tguiWidget_Ptr; text : tguiUtf32);
 
-   function getDefaultText (widget : access constant tguiWidget) return tguiUtf32;
+   function getDefaultText (widget : tguiWidget_Cons) return tguiUtf32;
 
-   procedure selectText (widget : access tguiWidget; start : tguiSize_t; length : tguiSize_t);
+   procedure selectText (widget : tguiWidget_Ptr; start : tguiSize_t; length : tguiSize_t);
 
-   function getSelectedText (widget : access constant tguiWidget) return tguiUtf32;
+   function getSelectedText (widget : tguiWidget_Cons) return tguiUtf32;
 
-   procedure setPasswordCharacter (widget : access tguiWidget; passwordChar : tguiChar);
+   procedure setPasswordCharacter (widget : tguiWidget_Ptr; passwordChar : tguiChar);
 
-   function getPasswordCharacter (widget : access constant tguiWidget) return tguiChar;
+   function getPasswordCharacter (widget : tguiWidget_Cons) return tguiChar;
 
-   procedure setMaximumCharacters (widget : access tguiWidget; maximumCharacters : tguiUint32);
+   procedure setMaximumCharacters (widget : tguiWidget_Ptr; maximumCharacters : tguiUint32);
 
-   function getMaximumCharacters (widget : access constant tguiWidget) return tguiUint32;
+   function getMaximumCharacters (widget : tguiWidget_Cons) return tguiUint32;
 
    procedure setAlignment
-     (widget : access tguiWidget; alignment : TGUI.Alignment.tguiHorizontalAlignment);
+     (widget : tguiWidget_Ptr; alignment : TGUI.Alignment.tguiHorizontalAlignment);
 
-   function getAlignment
-     (widget : access constant tguiWidget) return TGUI.Alignment.tguiHorizontalAlignment;
+   function getAlignment (widget : tguiWidget_Cons) return TGUI.Alignment.tguiHorizontalAlignment;
 
-   procedure limitTextWidth (widget : access tguiWidget; limitWidth : tguiBool);
+   procedure limitTextWidth (widget : tguiWidget_Ptr; limitWidth : tguiBool);
 
-   function isTextWidthLimited (widget : access constant tguiWidget) return tguiBool;
+   function isTextWidthLimited (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setReadOnly (widget : access tguiWidget; readOnly : tguiBool);
+   procedure setReadOnly (widget : tguiWidget_Ptr; readOnly : tguiBool);
 
-   function isReadOnly (widget : access constant tguiWidget) return tguiBool;
+   function isReadOnly (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setCaretPosition (widget : access tguiWidget; caretPosition : tguiSize_t);
+   procedure setCaretPosition (widget : tguiWidget_Ptr; caretPosition : tguiSize_t);
 
-   function getCaretPosition (widget : access constant tguiWidget) return tguiSize_t;
+   function getCaretPosition (widget : tguiWidget_Cons) return tguiSize_t;
 
-   procedure setInputValidator (widget : access tguiWidget; validator : tguiUtf32);
+   procedure setInputValidator (widget : tguiWidget_Ptr; validator : tguiUtf32);
 
-   function getInputValidator (widget : access constant tguiWidget) return tguiUtf32;
+   function getInputValidator (widget : tguiWidget_Cons) return tguiUtf32;
 
-   procedure setSuffix (widget : access tguiWidget; suffix : tguiUtf32);
+   procedure setSuffix (widget : tguiWidget_Ptr; suffix : tguiUtf32);
 
-   function getSuffix (widget : access constant tguiWidget) return tguiUtf32;
+   function getSuffix (widget : tguiWidget_Cons) return tguiUtf32;
 
 private
 

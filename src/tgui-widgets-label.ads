@@ -23,41 +23,41 @@ package TGUI.Widgets.Label is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setText (widget : access tguiWidget; text : tguiUtf32);
+   procedure setText (widget : tguiWidget_Ptr; text : tguiUtf32);
 
-   function getText (widget : access constant tguiWidget) return tguiUtf32;
+   function getText (widget : tguiWidget_Cons) return tguiUtf32;
 
    procedure setHorizontalAlignment
-     (widget : access tguiWidget; alignment : TGUI.Alignment.tguiHorizontalAlignment);
+     (widget : tguiWidget_Ptr; alignment : TGUI.Alignment.tguiHorizontalAlignment);
 
    function getHorizontalAlignment
-     (widget : access constant tguiWidget) return TGUI.Alignment.tguiHorizontalAlignment;
+     (widget : tguiWidget_Cons) return TGUI.Alignment.tguiHorizontalAlignment;
 
    procedure setVerticalAlignment
-     (widget : access tguiWidget; alignment : TGUI.Alignment.tguiVerticalAlignment);
+     (widget : tguiWidget_Ptr; alignment : TGUI.Alignment.tguiVerticalAlignment);
 
    function getVerticalAlignment
-     (widget : access constant tguiWidget) return TGUI.Alignment.tguiVerticalAlignment;
+     (widget : tguiWidget_Cons) return TGUI.Alignment.tguiVerticalAlignment;
 
-   procedure setAutoSize (widget : access tguiWidget; autoSize : tguiBool);
+   procedure setAutoSize (widget : tguiWidget_Ptr; autoSize : tguiBool);
 
-   function getAutoSize (widget : access constant tguiWidget) return tguiBool;
+   function getAutoSize (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setMaximumTextWidth (widget : access tguiWidget; maximumTextWidth : tguiFloat);
+   procedure setMaximumTextWidth (widget : tguiWidget_Ptr; maximumTextWidth : tguiFloat);
 
-   function getMaximumTextWidth (widget : access constant tguiWidget) return tguiFloat;
+   function getMaximumTextWidth (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure ignoreMouseEvents (widget : access tguiWidget; ignore : tguiBool);
+   procedure ignoreMouseEvents (widget : tguiWidget_Ptr; ignore : tguiBool);
 
-   function isIgnoringMouseEvents (widget : access constant tguiWidget) return tguiBool;
+   function isIgnoringMouseEvents (widget : tguiWidget_Cons) return tguiBool;
 
    procedure setScrollbarPolicy
-     (widget : access tguiWidget; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
+     (widget : tguiWidget_Ptr; policy : TGUI.ScrollbarPolicy.tguiScrollbarPolicy);
 
    function getScrollbarPolicy
-     (widget : access constant tguiWidget) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
+     (widget : tguiWidget_Cons) return TGUI.ScrollbarPolicy.tguiScrollbarPolicy;
 
 private
 

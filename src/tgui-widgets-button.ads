@@ -20,11 +20,11 @@ package TGUI.Widgets.Button is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setText (widget : access tguiWidget; text : Wide_Wide_String);
+   procedure setText (widget : tguiWidget_Ptr; text : Wide_Wide_String);
 
-   function getText (widget : access constant tguiWidget) return Wide_Wide_String;
+   function getText (widget : tguiWidget_Cons) return Wide_Wide_String;
 
 private
 

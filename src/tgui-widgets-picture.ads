@@ -20,11 +20,11 @@ package TGUI.Widgets.Picture is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure ignoreMouseEvents (widget : access tguiWidget; ignore : tguiBool);
+   procedure ignoreMouseEvents (widget : tguiWidget_Ptr; ignore : tguiBool);
 
-   function isIgnoringMouseEvents (widget : access constant tguiWidget) return tguiBool;
+   function isIgnoringMouseEvents (widget : tguiWidget_Cons) return tguiBool;
 
 private
 

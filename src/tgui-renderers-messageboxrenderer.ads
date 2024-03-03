@@ -22,18 +22,17 @@ package TGUI.Renderers.MessageBoxRenderer is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiRenderer;
+   function create return tguiRenderer_Ptr;
 
-   function copy (other : access constant tguiRenderer) return access tguiRenderer;
+   function copy (other : tguiRenderer_Cons) return tguiRenderer_Ptr;
 
-   procedure setTextColor (renderer : access tguiRenderer; color : access TGUI.Color.tguiColor);
+   procedure setTextColor (renderer : tguiRenderer_Ptr; color : access TGUI.Color.tguiColor);
 
-   function getTextColor
-     (renderer : access constant tguiRenderer) return access TGUI.Color.tguiColor;
+   function getTextColor (renderer : tguiRenderer_Cons) return access TGUI.Color.tguiColor;
 
-   procedure setButton (renderer : access tguiRenderer; rendererData : access tguiRendererData);
+   procedure setButton (renderer : tguiRenderer_Ptr; rendererData : tguiRendererData_Ptr);
 
-   function getButton (renderer : access constant tguiRenderer) return access tguiRendererData;
+   function getButton (renderer : tguiRenderer_Cons) return tguiRendererData_Ptr;
 
 private
 

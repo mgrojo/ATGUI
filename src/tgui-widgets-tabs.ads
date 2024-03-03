@@ -20,56 +20,55 @@ package TGUI.Widgets.Tabs is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure setAutoSize (widget : access tguiWidget; autoSize : tguiBool);
+   procedure setAutoSize (widget : tguiWidget_Ptr; autoSize : tguiBool);
 
-   function getAutoSize (widget : access constant tguiWidget) return tguiBool;
+   function getAutoSize (widget : tguiWidget_Cons) return tguiBool;
 
-   function add
-     (widget : access tguiWidget; text : tguiUtf32; selected : tguiBool) return tguiSize_t;
+   function add (widget : tguiWidget_Ptr; text : tguiUtf32; selected : tguiBool) return tguiSize_t;
 
    procedure insert
-     (widget : access tguiWidget; index : tguiSize_t; text : tguiUtf32; selected : tguiBool);
+     (widget : tguiWidget_Ptr; index : tguiSize_t; text : tguiUtf32; selected : tguiBool);
 
-   function getText (widget : access constant tguiWidget; index : tguiSize_t) return tguiUtf32;
+   function getText (widget : tguiWidget_Cons; index : tguiSize_t) return tguiUtf32;
 
    function changeText
-     (widget : access tguiWidget; index : tguiSize_t; text : tguiUtf32) return tguiBool;
+     (widget : tguiWidget_Ptr; index : tguiSize_t; text : tguiUtf32) return tguiBool;
 
-   function selectByText (widget : access tguiWidget; text : tguiUtf32) return tguiBool;
+   function selectByText (widget : tguiWidget_Ptr; text : tguiUtf32) return tguiBool;
 
-   function selectByIndex (widget : access tguiWidget; index : tguiSize_t) return tguiBool;
+   function selectByIndex (widget : tguiWidget_Ptr; index : tguiSize_t) return tguiBool;
 
-   procedure deselect (widget : access tguiWidget);
+   procedure deselect (widget : tguiWidget_Ptr);
 
-   function removeByText (widget : access tguiWidget; text : tguiUtf32) return tguiBool;
+   function removeByText (widget : tguiWidget_Ptr; text : tguiUtf32) return tguiBool;
 
-   function removeByIndex (widget : access tguiWidget; index : tguiSize_t) return tguiBool;
+   function removeByIndex (widget : tguiWidget_Ptr; index : tguiSize_t) return tguiBool;
 
-   procedure removeAll (widget : access tguiWidget);
+   procedure removeAll (widget : tguiWidget_Ptr);
 
-   function getSelected (widget : access constant tguiWidget) return tguiUtf32;
+   function getSelected (widget : tguiWidget_Cons) return tguiUtf32;
 
-   function getSelectedIndex (widget : access constant tguiWidget) return tguiInt;
+   function getSelectedIndex (widget : tguiWidget_Cons) return tguiInt;
 
-   function getTabsCount (widget : access constant tguiWidget) return tguiSize_t;
+   function getTabsCount (widget : tguiWidget_Cons) return tguiSize_t;
 
-   procedure setTabVisible (widget : access tguiWidget; index : tguiSize_t; visible : tguiBool);
+   procedure setTabVisible (widget : tguiWidget_Ptr; index : tguiSize_t; visible : tguiBool);
 
-   function getTabVisible (widget : access constant tguiWidget; index : tguiSize_t) return tguiBool;
+   function getTabVisible (widget : tguiWidget_Cons; index : tguiSize_t) return tguiBool;
 
-   procedure setTabEnabled (widget : access tguiWidget; index : tguiSize_t; enabled : tguiBool);
+   procedure setTabEnabled (widget : tguiWidget_Ptr; index : tguiSize_t; enabled : tguiBool);
 
-   function getTabEnabled (widget : access constant tguiWidget; index : tguiSize_t) return tguiBool;
+   function getTabEnabled (widget : tguiWidget_Cons; index : tguiSize_t) return tguiBool;
 
-   procedure setMaximumTabWidth (widget : access tguiWidget; maximumTabWidth : tguiFloat);
+   procedure setMaximumTabWidth (widget : tguiWidget_Ptr; maximumTabWidth : tguiFloat);
 
-   function getMaximumTabWidth (widget : access constant tguiWidget) return tguiFloat;
+   function getMaximumTabWidth (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure setMinimumTabWidth (widget : access tguiWidget; minimumTabWidth : tguiFloat);
+   procedure setMinimumTabWidth (widget : tguiWidget_Ptr; minimumTabWidth : tguiFloat);
 
-   function getMinimumTabWidth (widget : access constant tguiWidget) return tguiFloat;
+   function getMinimumTabWidth (widget : tguiWidget_Cons) return tguiFloat;
 
 private
 

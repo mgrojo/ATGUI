@@ -22,78 +22,75 @@ package TGUI.Widgets.ListBox is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   function addItem (widget : access tguiWidget; item : tguiUtf32; id : tguiUtf32) return tguiBool;
+   function addItem (widget : tguiWidget_Ptr; item : tguiUtf32; id : tguiUtf32) return tguiBool;
 
-   function getItemById (widget : access constant tguiWidget; id : tguiUtf32) return tguiUtf32;
+   function getItemById (widget : tguiWidget_Cons; id : tguiUtf32) return tguiUtf32;
 
-   function getItemByIndex
-     (widget : access constant tguiWidget; index : tguiSize_t) return tguiUtf32;
+   function getItemByIndex (widget : tguiWidget_Cons; index : tguiSize_t) return tguiUtf32;
 
-   function getIndexById (widget : access constant tguiWidget; id : tguiUtf32) return tguiInt;
+   function getIndexById (widget : tguiWidget_Cons; id : tguiUtf32) return tguiInt;
 
-   function getIdByIndex (widget : access constant tguiWidget; index : tguiSize_t) return tguiUtf32;
+   function getIdByIndex (widget : tguiWidget_Cons; index : tguiSize_t) return tguiUtf32;
 
-   function setSelectedItem (widget : access tguiWidget; item : tguiUtf32) return tguiBool;
+   function setSelectedItem (widget : tguiWidget_Ptr; item : tguiUtf32) return tguiBool;
 
-   function setSelectedItemById (widget : access tguiWidget; id : tguiUtf32) return tguiBool;
+   function setSelectedItemById (widget : tguiWidget_Ptr; id : tguiUtf32) return tguiBool;
 
-   function setSelectedItemByIndex (widget : access tguiWidget; index : tguiSize_t) return tguiBool;
+   function setSelectedItemByIndex (widget : tguiWidget_Ptr; index : tguiSize_t) return tguiBool;
 
-   procedure deselectItem (widget : access tguiWidget);
+   procedure deselectItem (widget : tguiWidget_Ptr);
 
-   function removeItem (widget : access tguiWidget; item : tguiUtf32) return tguiBool;
+   function removeItem (widget : tguiWidget_Ptr; item : tguiUtf32) return tguiBool;
 
-   function removeItemById (widget : access tguiWidget; id : tguiUtf32) return tguiBool;
+   function removeItemById (widget : tguiWidget_Ptr; id : tguiUtf32) return tguiBool;
 
-   function removeItemByIndex (widget : access tguiWidget; index : tguiSize_t) return tguiBool;
+   function removeItemByIndex (widget : tguiWidget_Ptr; index : tguiSize_t) return tguiBool;
 
-   procedure removeAllItems (widget : access tguiWidget);
+   procedure removeAllItems (widget : tguiWidget_Ptr);
 
-   function getSelectedItem (widget : access constant tguiWidget) return tguiUtf32;
+   function getSelectedItem (widget : tguiWidget_Cons) return tguiUtf32;
 
-   function getSelectedItemId (widget : access constant tguiWidget) return tguiUtf32;
+   function getSelectedItemId (widget : tguiWidget_Cons) return tguiUtf32;
 
-   function getSelectedItemIndex (widget : access constant tguiWidget) return tguiInt;
+   function getSelectedItemIndex (widget : tguiWidget_Cons) return tguiInt;
 
    function changeItem
-     (widget : access tguiWidget; originalValue : tguiUtf32; newValue : tguiUtf32) return tguiBool;
+     (widget : tguiWidget_Ptr; originalValue : tguiUtf32; newValue : tguiUtf32) return tguiBool;
 
    function changeItemById
-     (widget : access tguiWidget; id : tguiUtf32; newValue : tguiUtf32) return tguiBool;
+     (widget : tguiWidget_Ptr; id : tguiUtf32; newValue : tguiUtf32) return tguiBool;
 
    function changeItemByIndex
-     (widget : access tguiWidget; index : tguiSize_t; newValue : tguiUtf32) return tguiBool;
+     (widget : tguiWidget_Ptr; index : tguiSize_t; newValue : tguiUtf32) return tguiBool;
 
-   function getItemCount (widget : access constant tguiWidget) return tguiSize_t;
+   function getItemCount (widget : tguiWidget_Cons) return tguiSize_t;
 
-   function getItems
-     (widget : access constant tguiWidget; count : access tguiSize_t) return System.Address;
+   function getItems (widget : tguiWidget_Cons; count : access tguiSize_t) return System.Address;
 
-   function getItemIds
-     (widget : access constant tguiWidget; count : access tguiSize_t) return System.Address;
+   function getItemIds (widget : tguiWidget_Cons; count : access tguiSize_t) return System.Address;
 
-   procedure setItemHeight (widget : access tguiWidget; height : tguiUint32);
+   procedure setItemHeight (widget : tguiWidget_Ptr; height : tguiUint32);
 
-   function getItemHeight (widget : access constant tguiWidget) return tguiUint32;
+   function getItemHeight (widget : tguiWidget_Cons) return tguiUint32;
 
-   procedure setMaximumItems (widget : access tguiWidget; maxItems : tguiSize_t);
+   procedure setMaximumItems (widget : tguiWidget_Ptr; maxItems : tguiSize_t);
 
-   function getMaximumItems (widget : access constant tguiWidget) return tguiSize_t;
+   function getMaximumItems (widget : tguiWidget_Cons) return tguiSize_t;
 
-   procedure setAutoScroll (widget : access tguiWidget; autoScroll : tguiBool);
+   procedure setAutoScroll (widget : tguiWidget_Ptr; autoScroll : tguiBool);
 
-   function getAutoScroll (widget : access constant tguiWidget) return tguiBool;
+   function getAutoScroll (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure setScrollbarValue (widget : access tguiWidget; value : tguiUint32);
+   procedure setScrollbarValue (widget : tguiWidget_Ptr; value : tguiUint32);
 
-   function getScrollbarValue (widget : access constant tguiWidget) return tguiUint32;
+   function getScrollbarValue (widget : tguiWidget_Cons) return tguiUint32;
 
-   function contains (widget : access tguiWidget; item : tguiUtf32) return tguiBool with
+   function contains (widget : tguiWidget_Ptr; item : tguiUtf32) return tguiBool with
      Import => True, Convention => C, External_Name => "tguiListBox_contains";
 
-   function containsId (widget : access tguiWidget; id : tguiUtf32) return tguiBool with
+   function containsId (widget : tguiWidget_Ptr; id : tguiUtf32) return tguiBool with
      Import => True, Convention => C, External_Name => "tguiListBox_containsId";
 
 private

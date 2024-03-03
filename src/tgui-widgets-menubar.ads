@@ -22,59 +22,59 @@ package TGUI.Widgets.MenuBar is
 
    ----------------------------------------------------------------------------
    ----------------------------------------------------------------------------
-   function create return access tguiWidget;
+   function create return tguiWidget_Ptr;
 
-   procedure addMenu (widget : access tguiWidget; text : tguiUtf32);
+   procedure addMenu (widget : tguiWidget_Ptr; text : tguiUtf32);
 
    function addMenuItem
-     (widget : access tguiWidget; menu : tguiUtf32; text : tguiUtf32) return tguiBool;
+     (widget : tguiWidget_Ptr; menu : tguiUtf32; text : tguiUtf32) return tguiBool;
 
-   function addMenuItemToLastMenu (widget : access tguiWidget; text : tguiUtf32) return tguiBool;
+   function addMenuItemToLastMenu (widget : tguiWidget_Ptr; text : tguiUtf32) return tguiBool;
 
    function addMenuItemHierarchy
-     (widget        : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32;
+     (widget        : tguiWidget_Ptr; hierarchy : System.Address; hierarchyLength : tguiUint32;
       createParents : tguiBool) return tguiBool;
 
-   function removeMenu (widget : access tguiWidget; menu : tguiUtf32) return tguiBool;
+   function removeMenu (widget : tguiWidget_Ptr; menu : tguiUtf32) return tguiBool;
 
    function removeMenuItem
-     (widget : access tguiWidget; menu : tguiUtf32; menuItem : tguiUtf32) return tguiBool;
+     (widget : tguiWidget_Ptr; menu : tguiUtf32; menuItem : tguiUtf32) return tguiBool;
 
    function removeMenuItemHierarchy
-     (widget : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32;
+     (widget : tguiWidget_Ptr; hierarchy : System.Address; hierarchyLength : tguiUint32;
       removeParentsWhenEmpty : tguiBool) return tguiBool;
 
-   procedure removeAllMenus (widget : access tguiWidget);
+   procedure removeAllMenus (widget : tguiWidget_Ptr);
 
    function setMenuEnabled
-     (widget : access tguiWidget; text : tguiUtf32; enabled : tguiBool) return tguiBool;
+     (widget : tguiWidget_Ptr; text : tguiUtf32; enabled : tguiBool) return tguiBool;
 
-   function getMenuEnabled (widget : access tguiWidget; text : tguiUtf32) return tguiBool;
+   function getMenuEnabled (widget : tguiWidget_Ptr; text : tguiUtf32) return tguiBool;
 
    function setMenuItemEnabled
-     (widget : access tguiWidget; menu : tguiUtf32; text : tguiUtf32; enabled : tguiBool)
+     (widget : tguiWidget_Ptr; menu : tguiUtf32; text : tguiUtf32; enabled : tguiBool)
       return tguiBool;
 
    function getMenuItemEnabled
-     (widget : access tguiWidget; menu : tguiUtf32; text : tguiUtf32) return tguiBool;
+     (widget : tguiWidget_Ptr; menu : tguiUtf32; text : tguiUtf32) return tguiBool;
 
    function setMenuItemEnabledHierarchy
-     (widget  : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32;
+     (widget  : tguiWidget_Ptr; hierarchy : System.Address; hierarchyLength : tguiUint32;
       enabled : tguiBool) return tguiBool;
 
    function getMenuItemEnabledHierarchy
-     (widget : access tguiWidget; hierarchy : System.Address; hierarchyLength : tguiUint32)
+     (widget : tguiWidget_Ptr; hierarchy : System.Address; hierarchyLength : tguiUint32)
       return tguiBool;
 
-   procedure setMinimumSubMenuWidth (widget : access tguiWidget; minimumWidth : tguiFloat);
+   procedure setMinimumSubMenuWidth (widget : tguiWidget_Ptr; minimumWidth : tguiFloat);
 
-   function getMinimumSubMenuWidth (widget : access constant tguiWidget) return tguiFloat;
+   function getMinimumSubMenuWidth (widget : tguiWidget_Cons) return tguiFloat;
 
-   procedure setInvertedMenuDirection (widget : access tguiWidget; invertDirection : tguiBool);
+   procedure setInvertedMenuDirection (widget : tguiWidget_Ptr; invertDirection : tguiBool);
 
-   function getInvertedMenuDirection (widget : access constant tguiWidget) return tguiBool;
+   function getInvertedMenuDirection (widget : tguiWidget_Cons) return tguiBool;
 
-   procedure closeMenu (widget : access tguiWidget);
+   procedure closeMenu (widget : tguiWidget_Ptr);
 
 private
 
